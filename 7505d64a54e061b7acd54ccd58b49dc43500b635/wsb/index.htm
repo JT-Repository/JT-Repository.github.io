@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>[we sell boxes] - Enthusiastically pessimistic, and sometimes angry, electronic music.</title>
+
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+ 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/OwlCarousel2/2.2.1/assets/owl.theme.default.css">
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js">
+</script>
+    
+<script type="text/javascript" src="http://w.soundcloud.com/player/api.js"></script>
+    
+<style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;600;800&display=swap'); 
+
+    :root {
+        --custom-dark: 0,0,0;
+        --wsb-color: 242,133,7; /*#f28507*/
+    }
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+    body{
+        font-family: "Lato", sans-serif;
+        font-size: .95rem;
+        font-weight: 400;
+        color: rgba(255,255,255,1);
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
+    }
+    h1, .h1 {
+        font-size: calc(2rem + 1.25vw);
+        /*transform: scale(1, .9125);
+        -webkit-transform: scale(1, .9125);
+        -moz-transform: scale(1, .9125);
+        -ms-transform: scale(1, .9125);
+        -o-transform: scale(1, .9125);*/
+    }
+    h2, .h2 {
+        font-size: calc(1.25rem + 1.25vw);
+    }
+    h3, .h3 {
+        font-size: calc(1.25rem + .75vw);
+    }
+    a.link-color {
+        color: rgba(var(--wsb-color),1);
+        text-decoration: none;
+    }
+    a.link-color:focus,
+    a.link-color:hover {
+        color: rgba(255,255,255,1);
+        text-decoration: none;
+    }
+    .custom-font {
+        font-family: Courier, monospace;
+    }
+    .bg-custom-dark {
+        background-color: rgba(var(--custom-dark),1);
+    }
+    .bg-wsb-color {
+        background-color: rgba(var(--wsb-color),1);
+    }
+    .text-wsb-color {
+        color: rgba(var(--wsb-color),1);
+    }
+    .font-weight-extra-light {
+        font-weight: 100;
+    } 
+    .font-weight-light {
+        font-weight: 200;
+    } 
+    .font-weight-semi-light {
+        font-weight: 300;
+    } 
+    .font-weight-semi-bold {
+        font-weight: 600;
+    }    
+    .font-weight-bold {
+        font-weight: 800;
+    }
+    .text-link {
+        color: rgba(255,255,255,1);
+        text-decoration: none;
+    }
+    .text-link:hover {
+        color: rgba(var(--wsb-color),1);
+    }
+    .text-link.custom-font:hover {
+        color: rgba(255,255,255,1);
+        text-decoration: none;
+    }
+    
+    /* TOP MENU */
+    .sticky-menu {
+        display: none;
+    }
+    .sticky-menu.show {
+        position: fixed;
+        display: block;
+        top: 0;
+        width: 100%;
+        z-index: 9;
+        -webkit-animation: fadeInDown 600ms;
+                animation: fadeInDown 600ms;
+        /*border-bottom: dashed 1px rgba(var(--wsb-color),1);*/
+    }
+    @media (min-width: 992px) {
+        .sticky-menu.show {
+            top: 36px; /*calculate from player height*/
+        }
+    }
+    .sticky-menu .navbar-collapse .nav-item {
+        padding: 0;
+        margin-left: 1rem;
+    }
+    @media (min-width: 1200px) {
+        .sticky-menu .navbar-collapse .nav-item {
+            padding: 0;
+            margin-left: 1.5rem;
+        } 
+    }
+    .sticky-menu .navbar-collapse .nav-link {
+        font-family: Courier, monospace;
+        font-size: 1rem;
+        color: rgba(255,255,255,1);
+        padding: 0;
+        margin: 0;
+    }
+    .sticky-menu .navbar-collapse .nav-link.active,
+    .sticky-menu .navbar-collapse .nav-link:hover {
+        color: rgba(var(--wsb-color),1);
+        font-weight: 600;
+        text-decoration: none;
+    }
+    
+    /* MAIN LOGO */
+    .wsb-main-logo {
+        position: relative;
+        display: inline-block;
+        font-family: Courier, monospace;
+        font-size: calc(2rem + 2vw);
+        font-weight: 400;
+        color: rgba(255,255,255,1);
+        top: -4rem;
+        text-shadow: 2px 5px 10px rgba(var(--custom-dark),1);
+        text-decoration: none;
+        z-index: 2;
+    }
+    .wsb-main-logo:before,
+    .wsb-main-logo:after {
+        content: '';
+        position: absolute;
+        width: auto;
+        top: -.675rem;
+        font-size: calc(2.675rem + 2vw);
+        -webkit-animation: flash 6000ms ease infinite;
+                animation: flash 6000ms ease infinite;
+    }
+    .wsb-main-logo:before {
+        content: '[';
+        left: -3rem;
+    }
+    .wsb-main-logo:after {
+        content: ']';
+        right: -3rem;
+    }
+    .wsb-main-logo:hover {
+        color: rgba(255,255,255,1);
+        text-decoration: none;
+    }
+    .wsb-main-logo:hover:before,
+    .wsb-main-logo:hover:after {
+        -webkit-animation-play-state: paused;
+                animation-play-state: paused;
+        color: rgba(var(--wsb-color),1);
+    }
+    .wsb-main-logo:focus:before,
+    .wsb-main-logo:focus:after {
+        color: rgba(var(--wsb-color),1);
+    }
+    /* LOGO ELEMENTS */
+    @-webkit-keyframes flash {
+        0% { opacity: 0; }
+        9% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        10% { opacity: 0; }
+        19% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        20% { opacity: 0; }
+        29% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        30% { opacity: 0; }
+        39% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        40% { opacity: 0; }
+        49% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        50% { opacity: 0; }
+        59% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        60% { opacity: 0; }
+        69% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        70% { opacity: 0; }
+        79% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        80% { opacity: 0; }
+        89% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        90% { opacity: 0; }
+        99% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        100% { opacity: 0; }
+    }
+    @keyframes flash {
+        0% { opacity: 0; }
+        9% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        10% { opacity: 0; }
+        19% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        20% { opacity: 0; }
+        29% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        30% { opacity: 0; }
+        39% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        40% { opacity: 0; }
+        49% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        50% { opacity: 0; }
+        59% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        60% { opacity: 0; }
+        69% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        70% { opacity: 0; }
+        79% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        80% { opacity: 0; }
+        89% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        90% { opacity: 0; }
+        99% { color: rgba(var(--wsb-color),1); opacity: 1; }
+        100% { opacity: 0; }
+    }
+    
+    /* LOGO IN TOP MENU (SHOW) */
+    .sticky-menu.show .wsb-main-logo,
+    #catalogueModal .wsb-main-logo {
+        font-size: 1.25rem;
+        top: 0;
+        text-shadow: none;
+    }
+    .sticky-menu.show .wsb-main-logo:before,
+    .sticky-menu.show .wsb-main-logo:after,
+    #catalogueModal .wsb-main-logo:before,
+    #catalogueModal .wsb-main-logo:after {
+        top: -.2rem;
+        font-size: 1.35rem;
+        /*animation: flash 7500ms ease infinite;*/
+    }
+    .sticky-menu.show .wsb-main-logo:before,
+    #catalogueModal .wsb-main-logo:before {
+        left: -.825rem;
+    }
+    .sticky-menu.show .wsb-main-logo:after,
+    #catalogueModal .wsb-main-logo:after {
+        right: -.825rem;
+    }
+
+    /* IMAGE PARALLAX */
+    .scrolling-background {
+        position: relative;
+        background-attachment: fixed;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 100vh;
+    }
+    .scrolling-background:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: -o-repeating-linear-gradient(right, rgba(var(--custom-dark),1), rgba(var(--custom-dark),1) 2px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 4px);
+        background: repeating-linear-gradient(-90deg, rgba(var(--custom-dark),1), rgba(var(--custom-dark),1) 2px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 4px);
+        z-index: auto;
+    }
+    .scrolling-background .inner {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        margin-top: -2rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        z-index: +1;
+    }
+    .scrolling-background .background-video {
+        height: 100vh;
+        width: 100vw;
+        -o-object-fit: cover;
+           object-fit: cover;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+    .scrolling-background.bg-1 {
+        background-image: url("https://media.hero-magazine.com/wp-content/uploads/2022/03/31140538/Bill-Bernstein-2001-Odyssey-Dance-Floor-1979.jpg");
+    }
+    .scrolling-background.bg-2 {
+        background-image: url("https://photearhome.files.wordpress.com/2019/11/warehouse02.jpg");
+    }
+    .scrolling-background.bg-3 {
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh0m362H5jmFFOW70tpDmCKxTAG0eZP6yLeg&usqp=CAU");
+    }
+    .scrolling-background.bg-4 {
+        background-image: url("https://z9j9e3w7.stackpathcdn.com/wp-content/uploads/WHP-SQ.jpg");
+    }
+    .scrolling-background.bg-5 {
+        background-image: url("https://media.blogto.com/articles/2020930-studio54-4.jpg?w=2048&cmd=resize_then_crop&height=1365&quality=100");
+    }
+    .scrolling-background.bg-6 {
+        background-image: url("https://photearhome.files.wordpress.com/2019/11/warehouse04.jpg");
+    }
+    .scrolling-tween {
+        min-height: 50vh;
+    }
+    .scrolling-tween:last-of-type {
+        min-height: auto;
+    }
+    /* MOBILE FIX */
+    @media only screen and (max-device-width: 1024px) {
+        .scrolling-background {
+            background-attachment: scroll;
+        }
+    }
+
+    /**/
+    #latestNews .entry {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        -webkit-transition: all 200ms;
+        -o-transition: all 200ms;
+        transition: all 200ms;
+    }
+    #latestNews .entry:hover {
+        position: relative;
+        margin: 0;
+        padding: 0 0 0 .25rem;
+        -webkit-transition: all 600ms;
+        -o-transition: all 600ms;
+        transition: all 600ms;
+    }
+    #latestNews .entry:before {
+        content: '';
+        position: absolute;
+        left: -.75rem;
+        top: -.375rem;
+        bottom: -.375rem;
+        width: 10px;
+        border-top: solid .175rem rgba(var(--wsb-color),.8);
+        border-bottom: solid .175rem rgba(var(--wsb-color),.8);
+        border-left: solid .175rem rgba(var(--wsb-color),.8);
+        -webkit-transition: all 200ms;
+        -o-transition: all 200ms;
+        transition: all 200ms;
+        opacity: 0; 
+    }
+    #latestNews .entry:hover:before {
+        -webkit-transition: all 600ms;
+        -o-transition: all 600ms;
+        transition: all 600ms;
+        opacity: 1;
+    }
+    #latestNews .entry p {
+        margin: 0 .75rem 0 0;
+    }
+    
+    /* MERCH */
+    #merchandise .price {
+        display: block;
+        font-family: Courier, monospace;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: rgba(var(--wsb-color),1);
+        line-height: 1;
+    }
+    #merchandise .shipping {
+        display: block;
+        font-size: .85rem;
+    }
+    
+    /* CATALOGUE */
+    .catalogue-block {
+        overflow: hidden;
+    }
+    .catalogue-block .artwork-wrapper {
+        position: relative;
+        overflow: hidden;
+    }
+    .catalogue-block .artwork-wrapper:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        padding: .25rem;
+        z-index: 2;
+        pointer-events: none;
+    }
+    .catalogue-block:hover .artwork-wrapper:after {
+        background-color: rgba(var(--custom-dark),.35);
+    }
+    .catalogue-block .artwork-overlay {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 15px;
+        width: auto;
+        max-width: 80%;
+        padding: calc(.25rem + .5vw);
+        font-family: Courier, monospace;
+        font-size: calc(.95rem + .25vw);
+        background-color: rgba(var(--custom-dark),1);
+        line-height: .95;
+        z-index: 3;
+        pointer-events: none;
+        white-space: pre-line;
+        -webkit-transform: translateX(200rem);
+            -ms-transform: translateX(200rem);
+                transform: translateX(200rem);
+    }
+    .catalogue-block:hover .artwork-overlay {
+        -webkit-transform: translateX(0);
+            -ms-transform: translateX(0);
+                transform: translateX(0);
+    }
+    .catalogue-block:hover img {
+         -webkit-animation: hoverzoom 7200ms 1;
+                 animation: hoverzoom 7200ms 1;
+    }
+    @-webkit-keyframes hoverzoom {
+        to {
+            -webkit-transform: scale(1.125);
+                    transform: scale(1.125);
+        }
+    }
+    @keyframes hoverzoom {
+        to {
+            -webkit-transform: scale(1.125);
+                    transform: scale(1.125);
+        }
+    }
+    
+    /* 16:9 MEDIA BLOCK FIXES */
+    .embed-responsive:after {
+        content: '';
+        position: absolute;
+        display: block;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border-top: solid 3px rgba(var(--custom-dark),1);
+    }
+    .embed-responsive > iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        min-height: 100%;
+    }
+    
+    /* FULL SCREEN MODAL */
+    .modal {
+        padding: 0 !important;
+    }
+    .modal .modal-dialog {
+        width: 100%;
+        max-width: none;
+        height: 100%;
+        margin: 0;
+    }
+    .modal .modal-content {
+        height: 100%;
+        border: 0;
+        border-radius: 0;
+        background-color: rgba(var(--custom-dark),1);
+    }
+    .modal .modal-body {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    .modal .modal-close {
+        position: relative;
+        padding: 0;
+        z-index: 100;
+        height: 30px;
+    }
+    .modal .modal-close span {
+        display: block;
+        background-color: rgba(var(--wsb-color),1);
+        height: 3px;
+        width: 27px;
+        margin-top: 6px;
+        margin-bottom: 5px;
+        position: relative;
+        z-index: 100;
+    }
+    .modal .modal-close span:nth-child(1) {
+        position: absolute;
+        top: 10px;
+        -webkit-transform: rotate(135deg);
+        -ms-transform: rotate(135deg);
+            transform: rotate(135deg);
+    }
+    .modal .modal-close span:nth-child(2) {
+        visibility: hidden;
+        background-color: transparent;
+    }
+    .modal .modal-close span:nth-child(3) {
+        position: absolute;
+        top: 10px;
+        -webkit-transform: rotate(-135deg);
+        -ms-transform: rotate(-135deg);
+            transform: rotate(-135deg);
+    }
+    
+    /* VIDEO CAROUSEL */
+    #videoContent {
+        position: relative;
+    }
+    .loading-owl {
+        position: absolute;
+        display: block;
+        width: 400px;
+        left: 50%;
+        margin-left: -200px;
+        top: 55%;
+        z-index: auto;
+    }
+    
+    /* MEDIA PLAYER */
+    #wsbPlayer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+    }
+    #wsbPlayer .sc-wrapper {
+        position: fixed;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 36px;
+        overflow: hidden;
+        background-color: rgba(var(--custom-dark),.5);
+        -webkit-transition: padding, background 600ms ease;
+        -o-transition: padding, background 600ms ease;
+        transition: padding, background 600ms ease;
+    }
+    #wsbPlayer .sc-wrapper.solid {
+        background-color: rgba(var(--custom-dark),1);
+        padding-top: .75rem;
+        -webkit-transition: padding, background 600ms ease;
+        -o-transition: padding, background 600ms ease;
+        transition: padding, background 600ms ease;
+    }  
+    #wsbPlayer .embed-wrapper {
+        position: absolute;
+        display: block;
+        top: 0;
+        bottom: 0;
+        width: 20px;
+        height: 35px;
+        opacity: 1;
+        overflow: hidden !important;
+    }
+    #wsbPlayer .embed-wrapper iframe {
+        display: block;
+        width: 55px;
+        height: 90px;
+        margin-top: -22px;
+        margin-left: -27px;
+        opacity: 0;
+        cursor: none;
+    }
+    #wsbPlayer .controls div {
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        cursor: pointer;
+        margin-right: .5rem;
+    }
+    #wsbPlayer .controls div:last-of-type {
+        margin-right: 0;
+        cursor: none;
+    }
+    #wsbPlayer .controls div em {
+        font-size: 1rem;
+        color: #fff;
+        /*line-height: .5;*/
+    }
+    #wsbPlayer .controls div:hover em {
+        color: rgba(var(--wsb-color),1);
+    }
+    #wsbPlayer .controls .brackets {
+        width: auto;
+    }
+    #wsbPlayer .controls .brackets #titleTrack {
+        position: relative;
+        display: inline-block;
+        border-left: solid 1rem rgba(var(--custom-dark),1);
+        border-right: solid 1rem rgba(var(--custom-dark),1);
+        background-color: rgba(var(--custom-dark),1);
+        width: 280px;
+        height: 36px;
+        font-family: Courier, monospace;
+        font-size: 1rem;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    #wsbPlayer .controls .brackets #titleTrack #trackInfo {
+        display: block;
+        line-height: 2.1;
+        padding-left: 100%;
+        text-align: right;
+        -webkit-animation: 7200ms linear .1s infinite wsbPlayerMarquee;
+                animation: 7200ms linear .1s infinite wsbPlayerMarquee;
+        /*animation-play-state: paused;*/
+    }
+    @-webkit-keyframes wsbPlayerMarquee {
+      0% {
+        -webkit-transform: translate(0, 0);
+                transform: translate(0, 0);
+      }
+      100% {
+        -webkit-transform: translate(-100%, 0);
+                transform: translate(-100%, 0);
+      }
+    }
+    @keyframes wsbPlayerMarquee {
+      0% {
+        -webkit-transform: translate(0, 0);
+                transform: translate(0, 0);
+      }
+      100% {
+        -webkit-transform: translate(-100%, 0);
+                transform: translate(-100%, 0);
+      }
+    }
+    
+    /* BACK TO TOP */
+    #backToTop {
+        display: none;
+        position: fixed;
+        bottom: 6rem;
+        right: 2rem;
+        width: auto;
+        height: auto;
+        z-index: 100;
+        -ms-flex-line-pack: center;
+            align-content: center;
+    }
+    #backToTop em {
+        font-size: calc(3rem + .5vw);
+        line-height: .5;
+        vertical-align: text-bottom;
+    }
+    #backToTop.show {
+        display: block;
+    }
+    #backToTop.show em {
+        -webkit-animation: fadeInRight 1s;
+                animation: fadeInRight 1s;
+    }
+
+    /* NAV COLLAPSED AT <992 */
+    @media (max-width: 991.98px) {
+        .sticky-menu.show.with-background {
+            min-height: 100vh;
+        }
+        .sticky-menu .navbar-toggler:focus,
+        .sticky-menu .navbar-toggler:active {
+            outline: 0;
+        }
+        .sticky-menu .navbar-toggler {
+            padding: 0;
+            z-index: 100;
+            height: 30px;
+        }
+        .sticky-menu .navbar-toggler span {
+            display: block;
+            background-color: rgba(var(--wsb-color),1);
+            height: 3px;
+            width: 27px;
+            margin-top: 6px;
+            margin-bottom: 5px;
+            -webkit-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+                transform: rotate(0deg);
+            position: relative;
+            z-index: 100;
+        }
+        .sticky-menu .navbar-toggler span:nth-child(1),
+        .sticky-menu .navbar-toggler span:nth-child(3) {
+            -webkit-transition: transform 200ms;
+            -o-transition: transform 200ms;
+            -webkit-transition: -webkit-transform 200ms;
+            transition: -webkit-transform 200ms;
+            transition: transform 200ms;
+            transition: transform 200ms, -webkit-transform 200ms;
+        }
+        .sticky-menu .navbar-toggler:not(.collapsed) span:nth-child(1) {
+            position: absolute;
+            top: 10px;
+            -webkit-transform: rotate(135deg);
+            -ms-transform: rotate(135deg);
+                transform: rotate(135deg);
+        }
+        .sticky-menu .navbar-toggler:not(.collapsed) span:nth-child(2) {
+            visibility: hidden;
+            background-color: transparent;
+        }
+        .sticky-menu .navbar-toggler:not(.collapsed) span:nth-child(3) {
+            position: absolute;
+            top: 10px;
+            -webkit-transform: rotate(-135deg);
+            -ms-transform: rotate(-135deg);
+                transform: rotate(-135deg);
+        }
+        .sticky-menu .navbar-collapse .nav-item {
+            display: block;
+            margin-left: 0;
+            margin-top: .5rem;
+        }
+        .sticky-menu .navbar-collapse .nav-link {
+            font-size: 1.25rem;
+        }
+    }
+     
+</style>
+  
+</head>
+    
+<body data-spy="scroll" data-target="#wsbNav" data-offset="10">
+    
+    <div class="d-none d-lg-block" id="wsbPlayer">
+        <div class="sc-wrapper" id="wsbWrapper">
+            <div class="container d-flex justify-content-end align-items-center px-lg-0">
+                <div class="d-flex justify-content-end align-items-center controls">
+
+                    <div class="prev" title="Previous Track" style="display: none;">
+                        <em class="fa fa-chevron-left" aria-hidden="true"></em>
+                    </div>
+                    <div class="next" title="Next Track" style="display: none;">
+                        <em class="fa fa-chevron-right" aria-hidden="true"></em>
+                    </div>
+                    <div class="play" title="Play">
+                        <div class="embed-wrapper">
+                            <iframe id="soundcloud_widget" src="https://w.soundcloud.com/player/?url=https://soundcloud.com/wesellboxes/tracks&auto_play=false&buying=false&liking=false&download=false&sharing=false&show_artwork=false&show_comments=false&show_playcount=false&show_user=false&hide_related=false&visual=true&start_track=0&callback=true"></iframe>
+                        </div>
+                        <em class="fa fa-play" aria-hidden="true"></em>
+                    </div>
+                    <div class="pause" title="Pause" style="display: none;">
+                        <em class="fa fa-pause" aria-hidden="true"></em>
+                    </div>
+                    <div class="brackets">
+                        <div id="titleTrack">
+                            <span id="trackInfo"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="sticky-menu bg-custom-dark p-4 py-lg-3 px-lg-0" id="stickyMenu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg p-0">
+                <a class="wsb-main-logo" href="#" alt="[we sell boxes]">we sell boxes</a>
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#wsbNav" aria-controls="wsbNav" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="wsbNav">
+                    <ul class="navbar-nav p-0">
+                        <!--<li class="nav-item">
+                            <a class="nav-link" href="#latestNews" title="News">News</a>
+                        </li>-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#backCatalogue" title="Back Catalogue">Back Catalogue</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#videoContent" title="Videos">Videos</a>
+                        </li>
+                        <!--<li class="nav-item">
+                            <a class="nav-link" href="#merchandise" title="Merchandise">Merchandise</a>
+                        </li>-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#getInvolved" title="Get Involved">Get Involved</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="scrolling-background" id="mainPanel">
+        <video class="background-video" id="mainPanel_Video" autoplay loop muted poster="https://wesellboxes.net/we_sell_boxes-video-screenshot.jpg">
+            <source src="https://wesellboxes.net/we_sell_boxes-background_video.mp4" type="video/mp4">
+        </video>
+        <div class="inner text-center">
+            <span class="wsb-main-logo" alt="[we sell boxes]">we sell boxes</span>
+        </div>
+    </div>
+    <!--<div class="scrolling-tween bg-custom-dark px-4 py-5 px-md-0 p-lg-5" id="latestNews">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="mb-0 text-center custom-font">News</h1>
+                    <p class="mb-4" id="newsText"></p>
+                </div>
+            </div>   
+            <div class="row mt-5">
+                <div class="col-12 col-md-6 col-xl-4 mb-4">
+                    <div class="entry">
+                        <h4 class="mb-1 text-truncate custom-font">Urna commodo odio turpis lectus at tortor</h4>
+                        <p>Vestibulum sapien nisi, bibendum at ultricies sit amet, tempor dapibus neque. Proin pretium, enim eget hendrerit vestibulum, enim urna commodo odio, a interdum turpis lectus at tortor.</p>
+                        <a class="stretched-link" href="#"></a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4 mb-4">
+                    <div class="entry">
+                        <h4 class="mb-1 text-truncate custom-font">Urna commodo odio turpis lectus at tortor</h4>
+                        <p>Vestibulum sapien nisi, bibendum at ultricies sit amet, tempor Mauris tristique metus eget magna scelerisque, non scelerisque est aliquet.</p>
+                        <a class="stretched-link" href="#"></a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4 mb-4">
+                    <div class="entry">
+                        <h4 class="mb-1 text-truncate custom-font">Urna commodo odio turpis lectus at tortor</h4>
+                        <p>Vestibulum sapien nisi, bibendum at ultricies sit amet, tempor dapibus neque. Proin pretium, enim eget hendrerit vestibulum, enim urna commodo odio.</p>
+                        <a class="stretched-link" href="#"></a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4 mb-4">
+                    <div class="entry">
+                        <h4 class="mb-1 text-truncate custom-font">Urna commodo odio turpis lectus at tortor</h4>
+                        <p>Proin pretium, enim eget hendrerit vestibulum, non scelerisque est aliquet.</p>
+                        <a class="stretched-link" href="#"></a>
+                    </div>
+                </div>
+                
+                <div class="col-12 mb-4">
+                    <div class="entry">
+                        <h4 class="mb-1 text-truncate custom-font">Urna commodo odio turpis lectus at tortor</h4>
+                        <p>Vestibulum sapien nisi, bibendum at ultricies sit amet, tempor dapibus neque. Proin pretium, enim eget hendrerit vestibulum, enim urna commodo odio, a interdum turpis lectus at tortor. Mauris tristique metus eget magna scelerisque, non scelerisque est aliquet.</p>
+                        <a class="stretched-link" href="#"></a>
+                    </div>
+                </div>
+                
+                <div class="col-12 mb-4">
+                    <div class="entry">
+                        <h4 class="mb-1 text-truncate custom-font">Urna commodo odio turpis lectus at tortor</h4>
+                        <p>Vestibulum sapien nisi, bibendum at ultricies sit amet, tempor dapibus neque. Proin pretium, enim eget hendrerit vestibulum, enim urna commodo odio, a interdum turpis lectus at tortor. Mauris tristique metus eget magna scelerisque, non scelerisque est aliquet.</p>
+                        <a class="stretched-link" href="#"></a>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="loading h3 mb-0 custom-font text-center align-items-center">loading <em class="fa fa-spinner fa-pulse text-wsb-color"></em></div>
+        </div>
+    </div>
+    <div class="scrolling-background bg-2">
+        <div class="inner"></div>
+    </div>-->
+    <div class="scrolling-tween bg-custom-dark px-4 py-5 px-md-0 p-lg-5" id="backCatalogue">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="mb-2 text-center custom-font">Back Catalogue</h1>
+                    <p class="mb-4" id="catalogueText"></p>
+                </div>
+            </div>
+            <div class="row mt-5" id="catalogueFeatured"></div>
+            <div class="row mt-5" id="catalogueList"></div>
+            <div class="loading h3 mb-0 custom-font text-center align-items-center">loading <em class="fa fa-spinner fa-pulse text-wsb-color"></em></div>
+        </div>
+    </div>
+    <div class="scrolling-background bg-3">
+        <div class="inner"></div>
+    </div>
+    <div class="scrolling-tween bg-custom-dark px-4 py-5 px-md-0 p-lg-5" id="videoContent">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="mb-2 text-center custom-font">Videos</h1>
+                    <p class="mb-4" id="videosText"></p>
+                </div>
+            </div>
+            <div class="loading-owl h3 mb-0 custom-font text-center align-items-center">loading <em class="fa fa-spinner fa-pulse text-wsb-color"></em></div>
+            <div class="row mt-5" id="wsbVideos">
+                <div class="col-12">
+                    <div class="owl-carousel owl-theme" id="wsbVideos_Carousel"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scrolling-background bg-4">
+        <div class="inner"></div>
+    </div>
+    <!--<div class="scrolling-tween bg-custom-dark px-4 py-5 px-md-0 p-lg-5" id="merchandise">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="mb-2 text-center custom-font">Merchandise</h1>
+                    <p class="mb-4" id="merchandiseText"></p>
+                </div>
+            </div>
+            <div class="row mt-5 text-center">
+                <div class="col-6 col-lg-4 col-xl-3 mb-4">
+                    <div class="card h-100 border-0 bg-transparent">
+                        <img class="card-img-top" src="https://www.freepnglogos.com/uploads/t-shirt-png/t-shirt-png-download-white-shirt-png-image-png-image-pngimg-0.png" alt="">
+                        <div class="card-body h-100 d-flex flex-column justify-content-end px-0">
+                            <h5 class="mb-0 custom-font">Design your own <br><strong class="text-nowrap">[we sell boxes]</strong> <br>T-shirt</h5>
+                            <p>Brand new for this season.</p>
+                            <span class="mt-auto">
+                                <span class="price">&euro;29.99</span>
+                                <span class="shipping">+ Postage &amp; Packaging</span>
+                            </span>
+                            <a class="stretched-link" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-4 col-xl-3 mb-4">
+                    <div class="card h-100 border-0 bg-transparent">
+                        <img class="card-img-top" src="https://www.transparentpng.com/thumb/t-shirt/JcvzGC-orange-t-shirt-image.png" alt="">
+                        <div class="card-body h-100 d-flex flex-column justify-content-end px-0">
+                            <h5 class="mb-0 custom-font">Limited Edition <br><strong class="text-nowrap">[we sell boxes]</strong> <br>T-shirt</h5>
+                            <p>Limited stock - hurry!</p>
+                            <span class="mt-auto">
+                                <span class="price">&euro;32.99</span>
+                                <span class="shipping">+ Postage &amp; Packaging</span>
+                            </span>
+                            <a class="stretched-link" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-4 col-xl-3 mb-4">
+                    <div class="card h-100 border-0 bg-transparent">
+                        <img class="card-img-top" src="https://edgbastonshop.com/wp-content/uploads/2021/11/500x500-shop-bp-mug-2.png" alt="">
+                        <div class="card-body h-100 d-flex flex-column px-0">
+                            <h5 class="mb-0 custom-font">Limited Edition <br><strong class="text-nowrap">[we sell boxes]</strong> <br>Mug</h5>
+                            <p>Limited stock - hurry!</p>
+                            <span class="mt-auto">
+                                <span class="price">&euro;10.74</span>
+                                <span class="shipping">+ Postage &amp; Packaging</span>
+                            </span>
+                            <a class="stretched-link" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="loading h3 mb-0 custom-font text-center align-items-center">loading <em class="fa fa-spinner fa-pulse text-wsb-color"></em></div>
+        </div>
+    </div>
+    <div class="scrolling-background bg-5">
+        <div class="inner"></div>
+    </div>-->
+    <div class="scrolling-tween bg-custom-dark px-4 py-5 px-md-0 p-lg-5" id="getInvolved">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="mb-2 text-center custom-font">Get Inlvolved</h1>
+                    <p class="mb-4" id="getinvolvedText"></p>
+                </div>
+            </div>
+            <div class="row mt-5"></div>
+            <div class="loading h3 mb-0 custom-font text-center align-items-center">loading <em class="fa fa-spinner fa-pulse text-wsb-color"></em></div>
+        </div>
+    </div>
+    <div class="scrolling-background bg-6">
+        <div class="inner"></div>
+    </div>
+    <div class="bg-custom-dark px-4 py-5" id="footer">
+        <div class="container">
+            <div class="row justify-content-between text-white">
+                <div class="col-auto pr-0">
+                    <span class="font-weight-bold custom-font"><strong>[we sell boxes]</strong></span>
+                </div>
+                <div class="col-auto">
+                    &copy; 2022. All rights reserved.
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <a id="backToTop" class="text-center" href="#mainPanel"><em class="fa fa-angle-up fa-2x text-wsb-color"></em></a>
+    <div class="modal" id="catalogueModal" tabindex="-1" role="dialog" aria-hidden="true"></div>
+  
+    <!-- // ajax preload functions -->
+    <script>
+        
+        setTimeout(function() {
+            $('.loading').show();
+            $(function () {
+                var jqXHR = $.getJSON("wsb.json", function(wsb) {
+
+                    // news etc
+                    
+                    // featured section
+                    $.each(wsb.singles, function(f, featured) {
+                        if(featured.hasOwnProperty("featured") && featured.featured === true) {
+                            // featured details
+                            $('#catalogueFeatured').append('<div class="col-lg order-lg-2 mb-4 featured-details"><h3 class="mb-0 custom-font">'+featured.title+'</h4><p>'+featured.description+'</p><div class="row"><div class="col d-flex align-items-center"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Bandcamp-button-bc-circle-aqua.svg" style="max-width: 30px;"></div></div></div>');
+                            $('#catalogueFeatured').append('<div class="col-lg-5 mb-4 featured-wrapper"><img loading="lazy" class="img-fluid w-100" src="'+featured.artwork+'" alt="'+featured.title+'"></div>');
+                        }
+                    });
+
+                    // catalogue minus featured
+                    $.each(wsb.singles, function(c, catalogue) {
+                        if(catalogue.hasOwnProperty("featured") && catalogue.featured === false) {
+                            $('#catalogueList').append('<div class="col-6 col-md-4 col-xl-3 mb-4 catalogue-block"><div class="artwork-wrapper"><img loading="lazy" class="img-fluid" src="'+catalogue.artwork+'" alt="'+catalogue.title+'"></div><div class="artwork-overlay">'+catalogue.title+'</div><a href="#" class="stretched-link" data-toggle="modal" data-target="#catalogueModal" data-title="'+catalogue.title+'" data-description="'+catalogue.description+'" data-artwork="'+catalogue.artwork+'" data-scid="'+catalogue.scid+'" data-sclink="'+catalogue.sclink+'" data-release="'+catalogue.release+'" data-featured="'+catalogue.featured+'"></a></div>');
+                        }
+                    });
+
+                    // videos
+                    $.each(wsb.singles, function(v, videos) {
+                        if($.isEmptyObject(videos.ytid)) {
+                           return;
+                        }
+                        else {
+                            $('#wsbVideos_Carousel .owl-stage').append('<div class="item owl-video"><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" width="100%" height="auto" src="https://www.youtube.com/embed/'+videos.ytid+'?controls=1&rel=0&modestbranding=1&playsinline=1" title="'+videos.title+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>');
+                            //$('.owl-thumbs').append('<div class="owl-thumb-item"><!--<div class=""><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" width="560" height="auto" src="https://www.youtube.com/embed/'+videos.ytid+'?controls=0&rel=0&modestbranding=1&playsinline=1" title="'+videos.title+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>--></div>');
+                            //$('#wsbVideos_Carousel').owlCarousel('replace');
+                            $('#wsbVideos_Carousel').owlCarousel('destroy');
+                            $('#wsbVideos_Carousel').owlCarousel({
+                                loop: true,
+                                autoplay: false,
+                                items: 1,
+                                nav: false,
+                                dots: true
+                            });
+                        }
+                    });
+
+                    // load text layers
+                    $('#newsText').append(wsb.newstext);
+                    $('#catalogueText').append(wsb.cataloguetext);
+                    $('#videosText').append(wsb.videostext);
+                    $('#merchandiseText').append(wsb.merchandisetext);
+                    $('#getinvolvedText').append(wsb.getinvolvedtext);
+
+                })
+                .done (function(data, textStatus, jqXHR) {
+                    $('.loading').remove();
+                    console.log('Loaded');
+                })
+                .fail (function(jqXHR, textStatus, errorThrown) {
+                    console.log('Hang on... somethings not right');
+                    $('#latestNews, #backCatalogue, #videoContent, #merchandise, #getInvolved, #footer, .scrolling-background:gt(0)').hide();
+                })
+                .always (function(jqXHROrData, textStatus, jqXHROrErrorThrown) {
+                    console.log('[we sell boxes]');
+                })
+            });
+        }, 1000);
+
+    </script>
+    
+    <script>
+    
+        let options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        var wsbPlayer = document.getElementById("wsbWrapper");
+        var stickyMenu = document.getElementById("stickyMenu");
+        //var backToTop = document.getElementById("backToTop");
+        function handler (entries, observer) {
+            for (entry of entries) {
+                if (entry.isIntersecting) {
+                    stickyMenu.classList.remove('show');
+                    wsbPlayer.classList.remove('solid');
+                    //backToTop.classList.remove('show');
+                }
+                else {
+                    stickyMenu.classList.add('show');
+                    wsbPlayer.classList.add('solid');
+                    //backToTop.classList.add('show');
+                }
+            }
+        }
+        let observer = new IntersectionObserver(handler, options);
+        observer.observe(document.getElementById("mainPanel"));
+
+    </script>
+    
+    <!-- // modal functions -->
+    <script>
+        
+        $(function () {
+            
+            $('#wsbVideos_Carousel').owlCarousel('refresh');
+            
+            $("#stickyMenu .navbar-collapse.collapse").on('show.bs.collapse', function(){
+                $('.sticky-menu').addClass('with-background');
+            });
+            $("#stickyMenu .navbar-collapse.collapse").on('hide.bs.collapse', function(){
+                $('.sticky-menu').removeClass('with-background');
+            });
+            $('.sticky-menu .nav-link').on('click', function() {
+                $("#stickyMenu .navbar-collapse").collapse('hide');
+            });
+            
+            // load data and build modal
+            $('#catalogueModal').on('show.bs.modal', function (event) {
+                var modalTitle = $(event.relatedTarget).data('title');
+                var modalDescription = $(event.relatedTarget).data('description');
+                var modalArtwork = $(event.relatedTarget).data('artwork');
+                // more...
+                $('#catalogueModal').html('<div class="modal-dialog" role="document"><div class="modal-content p-4"><div class="container"><div class="d-block p-0 align-items-center"><a class="modal-close pull-right" href="#" data-dismiss="modal" aria-label="Close"><span></span><span></span><span></span></a><span class="wsb-main-logo" alt="[we sell boxes]">we sell boxes</span></div><div class="modal-body p-0 pt-4 pt-md-5"><div class="row"><div class="col-md"><h3 class="mb-0 custom-font" id="modalTitle">'+modalTitle+'</h3><p id="modalDescription">'+modalDescription+'</p></div><div class="col-md-6 col-lg-5"><img loading="lazy" class="img-fluid w-100" src="'+modalArtwork+'" alt="'+modalTitle+'"></div></div></div></div></div></div>');
+            });
+            // empty modal content on close
+            $('#catalogueModal').on('hidden.bs.modal', function () {
+                $('#catalogueModal').empty();
+                $('#catalogueModal iframe').attr('src', '');
+            });
+            
+
+        });
+        
+    </script>
+    
+    <!-- // Player -->
+    <script>
+
+         $(function() {
+
+             var titleTrack = document.getElementById('trackInfo');
+             var widget = SC.Widget(document.getElementById('soundcloud_widget'));
+             widget.bind(SC.Widget.Events.READY, function() {
+                 //console.log('Ready...');
+                 titleTrack.textContent = "";
+                 widget.getCurrentSound(function(music)  {
+                    titleTrack.textContent += music.title;
+                 });
+                 $('#wsbPlayer #trackInfo').css({"animation-play-state": "paused"});
+             });
+             widget.bind(SC.Widget.Events.LOAD_PROGRESS, function() {
+                titleTrack.textContent = "loading...";
+             });
+             widget.bind(SC.Widget.Events.PLAY, function() {
+                console.log('Sound starts');
+                widget.setVolume(70);
+                $('#wsbPlayer .embed-wrapper').css({"visibility": "hidden"});
+                $('#wsbPlayer #trackInfo').css({"animation-play-state": "running"});
+                $('.pause').show();
+                $('.play').hide();
+                $('.prev').show();
+                $('.next').show();
+             });
+             widget.bind(SC.Widget.Events.PAUSE, function() {
+                console.log('Sound is paused');
+                $('#wsbPlayer #trackInfo').css({"animation-play-state": "paused"});
+                $('.pause').hide();
+                $('.play').show();
+             });
+             $('#wsbPlayer .embed-wrapper iframe').mouseover(function() {
+                 $('#wsbPlayer .controls em.fa-play').addClass('text-wsb-color');
+             });
+             $('.play').click(function() {
+                widget.play();
+                $('.pause').show();
+                $('.play').hide();
+                titleTrack.textContent = "";
+                widget.getCurrentSound(function(music) {
+                    titleTrack.textContent += music.title;
+                });
+            });
+            $('.pause').click(function() {
+                $('.pause').hide();
+                $('.play').show();
+                widget.pause();
+            });
+
+            $('.prev').click(function() {
+                titleTrack.textContent = "";
+                widget.prev();
+                widget.getCurrentSound(function(music) {
+                    titleTrack.textContent += music.title;
+                });
+            });
+            $('.next').click(function() {
+                $('.prev').css({"opacity": "1"});
+                titleTrack.textContent = "";
+                widget.next();
+                widget.getCurrentSound(function(music) {
+                    titleTrack.textContent += music.title;
+                });
+            });
+
+        });
+
+    </script>
+    
+</body>
+</html>

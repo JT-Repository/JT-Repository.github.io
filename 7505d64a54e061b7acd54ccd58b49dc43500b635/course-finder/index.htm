@@ -1,13 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
-<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js" defer></script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,line-clamp" defer></script>
-<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
- 
+
 <style> 
     
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@200;300;400;600;800;900&display=swap');
@@ -27,366 +26,559 @@ body {
     font-weight: 900;
     font-style: normal;
 }
-    
-
+  
 </style>
-</head>
+<style>
 
+    details summary::-webkit-details-marker {
+		display: none !important;
+    }
+    summary:hover .summary-arrow svg {
+        color: rgb(22,163,4);
+    }
+    details[open] summary:hover .summary-arrow svg {
+        color: currentColor;
+        opacity: .1;
+    }
+    details:not([open]) summary .summary-arrow {
+        transform-origin: center;
+        transform: rotate(180deg);
+    }
+    
+</style>
+
+</head>
 <body>
 
-   <div>
-  <nav x-data="{ open: false }" @keydown.window.escape="open = false" class="bg-gray-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center">
-          <div class="flex-shrink-0">
-            <svg class="h-8 w-8" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g clip-path="url(#clip0)">
-                <path d="M213.765 308.934V344.535L102.4 289.682V259.241L213.765 204.393V240.244L136.167 274.217L213.765 308.934ZM282.624 203.636L251.623 348.684C250.829 352.491 249.926 356.267 248.914 360.006C248.141 362.775 246.958 364.946 245.376 366.476C243.789 368.035 241.48 368.803 238.454 368.803C230.928 368.803 227.159 365.103 227.159 357.737C227.159 355.805 227.902 350.988 229.376 343.273L260.265 198.226C261.888 190.511 263.435 185.228 264.909 182.377C266.389 179.526 269.266 178.1 273.552 178.1C277.243 178.1 280.059 179.107 282.015 181.12C283.971 183.133 284.949 185.903 284.949 189.423C284.949 192.023 284.171 196.759 282.624 203.636ZM409.6 289.682L298.235 344.786V309.184L376.059 274.467L298.235 240.244V204.893L409.6 259.491V289.682Z" fill="white" />
-                <path d="M481.28 0H30.72C22.5725 0 14.7588 3.67791 8.99768 10.2246C3.23656 16.7714 0 25.6506 0 34.9091L0 477.091C0 486.349 3.23656 495.229 8.99768 501.775C14.7588 508.322 22.5725 512 30.72 512H481.28C489.427 512 497.241 508.322 503.002 501.775C508.763 495.229 512 486.349 512 477.091V34.9091C512 25.6506 508.763 16.7714 503.002 10.2246C497.241 3.67791 489.427 0 481.28 0ZM404.48 23.2727C415.77 23.2727 424.96 33.7105 424.96 46.5455C424.96 59.3804 415.77 69.8182 404.48 69.8182C393.19 69.8182 384 59.3804 384 46.5455C384 33.7105 393.19 23.2727 404.48 23.2727ZM348.16 23.2727C359.45 23.2727 368.64 33.7105 368.64 46.5455C368.64 59.3804 359.45 69.8182 348.16 69.8182C336.87 69.8182 327.68 59.3804 327.68 46.5455C327.68 33.7105 336.87 23.2727 348.16 23.2727ZM481.28 477.091H30.72V93.0909H481.28V477.091ZM460.8 69.8182C449.51 69.8182 440.32 59.3804 440.32 46.5455C440.32 33.7105 449.51 23.2727 460.8 23.2727C472.09 23.2727 481.28 33.7105 481.28 46.5455C481.28 59.3804 472.09 69.8182 460.8 69.8182Z" fill="white" />
-              </g>
-              <defs>
-                <clipPath id="clip0">
-                  <rect width="512" height="512" fill="white" />
-                </clipPath>
-              </defs>
-            </svg>
-          </div>
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline">
-              <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">Dashboard</a>
-              <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Team</a>
-              <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Projects</a>
-              <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Calendar</a>
-              <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Reports</a>
-            </div>
-          </div>
-        </div>
-        <div class="hidden md:block">
-          <div class="ml-4 flex items-center md:ml-6">
-            <button class="p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-white focus:outline-none focus:text-white focus:bg-gray-700" aria-label="Notifications">
-              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-              </svg>
-            </button>
-            <div @click.away="open = false" class="ml-3 relative" x-data="{ open: false }">
-              <div>
-                <button @click="open = !open" class="max-w-xs flex items-center text-sm rounded-full text-white focus:outline-none focus:shadow-solid" id="user-menu" aria-label="User menu" aria-haspopup="true" x-bind:aria-expanded="open">
-                  <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                </button>
-              </div>
-              <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
-                <div class="py-1 rounded-md bg-white shadow-xs">
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Your Profile</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="-mr-2 flex md:hidden">
-          <button @click="open = !open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white" x-bind:aria-label="open ? 'Close main menu' : 'Main menu'" x-bind:aria-expanded="open">
-            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-              <path x-bind:class="{'hidden': open, 'inline-flex': !open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-              <path x-bind:class="{'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div x-bind:class="{'block': open, 'hidden': !open}" class="hidden md:hidden">
-      <div class="px-2 pt-2 pb-3 sm:px-3">
-        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">Dashboard</a>
-        <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Team</a>
-        <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Projects</a>
-        <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Calendar</a>
-        <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Reports</a>
-      </div>
-      <div class="pt-4 pb-3 border-t border-gray-700">
-        <div class="flex items-center px-5">
-          <div class="flex-shrink-0">
-            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-          </div>
-          <div class="ml-3">
-            <div class="text-base font-medium leading-none text-white">
-              Tom Cook
-            </div>
-            <div class="mt-1 text-sm font-medium leading-none text-gray-400">
-              tom@example.com
-            </div>
-          </div>
-        </div>
-        <div class="mt-3 px-2" role="menu" aria-orientation="vertical" aria-labelledby="user-menu" role="menuitem">
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700" role="menuitem">Your Profile</a>
-          <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700" role="menuitem">Settings</a>
-          <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700" role="menuitem">Sign out</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <header class="bg-white shadow">
-    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold leading-tight text-gray-900">
-        All Posts
-      </h1>
-    </div>
-  </header>
-  <main>
-    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8" x-data="alpineInit()" x-init="init()">
-      <div class="flex flex-col">
-        <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-          <div class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg relative">
-            <template x-if="isLoading">
-              <div class="absolute inset-0" style="
-                      background-image: linear-gradient(
-                        0deg,
-                        white,
-                        transparent
-                      );
-                    "></div>
-            </template>
-            <table class="min-w-full">
-              <thead>
-                <tr>
-                  <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                    Name
-                  </th>
-                  <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                    Title
-                  </th>
-                  <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                    Status
-                  </th>
-                  <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
-                </tr>
-              </thead>
-              <tbody class="bg-white">
-                <template x-for="i in [1,2,3,4,5,6,7,8,9]" x-if="isLoading">
-                  <tr>
-                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                      <div class="flex items-center">
-                        <div class="flex-shrink-0 h-10 w-10">
-                          <div class="h-10 w-10 rounded-full bg-gray-300"></div>
-                        </div>
-                        <div class="ml-4">
-                          <span class="text-sm leading-5 text-transparent bg-gray-300 rounded-sm mb-2" x-text="Math.random().toString(16)"></span>
-                          <div class="text-sm leading-5 text-transparent bg-gray-300 rounded-sm" x-text="Math.random().toString(8)"></div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                      <span class="text-xs leading-5 text-transparent bg-gray-300 rounded-sm mb-2" x-text="Math.random().toString(2)"></span>
-                      <div class="text-xs leading-5 text-transparent">
-                        <span x-text="Math.random().toString(3)" class="bg-gray-300 rounded-sm"></span>
-                      </div>
-                      <div class="text-xs leading-5 text-transparent">
-                        <span x-text="Math.random().toString(3)" class="bg-gray-300 rounded-sm"></span>
-                      </div>
-                      <div class="text-xs leading-5 text-transparent">
-                        <span x-text="Math.random().toString(2)" class="bg-gray-300 rounded-sm"></span>
-                      </div>
-                      <div class="text-xs leading-5 text-transparent">
-                        <span x-text="Math.random().toString(7)" class="bg-gray-300 rounded-sm"></span>
-                      </div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                      <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-200 text-transparent">
-                        Published
-                      </span>
-                    </td>
-                    <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                      <a href="#" class="text-transparent bg-indigo-200 rounded-sm px-2">Edit</a>
-                    </td>
-                  </tr>
-                </template>
-                <template x-for="post in posts" :key="post.id" x-if="!isLoading">
-                  <tr>
-                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                      <div class="flex items-center">
-                        <div class="flex-shrink-0 h-10 w-10">
-                          <img class="h-10 w-10 rounded-full" :src="`https://i.pravatar.cc/40?u=${post.user.email}`" alt="" />
-                        </div>
-                        <div class="ml-4">
-                          <div class="text-sm leading-5 font-medium text-gray-900" x-text="post.user.name"></div>
-                          <div class="text-sm leading-5 text-gray-500" x-text="post.user.email"></div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                      <div class="text-sm leading-5 text-gray-900" x-text="post.title"></div>
-                      <div class="text-sm leading-5 text-gray-500 truncate" x-text="post.body"></div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                      <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                        Published
-                      </span>
-                    </td>
-                    <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                      <a href="#" class="text-indigo-600 hover:text-indigo-900 focus:outline-none focus:underline">Edit</a>
-                    </td>
-                  </tr>
-                </template>
-              </tbody>
-            </table>
-            <div class="bg-white px-4 py-3 flex items-center justify-between sm:px-6">
-              <div class="flex-1 flex justify-between sm:hidden">
-                <a role="button" x-bind:class="{'cursor-not-allowed': prevUrl == null || firstUrl == currentUrl}" @click.prevent="init(prevUrl)" x-bind:disabled="prevUrl == null || firstUrl == currentUrl" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
-                  Previous
-                </a>
-                <a role="button" x-bind:class="{'cursor-not-allowed': nextUrl == null || lastUrl == currentUrl}" @click.prevent="init(nextUrl)" x-bind:disabled="nextUrl == null || lastUrl == currentUrl" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
-                  Next
-                </a>
-              </div>
-              <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-                <div>
-                  <p class="text-sm leading-5 text-gray-700">
-                    Showing
-                    <span class="font-medium" x-text="firstItem()"></span>
-                    to
-                    <span class="font-medium" x-text="lastItem()"></span>
-                    of
-                    <span class="font-medium" x-text="total"></span>
-                    results
-                  </p>
-                </div>
-                <div>
-                  <span class="relative z-0 inline-flex shadow-sm">
-                    <button type="button" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150" x-bind:class="{'cursor-not-allowed': firstUrl == currentUrl}" @click="init(firstUrl)" x-bind:disabled="firstUrl == currentUrl">
-                      <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.70679 5.29303C9.89426 5.48056 9.99957 5.73487 9.99957 6.00003C9.99957 6.26519 9.89426 6.5195 9.70679 6.70703L6.41379 10L9.70679 13.293C9.88894 13.4816 9.98974 13.7342 9.98746 13.9964C9.98518 14.2586 9.88001 14.5094 9.6946 14.6948C9.5092 14.8803 9.25838 14.9854 8.99619 14.9877C8.73399 14.99 8.48139 14.8892 8.29279 14.707L4.29279 10.707C4.10532 10.5195 4 10.2652 4 10C4 9.73487 4.10532 9.48056 4.29279 9.29303L8.29279 5.29303C8.48031 5.10556 8.73462 5.00024 8.99979 5.00024C9.26495 5.00024 9.51926 5.10556 9.70679 5.29303V5.29303Z" />
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M15.7065 5.29279C15.894 5.48031 15.9993 5.73462 15.9993 5.99979C15.9993 6.26495 15.894 6.51926 15.7065 6.70679L12.4135 9.99979L15.7065 13.2928C15.8887 13.4814 15.9895 13.734 15.9872 13.9962C15.9849 14.2584 15.8798 14.5092 15.6944 14.6946C15.509 14.88 15.2581 14.9852 14.9959 14.9875C14.7337 14.9897 14.4811 14.8889 14.2925 14.7068L10.2925 10.7068C10.1051 10.5193 9.99976 10.265 9.99976 9.99979C9.99976 9.73462 10.1051 9.48031 10.2925 9.29279L14.2925 5.29279C14.4801 5.10532 14.7344 5 14.9995 5C15.2647 5 15.519 5.10532 15.7065 5.29279V5.29279Z" />
-                      </svg>
+    <!-- GREEN MENU STRIP -->
+    <div x-data="topMenu()">
+        <div class="bg-green-600 fixed w-full drop-shadow-md z-20 lg:relative lg:z-0">
+            <div class="container relative mx-auto px-4 lg:px-6 py-3 xl:py-3.5" :class="{ 'pt-6 px-6' : isOpen }">
+                <nav>
+                    <button class="flex w-full items-center font-bold text-white hover:text-yellow-500 focus:text-white focus:outline-none lg:hidden" type="button" @click="isOpen = !isOpen">
+                        <img class="inline-block w-5 h-5" :class="{ '-rotate-90 duration-200 origin-center' : isOpen , 'duration-300' : !isOpen }" src="golf-pin.png"> <span class="ml-0.5">MENU</span>
                     </button>
+                    <div class="w-full items-start lg:items-center lg:justify-end" :class="{ 'flex flex-col py-3' : isOpen, 'hidden lg:flex' : !isOpen }">
+                        <a class="inline-flex lg:pl-3 text-md text-white hover:text-yellow-500 active:text-yellow-400" href="#" @click="isOpen = !isOpen">About Us</a>
+                        <a class="inline-flex lg:pl-3 text-md text-white hover:text-yellow-500 active:text-yellow-400" href="#" @click="isOpen = !isOpen">Membership Benefits</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- SEARCH COMPONENT -->
+    <div x-data="searchCourses()">
+        <div class="bg-white relative pt-12 md:pt-14 lg:border-t-2 lg:border-green-600 lg:sticky lg:pt-0 lg:top-0 lg:z-20">
+            <div class="container mx-auto px-4 lg:px-6 p-7 xl:py-8">
+                <div class="flex flex-col md:flex-row md:justify-between">
+                    <div class="flex justify-center align-items mb-3 md:mb-0 space-x-1 md:space-x-1.5 lg:space-x-2 xl:space-x-2.5 logo">
+                        <img class="inline-block" src="golf-pin.png">
+                        <div class="inline-block font-extrabold text-zinc-500 text-3xl xl:text-4xl custom-font after:content-['&trade;'] after:relative after:font-sans after:text-xs after:align-top after:top-1">CourseFinder</div>
+                    </div>
+                    <form class="flex justify-center md:float-right space-x-1.5 md:space-x-2 lg:space-x-2.5 xl:space-x-3">
+                        <label>
+                            <span class="sr-only">Search by course name</span>
+                            <input class="w-44 sm:w-52 md:w-48 lg:w-56 xl:w-60 p-2 border border-zinc-200 caret-green-600 placeholder:text-zinc-400 focus:outline-none focus:border-yellow-500 focus:ring-0 focus:text-zinc-500 transition duration-500 ease-out focus:duration-500 focus:ease-in" type="search" placeholder="Search by course name" id="courseSearch" x-ref="searchField" x-model="search" x-on:click="viewPage(0)" x-on:keydown.window.prevent.slash="viewPage(0), $refs.searchField.focus()" />
+                        </label>
+                        <label>
+                            <span class="sr-only">Search by county</span>
+                            <select class="w-44 sm:w-52 md:w-48 lg:w-56 xl:w-60 p-2 border border-zinc-200 text-zinc-400 outline-none focus:border-yellow-500 focus:ring-0 focus:text-zinc-500 transition duration-500 ease-out focus:duration-500 focus:ease-in" x-model="search">
+                                <option>Search by county</option>
+                                <template x-for="item in countyList" :key="index">
+                                    <option :value="item" x-text="item"></option>
+                                </template>
+                            </select>
+                        </label>
+                    </form>
+                </div>
+            </div>
+        </div>  
+        <!-- PRELOADER SHIZZLE -->
+        <div x-show="loadingCourses">
+            <div class="flex justify-center items-center">
+                <div class="text-lg md:text-xl lg:text-2xl xl:text-3xl text-green-600"><span class="font-bold">Loading...</span> course search</div>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 lg:px-6 py-6 xl:py-8 pt-0.5">
+            <!-- SEARCH RESULTS -->
+            <div class="flex flex-col lg:flex-row lg:flex-wrap" :class="{ 'lg:flex-col xl:flex-row' : search }">
+                <!-- RESULTS MESSAGING -->
+                <div class="w-full pb-3 lg:pb-4 opacity-0 order-1" :class="{ 'opacity-100' : !loadingCourses }">
+                    <div class="flex justify-center md:justify-start mx-4 md:mx-6">
+                        <div class="text-zinc-500" x-show="total > 0">
+                            <span x-show="search">
+                                <span>Displaying </span>
+                                <span class="font-bold mx-1" x-text="endResults()" x-show="total > 1"></span>
+                                <span x-show="total > 1">of </span>
+                            </span>
+                            <span class="font-bold mx-1" x-text="total"></span> 
+                            <span>course<span x-show="total > 1">s</span></span>
+                            <span class="" x-show="!search">.</span>
+                            <span class="mx-1" x-show="search">for</span>
+                            <span x-show="search" class="font-bold" x-text="search"></span>
+                            <span class="inline-flex mx-2 pb-2 items-center" x-show="!search">Please refine your search above. 
+                                <svg class="text-green-600 ml-2 animate-bounce" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="text-zinc-500 opacity-0" :class="{ 'opacity-100 my-6 xl:mb-8' : total==0 }" x-show="total==0">
+                            <p>There are no courses listed for <span class="font-bold" x-text="search"></span>. Please search again.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- COURSES -->
+                <div class="w-full xl:w-3/4 mb-2 md:mb-4 lg:mb-6 xl:mb-0 order-2" :class="{ 'hidden' : total==0 }" x-show="!loadingCourses">
+                    <!--<div class="absolute bg-white bg-opacity-90 w-full h-full z-10" :class="{ 'hidden' : search }"></div>-->
+                    <div class="flex flex-col mb-6 xl:mb-8 mx-4 md:mx-6 xl:mr-16 border-t border-zinc-200">
+                        
+                        <template x-for="item in getSearchResults" :key="item.id">
 
-                    <button type="button" class="-ml-px relative inline-flex items-center px-2 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150" x-bind:class="{'cursor-not-allowed': prevUrl == null || firstUrl == currentUrl}" @click="init(prevUrl)" x-bind:disabled="prevUrl == null || firstUrl == currentUrl">
-                      <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
-                      </svg>
-                    </button>
-                    <template x-for="(page,index) in pages()" :key="index">
-                      <button type="button" class="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-700 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150" x-bind:class="{'cursor-not-allowed text-blue-600 hover:text-blue-600': page.isActive}" x-bind:disabled="page.isActive" @click="init(page.url)">
-                        <span x-text="page.name"></span>
-                      </button>
-                    </template>
-                    <template v-if="lastUrl !== currentUrl">
-                      <span class="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700">
-                        ...
-                      </span>
-                    </template>
+                            <div x-data="{ cardOpen: false }">
 
-                    <button type="button" class="-ml-px relative inline-flex items-center px-2 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150" x-bind:class="{'cursor-not-allowed': nextUrl == null || lastUrl == currentUrl}" @click="init(nextUrl)" x-bind:disabled="nextUrl == null || lastUrl == currentUrl">
-                      <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                      </svg>
-                    </button>
-                    <button type="button" class="-ml-px relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150" x-bind:class="{'cursor-not-allowed': lastUrl == currentUrl}" @click="init(lastUrl)" x-bind:disabled="lastUrl == currentUrl">
-                      <svg fill="currentColor" class="h-5 w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.29279 14.707C4.10532 14.5195 4 14.2651 4 14C4 13.7348 4.10532 13.4805 4.29279 13.293L7.58579 9.99998L4.29279 6.70698C4.11063 6.51838 4.00983 6.26578 4.01211 6.00358C4.01439 5.74138 4.11956 5.49057 4.30497 5.30516C4.49038 5.11975 4.74119 5.01458 5.00339 5.01231C5.26558 5.01003 5.51818 5.11082 5.70679 5.29298L9.70679 9.29298C9.89426 9.48051 9.99957 9.73482 9.99957 9.99998C9.99957 10.2651 9.89426 10.5195 9.70679 10.707L5.70679 14.707C5.51926 14.8945 5.26495 14.9998 4.99979 14.9998C4.73462 14.9998 4.48031 14.8945 4.29279 14.707Z" />
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.2928 14.6947C10.1053 14.5072 10 14.2529 10 13.9877C10 13.7225 10.1053 13.4682 10.2928 13.2807L13.5858 9.98771L10.2928 6.69471C10.1106 6.50611 10.0098 6.25351 10.0121 5.99131C10.0144 5.72911 10.1196 5.4783 10.305 5.29289C10.4904 5.10749 10.7412 5.00232 11.0034 5.00004C11.2656 4.99776 11.5182 5.09855 11.7068 5.28071L15.7068 9.28071C15.8943 9.46824 15.9996 9.72255 15.9996 9.98771C15.9996 10.2529 15.8943 10.5072 15.7068 10.6947L11.7068 14.6947C11.5193 14.8822 11.265 14.9875 10.9998 14.9875C10.7346 14.9875 10.4803 14.8822 10.2928 14.6947Z" />
-                      </svg>
-                    </button>
-                  </span>
+                                <div class="py-2 xl:py-2.5 border-b border-zinc-200" :class="{ '-mx-2 md:-mx-3 px-5 border-0 outline outline-2 outline-yellow-500 bg-zinc-100 bg-opacity-20 rounded-lg' : cardOpen }">
+
+                                    <button class="flex w-full font-bold cursor-pointer text-lg lg:text-xl xl:text-2xl text-zinc-500 hover:text-green-600 active:text-yellow-500 focus:outline-0" :class="{ 'mt-2 lg:mt-3 hover:text-zinc-500' : cardOpen }" @click="cardOpen = true" x-text="item.title"></button>
+
+                                    <div x-show="cardOpen" @click.outside="cardOpen = false">
+
+                                        <div class="flex flex-wrap items-center justify-between text-zinc-500 border-b border-zinc-200 pb-1.5">
+                                            <div class="space-x-0.5">
+                                                <span x-text="item.location.address"></span>, <span x-text="item.location.town"></span>, <span x-text="item.location.county"></span>
+                                            </div>
+                                            <div class="self-end">
+                                                <a class="text-zinc-500 hover:text-green-600 focus:text-yellow-500" x-bind:href="'https://www.google.com/maps/@' + item.location.lat + ',' + item.location.lng + ',12z/data=!5m1!1e1'" target="new">Directions</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex w-full flex-col">
+
+                                            <div class="py-2 lg:py-3 border-b border-zinc-200">
+                                                <details class="cursor-pointer open:cursor-text" x-data="{}" x-ref="overview" @click.outside="$refs.overview.removeAttribute('open');" open>
+                                                    <summary class="flex justify-start items-center">
+                                                        <span class="font-bold text-lg text-zinc-500 focus:text-yellow-500 mr-3">Course Overview</span>
+                                                        <span class="summary-arrow">
+                                                            <svg class="text-zinc-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
+                                                                <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
+                                                            </svg>
+                                                        </span>
+                                                    </summary>
+                                                    <div class="my-3 lg:px-3 xl:px-8">
+                                                        <div class="text-zinc-500" x-text="item.description"></div>
+                                                    </div>
+                                                </details>
+                                            </div>
+
+                                            <div class="py-2 lg:py-3 border-b border-zinc-200">
+                                                <details class="cursor-pointer open:cursor-text" x-data="{}" x-ref="stats" @click.outside="$refs.stats.removeAttribute('open');">
+                                                    <summary class="flex justify-start items-center">
+                                                        <span class="font-bold text-lg text-zinc-500 focus:text-yellow-500 mr-3">Course Statistics</span>
+                                                        <span class="summary-arrow">
+                                                            <svg class="text-zinc-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
+                                                                <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
+                                                            </svg>
+                                                        </span>
+                                                    </summary>
+                                                    <div class="my-3 lg:px-3 xl:px-8 hidden md:flex">
+                                                        <table class="w-full text-sm lg:text-md text-center border-collapse border border-zinc-200 my-3 select-none">
+                                                            <tr class="text-zinc-500">
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5"></th>
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5">1</th>
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5">2</th>
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5">3</th>
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5">4</th>
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5">5</th>
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5">6</th>
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5">7</th>
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5">8</th>
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5">9</th>
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5">10</th>
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5">11</th>
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5">12</th>
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5">13</th>
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5">14</th>
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5">15</th>
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5">16</th>
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5">17</th>
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5">18</th>
+                                                                <th class="border border-zinc-200 p-1.5 lg:p-2 xl:p-2.5">Total</th>
+                                                            </tr>
+                                                            <tr class="bg-red-500/20 text-zinc-600">
+                                                                <td class="border border-zinc-200 py-1.5 lg:px-2 xl:px-2.5 lg:py-2 xl:py-2.5 bg-red-500 text-white md:text-xs text-sm font-semibold">Red</td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.one.red"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.two.red"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.three.red"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.four.red"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.five.red"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.six.red"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.seven.red"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.eight.red"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.nine.red"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.ten.red"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.eleven.red"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.twelve.red"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.thirteen.red"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.fourteen.red"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.fifteen.red"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.sixteen.red"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.seventeen.red"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.eighteen.red"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5 bg-red-500 text-white md:text-xs text-sm font-semibold" x-text="item.pins.one.red + item.pins.two.red + item.pins.three.red + item.pins.four.red + item.pins.five.red + item.pins.six.red + item.pins.seven.red + item.pins.eight.red + item.pins.nine.red + item.pins.ten.red + item.pins.eleven.red + item.pins.twelve.red + item.pins.thirteen.red + item.pins.fourteen.red + item.pins.fifteen.red + item.pins.sixteen.red + item.pins.seventeen.red + item.pins.eighteen.red"></td>
+                                                            </tr>
+                                                            <tr class="bg-yellow-400/40 text-zinc-600">
+                                                                <td class="border border-zinc-200 py-1.5 lg:px-2 xl:px-2.5 lg:py-2 xl:py-2.5 bg-yellow-400 md:text-xs text-sm font-semibold">Yellow</td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.one.yellow"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.two.yellow"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.three.yellow"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.four.yellow"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.five.yellow"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.six.yellow"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.seven.yellow"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.eight.yellow"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.nine.yellow"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.ten.yellow"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.eleven.yellow"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.twelve.yellow"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.thirteen.yellow"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.fourteen.yellow"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.fifteen.yellow"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.sixteen.yellow"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.seventeen.yellow"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.eighteen.yellow"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5 bg-yellow-400 md:text-xs text-sm font-semibold" x-text="item.pins.one.yellow + item.pins.two.yellow + item.pins.three.yellow + item.pins.four.yellow + item.pins.five.yellow + item.pins.six.yellow + item.pins.seven.yellow + item.pins.eight.yellow + item.pins.nine.yellow + item.pins.ten.yellow + item.pins.eleven.yellow + item.pins.twelve.yellow + item.pins.thirteen.yellow + item.pins.fourteen.yellow + item.pins.fifteen.yellow + item.pins.sixteen.yellow + item.pins.seventeen.yellow + item.pins.eighteen.yellow"></td>
+                                                            </tr>
+                                                            <tr class="text-zinc-600">
+                                                                <td class="border border-zinc-200 py-1.5 lg:px-2 xl:px-2.5 lg:py-2 xl:py-2.5 bg-white md:text-xs text-sm font-semibold">White</td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.one.white"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.two.white"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.three.white"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.four.white"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.five.white"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.six.white"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.seven.white"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.eight.white"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.nine.white"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.ten.white"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.eleven.white"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.twelve.white"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.thirteen.white"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.fourteen.white"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.fifteen.white"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.sixteen.white"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.seventeen.white"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5" x-text="item.pins.eighteen.white"></td>
+                                                                <td class="border border-zinc-200 py-1.5 lg:py-2 xl:py-2.5 bg-white md:text-xs text-sm font-semibold" x-text="item.pins.one.white + item.pins.two.white + item.pins.three.white + item.pins.four.white + item.pins.five.white + item.pins.six.white + item.pins.seven.white + item.pins.eight.white + item.pins.nine.white + item.pins.ten.white + item.pins.eleven.white + item.pins.twelve.white + item.pins.thirteen.white + item.pins.fourteen.white + item.pins.fifteen.white + item.pins.sixteen.white + item.pins.seventeen.white + item.pins.eighteen.white"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </details>
+                                            </div>
+
+                                            <div class="py-2 lg:py-3">
+                                                <details class="cursor-pointer open:cursor-text" x-data="{}" x-ref="reviews" @click.outside="$refs.reviews.removeAttribute('open');">
+                                                    <summary class="flex justify-start items-center">
+                                                        <span class="font-bold text-lg text-zinc-500 mr-3">Course Reviews</span>
+                                                        <span class="summary-arrow">
+                                                            <svg class="text-zinc-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
+                                                                <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
+                                                            </svg>
+                                                        </span>
+                                                    </summary>
+                                                    <div class="my-3 lg:px-3 xl:px-8">
+                                                        content
+                                                    </div>
+                                                </details>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+
+                        </template>
+                    </div>
                 </div>
-              </div>
+                <!-- PAGINATION -->
+                <div class="w-full -mt-2 md:-mt-4 mb-6 lg:mb-7 xl:mb-6 xl:mt-0 xl:mb-2 order-3 xl:order-4" x-show="total < 50" :class="{ 'hidden' : total < 10 }">
+                    <div class="flex flex-row justify-center items-center">
+                        <button class="inline-block mx-1 md:mx-2 xl:mx-3 hover:scale-125 focus:outline-0" x-on:click="viewPage(0)" :disabled="pageNumber==0" :class="{ 'disabled cursor-not-allowed' : pageNumber==0 }">
+                            <svg class="text-zinc-500 hover:text-green-600 active:text-yellow-500" :class="{ 'text-zinc-200 hover:text-zinc-200 active:text-zinc-200' : pageNumber==0 }" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                                <line x1="5" y1="19" x2="5" y2="5"></line>
+                            </svg>   
+                        </button>
+                        <button class="inline-block mx-1 md:mx-2 xl:mx-3 hover:scale-125 focus:outline-0" x-on:click="prevPage" :disabled="pageNumber==0" :class="{ 'disabled cursor-not-allowed text-gray-600' : pageNumber==0 }">
+                            <svg class="text-zinc-500 hover:text-green-600 active:text-yellow-500" :class="{ 'text-zinc-200 hover:text-zinc-200 active:text-zinc-200' : pageNumber==0 }" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <template x-for="(page, index) in pages" :key="index">
+                            <button class="inline-block px-3 py-1 mx-2 hover:bg-green-600 hover:text-white hover:font-bold hover:scale-105 active:bg-yellow-500 active:text-white focus:outline-0" :class="{ 'm-l-1 bg-green-600 text-white font-bold active:bg-green-600 disabled cursor-not-allowed' : index === pageNumber }" x-on:click="viewPage(index)">
+                                <span x-text="index+1"></span>
+                            </button>
+                        </template>
+                        <button class="inline-block mx-1 md:mx-2 xl:mx-3 hover:scale-125 focus:outline-0" x-on:click="nextPage" :disabled="pageNumber >= pageCount() -1" :class="{ 'disabled cursor-not-allowed text-gray-600' : pageNumber >= pageCount() -1 }">
+                            <svg class="text-zinc-500 hover:text-green-600 active:text-yellow-500" :class="{ 'text-zinc-200 hover:text-zinc-200 active:text-zinc-200' : pageNumber >= pageCount() -1 }" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                        <button class="inline-block mx-1 md:mx-2 xl:mx-3 hover:scale-125 focus:outline-0" x-on:click="viewPage(Math.ceil(total/size)-1)" :disabled="pageNumber >= pageCount() -1" :class="{ 'disabled cursor-not-allowed text-gray-600' : pageNumber >= pageCount() -1 }">
+                            <svg class="text-zinc-500 hover:text-green-600 active:text-yellow-500" :class="{ 'text-zinc-200 hover:text-zinc-200 active:text-zinc-200' : pageNumber >= pageCount() -1 }" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                                <line x1="19" y1="5" x2="19" y2="19"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- SIGNUP -->
+                <div class="w-full xl:w-1/4 order-4 lg:order-3" :class="{ 'xl:w-full' : total==0 }" x-show="!loadingCourses">
+                    <div class="flex flex-col bg-[url('https://media.gettyimages.com/photos/close-up-the-golf-ball-on-tee-pegs-ready-to-play-in-the-green-picture-id976341586?b=1&k=20&m=976341586&s=170667a&w=0&h=GGcKbJau1d_7uhXhCByYlrGco_hfqnQwFUSLp1U35ZM=')] bg-bottom bg-cover">
+                        <div class="flex flex-col justify-evenly p-8 xl:px-4 xl:py-24 bg-green-600 bg-opacity-50" :class="{ 'xl:py-10' : total==0 }">
+                            <div class="font-extrabold text-xl lg:text-2xl xl-text:3xl text-white text-center">
+                                Sign up today to join our new online golfing community.
+                            </div>
+                            <div class="flex w-11/12 sm:w-10/12 md:w-full flex-col md:flex-row justify-center mx-auto mt-6 lg:mt-10 xl:mt-14 md:space-x-2 lg:space-x-3 xl:space-x-0 space-y-3 md:space-y-0 " :class="{ 'xl:flex-col xl:items-center xl:space-y-4' : !total==0 }">
+                                <div class="inline-flex">
+                                    <label class="" for="name"></label>
+                                    <input class="flex-1 lg:w-60 px-2 py-1 mx-2 border border-zinc-200 caret-green-600 placeholder:text-zinc-400 focus:outline-none focus:border-yellow-500 focus:ring-0 focus:text-zinc-500 focus:transition duration-300 ease-in-out" type="text" placeholder="Your name" id="name" />
+                                </div>
+                                <div class="inline-flex">
+                                    <label class="" for="email"></label>
+                                    <input class="flex-1 lg:w-60 px-2 py-1 mx-2 border border-zinc-200 caret-green-600 placeholder:text-zinc-400 focus:outline-none focus:border-yellow-500 focus:ring-0 focus:text-zinc-500 focus:transition duration-300 ease-in-out" type="email" placeholder="Your email address" id="email" />
+                                </div>
+                                <div class="inline-flex">
+                                    <button class="flex-1 w-48 px-2 py-1 mx-2 text-white bg-yellow-500 border border-yellow-500 focus:outline-none focus:text-zinc-500 focus:bg-yellow-400 focus:ring-0">Submit your details</button>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <!-- /End replace -->
     </div>
-  </main>
-</div>
-<script>
-  function alpineInit() {
-    return {
-      isLoading: true,
-      posts: [],
-      currentUrl: null,
-      firstUrl: 'golf.json',
-      nextUrl: null,
-      prevUrl: null,
-      lastUrl: null,
-      total: null,
-      currentPage: 1,
-      perPage: 15,
-      visiblePages: 3,
-      totalPages() {
-        return Math.round(this.total / this.perPage);
-      },
-      startPage() {
-        if (this.currentPage == 1) {
-          return 1;
-        }
-        if (this.currentPage == this.totalPages()) {
-          return this.totalPages() - this.visiblePages + 1;
-        }
-        return this.currentPage - 1;
-      },
-      endPage() {
-        return Math.min(
-          this.startPage() + this.visiblePages - 1,
-          this.totalPages()
-        );
-      },
-      pages() {
-        const range = [];
-        for (let i = this.startPage(); i <= this.endPage(); i += 1) {
-          range.push({
-            name: i,
-            isActive: i == this.currentPage,
-            url: 'golf.json',
-          });
-        }
-        return range;
-      },
-      firstItem() {
-        return this.perPage * this.currentPage - 15 + 1;
-      },
-      lastItem() {
-        let lastItem = this.perPage * this.currentPage;
-        if (lastItem > this.total) {
-          return this.total;
-        }
-        return this.perPage * this.currentPage;
-      },
-      init(url = this.firstUrl) {
-        this.isLoading = true;
-        this.currentUrl = url;
-        let params = new URL(this.currentUrl).searchParams;
-        this.currentPage = params.get("_page");
-        this.perPage = params.get("_limit");
-        fetch(`${this.currentUrl}`).then((response) => {
-          this.total = response.headers.get("x-total-count");
-          let formattedLinks = [];
-          let links = response.headers.get("link");
-          if (typeof links === "string") {
-            let extractedArr = links.split(", ");
-            extractedArr.forEach((val) => {
-              let values = val.split("; ");
-              let type = values[1].slice(5, -1);
-              let url = values[0].slice(1, -1);
-              formattedLinks[type] = url;
-            });
-            this.firstUrl = formattedLinks["first"];
-            this.prevUrl = formattedLinks.prev ?
-              formattedLinks["prev"] :
-              null;
-            this.nextUrl = formattedLinks.next ?
-              formattedLinks["next"] :
-              null;
-            this.lastUrl = formattedLinks["last"];
-          }
-          response.json().then((json) => {
-            this.isLoading = false;
-            this.posts = json;
-          });
-        });
-      },
-    };
-  }
-</script>
- 
+    <!-- ADVERTISING BLOCK 2 -->
+    <div x-data="">
+        <div class="bg-white">
+            <div class="container mx-auto px-4 lg:px-6">
+                <img class="object-cover mb-6 lg:mb-8" src="https://www.golfgeardirect.co.uk/roots/996/Ping-Banner-Homepage.jpg" />
+                <img class="object-cover mb-6 lg:mb-8" src="https://worldwidegolf.vteximg.com.br/arquivos/titleist-fitting-week-hero_01.jpg" />
+            </div>
+        </div>
+    </div>
+    <!-- FEATURED COMPONENT -->
+    <div class="relative" x-data="getFeaturedCourse()">
+        <!-- PRELOADER -->
+        <div x-show="loadingFeatured">
+            <div class="flex justify-center items-center pb-4 md:pb-6 xl:pb-10">
+                <span class="text-lg md:text-xl lg:text-2xl xl:text-3xl text-green-600"><span class="font-bold">Loading...</span> featured course</span>
+            </div>
+        </div>
+        <div class="bg-zinc-100 hover:bg-opacity-75">
+            <div class="container mx-auto px-4 lg:px-6 py-6 lg:py-8 opacity-0" :class="{ 'opacity-100' : !loadingFeatured }">
+                <div class="mb-6 font-extrabold text-center text-zinc-500 text-3xl xl:text-4xl custom-font">Featured Course</div>
+                <div class="flex flex-wrap w-100 items-center">
+                    <template x-for="item in featuredCourse" :key="index">
+                        <template x-if="item.featured === true">
+                            <div class="flex flex-col lg:flex-row items-center lg:items-start mb-4 lg:mb-2 space-y-6 lg:space-y-0 lg:space-x-8 xl:space-x-12">
+                                <div class="w-5/6 lg:w-3/5 text-center lg:text-left">
+                                    <h3 class="font-bold text-green-600 text-2xl lg:text-3xl" x-text="item.title"></h3>
+                                    <div class="-mb-1 xl:text-lg text-zinc-500">
+                                        <span class="" x-text="item.location.address"></span>
+                                        <span class="" x-text="item.location.town"></span>
+                                        <span class="" x-text="item.location.county"></span>
+                                    </div>
+                                    <a class="lowercase underline text-zinc-500 xl:text-lg hover:no-underline hover:text-green-600 focus:text-yellow-500" x-bind:href="'mailto:' + item.url" x-text="'www.' + item.title + '.com'"></a>
+                                    <div class="mt-3" x-text="item.description"></div>
+                                </div>
+                                <div class="w-5/6 sm:w-4/5 md:w-3/4 lg:w-2/5 xl:w-1/3">
+                                    <img class="object-fill drop-shadow-lg lg:aspect-square xl:aspect-auto" :src="item.image" />
+                                </div>
+                            </div>
+                        </template>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- REVIEW (TO COME) -->
+    <div x-data="getCourseReviews()">
+        <!-- PRELOADER -->
+        <div x-show="loadingReviews">
+            <div class="flex justify-center items-center pb-4 md:pb-6 xl:pb-10">
+                <span class="text-lg md:text-xl lg:text-2xl xl:text-3xl text-green-600"><span class="font-bold">Loading...</span> course reviews</span>
+            </div>
+        </div>
+        <div class="bg-white">
+            <div class="container mx-auto px-4 lg:px-6 py-6 lg:py-8 opacity-0" :class="{ 'opacity-100' : !loadingReviews }">
+                <div class="mb-6 font-extrabold text-center text-zinc-500 text-3xl xl:text-4xl custom-font">Course Reviews</div>
+                <div class="-mx-3 lg:-mx-5 pb-3 flex flex-row flex-nowrap items-start overflow-y-hidden overflow-x-auto overscroll-none snap-mandatory snap-x focus:touch-pan-x touch-pan-x">
+                    <template x-for="(review, index) in courseReviews" :key="index">
+                        <div class="flex p-5 pt-0 text-center lg:text-left snap-center">
+                            <p class="w-96 sm:w-60 md:w-72 lg:w-80 xl:w-96 line-clamp-6" x-text="review.review_text"></p>
+                        </div>
+                    </template>
+                </div>
+                <div class="resize-none hover:resize">
+                  <!-- ... -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER ELEMENTS -->
+    <footer>
+        <div class="bg-yellow-500">
+            <div class="container mx-auto px-4 lg:px-6 py-6 lg:py-8">
+                <div class="flex w-full flex-wrap md:flex-nowrap min-h-80 space-x-20 text-zinc-500" x-init="site = await (await fetch('golf.json')).json()" x-data="{ site: [] }">
+                    <div class="flex w-2/6">
+                        <div class="text-white" x-text="site.description"></div>
+                    </div>
+                    <div class="flex w-4/6 space-x-20">
+                        <div class="w-2/6">
+                            <div class="" x-text="site.otherkey1"></div>
+                        </div>
+                        <div class="w-2/6">
+                            <div class="" x-text="site.otherkey2"></div>
+                        </div>
+                        <div class="w-2/6">
+                            <div class="" x-text="site.otherkey3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-green-600">
+            <div class="container mx-auto px-4 lg:px-6 py-3 xl:py-3.5">
+                <div class="sm:flex sm:flex-wrap text-center sm:justify-between">
+                    <div class="flex justify-evenly sm:justify-end">
+                        <a class="px-2 sm:pr-0 sm:pl-2 md:pl-3 text-white hover:text-yellow-500 active:text-yellow-400" href="">Privacy Statement</a>
+                        <a class="px-2 sm:pr-0 sm:pl-2 md:pl-3 text-white hover:text-yellow-500 active:text-yellow-400" href="">Terms &amp; Conditions</a>
+                    </div>
+                    <div class="block sm:flex sm:order-first" x-init="root = await (await fetch('golf.json')).json()" x-data="{ root: [] }">
+                        <div class="text-white">&copy; 2022 <span x-text="root.name"></span>. All rights reserved.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     
+    <script>
+ 
+        function topMenu() {
+            return {
+                isOpen: false
+            }
+        }
+        
+        function searchCourses() {
+            return {
+                loadingCourses: false,
+                countyList: '',
+                search: '',
+                searchResults: '',
+                pageNumber: 0,
+                size: 10,
+                total: '',
+                init() {
+                    loadingCourses = true
+                    fetch('golf.json')
+                        .then(res => res.json())
+                        .then(json => {
+                            loadingCourses = false
+                            this.searchResults = json.courses;
+                            this.countyList = [...new Set(this.searchResults.map(item => item.location.county))].sort();
+                            console.log('Courses loaded')
+                    })
+                },
+                getSearchResults() {
+                    const start = this.pageNumber * this.size,
+                    end = start + this.size;
+                    if (this.search === "") {
+                        this.total = this.searchResults.length;
+                        return this.searchResults.slice(start, end);
+                    }
+                    this.total = this.searchResults.filter((item) => {
+                        return (item.title + item.location.county)
+                            .toLowerCase()
+                            .includes(this.search.toLowerCase());
+                        }).length;
+                    return this.searchResults
+                    .filter((item) => {
+                        return (item.title + item.location.county)
+                            .toLowerCase()
+                            .includes(this.search.toLowerCase());
+                        })
+                    .slice(start, end);
+                },
+                // pagination
+                pages() {
+                    return Array.from({
+                        length: Math.ceil(this.total / this.size),
+                    });
+                },
+                nextPage() {
+                    this.pageNumber++;
+                },
+                prevPage() {
+                    this.pageNumber--;
+                },
+                pageCount() {
+                    return Math.ceil(this.total);
+                },
+                startResults() {
+                    return this.pageNumber * this.size + 1;
+                },
+                endResults() {
+                    let resultsOnPage = (this.pageNumber + 1) * this.size;
+                    if (resultsOnPage <= this.total) {
+                        return resultsOnPage;
+                    }
+                    return this.total;
+                },
+                viewPage(index) {
+                    this.pageNumber = index;
+                }
+            }
+        }
+        
+        function getFeaturedCourse() {
+            return {
+                loadingFeatured: false,
+                featuredCourse: [],
+                init() {
+                    loadingFeatured = true
+                    fetch('golf.json')
+                        .then(res => res.json())
+                        .then(json => {
+                            loadingFeatured = false
+                            this.featuredCourse = json.courses;
+                            console.log('Featured course loaded')
+                    })
+                }
+            }
+        }
+        
+        function getCourseReviews() {
+            return {
+                loadingReviews: false,
+                courseReviews: [],
+                init() {
+                    loadingReviews = true
+                    fetch('https://www.fakerestapi.com/datasets/api/v1/amazon-echo-reviews.json')
+                        .then(res => res.json())
+                        .then(json => {
+                            loadingReviews = false
+                            this.courseReviews = json.data;
+                            console.log('Reviews loaded')
+                    })
+                }
+            }
+        }
+
+        
+    </script>
+
 </body>
 </html>
