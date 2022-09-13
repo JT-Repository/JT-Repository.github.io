@@ -106,6 +106,7 @@
 
             function login(secret) {
                 var hash = sha1(secret)
+                debugger;
                 var url = hash + "/index.html"
                 var alert = document.querySelectorAll('[data-id="alert"]')
 
