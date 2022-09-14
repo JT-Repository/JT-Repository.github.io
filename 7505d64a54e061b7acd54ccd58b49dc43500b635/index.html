@@ -1,31 +1,98 @@
 <!DOCTYPE html>
 <html>
     <head>
-    
         <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js">
         </script>
-    
+        <style>
+
+            ::-webkit-input-placeholder { 
+                color: rgba(0,0,0,.35) !important;
+            }
+            :-ms-input-placeholder {
+                color: rgba(0,0,0,.35) !important;
+            }
+            ::placeholder {
+                color: rgba(0,0,0,.35) !important;
+            }
+            .bg {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 20%, #000000 100%);
+                background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 20%, #000000 100%);
+                background: linear-gradient(to bottom, #ffffff 0%, #ffffff 20%, #000000 100%);
+            }
+            .icon {
+                max-width: calc(3rem + 1.5vw);
+                border: solid .2rem rgba(0,0,0,1);
+                border-radius: 50%;
+            }
+            h1 {
+                font-weight: 900;
+                font-size: calc(1.75rem + .5vw);
+            }
+        </style>
     </head>
-    <body>
     
+    <body>
+        <div class="bg"></div>
         <div class="container">
-            <div class="relative row">
-                <div class="col-12">
-                    <img class="img-fluid w-100" src="https://jt-repository.github.io/7505d64a54e061b7acd54ccd58b49dc43500b635/driod.jpg">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="px-4 py-4 px-xl-5 rounded-top">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-auto px-2">
+                                <img class="img-fluid icon animate__animated animate__bounceInLeft" src="https://www.iconninja.com/files/1013/448/865/man-user-person-male-profile-avatar-icon.svg" />
+                            </div>
+                            <div class="col-auto px-2">
+                                <h1 class="mb-0 mt-1">JT-Repository.github.io</h1>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="absolute row align-items-center">
-                <div class="col-lg-4">
-                    <a href="https://jt-repository.github.io/7505d64a54e061b7acd54ccd58b49dc43500b635/course-finder/index.htm">CourseFinder&trade;</a>
-                    <a href="https://jt-repository.github.io/7505d64a54e061b7acd54ccd58b49dc43500b635/wsb/index.htm">[wesellboxes]</a>
+            <div class="row justify-content-center">
+                <div class="col-11 col-sm-10 col-md-6 col-lg-5 col-xl-4 mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="https://via.placeholder.com/1600x900" />
+                        <div class="card-body">
+                            <h4 class="m-0 font-weight-bold">CourseFinder&trade;</h4>
+                            <h5 class="font-weight-light">Tailwind CSS + Alpine JS</h5>
+                            <p class="m-0">What started as learning exercise fast became an almost working model. The data is populated via a fake JSON feed. Still much to do but as a concept it works really well.</p>
+                            <a class="stretched-link" href="https://jt-repository.github.io/7505d64a54e061b7acd54ccd58b49dc43500b635/course-finder/index.htm"></a>
+                        </div>
+                    </div>
                 </div>
+                
+                <div class="col-11 col-sm-10 col-md-6 col-lg-5 col-xl-4 mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="https://via.placeholder.com/1600x900" />
+                        <div class="card-body">
+                            <h4 class="m-0 font-weight-bold">[wesellboxes]</h4>
+                            <h5 class="font-weight-light">Bootstrap 4 with SoundCloud API</h5>
+                            <p>Built as a portfolio piece for an old university friend, it adopts rather more subversive styling.</p>
+                            <a class="stretched-link" href="https://jt-repository.github.io/7505d64a54e061b7acd54ccd58b49dc43500b635/wsb/index.htm"></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-11 col-sm-10 col-md-6 col-lg-5 col-xl-4 mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="https://via.placeholder.com/1600x900" />
+                        <div class="card-body">
+                            <h5 class="m-0">Live YouTube with live API product feeds</h5>
+                            <p class="m-0">Built using Bootstrap 4, </p>
+                            <a class="stretched-link" href="https://jt-repository.github.io/7505d64a54e061b7acd54ccd58b49dc43500b635/wsb/index.htm"></a>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
-            
         </div>
     </body>
 </html>
