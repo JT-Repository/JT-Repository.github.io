@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/OwlCarousel2/2.2.1/assets/owl.theme.default.css">
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     
     <style>
         
@@ -26,15 +28,16 @@
         html {
             scroll-behavior: smooth;
         }
-        .h-100 {
-            min-height: 100vh;
-        }
         body {
-            font-family: 'Josefin Sans', sans-serif;
+            /*font-family: 'Josefin Sans', sans-serif;*/
+            font-size: 105%;
         }
         .container-fluid.h-100 > .row {
             padding-top: 5rem;
             padding-bottom: 5rem;
+        }
+        section:target .container-fluid.h-100 > .row {
+            padding-top: 7.5rem;
         }
         .navbar-toggler:focus,
         .sticky-menu .navbar-toggler:active {
@@ -44,7 +47,6 @@
             padding: 0;
             z-index: 100;
             height: 30px;
-            text-align: right;
         }
         .navbar-toggler span {
             display: block;
@@ -59,12 +61,6 @@
             position: relative;
             z-index: 100;
         }
-        .navbar-toggler span:nth-child(1) {
-            width: 24px;
-        }
-        .navbar-toggler span:nth-child(2) {
-            width: 20px;
-        }
         .navbar-toggler span:nth-child(1),
         .navbar-toggler span:nth-child(3) {
             -webkit-transition: transform 200ms;
@@ -76,8 +72,7 @@
         }
         .navbar-toggler:not(.collapsed) span:nth-child(1) {
             position: absolute;
-            top: 24px;
-            width: 27px;
+            top: .5rem;
             -webkit-transform: rotate(135deg);
             -ms-transform: rotate(135deg);
                 transform: rotate(135deg);
@@ -88,7 +83,7 @@
         }
         .navbar-toggler:not(.collapsed) span:nth-child(3) {
             position: absolute;
-            top: 24px;
+            top: .5rem;
             -webkit-transform: rotate(-135deg);
             -ms-transform: rotate(-135deg);
                 transform: rotate(-135deg);
@@ -102,17 +97,19 @@
             z-index: 100;
         }
         .main-navigation a {
-            font-weight: 500;
             color: rgba(255,255,255,.9);
+            font-size: 1rem;
+            font-weight: 400;
             text-decoration: none;
         }
+        .main-navigation a:hover,
         .main-navigation a:focus {
-            color: rgba(255,255,255,1);
+            color: rgba(255,255,255,1) !important;
             margin-left: .25rem;
         }
         .main-navigation a.active {
             color: rgba(255,255,255,1);
-            font-weight: 700;
+            font-weight: 600;
         }
         .home-container {
             background-image: url(ncjgatd56efgatrwl.jpg);
@@ -147,7 +144,7 @@
         .bg-custom {
             background-color: rgba(var(--bg-custom),1);
         }
-        .text-black {
+        .text-custom {
             color: rgba(var(--bg-custom),1);
         }
 
@@ -168,6 +165,10 @@
                 height: unset !important;
                 min-height: 100vh;
             }
+            .container-fluid.h-100 > .row {
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+            }
             .home-container {
                 background-attachment: fixed;
             }
@@ -180,17 +181,63 @@
                 transform: translateY(0);
                 transition: transform 600ms ease;
             }
-            .main-navigation a {
-                font-size: calc(1rem + .25vw);
+            .main-navigation a,
+            .main-navigation .h5,
+            .faux-navigation .h5 {
+                font-size: calc(1rem + .2vw);
             }
+            .main-navigation a:hover,
             .main-navigation a:focus {
-                margin-left: 0;
+                margin-left: unset !important;
             }
             .menu-container {
                 background-attachment: fixed;
             }
         }
 
+        /*MADE BY*/
+        .madebyOuter {
+            background-color: rgba(32,32,32,.5);
+        }
+        .madebyInner {
+            padding: 1rem 0 .5rem 0;
+            background: -moz-linear-gradient(top, rgba(50,50,50,1) 8%, rgba(0,0,0,0) 100%);
+            background: -webkit-linear-gradient(top, rgba(50,50,50,1) 8%, rgba(0,0,0,0) 100%);
+            background: linear-gradient(to bottom, rgba(50,50,50,1) 8%, rgba(0,0,0,0) 100%);
+        }
+        .madebyOuter:hover {
+            background-color: rgba(172,199,201,.5);
+            cursor: default;
+        }
+        .madebyOuter:hover .madebyInner {
+            padding: 1.25rem 0 1rem 0;
+            background: -moz-linear-gradient(top, rgba(50,50,50,1) 2%, rgba(0,0,0,0) 100%);
+            background: -webkit-linear-gradient(top, rgba(50,50,50,1) 2%, rgba(0,0,0,0) 100%);
+            background: linear-gradient(to bottom, rgba(50,50,50,1) 2%, rgba(0,0,0,0) 100%);
+        }
+        .madebyOuter p {
+            color: rgba(32,32,32,.5);
+        }
+        .madebyOuter:hover p {
+            color: rgba(32,32,32,1);
+            transform: translateY(3px);
+        }
+        .madebyOuter:hover p:hover {
+            text-shadow: 3px 3px rgba(64,209,45,.1);
+        }
+        .madebyOuter a {
+            color: rgba(32,32,32,.5);
+        }
+        .madebyOuter:hover a {
+            color: rgba(32,32,32,.9);
+        }
+        .madebyOuter:hover p:hover a {
+            color: rgba(64,209,45,1);
+            text-decoration: none;
+            text-shadow: 3px 3px rgba(0,0,0,.25);
+            cursor: pointer;
+        }
+        
     </style>
     
 </head>
@@ -199,14 +246,17 @@
     <header class="main-navigation">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 py-3">
-                    <nav class="navbar navbar-expand-lg p-0" id="mainNav">
+                <div class="col-12 col-md-10 col-xl-9 py-3">
+                    <nav class="navbar navbar-expand-lg py-0" id="mainNav">
+                        
                         <div class="h5 font-weight-bold m-0 p-0 text-white">The Fitzwilliam Arms</div>
-                        <div class="navbar-toggler ml-auto p-0 collapsed" type="button" data-toggle="collapse" data-target="#mainNavCollapse" aria-controls="mainNavCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        
+                        <div class="navbar-toggler ml-auto collapsed" type="button" data-toggle="collapse" data-target="#mainNavCollapse" aria-controls="mainNavCollapse" aria-expanded="false" aria-label="Toggle navigation">
                             <span></span>
                             <span></span>
                             <span></span>
                         </div>
+                        
                         <div class="navbar-collapse collapse justify-content-start justify-content-lg-end text-left text-lg-center" id="mainNavCollapse">
                             <ul class="navbar-nav m-0 p-0">
                                 <li class="nav-item pl-lg-4">
@@ -233,17 +283,18 @@
     </header>
 
     <section class="home-container h-100">
-        <div class="container-fluid bg-custom">
+        <div class="position-fixed d-none d-lg-block container-fluid bg-custom faux-navigation">
             <div class="row justify-content-center">
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9">
-                    
                     <div class="row justify-content-between">
                         <div class="col-auto py-3">
                             <span class="h5 m-0 font-weight-bold text-white">The Fitzwilliam Arms</span>
                         </div>
-                        <div class="col-auto bg-info py-3">
-                            <span class="text-white font-weight-bold">Bookings available <em class="fa fa-chevron-down animate__animated animate__bounce animate__slow animate__repeat-3 animate__delay-3s"></em></span>
-                            <a class="stretched-link" href="#Bookings"></a>
+                        <div class="col-auto">
+                            <div class="bg-info p-3 text-white font-weight-bold">
+                                Bookings available <em class="fa fa-chevron-down animate__animated animate__bounce animate__slow animate__repeat-3 animate__delay-3s"></em>
+                                <a class="stretched-link" href="#Bookings"></a>
+                            </div>
                         </div>
                     </div>
                     
@@ -254,13 +305,34 @@
             <div class="row h-100 justify-content-center">
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center">
                     <div class="p-5 bg-white home-panel">
-                        <h1 class="font-weight-bold m-0">The Fitzwilliam Arms</h1>
-                        <p class="h4 mb-3 font-weight-light">The private dining room was a lovely space and the food was excellent! Everyone commented on the choice and quality of the menu options &hellip;</p>
+
+                        <div class="owl-carousel owl-theme" id="tripCarousel">
+                            <div class="item">
+                                <p class="h3 mb-4 font-weight-light">The private dining room was a lovely space and the food was excellent! Everyone commented on the choice and quality of the menu options &hellip;</p>
+                            </div>
+                            <div class="item">
+                                <p class="h3 mb-4 font-weight-light">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+                                
+                            </div>
+                        </div>
                         <div class="row justify-content-center">
                             <div class="col-auto">
                                 <img class="img-fluid logo-rating" src="tripadvisor-4-5-star.png" alt="">
                             </div>
                         </div>
+                        <script>
+                            $('#tripCarousel').owlCarousel({
+                                autoplay: true,
+                                autoplayTimeout: 5000,
+                                autoplayHoverPause: true,
+                                loop: true,
+                                autoHeight: true,
+                                items: 1,
+                                nav: false,
+                                dots: false
+                            });
+                        </script>
+                        
                     </div>
                 </div>
             </div>
@@ -272,7 +344,7 @@
             <div class="row h-100 justify-content-center">
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center text-dark">
                     
-                    <h1 class="d-inline-block font-weight-normal mb-4 pb-4 border-bottom border-dark">Bookings</h1>
+                    <h1 class="d-inline-block font-weight-bold mb-4 pb-4 border-bottom border-dark">Bookings</h1>
                     <p class="font-weight-light my-4">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
                     
                     <div class="row pt-4">
@@ -351,7 +423,7 @@
             <div class="row h-100 justify-content-center">
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center text-white">
                     
-                    <h1 class="d-inline-block font-weight-normal mb-4 pb-4 border-bottom border-white">Menu</h1>
+                    <h1 class="d-inline-block font-weight-bold mb-4 pb-4 border-bottom border-white">Menu</h1>
                     
                     <div class="row text-left">
                         
@@ -440,7 +512,7 @@
             <div class="row h-100 justify-content-center">
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center text-dark">
                     
-                    <h1 class="d-inline-block font-weight-normal mb-4 pb-4 border-bottom border-dark">Specials</h1>
+                    <h1 class="d-inline-block font-weight-bold mb-4 pb-4 border-bottom border-dark">Specials</h1>
                     <p class="font-weight-light my-4">You're special!</p>
 
                 </div>
@@ -448,49 +520,56 @@
         </div>
     </section>
     
-    <footer class="footer-container h-100" id="FindUs">
-        <div class="container-fluid h-100">
-            <div class="row h-100 justify-content-center">
-                <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-white text-center">
-                    
-                    <h1 class="d-inline-block font-weight-normal mb-4 pb-4 border-bottom border-white">Where To Find Us</h1>
-                    
-                    <div class="row mt-4 text-center text-lg-left">
-                        
-                        <div class="col-lg-auto px-xl-4 mb-3 m-lg-0">
-                            <div class="row">
-                                <div class="col-lg-12 mb-3">
-                                    <h4>Address</h4>
-                                    <p>Some building,<br class="d-none d-lg-inline">
-                                    Some street,<br class="d-none d-lg-inline">
-                                    Some town/city,<br class="d-none d-lg-inline">
-                                    Some county<br class="d-none d-lg-inline">
-                                    Some postcode</p>
+    <footer class="bg-custom2">
+        <section class="footer-container h-100" id="FindUs">
+            <div class="container-fluid h-100">
+                <div class="row h-100 justify-content-center shadow-lg">
+                    <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-white text-center">
+
+                        <h1 class="d-inline-block font-weight-bold mb-4 pb-4 border-bottom border-white">Where To Find Us</h1>
+
+                        <div class="row mt-4 text-center text-lg-left">
+
+                            <div class="col-lg-auto px-xl-4 mb-3 m-lg-0">
+                                <div class="row">
+                                    <div class="col-lg-12 mb-3">
+                                        <h4>Address</h4>
+                                        <p>Some building,<br class="d-none d-lg-inline">
+                                        Some street,<br class="d-none d-lg-inline">
+                                        Some town/city,<br class="d-none d-lg-inline">
+                                        Some county<br class="d-none d-lg-inline">
+                                        Some postcode</p>
+                                    </div>
+                                    <div class="col-lg-12 mb-3">
+                                        <h4>Contact details</h4>
+                                        <p class="m-0"><strong>Booking enquiries</strong> <span class="text-nowrap">01234 567890</span></p>
+                                        <p class="m-0"><strong>General enquiries</strong> <span class="text-nowrap">01234 567891</span></p>
+                                    </div>
                                 </div>
-                                <div class="col-lg-12 mb-3">
-                                    <h4>Contact details</h4>
-                                    <p class="m-0"><strong>Booking enquiries</strong> <span class="text-nowrap">01234 567890</span></p>
-                                    <p class="m-0"><strong>General enquiries</strong> <span class="text-nowrap">01234 567891</span></p>
-                                </div>
+                            </div>   
+
+                            <div class="col-lg px-xl-4 mb-3 mt-4 m-lg-0">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2373.329464266114!2d-1.427714548447938!3d53.498309779913036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879709c89c10227%3A0xfc8aa57f6fe813db!2sFitzwilliam%20Arms%2C%2042%20Hill%20St%2C%20Elsecar%2C%20Barnsley%20S74%208EL!5e0!3m2!1sen!2suk!4v1663582131067!5m2!1sen!2suk" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
-                        </div>   
+                        </div> 
 
-                        <div class="col-lg px-xl-4 mb-3 mt-4 m-lg-0">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2373.329464266114!2d-1.427714548447938!3d53.498309779913036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879709c89c10227%3A0xfc8aa57f6fe813db!2sFitzwilliam%20Arms%2C%2042%20Hill%20St%2C%20Elsecar%2C%20Barnsley%20S74%208EL!5e0!3m2!1sen!2suk!4v1663582131067!5m2!1sen!2suk" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                    </div> 
-                    
-                    <p class="mb-0 mt-5 font-weight-light">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+                        <p class="mb-0 mt-5 font-weight-light">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
 
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+        
     </footer>
     
-    <div class="bg-custom">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-11 col-md-10 col-lg-11 col-xl-10 py-2 text-white-50 text-center">Website designed and hosted by a <strong>Bish</strong>&trade;</div>
+    <div class="madebyOuter" id="madeBy">
+        <div class="madebyInner">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-11 col-md-10 col-lg-11 col-xl-10 text-center">
+                        <p class="m-0">Website designed and hosted by a <a class="font-weight-bold" href="https://www.bish.com" target="_blank">Bish</a>&trade;</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -517,11 +596,14 @@
                     homepanel.css('opacity', scrollPercent);
                 }
             });
+            
+            $('.navbar-collapse a').click(function() {
+                $(".navbar-collapse").collapse('hide');
+            });
+            
         });
         
-        $('.navbar-collapse a').click(function() {
-            $(".navbar-collapse").collapse('hide');
-        });
+        
 
      </script>
 
