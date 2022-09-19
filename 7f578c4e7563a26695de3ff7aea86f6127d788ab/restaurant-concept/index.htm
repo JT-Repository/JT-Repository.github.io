@@ -10,9 +10,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    
+    
     <style>
         
         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --bg-custom: 0,0,0;
+        }
         
         /*smooth scroll*/
         html {
@@ -27,68 +35,6 @@
         .container-fluid.h-100 > .row {
             padding-top: 5rem;
             padding-bottom: 5rem;
-        }
-        .main-navigation {
-            position: fixed;
-            top: 0;
-            right: 0;
-            left: 0;
-            background-color: rgba(0,0,0,1);
-            z-index: 100;
-        }
-        .main-navigation a {
-            font-weight: 500;
-            color: rgba(255,255,255,.9);
-            text-shadow: .15rem .15rem rgba(0,0,0,.35);
-            text-decoration: none;
-        }
-        .main-navigation:hover a {
-            color: rgba(255,255,255,1);
-        }
-        .main-navigation.isVisible a {
-            color: rgba(255,255,255,.8);
-            font-weight: 600;
-            text-shadow: none;
-        }
-        .main-navigation.isVisible a:hover {
-            color: rgba(255,255,255,1);
-        }
-        .main-navigation.isVisible .current a {
-            color: rgba(255,255,255,.9);
-            font-weight: 700;
-        }
-        .home-container {
-            background-image: url(ncjgatd56efgatrwl.jpg);
-            background-position: 50% 50%;
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-        .home-panel {
-            opacity: 1;
-        }
-        .booking-container {
-            background-color: rgba(255,255,255,1);
-        }
-        .booking-container .text-form {
-            color: rgba(34,173,185,1);
-        }
-        .menu-container {
-            background-image: url(ft5afgr466.jpg);
-            background-size: cover;
-            background-position: 50% 50%;
-            background-repeat: no-repeat;
-        }
-        .menu-item .price::before {
-            content: '£';
-        }
-        .specials-container {
-            background-color: rgba(255,255,255,1);
-        }
-        .footer-container {
-            background-color: rgba(50,50,50,1);
-        }
-        .made-by {
-            background-color: rgba(0,0,0,1);
         }
         .navbar-toggler:focus,
         .sticky-menu .navbar-toggler:active {
@@ -147,6 +93,63 @@
             -ms-transform: rotate(-135deg);
                 transform: rotate(-135deg);
         }
+        .main-navigation {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            background-color: rgba(var(--bg-custom),1);
+            z-index: 100;
+        }
+        .main-navigation a {
+            font-weight: 500;
+            color: rgba(255,255,255,.9);
+            text-decoration: none;
+        }
+        .main-navigation a:focus {
+            color: rgba(255,255,255,1);
+            margin-left: .25rem;
+        }
+        .main-navigation a.active {
+            color: rgba(255,255,255,1);
+            font-weight: 700;
+        }
+        .home-container {
+            background-image: url(ncjgatd56efgatrwl.jpg);
+            background-position: 50% 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .home-panel {
+            opacity: 1;
+        }
+        .logo-rating {
+            max-width: calc(160px + 3vw);
+        }
+        .booking-container {
+            background-color: rgba(255,255,255,1);
+        }
+        .menu-container {
+            background-image: url(ft5afgr466.jpg);
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+        }
+        .menu-item .price::before {
+            content: '£';
+        }
+        .specials-container {
+            background-color: rgba(255,255,255,1);
+        }
+        .footer-container {
+            background-color: rgba(50,50,50,1);
+        }
+        .bg-custom {
+            background-color: rgba(var(--bg-custom),1);
+        }
+        .text-black {
+            color: rgba(var(--bg-custom),1);
+        }
 
         /*turn off smooth scroll*/
         @media screen and (prefers-reduced-motion: reduce) {
@@ -168,23 +171,21 @@
             .home-container {
                 background-attachment: fixed;
             }
-            .main-navigation {
-                background-color: rgba(0,0,0,0);
-                transition: all 900ms ease;
-                display: none;
-            }
-            .main-navigation a {
-                font-weight: 300;
-                font-size: calc(1rem + .25vw);
+            .main-navigation:not(.isVisible) {
+                transform: translateY(-100%);
+                transform: transform 600ms ease;
             }
             .main-navigation.isVisible {
-                display: block;
-                padding-top: .5rem;
-                padding-bottom: .5rem;
-                background-color: rgba(0,0,0,1);
-                transition: all 900ms ease;
+                background-color: rgba(var(--bg-custom),1);
+                transform: translateY(0);
+                transition: transform 600ms ease;
             }
-
+            .main-navigation a {
+                font-size: calc(1rem + .25vw);
+            }
+            .main-navigation a:focus {
+                margin-left: 0;
+            }
             .menu-container {
                 background-attachment: fixed;
             }
@@ -198,8 +199,8 @@
     <header class="main-navigation">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9">
-                    <nav class="navbar navbar-expand-lg px-0 py-3 p-lg-0" id="mainNav">
+                <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 py-3">
+                    <nav class="navbar navbar-expand-lg p-0" id="mainNav">
                         <div class="h5 font-weight-bold m-0 p-0 text-white">The Fitzwilliam Arms</div>
                         <div class="navbar-toggler ml-auto p-0 collapsed" type="button" data-toggle="collapse" data-target="#mainNavCollapse" aria-controls="mainNavCollapse" aria-expanded="false" aria-label="Toggle navigation">
                             <span></span>
@@ -208,20 +209,20 @@
                         </div>
                         <div class="navbar-collapse collapse justify-content-start justify-content-lg-end text-left text-lg-center" id="mainNavCollapse">
                             <ul class="navbar-nav m-0 p-0">
-                                <li class="nav-item pl-lg-3">
-                                    <a class="nav-link" href="#Home">Home</a>
+                                <li class="nav-item pl-lg-4">
+                                    <a class="nav-link px-0 py-lg-0" href="#Home">Home</a>
                                 </li>
-                                <li class="nav-item pl-lg-3">
-                                    <a class="nav-link" href="#Bookings">Bookings</a>
+                                <li class="nav-item pl-lg-4">
+                                    <a class="nav-link px-0 py-lg-0" href="#Bookings">Bookings</a>
                                 </li>
-                                <li class="nav-item pl-lg-3">
-                                    <a class="nav-link" href="#Menu">Menu</a>
+                                <li class="nav-item pl-lg-4">
+                                    <a class="nav-link px-0 py-lg-0" href="#Menu">Menu</a>
                                 </li>
-                                <li class="nav-item pl-lg-3">
-                                    <a class="nav-link" href="#Specials">Specials</a>
+                                <li class="nav-item pl-lg-4">
+                                    <a class="nav-link px-0 py-lg-0" href="#Specials">Specials</a>
                                 </li>
-                                <li class="nav-item pl-lg-3">
-                                    <a class="nav-link" href="#FindUs">Where To Find Us</a>
+                                <li class="nav-item pl-lg-4">
+                                    <a class="nav-link px-0 py-lg-0" href="#FindUs">Where To Find Us</a>
                                 </li>
                             </ul>
                         </div>
@@ -232,23 +233,34 @@
     </header>
 
     <section class="home-container h-100">
+        <div class="container-fluid bg-custom">
+            <div class="row justify-content-center">
+                <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9">
+                    
+                    <div class="row justify-content-between">
+                        <div class="col-auto py-3">
+                            <span class="h5 m-0 font-weight-bold text-white">The Fitzwilliam Arms</span>
+                        </div>
+                        <div class="col-auto bg-info py-3">
+                            <span class="text-white font-weight-bold">Bookings available <em class="fa fa-chevron-down animate__animated animate__bounce animate__slow animate__repeat-3 animate__delay-3s"></em></span>
+                            <a class="stretched-link" href="#Bookings"></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
         <div class="container-fluid h-100" id="Home">
             <div class="row h-100 justify-content-center">
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center">
-                    <div class="p-5 mt-5 mt-lg-0 bg-white home-panel">
-                        <h1 class="font-weight-bolder m-0">The Fitzwilliam Arms</h1>
-                        <p class="lead font-weight-normal">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis.</p>
-                        
-                        <div class="row">
-
-                            <div class="col-4 col-sm-3 col-lg-2">
-                                <img class="img-fluid w-100" src="tripadvisor-4-5-star.png" alt="">
+                    <div class="p-5 bg-white home-panel">
+                        <h1 class="font-weight-bold m-0">The Fitzwilliam Arms</h1>
+                        <p class="h4 mb-3 font-weight-light">The private dining room was a lovely space and the food was excellent! Everyone commented on the choice and quality of the menu options &hellip;</p>
+                        <div class="row justify-content-center">
+                            <div class="col-auto">
+                                <img class="img-fluid logo-rating" src="tripadvisor-4-5-star.png" alt="">
                             </div>
-
-                            <a class="h4 text-info" href="#Bookings">Bookings available <em class="fa fa-angle-down animate__animated animate__bounce animate__slow animate__repeat-3 animate__delay-3s"></em></a>
-
                         </div>
-                        
                     </div>
                 </div>
             </div>
@@ -261,7 +273,7 @@
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center text-dark">
                     
                     <h1 class="d-inline-block font-weight-normal mb-4 pb-4 border-bottom border-dark">Bookings</h1>
-                    <p class="font-weight-light my-4">All our food is prepared in a kitchen where nuts, gluten and other known allergens maybe present. Please note we take caution to prevent cross-contamination, however, any product may contain traces as all menu items are produced in the same kitchen. Our dish descriptions do not include all of the ingredients used to make the dish.</p>
+                    <p class="font-weight-light my-4">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
                     
                     <div class="row pt-4">
                         
@@ -269,9 +281,9 @@
                             <form class="mb-5 m-lg-0" method="post">
                                 <div class="row">
                                     <div class="col-12 mb-3">
-                                        <div class="p-3 bg-info">
-                                            <label class="m-0 font-weight-bold text-white text-uppercase" for="AvailableToday">Looking for a table now?</label>
-                                            <select type="text" class="form-control m-0" id="AvailableNow">
+                                        <div class="p-3 bg-info rounded">
+                                            <label class="h5 m-0 mb-2 font-weight-bold text-white" for="availableToday">Today's availability</label>
+                                            <select type="text" class="form-control m-0" id="availableToday">
                                                 <option selected>Please choose ...</option>
                                                 <option>7.30pm - Seating 4</option>
                                                 <option>8.40pm - Seating 6</option>
@@ -280,26 +292,45 @@
                                         </div>
                                     </div>
                                     <div class="col-12 mb-3">
-                                        <label class="m-0 font-weight-bold text-info text-uppercase" for="Name">Your name *</label>
-                                        <input type="text" class="form-control" id="Name" placeholder="..." required>
+                                        <label class="m-0 font-weight-bold" for="fullName">Your name</label>
+                                        <input type="text" class="form-control" id="fullName" placeholder="..." required>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label class="m-0 font-weight-bold text-info text-uppercase" for="Telephone">Phone number *</label>
-                                        <input type="text" class="form-control" id="Telephone" placeholder="..." required>
+                                        <label class="m-0 font-weight-bold" for="telephoneNumber">Phone number</label>
+                                        <input type="text" class="form-control" id="telephoneNumber" placeholder="..." required>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label class="m-0 font-weight-bold text-info text-uppercase" for="Eail">Email</label>
-                                        <input type="email" class="form-control" id="Email" placeholder="..." required>
+                                        <label class="m-0 font-weight-bold" for="emailAddress">Email</label>
+                                        <input type="email" class="form-control" id="emailAddress" placeholder="..." required>
                                     </div>
-                                    <div class="col-md-4 mb-3">
-                                        
+                                    <div class="col-md-3 mb-3">
+                                        <label class="m-0 font-weight-bold" for="bookingSeats">Seats</label>
+                                        <select type="text" class="form-control m-0" id="bookingSeats">
+                                            <option selected>...</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                        </select>
                                     </div>
-                                    <div class="col-md-4 mb-3">
-                                        
+                                    <div class="col-md mb-3">
+                                        <label class="m-0 font-weight-bold" for="bookingTime">Time</label>
+                                        <input type="time" class="form-control" id="bookingTime" required>
                                     </div>
-                                    <div class="col-md-4 mb-3">
-                                        
+                                    <div class="col-md mb-3">
+                                        <label class="m-0 font-weight-bold" for="bookingDate">Date</label>
+                                        <input type="date" class="form-control" id="bookingDate" required>
                                     </div>
+                                    
+                                    <div class="col-12 mb-3">
+                                        <input type="checkbox" class="form-check-input m-1" id="marketingCheck">
+                                        <label class="ml-4 pl-2" for="marketingCheck">Please tick if you would like to receive money off vouchers, news of upcoming events and new menu releases.</label>
+                                    </div>
+                                    
                                 </div>
                                 
                                 <button type="submit" class="btn btn-info ml-auto">Confirm your reservation</button>
@@ -410,7 +441,7 @@
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center text-dark">
                     
                     <h1 class="d-inline-block font-weight-normal mb-4 pb-4 border-bottom border-dark">Specials</h1>
-                    <p class="font-weight-light my-4">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+                    <p class="font-weight-light my-4">You're special!</p>
 
                 </div>
             </div>
@@ -420,44 +451,53 @@
     <footer class="footer-container h-100" id="FindUs">
         <div class="container-fluid h-100">
             <div class="row h-100 justify-content-center">
-                <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center text-white">
+                <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-white text-center">
                     
                     <h1 class="d-inline-block font-weight-normal mb-4 pb-4 border-bottom border-white">Where To Find Us</h1>
-                    <p class="font-weight-light my-4">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
-                    <div class="row text-left">
-                        <div class="col-lg px-xl-4">
-                            <h4>Address</h4>
-                            <p>Some building<br>
-                            Some street<br>
-                            Some town/city<br>
-                            Some county<br>
-                            Some postcode</p>
+                    
+                    <div class="row mt-4 text-center text-lg-left">
+                        
+                        <div class="col-lg-auto px-xl-4 mb-3 m-lg-0">
+                            <div class="row">
+                                <div class="col-lg-12 mb-3">
+                                    <h4>Address</h4>
+                                    <p>Some building,<br class="d-none d-lg-inline">
+                                    Some street,<br class="d-none d-lg-inline">
+                                    Some town/city,<br class="d-none d-lg-inline">
+                                    Some county<br class="d-none d-lg-inline">
+                                    Some postcode</p>
+                                </div>
+                                <div class="col-lg-12 mb-3">
+                                    <h4>Contact details</h4>
+                                    <p class="m-0"><strong>Booking enquiries</strong> <span class="text-nowrap">01234 567890</span></p>
+                                    <p class="m-0"><strong>General enquiries</strong> <span class="text-nowrap">01234 567891</span></p>
+                                </div>
+                            </div>
+                        </div>   
+
+                        <div class="col-lg px-xl-4 mb-3 mt-4 m-lg-0">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2373.329464266114!2d-1.427714548447938!3d53.498309779913036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879709c89c10227%3A0xfc8aa57f6fe813db!2sFitzwilliam%20Arms%2C%2042%20Hill%20St%2C%20Elsecar%2C%20Barnsley%20S74%208EL!5e0!3m2!1sen!2suk!4v1663582131067!5m2!1sen!2suk" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
-                        <div class="col-lg px-xl-4">fghdfgh</div>
-                        <div class="col-lg-6 px-xl-4">
-                            {{GOOGLE_MAPS}}
-                        </div>
-                    </div>  
+                    </div> 
+                    
+                    <p class="mb-0 mt-5 font-weight-light">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
 
                 </div>
             </div>
         </div>
     </footer>
     
-    <div class="made-by">
+    <div class="bg-custom">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-11 col-md-10 col-lg-11 col-xl-10 py-2 text-white-50 text-center">Website designed and hosted by <strong>BookMe</strong>&trade;</div>
+                <div class="col-11 col-md-10 col-lg-11 col-xl-10 py-2 text-white-50 text-center">Website designed and hosted by a <strong>Bish</strong>&trade;</div>
             </div>
         </div>
     </div>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    
     <script>
         $(function() {
-            
+            // menu scroll into view on .lg sizes
             var nav = $(".main-navigation");
             $(window).scroll(function() {    
                 var scroll = $(window).scrollTop();
@@ -467,21 +507,20 @@
                     nav.removeClass("isVisible");
                 }
             });
-            
+            // home info panel fade ou/in on scroll
             var homepanel = $('.home-panel');
-            var homepanelHeight = homepanel.outerHeight();
-
+            var homepanelOuter = $('.home-container');
+            var homepanelHeight = homepanelOuter.outerHeight();
             $(document).scroll(function() {
                 var scrollPercent = (homepanelHeight - window.scrollY) / homepanelHeight;
                 if(scrollPercent >= 0){
                     homepanel.css('opacity', scrollPercent);
                 }
             });
-            
-            $('.navbar-collapse a').click(function() {
-              $(".navbar-collapse").collapse('hide');
-            });
-            
+        });
+        
+        $('.navbar-collapse a').click(function() {
+            $(".navbar-collapse").collapse('hide');
         });
 
      </script>
