@@ -2,7 +2,6 @@
 <html>
 <head>
 
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
@@ -17,31 +16,137 @@
     
     <style>
         
-        /*@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap');*/
-        
-        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&display=swap');
+        /*@import url('https://fonts.googleapis.com/css2?family=Lato:wght@200;300;400;600;700;900&display=swap');*/
         
         :root {
-            --bg-custom: 0,0,0;
+            --primaryColor: 0,0,0;
+            
+            --secondaryColor: 212,200,53;
         }
         
-        /*smooth scroll*/
+        /* smooth scroll */
+        
         html {
             scroll-behavior: smooth;
         }
+        
+        /* core and BS overrides */
+        
         body {
-            /*font-family: 'Josefin Sans', sans-serif;*/
-            font-family: "Lato", sans-serif;
-            font-size: .95rem;
+            font-family: 'Josefin Sans', sans-serif;
+            /*font-family: "Lato", sans-serif;*/
+            font-size: 1.2rem;
             font-weight: 400;
         }
+        .font-weight-semi-bold {
+            font-weight: 500 !important;
+        }
+        .font-weight-bold {
+            font-weight: 600 !important;
+        }
+        .font-weight-bolder {
+            font-weight: 700 !important;
+        }
+        .bg-primaryColor {
+            background-color: rgba(var(--primaryColor),1);
+        }
+        .text-primary {
+            color: rgba(var(--primaryColor),1);
+        }
+        .bg-secondaryColor {
+            background-color: rgba(var(--secondaryColor),1);
+        }
+        .text-secondaryColor {
+            color: rgba(var(--secondaryColor),1);
+        }
+        /*.btn-secondaryColor {
+            color: rgba(255,255,255,1);
+            background-color: rgba(var(--secondaryColor),1);
+            border-color: rgba(var(--secondaryColor),1);
+        }
+        .btn-secondaryColor:hover {
+            color: rgba(255,255,255,1);
+            background-color: rgba(var(--secondaryColor),1);
+            border-color: rgba(var(--secondaryColor),1);
+        }
+        .btn-secondaryColor.focus,
+        .btn-secondaryColor:focus {
+            color: rgba(255,255,255,1);
+            background-color: rgba(var(--secondaryColor),1);
+            border-color: rgba(var(--secondaryColor),1);
+            box-shadow: 0 0 0 0.2rem rgba(var(--secondaryColor),1);
+        }
+        .btn-secondaryColor:not(:disabled):not(.disabled).active:focus,
+        .btn-secondaryColor:not(:disabled):not(.disabled):active:focus,
+        .show>.btn-secondaryColor.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0.2rem rgba(var(--primaryColor),1);
+        }*/
         .container-fluid.h-100 > .row {
             padding-top: 5rem;
             padding-bottom: 5rem;
         }
-        section:target .container-fluid.h-100 > .row {
-            padding-top: 7.5rem;
+        /* scroll snap - see below also
+        section {
+            position: relative;
+            height: 100vh;
+            scroll-snap-align: start;
+        }*/
+        section .container-fluid.h-100 > .row {
+            padding-top: 6.5rem;
+            padding-top: 5rem;
         }
+        h1 {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: rgba(var(--secondaryColor),1);
+            transform: translateX(-100%) translateY(-.125rem);
+        }
+        h1.active::after {
+            animation: line 450ms ease 300ms 1 forwards;
+        }
+
+        /* custom styles */
+        
+        .home-link {
+            position: fixed;
+            display: block;
+            right: .5rem;
+            bottom: .5rem;
+            left: 0;
+            z-index: 101;
+        }
+        .home-link a {
+            display: none;
+            padding: .25rem .5rem;
+            opacity: .35;
+        }
+        .home-link a:hover,
+        .home-link a:focus {
+            text-decoration: none;
+            opacity: 1;
+            background-color: rgba(var(--primaryColor),.9);
+        }
+        .home-link a em {
+            font-size: calc(1rem + .5vw);
+            color: rgba(var(--secondaryColor),1);
+        }
+        .home-link a:focus em {
+            transform: translateY(-1px);
+        }
+        .home-link a:not(:focus) em {
+            transform: translateY(0px);
+        }
+        
         .navbar-toggler:focus,
         .sticky-menu .navbar-toggler:active {
             outline: 0;
@@ -96,38 +201,55 @@
             top: 0;
             right: 0;
             left: 0;
-            background-color: rgba(var(--bg-custom),1);
+            background-color: rgba(var(--primaryColor),1);
             z-index: 100;
         }
-        .main-navigation a {
-            color: rgba(255,255,255,.9);
-            font-size: 1rem;
-            font-weight: 400;
-            text-decoration: none;
+        .main-navigation .navbar-nav span {
+            height: unset;
+            padding: 0;
+            margin: 0;
         }
-        .main-navigation a:hover,
-        .main-navigation a:focus {
-            color: rgba(255,255,255,1) !important;
-            margin-left: .25rem;
-        }
-        .main-navigation a.active {
+        .main-navigation .navbar-nav a {
+            position: relative;
             color: rgba(255,255,255,1);
+            font-size: 1rem;
+            text-decoration: none;
+            overflow-x: hidden;
+        }
+        .main-navigation .navbar-nav a:hover,
+        .main-navigation .navbar-nav a:focus {
             font-weight: 600;
         }
+        .main-navigation .navbar-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: .0875rem;
+            left: 0;
+            right: 0;
+            height: .0875rem;
+            background-color: rgba(var(--secondaryColor),1);
+            transform: translateX(-110%);
+        }
+        .main-navigation .navbar-nav a.active,
+        .main-navigation .navbar-nav a.active:hover,
+        .main-navigation .navbar-nav a.active:focus {  
+            font-weight: 700;
+        }
+        .main-navigation .navbar-nav a.active::after {
+            animation: line 450ms ease 300ms 1 forwards;
+        }
+
         .home-container {
             background-image: url(ncjgatd56efgatrwl.jpg);
             background-position: 50% 50%;
             background-size: cover;
-            background-repeat: no-repeat;
+            background-repeat: no-repeat;  
         }
         .home-panel {
             opacity: 1;
         }
         .logo-rating {
-            max-width: calc(160px + 3vw);
-        }
-        .booking-container {
-            background-color: rgba(255,255,255,1);
+            max-width: calc(160px + 2.75vw);
         }
         .menu-container {
             background-image: url(ft5afgr466.jpg);
@@ -141,36 +263,98 @@
         .specials-container {
             background-color: rgba(255,255,255,1);
         }
-        .footer-container {
-            background-color: rgba(50,50,50,1);
+        .specials-block {
+            position: relative;
+            overflow: hidden;
+            background: rgba(var(--secondaryColor),.1);
+            background-position: 50% 50%;
+            background-size: cover;
         }
-        .bg-custom {
-            background-color: rgba(var(--bg-custom),1);
+        .specials-block:before{
+            content: '';
+            display: block;
+            padding-top: 100%;
         }
-        .text-custom {
-            color: rgba(var(--bg-custom),1);
+        .specials-block:hover {
         }
+        .specials-block .specials-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 900ms ease;
+            opacity: 0;
+        }
+        .specials-block:hover .specials-text {
+            opacity: 1;
+            background-color: rgba(255,255,255,.5);
+            transition: all 450ms ease;
+        }
+        
 
-        /*turn off smooth scroll*/
+        /* turn off smooth scroll */
         @media screen and (prefers-reduced-motion: reduce) {
             html {
                 scroll-behavior: auto;
             }
         }
+        
+        /* DESKTOP only */
         @media screen and (min-width: 992px) {
+            /* scroll snap
+            html {
+                scroll-snap-type: mandatory;
+                scroll-snap-points-y: repeat(100vh);
+                scroll-snap-type: y mandatory;
+            }*/
             html, body {
                 height: 100%;
             }
             body {
                 background-attachment: fixed;
             }
-            .h-100 {
+            .container-fluid.h-100,
+            .row.h-100 {
                 height: unset !important;
                 min-height: 100vh;
             }
             .container-fluid.h-100 > .row {
-                padding-top: 5rem;
+                padding-top: 6.5rem;
                 padding-bottom: 5rem;
+            }
+            .home-link {
+                right: 0;
+                bottom: 1rem;
+            }
+            .home-link a:hover {
+                background-color: rgba(var(--primaryColor),0);
+            }
+            .home-link a::before {
+                opacity: 0;
+                transition: opacity 450ms ease;
+            }
+            .home-link a:hover::before {
+                content: 'Back to top';
+                display: block;
+                position: absolute;
+                top: .3rem;
+                right: 2.75rem;
+                width: auto;
+                color: rgba(var(--secondaryColor),1);
+                font-weight: 700;
+                font-size: calc(.9rem + .15vw);
+                opacity: 1;
+                transition: opacity 450ms ease;
+            }
+            .home-link a:focus {
+                opacity: 0;
+                background-color: rgba(var(--primaryColor),0);
+                transition: opacity 1200ms ease;
             }
             .home-container {
                 background-attachment: fixed;
@@ -180,104 +364,70 @@
                 transform: transform 600ms ease;
             }
             .main-navigation.isVisible {
-                background-color: rgba(var(--bg-custom),1);
+                background-color: rgba(var(--primaryColor),1);
                 transform: translateY(0);
                 transition: transform 600ms ease;
             }
-            .main-navigation a,
+            .main-navigation .navbar-nav a,
             .main-navigation .h5,
             .faux-navigation .h5 {
                 font-size: calc(1rem + .2vw);
             }
-            .main-navigation a:hover,
-            .main-navigation a:focus {
-                margin-left: unset !important;
+            .main-navigation .navbar-nav a:hover,
+            .main-navigation .navbar-nav a:focus {
+                font-weight: 400;
             }
             .menu-container {
                 background-attachment: fixed;
             }
         }
-
-        /*MADE BY*/
-        .madebyOuter {
-            background-color: rgba(32,32,32,.5);
-        }
-        .madebyInner {
-            padding: 1rem 0 .5rem 0;
-            background: -moz-linear-gradient(top, rgba(50,50,50,1) 8%, rgba(0,0,0,0) 100%);
-            background: -webkit-linear-gradient(top, rgba(50,50,50,1) 8%, rgba(0,0,0,0) 100%);
-            background: linear-gradient(to bottom, rgba(50,50,50,1) 8%, rgba(0,0,0,0) 100%);
-        }
-        .madebyOuter:hover {
-            background-color: rgba(172,199,201,.5);
-            cursor: default;
-        }
-        .madebyOuter:hover .madebyInner {
-            padding: 1.25rem 0 1rem 0;
-            background: -moz-linear-gradient(top, rgba(50,50,50,1) 2%, rgba(0,0,0,0) 100%);
-            background: -webkit-linear-gradient(top, rgba(50,50,50,1) 2%, rgba(0,0,0,0) 100%);
-            background: linear-gradient(to bottom, rgba(50,50,50,1) 2%, rgba(0,0,0,0) 100%);
-        }
-        .madebyOuter p {
-            color: rgba(32,32,32,.5);
-        }
-        .madebyOuter:hover p {
-            color: rgba(32,32,32,1);
-            transform: translateY(3px);
-        }
-        .madebyOuter:hover p:hover {
-            text-shadow: 3px 3px rgba(64,209,45,.1);
-        }
-        .madebyOuter a {
-            color: rgba(32,32,32,.5);
-        }
-        .madebyOuter:hover a {
-            color: rgba(32,32,32,.9);
-        }
-        .madebyOuter:hover p:hover a {
-            color: rgba(64,209,45,1);
-            text-decoration: none;
-            text-shadow: 3px 3px rgba(0,0,0,.25);
-            cursor: pointer;
-        }
         
+        @keyframes line {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0%);
+            }
+        }
+
     </style>
     
 </head>
-<body data-spy="scroll" data-target="#mainNav" data-offset="70">
+
+<body data-spy="scroll" data-target="#mainNav" data-offset="500">
     
+    <div id="Home"></div>
+    <div class="home-link">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-11 col-md-10 col-lg-11 col-xl-10 px-0 d-flex justify-content-end">
+                    <a href="#Home">
+                        <em class="fa fa-chevron-up"></em>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header class="main-navigation">
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 col-xl-9 py-3">
                     <nav class="navbar navbar-expand-lg py-0" id="mainNav">
-                        
-                        <div class="h5 font-weight-bold m-0 p-0 text-white">The Fitzwilliam Arms</div>
-                        
+                        <div class="h5 m-0 font-weight-bolder text-white">The Fitzwilliam Arms</div>
                         <div class="navbar-toggler ml-auto collapsed" type="button" data-toggle="collapse" data-target="#mainNavCollapse" aria-controls="mainNavCollapse" aria-expanded="false" aria-label="Toggle navigation">
                             <span></span>
                             <span></span>
                             <span></span>
                         </div>
-                        
-                        <div class="navbar-collapse collapse justify-content-start justify-content-lg-end text-left text-lg-center" id="mainNavCollapse">
-                            <ul class="navbar-nav m-0 p-0">
-                                <li class="nav-item pl-lg-4">
-                                    <a class="nav-link px-0 py-lg-0" href="#Home">Home</a>
-                                </li>
-                                <li class="nav-item pl-lg-4">
-                                    <a class="nav-link px-0 py-lg-0" href="#Bookings">Bookings</a>
-                                </li>
-                                <li class="nav-item pl-lg-4">
-                                    <a class="nav-link px-0 py-lg-0" href="#Menu">Menu</a>
-                                </li>
-                                <li class="nav-item pl-lg-4">
-                                    <a class="nav-link px-0 py-lg-0" href="#Specials">Specials</a>
-                                </li>
-                                <li class="nav-item pl-lg-4">
-                                    <a class="nav-link px-0 py-lg-0" href="#FindUs">Where To Find Us</a>
-                                </li>
-                            </ul>
+                        <div class="navbar-collapse collapse justify-content-start justify-content-lg-end align-items-lg-center text-left text-lg-right" id="mainNavCollapse">
+                            <div class="nav navbar-nav d-flex flex-column flex-lg-row mt-2 m-lg-0">
+                                <a class="d-inline-block nav-link p-0 my-2 my-lg-0 mx-lg-3" href="#Bookings">Bookings</a>
+                                <a class="d-inline-block nav-link p-0 my-2 my-lg-0 mx-lg-3" href="#Menu">Menu</a>
+                                <a class="d-inline-block nav-link p-0 my-2 my-lg-0 mx-lg-3" href="#Specials">Specials</a>
+                                <a class="d-inline-block nav-link p-0 my-2 my-lg-0 mx-lg-3" href="#ContactUs">Contact Us</a>
+                            </div>
                         </div>
                     </nav>
                 </div>
@@ -285,19 +435,23 @@
         </div>
     </header>
 
-    <section class="home-container h-100">
-        <div class="position-fixed d-none d-lg-block container-fluid bg-custom faux-navigation">
+    <section class="home-container">
+        <div class="position-fixed d-none d-lg-block container-fluid bg-primaryColor faux-navigation">
             <div class="row justify-content-center">
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9">
-                    <div class="row justify-content-between">
-                        <div class="col-auto py-3">
-                            <span class="h5 m-0 font-weight-bold text-white">The Fitzwilliam Arms</span>
+                    <div class="row align-items-center">
+                        <div class="col-auto flex-fill">
+                            <div class="h5 m-0 font-weight-bolder text-white">The Fitzwilliam Arms</div>
                         </div>
-                        <div class="col-auto">
-                            <div class="bg-info p-3 text-white font-weight-bold">
-                                Bookings available <em class="fa fa-chevron-down animate__animated animate__bounce animate__slow animate__repeat-3 animate__delay-3s"></em>
-                                <a class="stretched-link" href="#Bookings"></a>
-                            </div>
+                        <div class="col-auto pr-0">
+                            <a class="d-inline-block bg-success p-3 h6 m-0 text-white text-decoration-none font-weight-semi-bold" href="#Bookings" title="5 tables currently available">
+                                5 tables currently available<em class="fa fa-chevron-down ml-2 animate__animated animate__bounce animate__slow animate__infinite animate__delay-5s"></em>
+                            </a>
+                        </div>
+                        <div class="col-auto pl-0">
+                            <a class="d-inline-block bg-danger p-3 h6 m-0 text-white text-decoration-none font-weight-semi-bold" href="#Bookings" title="We are fully booked today">
+                                We are fully booked today<em class="fa fa-exclamation ml-2"></em>
+                            </a>
                         </div>
                     </div>
                     
@@ -308,34 +462,24 @@
             <div class="row h-100 justify-content-center">
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center">
                     <div class="p-5 bg-white home-panel">
-
                         <div class="owl-carousel owl-theme" id="tripCarousel">
                             <div class="item">
-                                <p class="h3 mb-4 font-weight-light">The private dining room was a lovely space and the food was excellent! Everyone commented on the choice and quality of the menu options &hellip;</p>
+                                <p class="h5 mb-4 font-weight-light">The private dining room was a lovely space and the food was excellent! Everyone commented on the choice and quality of the menu options &hellip;</p>
+                                <div class="row justify-content-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid logo-rating" src="tripadvisor-4-5-star.png" alt="">
+                                    </div>
+                                </div>
                             </div>
                             <div class="item">
-                                <p class="h3 mb-4 font-weight-light">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
-                                
+                                <p class="h5 mb-4 font-weight-light">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+                                <div class="row justify-content-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid logo-rating" src="tripadvisor-4-5-star.png" alt="">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="row justify-content-center">
-                            <div class="col-auto">
-                                <img class="img-fluid logo-rating" src="tripadvisor-4-5-star.png" alt="">
-                            </div>
-                        </div>
-                        <script>
-                            $('#tripCarousel').owlCarousel({
-                                autoplay: true,
-                                autoplayTimeout: 5000,
-                                autoplayHoverPause: true,
-                                loop: true,
-                                autoHeight: true,
-                                items: 1,
-                                nav: false,
-                                dots: false
-                            });
-                        </script>
-                        
                     </div>
                 </div>
             </div>
@@ -347,7 +491,7 @@
             <div class="row h-100 justify-content-center">
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center text-dark">
                     
-                    <h1 class="d-inline-block font-weight-bold mb-4 pb-4 border-bottom border-dark">Bookings</h1>
+                    <h1 class="font-weight-bolder">Bookings</h1>
                     <p class="font-weight-light my-4">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
                     
                     <div class="row pt-4">
@@ -356,8 +500,8 @@
                             <form class="mb-5 m-lg-0" method="post">
                                 <div class="row">
                                     <div class="col-12 mb-3">
-                                        <div class="p-3 bg-info rounded">
-                                            <label class="h5 m-0 mb-2 font-weight-bold text-white" for="availableToday">Today's availability</label>
+                                        <div class="p-3 bg-light rounded">
+                                            <label class="h5 m-0 mb-2 font-weight-bold text-primaryColor" for="availableToday">Today's availability</label>
                                             <select type="text" class="form-control m-0" id="availableToday">
                                                 <option selected>Please choose ...</option>
                                                 <option>7.30pm - Seating 4</option>
@@ -407,9 +551,7 @@
                                     </div>
                                     
                                 </div>
-                                
-                                <button type="submit" class="btn btn-info ml-auto">Confirm your reservation</button>
-                                
+                                <button type="submit" class="btn btn-success ml-auto" disabled>Confirm your reservation</button>
                             </form>
                         </div>
                         <div class="col-lg-6 px-xl-4 order-lg-first">
@@ -421,15 +563,13 @@
         </div>
     </section>
     
-    <section class="menu-container h-100" id="Menu">
+    <section class="menu-container" id="Menu">
         <div class="container-fluid h-100">
             <div class="row h-100 justify-content-center">
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center text-white">
+                    <h1 class="font-weight-bolder mb-4">Menu</h1>
                     
-                    <h1 class="d-inline-block font-weight-bold mb-4 pb-4 border-bottom border-white">Menu</h1>
-                    
-                    <div class="row text-left">
-                        
+                    <div class="row pt-4 text-left">
                         <div class="col-lg-6 px-xl-4">
                             <h2 class="text-center text-lg-left my-4">Starters</h2>
                             <div class="menu-item mb-4">
@@ -447,7 +587,6 @@
                                 <p class="font-weight-light border-top border-white m-0 pt-1">Fresh prawns and crayfish tails topped with Marie Rose sauce, on a bed of lettuce and spring onions.</p>
                             </div>
                         </div>
-                        
                         <div class="col-lg-6 px-xl-4">
                             <h2 class="text-center text-lg-left my-4">Main courses</h2>
                             <div class="menu-item mb-4">
@@ -472,7 +611,6 @@
                                 <p class="font-weight-light border-top border-white m-0 pt-1">Fresh lasagne with homemade pasta and a rich tomato and basil sauce.</p>
                             </div>
                         </div>
-                        
                         <div class="col-lg-6 px-xl-4">
                             <h2 class="text-center text-lg-left my-4">Soups and salads</h2>
                             <div class="menu-item mb-4">
@@ -490,7 +628,6 @@
                                 <p class="font-weight-light border-top border-white m-0 pt-1">Grilled chicken breast, Baby Gem lettuce topped with the classic Caesar dressing.</p>
                             </div>
                         </div>
-                        
                         <div class="col-lg-6 px-xl-4">
                             <h2 class="text-center text-lg-left my-4">Desserts</h2>
                             <div class="menu-item mb-4">
@@ -502,7 +639,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="col-11 col-md-10 col-lg-11 col-xl-10 mt-5 text-center text-white">
                     <p class="font-weight-light">All our food is prepared in a kitchen where nuts, gluten and other known allergens maybe present. Please note we take caution to prevent cross-contamination, however, any product may contain traces as all menu items are produced in the same kitchen. Our dish descriptions do not include all of the ingredients used to make the dish. Therefore, if you have a food allergy please speak to a memeber of staff when placing your order.</p>
@@ -510,29 +646,52 @@
             </div>
         </div>
     </section>
-    <section class="specials-container h-100" id="Specials">
+    <section class="specials-container" id="Specials">
         <div class="container-fluid h-100">
             <div class="row h-100 justify-content-center">
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center text-dark">
+                    <h1 class="font-weight-bolder">Specials</h1>
+                    <p class="font-weight-light my-4">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+  
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="specials-block" data-image-src="FitWzIwMDAsMjAwMF0.jpg">
+                                <div class="specials-text p-3">
+                                    <h2>Lorem ipsum deep-fried in dolor conseqiuat</h2>
+                                    <p>Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="row">
+                                <div class="col-6 col-md-3 col-lg-6 mb-4">
+                                    <div class="specials-block" data-image-src="chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg"></div>
+                                </div>
+                                <div class="col-6 col-md-3 col-lg-6 mb-4">
+                                    <div class="specials-block" data-image-src="eye-fillet-with-mushroom.jpg"></div>
+                                </div>
+                                <div class="col-6 col-md-3 col-lg-6 mb-4">
+                                    <div class="specials-block" data-image-src="hsdkzfuyhsdfng.jpg"></div>
+                                </div>
+                                <div class="col-6 col-md-3 col-lg-6 mb-4">
+                                    <div class="specials-block" data-image-src="p0bh2kkm.jpg"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <h1 class="d-inline-block font-weight-bold mb-4 pb-4 border-bottom border-dark">Specials</h1>
-                    <p class="font-weight-light my-4">You're special!</p>
-
                 </div>
             </div>
         </div>
     </section>
     
-    <footer class="bg-custom2">
-        <section class="footer-container h-100" id="FindUs">
+    <footer>
+        <section class="footer-container bg-primaryColor" id="ContactUs">
             <div class="container-fluid h-100">
-                <div class="row h-100 justify-content-center shadow-lg">
+                <div class="row h-100 justify-content-center">
                     <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-white text-center">
-
-                        <h1 class="d-inline-block font-weight-bold mb-4 pb-4 border-bottom border-white">Where To Find Us</h1>
-
+                        <h1 class="font-weight-bolder">Contact Us</h1>
                         <div class="row mt-4 text-center text-lg-left">
-
                             <div class="col-lg-auto px-xl-4 mb-3 m-lg-0">
                                 <div class="row">
                                     <div class="col-lg-12 mb-3">
@@ -549,47 +708,32 @@
                                         <p class="m-0"><strong>General enquiries</strong> <span class="text-nowrap">01234 567891</span></p>
                                     </div>
                                 </div>
-                            </div>   
-
-                            <div class="col-lg px-xl-4 mb-3 mt-4 m-lg-0">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2373.329464266114!2d-1.427714548447938!3d53.498309779913036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879709c89c10227%3A0xfc8aa57f6fe813db!2sFitzwilliam%20Arms%2C%2042%20Hill%20St%2C%20Elsecar%2C%20Barnsley%20S74%208EL!5e0!3m2!1sen!2suk!4v1663582131067!5m2!1sen!2suk" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
-                        </div> 
-
-                        <p class="mb-0 mt-5 font-weight-light">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
-
+                        </div>
+                    </div>
+                    <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2373.329464266114!2d-1.427714548447938!3d53.498309779913036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879709c89c10227%3A0xfc8aa57f6fe813db!2sFitzwilliam%20Arms%2C%2042%20Hill%20St%2C%20Elsecar%2C%20Barnsley%20S74%208EL!5e0!3m2!1sen!2suk!4v1663582131067!5m2!1sen!2suk" width="100%" height="450" style="border:0;" allowfullscreen="yes" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
         </section>
         
     </footer>
-    
-    <div class="madebyOuter" id="madeBy">
-        <div class="madebyInner">
-            <div class="container-fluid">
-                <div class="row justify-content-center">
-                    <div class="col-11 col-md-10 col-lg-11 col-xl-10 text-center">
-                        <p class="m-0">Website designed and hosted by a <a class="font-weight-bold" href="https://www.bish.com" target="_blank">Bish</a>&trade;</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script>
         $(function() {
+            
             // menu scroll into view on .lg sizes
-            var nav = $(".main-navigation");
+            var nav = $('.main-navigation');
             $(window).scroll(function() {    
                 var scroll = $(window).scrollTop();
                 if (scroll >= 50) {
-                    nav.addClass("isVisible");
+                    nav.addClass('isVisible');
                 } else {
-                    nav.removeClass("isVisible");
+                    nav.removeClass('isVisible');
                 }
             });
-            // home info panel fade ou/in on scroll
+            // home info panel fade out/in on scroll
             var homepanel = $('.home-panel');
             var homepanelOuter = $('.home-container');
             var homepanelHeight = homepanelOuter.outerHeight();
@@ -600,15 +744,73 @@
                 }
             });
             
+            // navbar close fix
             $('.navbar-collapse a').click(function() {
                 $(".navbar-collapse").collapse('hide');
             });
             
+            $(window).scroll(function(){
+                if ($(this).scrollTop() > 200) {
+                    $('.home-link a').fadeIn();
+                } else {
+                    $('.home-link a').fadeOut();
+                }
+            });
+
+            $('.home-link a').click(function(){
+                $('html, body').animate({scrollTop : 50}, 800);
+                return false;
+            });
+            
+            $('#tripCarousel').owlCarousel({
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                loop: true,
+                autoHeight: true,
+                items: 1,
+                nav: false,
+                dots: false
+            });
+
+            $('#mainNavCollapse').on('shown.bs.collapse', function () {
+                $('.navbar-nav').find('a').wrap('span');  
+            });
+            $('#mainNavCollapse').on('hidden.bs.collapse', function () {
+                $('.navbar-nav').find('a').unwrap('span');  
+            });
+            
+            $( ".specials-block").each(function() {
+                var specials = $(this).attr('data-image-src');
+                if (typeof specials !== typeof undefined && specials !== false) {
+                    $(this).css('background-image', 'url('+specials+')');
+                }
+            });
+
         });
         
+    </script>
+    
+    <script>
         
-
-     </script>
+        // intersection
+        const options = {
+            threshold: 0
+        };
+        const headings = document.querySelectorAll('h1');
+        const observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active')
+                } else {
+                    entry.target.classList.remove('active')
+                }
+            },
+            options);
+        });
+        headings.forEach(heading => observer.observe(heading));
+        
+    </script>
 
 </body>
 </html>
