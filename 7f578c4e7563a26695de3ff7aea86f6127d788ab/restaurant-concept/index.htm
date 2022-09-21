@@ -116,7 +116,6 @@
         }
 
         /* custom styles */
-        
         .home-link {
             position: fixed;
             display: block;
@@ -238,12 +237,12 @@
         .main-navigation .navbar-nav a.active::after {
             animation: line 450ms ease 300ms 1 forwards;
         }
-
         .home-container {
             background-image: url(ncjgatd56efgatrwl.jpg);
             background-position: 50% 50%;
             background-size: cover;
-            background-repeat: no-repeat;  
+            background-repeat: no-repeat;
+            height: 100vh;
         }
         .home-panel {
             opacity: 1;
@@ -458,7 +457,7 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid h-100" id="Home">
+        <div class="container-fluid h-100">
             <div class="row h-100 justify-content-center">
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center">
                     <div class="p-5 bg-white home-panel">
@@ -649,7 +648,7 @@
     <section class="specials-container" id="Specials">
         <div class="container-fluid h-100">
             <div class="row h-100 justify-content-center">
-                <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center text-dark">
+                <div class="col-11 col-sm-10 col-md-9 col-lg-10 my-auto text-center text-dark">
                     <h1 class="font-weight-bolder">Specials</h1>
                     <p class="font-weight-light my-4">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
   
@@ -757,7 +756,7 @@
                 }
             });
 
-            $('.home-link a').click(function(){
+            $('.home-link a').click(function() {
                 $('html, body').animate({scrollTop : 50}, 800);
                 return false;
             });
@@ -774,10 +773,11 @@
             });
 
             $('#mainNavCollapse').on('shown.bs.collapse', function () {
-                $('.navbar-nav').find('a').wrap('span');  
+                $('.navbar-nav').find('a').wrap('span');
+            
             });
             $('#mainNavCollapse').on('hidden.bs.collapse', function () {
-                $('.navbar-nav').find('a').unwrap('span');  
+                $('.navbar-nav').find('a').unwrap('span');
             });
             
             $( ".specials-block").each(function() {
