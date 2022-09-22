@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/OwlCarousel2/2.2.1/assets/owl.theme.default.css">
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>-->
+    
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     
     <style>
         
@@ -21,7 +22,6 @@
         
         :root {
             --primaryColor: 0,0,0;
-            
             --secondaryColor: 212,200,53;
         }
         
@@ -36,7 +36,7 @@
         body {
             font-family: 'Josefin Sans', sans-serif;
             /*font-family: "Lato", sans-serif;*/
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 400;
         }
         .font-weight-semi-bold {
@@ -54,11 +54,17 @@
         .text-primary {
             color: rgba(var(--primaryColor),1);
         }
+        .border-primaryColor {
+            border-color: rgba(var(--primaryColor),1) !important;
+        }
         .bg-secondaryColor {
             background-color: rgba(var(--secondaryColor),1);
         }
         .text-secondaryColor {
             color: rgba(var(--secondaryColor),1);
+        }
+        .border-secondaryColor {
+            border-color: rgba(var(--secondaryColor),1) !important;
         }
         /*.btn-secondaryColor {
             color: rgba(255,255,255,1);
@@ -92,7 +98,7 @@
             height: 100vh;
             scroll-snap-align: start;
         }*/
-        section .container-fluid.h-100 > .row {
+        section:target .container-fluid.h-100 > .row {
             padding-top: 6.5rem;
             padding-top: 5rem;
         }
@@ -107,7 +113,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 2px;
+            height: .15rem;
             background-color: rgba(var(--secondaryColor),1);
             transform: translateX(-100%) translateY(-.125rem);
         }
@@ -127,13 +133,16 @@
         .home-link a {
             display: none;
             padding: .25rem .5rem;
-            opacity: .35;
+            background-color: rgba(var(--primaryColor),.9);
+            opacity: .5;
+            transition: all 450ms ease;
         }
         .home-link a:hover,
         .home-link a:focus {
             text-decoration: none;
             opacity: 1;
             background-color: rgba(var(--primaryColor),.9);
+            transition: all 450ms ease;
         }
         .home-link a em {
             font-size: calc(1rem + .5vw);
@@ -222,10 +231,10 @@
         .main-navigation .navbar-nav a::after {
             content: '';
             position: absolute;
-            bottom: .0875rem;
+            bottom: 1px;
             left: 0;
             right: 0;
-            height: .0875rem;
+            height: 1px;
             background-color: rgba(var(--secondaryColor),1);
             transform: translateX(-110%);
         }
@@ -259,15 +268,12 @@
         .menu-item .price::before {
             content: '£';
         }
-        .specials-container {
-            background-color: rgba(255,255,255,1);
-        }
         .specials-block {
             position: relative;
             overflow: hidden;
-            background: rgba(var(--secondaryColor),.1);
             background-position: 50% 50%;
             background-size: cover;
+            background-image: url(steamy.gif);
         }
         .specials-block:before{
             content: '';
@@ -295,11 +301,130 @@
             transition: all 450ms ease;
         }
         
+        .bookings-calendar .month-picker {
+            font-size: calc(1.2rem + .25vw);
+        }
+        .bookings-calendar .month-next,
+        .bookings-calendar .month-previous {
+            color: rgba(var(--primaryColor),.35);
+        }
+        .bookings-calendar .month-next:focus,
+        .bookings-calendar .month-previous:focus,
+        .bookings-calendar .month-next:hover,
+        .bookings-calendar .month-previous:hover {
+            color: rgba(var(--secondaryColor),1);
+            cursor: pointer;
+        }
+        .bookings-calendar td, 
+        .bookings-calendar th {
+            vertical-align: middle;
+            line-height: 1;
+            padding: calc(1rem + .25vw) calc(.5rem + .125vw);
+        }
+        .bookings-calendar .day.past {
+            opacity: .25;
+            cursor: not-allowed !important;
+            background-color: none !important;
+        }
+        .bookings-calendar .day:not(.past):hover {
+            cursor: pointer;
+            background-color: rgba(var(--primaryColor),.1);
+        }
+        .bookings-calendar .today {
+            font-weight: 700;
+        }
+        .bookings-calendar [data-availability] {
+            position: relative;
+            overflow: hidden;
+        }
+        .bookings-calendar [data-availability]::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: -12px;
+            right: -12px;
+            transform: rotate(45deg);
+            transform-origin: center;
+        }
+        .bookings-calendar [data-availability="yes"]::before {
+            background-color: rgba(40,167,69,1);
+        }
+        .bookings-calendar [data-availability="no"]::before {
+            background-color: rgba(220,53,69,1);
+        }
+        .bookings-calendar [data-availability="limited"]::before {
+            background-color: rgba(255,193,7,1);
+        }
+        .bookings-modal .modal-close {
+            position: absolute;
+            display: block;
+            right: 1rem;
+            top: 1rem;
+            color: rgba(var(--primaryColor),.5);
+            z-index: +1;
+            cursor: pointer;
+        }
+        .bookings-modal .modal-close:focus,
+        .bookings-modal .modal-close:hover {
+            color: rgba(var(--secondaryColor),1);
+        }
+
 
         /* turn off smooth scroll */
         @media screen and (prefers-reduced-motion: reduce) {
             html {
                 scroll-behavior: auto;
+            }
+        }
+        
+        /* MOBILE specific */
+        @media screen and (max-width: 991.98px) {
+            .main-navigation.is-collapsed {
+                bottom: 0;
+                overflow: hidden;
+            }
+            .main-navigation.is-collapsed::before {
+                content: '';
+                position: absolute;
+                display: block;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-image: url(ncjgatd56efgatrwl.jpg);
+                background-size: contain;
+                background-position: bottom;
+                background-repeat: no-repeat;
+                z-index: -2;
+            }
+            .main-navigation.is-collapsed::after {
+                content: '';
+                position: absolute;
+                display: block;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: -moz-linear-gradient(top,  rgba(var(--primaryColor),1) 70%, rgba(var(--primaryColor),0) 100%);
+                background: -webkit-linear-gradient(top,  rgba(var(--primaryColor),1) 70%,rgba(var(--primaryColor),0) 100%);
+                background: linear-gradient(to bottom,  rgba(var(--primaryColor),1) 70%,rgba(var(--primaryColor),0) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 );
+                z-index: -1;
+            }
+            .line-clamp {
+                display: block;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                position: relative;
+                line-height: 1.2;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: 0 !important;
+            }
+            .line-clamp-3 {
+                -webkit-line-clamp: 3;
+                height: calc(1em * 1.2 * 3);
             }
         }
         
@@ -315,6 +440,7 @@
                 height: 100%;
             }
             body {
+                font-size: 1.2rem;
                 background-attachment: fixed;
             }
             .container-fluid.h-100,
@@ -330,6 +456,7 @@
                 right: 0;
                 bottom: 1rem;
             }
+            .home-link a,
             .home-link a:hover {
                 background-color: rgba(var(--primaryColor),0);
             }
@@ -360,7 +487,7 @@
             }
             .main-navigation:not(.isVisible) {
                 transform: translateY(-100%);
-                transform: transform 600ms ease;
+                transition: transform 600ms ease;
             }
             .main-navigation.isVisible {
                 background-color: rgba(var(--primaryColor),1);
@@ -375,6 +502,10 @@
             .main-navigation .navbar-nav a:hover,
             .main-navigation .navbar-nav a:focus {
                 font-weight: 400;
+            }
+            .main-navigation .navbar-nav a::after {
+                bottom: .1rem;
+                height: .1rem;
             }
             .menu-container {
                 background-attachment: fixed;
@@ -412,8 +543,8 @@
     <header class="main-navigation">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-12 col-md-10 col-xl-9 py-3">
-                    <nav class="navbar navbar-expand-lg py-0" id="mainNav">
+                <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 py-3">
+                    <nav class="navbar navbar-expand-lg p-0" id="mainNav">
                         <div class="h5 m-0 font-weight-bolder text-white">The Fitzwilliam Arms</div>
                         <div class="navbar-toggler ml-auto collapsed" type="button" data-toggle="collapse" data-target="#mainNavCollapse" aria-controls="mainNavCollapse" aria-expanded="false" aria-label="Toggle navigation">
                             <span></span>
@@ -443,8 +574,8 @@
                             <div class="h5 m-0 font-weight-bolder text-white">The Fitzwilliam Arms</div>
                         </div>
                         <div class="col-auto pr-0">
-                            <a class="d-inline-block bg-success p-3 h6 m-0 text-white text-decoration-none font-weight-semi-bold" href="#Bookings" title="5 tables currently available">
-                                5 tables currently available<em class="fa fa-chevron-down ml-2 animate__animated animate__bounce animate__slow animate__infinite animate__delay-5s"></em>
+                            <a class="d-inline-block bg-success p-3 h6 m-0 text-white text-decoration-none font-weight-semi-bold" href="#Bookings" title="3 tables currently available">
+                                3 tables currently available<em class="fa fa-chevron-down ml-2 animate__animated animate__bounce animate__slow animate__infinite animate__delay-5s"></em>
                             </a>
                         </div>
                         <div class="col-auto pl-0">
@@ -460,26 +591,7 @@
         <div class="container-fluid h-100">
             <div class="row h-100 justify-content-center">
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center">
-                    <div class="p-5 bg-white home-panel">
-                        <div class="owl-carousel owl-theme" id="tripCarousel">
-                            <div class="item">
-                                <p class="h5 mb-4 font-weight-light">The private dining room was a lovely space and the food was excellent! Everyone commented on the choice and quality of the menu options &hellip;</p>
-                                <div class="row justify-content-center">
-                                    <div class="col-auto">
-                                        <img class="img-fluid logo-rating" src="tripadvisor-4-5-star.png" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <p class="h5 mb-4 font-weight-light">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
-                                <div class="row justify-content-center">
-                                    <div class="col-auto">
-                                        <img class="img-fluid logo-rating" src="tripadvisor-4-5-star.png" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    hkl;kl;jkl;
                 </div>
             </div>
         </div>
@@ -491,16 +603,111 @@
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center text-dark">
                     
                     <h1 class="font-weight-bolder">Bookings</h1>
-                    <p class="font-weight-light my-4">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
-                    
-                    <div class="row pt-4">
+                    <p class="my-4">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+
+                    <div class="mt-4 bookings-calendar" id="bookingsCalendar">
+
+                        <div class="row py-2 justify-content-center align-items-center month-picker">
+                            <div class="col-auto">
+                                <span class="month-previous" data-action="previous">
+                                    <em class="fa fa-chevron-left" title="Previous month"></em>
+                                </span>
+                            </div>
+                            <div class="col-6 col-lg-5 col-xl-4 font-weight-semi-bold month-current" data-current-month-year="September 2022">
+                                September 2022
+                            </div>
+                            <div class="col-auto">
+                                <span class="month-next" data-action="next">
+                                    <em class="fa fa-chevron-right" title="Next month"></em>
+                                </span>
+                            </div>
+                        </div>
+
+                        <table class="table table-sm">
+                            <thead>
+                                <tr class="bg-light border">
+                                    <th class="dow">Su</th>
+                                    <th class="dow">M</th>
+                                    <th class="dow">T</th>
+                                    <th class="dow">W</th>
+                                    <th class="dow">T</th>
+                                    <th class="dow">F</th>
+                                    <th class="dow">Sa</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-bordered">
+                                <tr>
+                                    <td data-day="Sunday" data-date="08/28/2022" data-availability="past" data-toggle="modal" data-target="" class="day past weekend">28</td>
+                                    <td data-day="Monday" data-date="08/29/2022" data-availability="past" data-toggle="modal" data-target="" class="day past">29</td>
+                                    <td data-day="Tuesday" data-date="08/30/2022" data-availability="past" data-toggle="modal" data-target="" class="day past">30</td>
+                                    <td data-day="Wednesday" data-date="08/31/2022" data-availability="past" data-toggle="modal" data-target="" class="day past">31</td>
+                                    <td data-day="Thursday" data-date="09/01/2022" data-availability="past" data-toggle="modal" data-target="" class="day past">1</td>
+                                    <td data-day="Friday" data-date="09/02/2022" data-availability="past" data-toggle="modal" data-target="" class="day past">2</td>
+                                    <td data-day="Saturday" data-date="09/03/2022" data-availability="past" data-toggle="modal" data-target="" class="day past weekend">3</td>
+                                </tr>
+                                <tr>
+                                    <td data-day="Sunday" data-date="09/04/2022" data-availability="past" data-toggle="modal" data-target="" class="day past weekend">4</td>
+                                    <td data-day="Monday" data-date="09/05/2022" data-availability="past" data-toggle="modal" data-target="" class="day past">5</td>
+                                    <td data-day="Tuesday" data-date="09/06/2022" data-availability="past" data-toggle="modal" data-target="" class="day past">6</td>
+                                    <td data-day="Wednesday" data-date="09/07/2022" data-availability="past" data-toggle="modal" data-target="" class="day past">7</td>
+                                    <td data-day="Thursday" data-date="09/08/2022" data-availability="past" data-toggle="modal" data-target="" class="day past">8</td>
+                                    <td data-day="Friday" data-date="09/09/2022" data-availability="past" data-toggle="modal" data-target="" class="day past">9</td>
+                                    <td data-day="Saturday" data-date="09/10/2022" data-availability="past" data-toggle="modal" data-target="" class="day past weekend">10</td>
+                                </tr>
+                                <tr>
+                                    <td data-day="Sunday" data-date="09/11/2022" data-availability="past" data-toggle="modal" data-target="" class="day past weekend">11</td>
+                                    <td data-day="Monday" data-date="09/12/2022" data-availability="past" data-toggle="modal" data-target="" class="day past">12</td>
+                                    <td data-day="Tuesday" data-date="09/13/2022" data-availability="past" data-toggle="modal" data-target="" class="day past">13</td>
+                                    <td data-day="Wednesday" data-date="09/14/2022" data-availability="past" data-toggle="modal" data-target="" class="day past">14</td>
+                                    <td data-day="Thursday" data-date="09/15/2022" data-availability="past" data-toggle="modal" data-target="" class="day past">15</td>
+                                    <td data-day="Friday" data-date="09/16/2022" data-availability="past" data-toggle="modal" data-target="" class="day past">16</td>
+                                    <td data-day="Saturday" data-date="09/17/2022" data-availability="past" data-toggle="modal" data-target="" class="day past weekend">17</td>
+                                </tr>
+                                <tr>
+                                    <td data-day="Sunday" data-date="09/18/2022" data-availability="past" data-toggle="modal" data-target="" class="day past weekend">18</td>
+                                    <td data-day="Monday" data-date="09/19/2022" data-availability="past" data-toggle="modal" data-target="" class="day past">19</td>
+                                    <td data-day="Tuesday" data-date="09/20/2022" data-availability="past" data-toggle="modal" data-target="" class="day past">20</td>
+                                    <td data-day="Wednesday" data-date="09/21/2022" data-availability="past" data-toggle="modal" data-target="" class="day past">21</td>
+                                    <td data-day="Thursday" data-date="09/22/2022" data-availability="limited" data-toggle="modal" data-target="#bookingsModal" class="day today">22</td>
+                                    <td data-day="Friday" data-date="09/23/2022" data-availability="limited" data-toggle="modal" data-target="#bookingsModal" class="day">23</td>
+                                    <td data-day="Saturday" data-date="09/24/2022" data-availability="no" data-toggle="modal" data-target="#bookingsModal" class="day weekend">24</td>
+                                </tr>
+                                <tr>
+                                    <td data-day="Sunday" data-date="09/25/2022" data-availability="limited" data-toggle="modal" data-target="#bookingsModal" class="day weekend">25</td>
+                                    <td data-day="Monday" data-date="09/26/2022" data-availability="yes" data-toggle="modal" data-target="#bookingsModal" class="day">26</td>
+                                    <td data-day="Tuesday" data-date="09/27/2022" data-availability="yes" data-toggle="modal" data-target="#bookingsModal" class="day">27</td>
+                                    <td data-day="Wednesday" data-date="09/28/2022" data-availability="yes" data-toggle="modal" data-target="#bookingsModal" class="day">28</td>
+                                    <td data-day="Thursday" data-date="09/29/2022" data-availability="yes" data-toggle="modal" data-target="#bookingsModal" class="day">29</td>
+                                    <td data-day="Friday" data-date="09/30/2022" data-availability="yes" data-toggle="modal" data-target="#bookingsModal" class="day">30</td>
+                                    <td data-day="Saturday" data-date="10/01/2022" data-availability="no" data-toggle="modal" data-target="#bookingsModal" class="day new weekend">1</td>
+                                </tr>
+                                <tr>
+                                    <td data-day="Sunday" data-date="10/02/2022" data-availability="no" data-toggle="modal" data-target="#bookingsModal" class="day new weekend">2</td>
+                                    <td data-day="Monday" data-date="10/03/2022" data-availability="yes" data-toggle="modal" data-target="#bookingsModal" class="day new">3</td>
+                                    <td data-day="Tuesday" data-date="10/04/2022" data-availability="yes" data-toggle="modal" data-target="#bookingsModal" class="day new">4</td>
+                                    <td data-day="Wednesday" data-date="10/05/2022" data-availability="yes" data-toggle="modal" data-target="#bookingsModal" class="day new">5</td>
+                                    <td data-day="Thursday" data-date="10/06/2022" data-availability="yes" data-toggle="modal" data-target="#bookingsModal" class="day new">6</td>
+                                    <td data-day="Friday" data-date="10/07/2022" data-availability="limited" data-toggle="modal" data-target="#bookingsModal" class="day new">7</td>
+                                    <td data-day="Saturday" data-date="10/08/2022" data-availability="limited" data-toggle="modal" data-target="#bookingsModal" class="day new weekend">8</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="row justify-content-center bookings-legend">
+                            <div class="col"></div>
+                            <div class="col"></div>
+                            <div class="col"></div>
+                        </div>
+                    </div>
+
+                    <!--<div class="row pt-4">
                         
                         <div class="col-lg-6 px-xl-4 text-left">
                             <form class="mb-5 m-lg-0" method="post">
                                 <div class="row">
                                     <div class="col-12 mb-3">
-                                        <div class="p-3 bg-light rounded">
-                                            <label class="h5 m-0 mb-2 font-weight-bold text-primaryColor" for="availableToday">Today's availability</label>
+                                        <div class="p-3 bg-white border border-secondaryColor">
+                                            <label class="h5 m-0 mb-2 font-weight-bolder text-primaryColor" for="availableToday">Today's availability</label>
                                             <select type="text" class="form-control m-0" id="availableToday">
                                                 <option selected>Please choose ...</option>
                                                 <option>7.30pm - Seating 4</option>
@@ -548,15 +755,17 @@
                                         <input type="checkbox" class="form-check-input m-1" id="marketingCheck">
                                         <label class="ml-4 pl-2" for="marketingCheck">Please tick if you would like to receive money off vouchers, news of upcoming events and new menu releases.</label>
                                     </div>
-                                    
+                                    <div class="col-12 col-md-auto mb-3">
+                                        <button type="submit" class="btn btn-success btn-block ml-auto">Confirm your reservation</button>
+                                    </div>
                                 </div>
-                                <button type="submit" class="btn btn-success ml-auto" disabled>Confirm your reservation</button>
                             </form>
                         </div>
                         <div class="col-lg-6 px-xl-4 order-lg-first">
-                            <img class="img-fluid w-100" src="ncjgatd56efgatrwl.jpg" alt="">
+                            <div class="bg-danger d-flex h-100">mnb,</div>
                         </div>
-                    </div>
+                    </div>-->
+                    
                 </div>
             </div>
         </div>
@@ -640,40 +849,40 @@
                     </div>
                 </div>
                 <div class="col-11 col-md-10 col-lg-11 col-xl-10 mt-5 text-center text-white">
-                    <p class="font-weight-light">All our food is prepared in a kitchen where nuts, gluten and other known allergens maybe present. Please note we take caution to prevent cross-contamination, however, any product may contain traces as all menu items are produced in the same kitchen. Our dish descriptions do not include all of the ingredients used to make the dish. Therefore, if you have a food allergy please speak to a memeber of staff when placing your order.</p>
+                    <p class="">All our food is prepared in a kitchen where nuts, gluten and other known allergens maybe present. Please note we take caution to prevent cross-contamination, however, any product may contain traces as all menu items are produced in the same kitchen. Our dish descriptions do not include all of the ingredients used to make the dish. Therefore, if you have a food allergy please speak to a memeber of staff when placing your order.</p>
                 </div>
             </div>
         </div>
     </section>
-    <section class="specials-container" id="Specials">
+    <section class="specials-container bg-white" id="Specials">
         <div class="container-fluid h-100">
             <div class="row h-100 justify-content-center">
-                <div class="col-11 col-sm-10 col-md-9 col-lg-10 my-auto text-center text-dark">
+                <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center text-dark">
                     <h1 class="font-weight-bolder">Specials</h1>
-                    <p class="font-weight-light my-4">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+                    <p class="my-4">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
   
                     <div class="row">
                         <div class="col-lg-6 mb-4">
                             <div class="specials-block" data-image-src="FitWzIwMDAsMjAwMF0.jpg">
-                                <div class="specials-text p-3">
+                                <div class="specials-text p-3 p-xl-5">
                                     <h2>Lorem ipsum deep-fried in dolor conseqiuat</h2>
-                                    <p>Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+                                    <p class="m-0">Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6 mb-4">
                             <div class="row">
                                 <div class="col-6 col-md-3 col-lg-6 mb-4">
-                                    <div class="specials-block" data-image-src="chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg"></div>
+                                    <div class="specials-block" data-image-src="9ab73a3.jpg"></div>
                                 </div>
                                 <div class="col-6 col-md-3 col-lg-6 mb-4">
-                                    <div class="specials-block" data-image-src="eye-fillet-with-mushroom.jpg"></div>
+                                    <div class="specials-block" ></div><!-- data-image-src="eye-fillet-with-mushroom.jpg" -->
                                 </div>
                                 <div class="col-6 col-md-3 col-lg-6 mb-4">
                                     <div class="specials-block" data-image-src="hsdkzfuyhsdfng.jpg"></div>
                                 </div>
                                 <div class="col-6 col-md-3 col-lg-6 mb-4">
-                                    <div class="specials-block" data-image-src="p0bh2kkm.jpg"></div>
+                                    <div class="specials-block" ></div><!-- data-image-src="p0bh2kkm.jpg" -->
                                 </div>
                             </div>
                         </div>
@@ -718,6 +927,28 @@
         </section>
         
     </footer>
+    
+    <div class="modal fade bookings-modal" tabindex="-1" role="dialog" id="bookingsModal">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <a class="modal-close" data-dismiss="modal" aria-label="Close">
+                    <em class="fa fa-times" aria-hidden="true"></em>
+                </a>
+                <div class="modal-body p-4 p-xl-5 text-center">
+                    <h1 class="mb-0">Bookings Calendar</h1>
+                    <p class="font-weight-default mb-4 mb-xl-5 modal-message">
+                        <span class="modal-day"></span> <span class="modal-date"></span> / <span class="modal-availability"></span>.
+                    </p>
+                    <div class="row">
+                        <div class="col mvh-100">
+                            {{SOME_MORE SHENANIGANS_IN_HERE}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 
     <script>
         $(function() {
@@ -732,6 +963,7 @@
                     nav.removeClass('isVisible');
                 }
             });
+            
             // home info panel fade out/in on scroll
             var homepanel = $('.home-panel');
             var homepanelOuter = $('.home-container');
@@ -742,12 +974,8 @@
                     homepanel.css('opacity', scrollPercent);
                 }
             });
-            
-            // navbar close fix
-            $('.navbar-collapse a').click(function() {
-                $(".navbar-collapse").collapse('hide');
-            });
-            
+
+            // back to top
             $(window).scroll(function(){
                 if ($(this).scrollTop() > 200) {
                     $('.home-link a').fadeIn();
@@ -755,45 +983,68 @@
                     $('.home-link a').fadeOut();
                 }
             });
-
             $('.home-link a').click(function() {
                 $('html, body').animate({scrollTop : 50}, 800);
                 return false;
             });
             
-            $('#tripCarousel').owlCarousel({
-                autoplay: true,
-                autoplayTimeout: 5000,
-                autoplayHoverPause: true,
-                loop: true,
-                autoHeight: true,
-                items: 1,
-                nav: false,
-                dots: false
+            // mobile only hacks
+            $('.navbar-collapse a').click(function() {
+                $(".navbar-collapse").collapse('hide');
             });
-
-            $('#mainNavCollapse').on('shown.bs.collapse', function () {
+            $('#mainNavCollapse').on('show.bs.collapse', function () {
                 $('.navbar-nav').find('a').wrap('span');
-            
+                $('.main-navigation').addClass('is-collapsed');
             });
             $('#mainNavCollapse').on('hidden.bs.collapse', function () {
                 $('.navbar-nav').find('a').unwrap('span');
+                $('.main-navigation').removeClass('is-collapsed');
             });
             
-            $( ".specials-block").each(function() {
+            // load bg image from data-attr
+            $('.specials-block').each(function() {
                 var specials = $(this).attr('data-image-src');
                 if (typeof specials !== typeof undefined && specials !== false) {
                     $(this).css('background-image', 'url('+specials+')');
                 }
             });
-
+            
+            $('#bookingsModal').on('show.bs.modal', function (event) {
+                
+                var td = $(event.relatedTarget)
+                var modalDay = td.data('day')
+                var modalDate = td.data('date')
+                var modalAvailability = td.data('availability')
+                
+                var modal = $(this)
+                modal.find('.modal-day').html(modalDay)
+                modal.find('.modal-date').html(modalDate)
+                modal.find('.modal-availability').html(modalAvailability)
+                
+                
+                if ($('.modal-availability:contains("yes")').length > 0) {
+                    $('.modal-availability').replaceWith('<span class="modal-availability">Spaces available</span>');
+                    $('.modal-message span.modal-availability').addClass('text-success');
+                } 
+                if ($('.modal-availability:contains("no")').length > 0) {
+                    $('.modal-message span.modal-availability').addClass('text-danger');
+                    $('.modal-availability').replaceWith('<span class="modal-availability">Fully booked</span>');
+                    $('.modal-message span.modal-availability').addClass('text-danger');
+                } 
+                if ($('.modal-availability:contains("limited")').length > 0) {
+                    $('.modal-availability').replaceWith('<span class="modal-availability">Limited availability</span>');
+                    $('.modal-message span.modal-availability').addClass('text-warning');
+                }
+            });
+ 
+            
         });
         
     </script>
     
     <script>
         
-        // intersection
+        // intersection observer
         const options = {
             threshold: 0
         };
