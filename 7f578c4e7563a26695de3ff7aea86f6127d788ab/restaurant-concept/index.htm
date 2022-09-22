@@ -66,6 +66,12 @@
         .border-secondaryColor {
             border-color: rgba(var(--secondaryColor),1) !important;
         }
+        .text-warning {
+            color: rgb(255,141,7,1) !important;
+        }
+        .bg-warning {
+            background-color: rgba(255,141,7,1) !important;
+        }
         /*.btn-secondaryColor {
             color: rgba(255,255,255,1);
             background-color: rgba(var(--secondaryColor),1);
@@ -220,13 +226,14 @@
         .main-navigation .navbar-nav a {
             position: relative;
             color: rgba(255,255,255,1);
-            font-size: 1rem;
+            font-size: 1.25rem;
+            font-weight: 600;
             text-decoration: none;
             overflow-x: hidden;
         }
-        .main-navigation .navbar-nav a:hover,
-        .main-navigation .navbar-nav a:focus {
-            font-weight: 600;
+        .main-navigation .navbar-nav a:not(.active):hover,
+        .main-navigation .navbar-nav a:not(.active):focus {
+            color: rgba(var(--secondaryColor),1);
         }
         .main-navigation .navbar-nav a::after {
             content: '';
@@ -354,7 +361,7 @@
             background-color: rgba(220,53,69,1);
         }
         .bookings-calendar [data-availability="limited"]::before {
-            background-color: rgba(255,193,7,1);
+            background-color: rgba(255,141,7,1);
         }
         .bookings-modal .modal-close {
             position: absolute;
@@ -499,14 +506,6 @@
             .faux-navigation .h5 {
                 font-size: calc(1rem + .2vw);
             }
-            .main-navigation .navbar-nav a:hover,
-            .main-navigation .navbar-nav a:focus {
-                font-weight: 400;
-            }
-            .main-navigation .navbar-nav a::after {
-                bottom: .1rem;
-                height: .1rem;
-            }
             .menu-container {
                 background-attachment: fixed;
             }
@@ -552,11 +551,11 @@
                             <span></span>
                         </div>
                         <div class="navbar-collapse collapse justify-content-start justify-content-lg-end align-items-lg-center text-left text-lg-right" id="mainNavCollapse">
-                            <div class="nav navbar-nav d-flex flex-column flex-lg-row mt-2 m-lg-0">
-                                <a class="d-inline-block nav-link p-0 my-2 my-lg-0 mx-lg-3" href="#Bookings">Bookings</a>
-                                <a class="d-inline-block nav-link p-0 my-2 my-lg-0 mx-lg-3" href="#Menu">Menu</a>
-                                <a class="d-inline-block nav-link p-0 my-2 my-lg-0 mx-lg-3" href="#Specials">Specials</a>
-                                <a class="d-inline-block nav-link p-0 my-2 my-lg-0 mx-lg-3" href="#ContactUs">Contact Us</a>
+                            <div class="nav navbar-nav d-flex flex-column flex-lg-row mt-3 m-lg-0">
+                                <a class="d-inline-block nav-link p-0 my-2 my-lg-0 ml-lg-4 ml-xl-5" href="#Bookings">Bookings</a>
+                                <a class="d-inline-block nav-link p-0 my-2 my-lg-0 ml-lg-4 ml-xl-5" href="#Menu">Menu</a>
+                                <a class="d-inline-block nav-link p-0 my-2 my-lg-0 ml-lg-4 ml-xl-5" href="#Specials">Specials</a>
+                                <a class="d-inline-block nav-link p-0 my-2 my-lg-0 ml-lg-4 ml-xl-5" href="#ContactUs">Contact Us</a>
                             </div>
                         </div>
                     </nav>
@@ -570,21 +569,30 @@
             <div class="row justify-content-center">
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9">
                     <div class="row align-items-center">
-                        <div class="col-auto flex-fill">
+                        
+                        <div class="col-auto py-3 flex-fill">
                             <div class="h5 m-0 font-weight-bolder text-white">The Fitzwilliam Arms</div>
                         </div>
-                        <div class="col-auto pr-0">
-                            <a class="d-inline-block bg-success p-3 h6 m-0 text-white text-decoration-none font-weight-semi-bold" href="#Bookings" title="3 tables currently available">
-                                3 tables currently available<em class="fa fa-chevron-down ml-2 animate__animated animate__bounce animate__slow animate__infinite animate__delay-5s"></em>
+                        
+                        <div class="col-auto py-3 bg-success animate__animated animate__bounceInDown animate__delay-1s availability-yes d-none">
+                            <a class="h6 m-0 text-white text-decoration-none font-weight-semi-bold" href="#Bookings" title="3 tables currently available">
+                                3 bookings available<em class="fa fa-chevron-down ml-2 animate__animated animate__bounce animate__slow animate__infinite animate__delay-5s"></em>
                             </a>
                         </div>
-                        <div class="col-auto pl-0">
-                            <a class="d-inline-block bg-danger p-3 h6 m-0 text-white text-decoration-none font-weight-semi-bold" href="#Bookings" title="We are fully booked today">
-                                We are fully booked today<em class="fa fa-exclamation ml-2"></em>
+                        
+                        <div class="col-auto py-3 bg-danger animate__animated animate__bounceInDown animate__delay-1s availability-no d-none">
+                            <a class="h6 m-0 text-white text-decoration-none font-weight-semi-bold" href="#Bookings" title="We are fully booked today">
+                                <em class="fa fa-warning mr-2"></em>We are fully booked
                             </a>
                         </div>
+                        
+                        <div class="col-auto py-3 bg-warning animate__animated animate__bounceInDown animate__delay-1s availability-limited d-none">
+                            <a class="h6 m-0 text-white text-decoration-none font-weight-semi-bold" href="#Bookings" title="We are fully booked today">
+                                <em class="fa fa-warning mr-2"></em>We have limited availability
+                            </a>
+                        </div>
+                        
                     </div>
-                    
                 </div>
             </div>
         </div>
@@ -606,7 +614,6 @@
                     <p class="my-4">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
 
                     <div class="mt-4 bookings-calendar" id="bookingsCalendar">
-
                         <div class="row py-2 justify-content-center align-items-center month-picker">
                             <div class="col-auto">
                                 <span class="month-previous" data-action="previous">
@@ -622,7 +629,6 @@
                                 </span>
                             </div>
                         </div>
-
                         <table class="table table-sm">
                             <thead>
                                 <tr class="bg-light border">
@@ -681,23 +687,13 @@
                                     <td data-day="Friday" data-date="09/30/2022" data-availability="yes" data-toggle="modal" data-target="#bookingsModal" class="day">30</td>
                                     <td data-day="Saturday" data-date="10/01/2022" data-availability="no" data-toggle="modal" data-target="#bookingsModal" class="day new weekend">1</td>
                                 </tr>
-                                <tr>
-                                    <td data-day="Sunday" data-date="10/02/2022" data-availability="no" data-toggle="modal" data-target="#bookingsModal" class="day new weekend">2</td>
-                                    <td data-day="Monday" data-date="10/03/2022" data-availability="yes" data-toggle="modal" data-target="#bookingsModal" class="day new">3</td>
-                                    <td data-day="Tuesday" data-date="10/04/2022" data-availability="yes" data-toggle="modal" data-target="#bookingsModal" class="day new">4</td>
-                                    <td data-day="Wednesday" data-date="10/05/2022" data-availability="yes" data-toggle="modal" data-target="#bookingsModal" class="day new">5</td>
-                                    <td data-day="Thursday" data-date="10/06/2022" data-availability="yes" data-toggle="modal" data-target="#bookingsModal" class="day new">6</td>
-                                    <td data-day="Friday" data-date="10/07/2022" data-availability="limited" data-toggle="modal" data-target="#bookingsModal" class="day new">7</td>
-                                    <td data-day="Saturday" data-date="10/08/2022" data-availability="limited" data-toggle="modal" data-target="#bookingsModal" class="day new weekend">8</td>
-                                </tr>
                             </tbody>
                         </table>
-                        
-                        <div class="row justify-content-center bookings-legend">
+                        <!--<div class="row justify-content-center bookings-legend">
                             <div class="col"></div>
                             <div class="col"></div>
                             <div class="col"></div>
-                        </div>
+                        </div>-->
                     </div>
 
                     <!--<div class="row pt-4">
@@ -935,12 +931,12 @@
                     <em class="fa fa-times" aria-hidden="true"></em>
                 </a>
                 <div class="modal-body p-4 p-xl-5 text-center">
-                    <h1 class="mb-0">Bookings Calendar</h1>
+                    <h1 class="h2 mb-0">Bookings Calendar</h1>
                     <p class="font-weight-default mb-4 mb-xl-5 modal-message">
                         <span class="modal-day"></span> <span class="modal-date"></span> / <span class="modal-availability"></span>.
                     </p>
                     <div class="row">
-                        <div class="col mvh-100">
+                        <div class="col">
                             {{SOME_MORE SHENANIGANS_IN_HERE}}
                         </div>
                     </div>
@@ -1009,18 +1005,16 @@
                 }
             });
             
+            // bookings modal
             $('#bookingsModal').on('show.bs.modal', function (event) {
-                
                 var td = $(event.relatedTarget)
                 var modalDay = td.data('day')
                 var modalDate = td.data('date')
                 var modalAvailability = td.data('availability')
-                
                 var modal = $(this)
                 modal.find('.modal-day').html(modalDay)
                 modal.find('.modal-date').html(modalDate)
                 modal.find('.modal-availability').html(modalAvailability)
-                
                 
                 if ($('.modal-availability:contains("yes")').length > 0) {
                     $('.modal-availability').replaceWith('<span class="modal-availability">Spaces available</span>');
@@ -1036,8 +1030,17 @@
                     $('.modal-message span.modal-availability').addClass('text-warning');
                 }
             });
- 
-            
+
+            if($('#bookingsCalendar td.today').data("availability") === "yes") {
+                $('.availability-yes').removeClass('d-none');
+            }
+            if($('#bookingsCalendar td.today').data("availability") === "no") {
+                $('.availability-no').removeClass('d-none');
+            }
+            if($('#bookingsCalendar td.today').data("availability") === "limited") {
+                $('.availability-limited').removeClass('d-none');
+            }
+
         });
         
     </script>
