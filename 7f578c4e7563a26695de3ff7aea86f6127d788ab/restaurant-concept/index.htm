@@ -1025,11 +1025,11 @@
                                         </div>
                                         <div class="form-group col">
                                             <label class="m-0 font-weight-bold w-100" for="bookingTime">Selected Time</label>
-                                            <div class="d-block booking-time" id="bookingTime"></div>
+                                            <input type="text" class="form-control" id="bookingTime" disabled>
                                         </div>
                                         <div class="form-group col">
                                             <label class="m-0 font-weight-bold w-100" for="bookingDate">Selected Date</label>
-                                            <div class="d-block booking-date" id="bookingDate"></div>
+                                            <input type="text" class="form-control" id="bookingDate" disabled>
                                         </div>
                                     </div>
                                     
@@ -1151,7 +1151,7 @@
                 var selectedDateDay = $(this).find('a').data('date');
                 var selectedDateMonth = $(this).data('month');
                 var selectedDateYear = $(this).data('year');
-                $('#bookingForm').find('#bookingDate').text(selectedDateDay + '/' + selectedDateMonth + '/' + selectedDateYear);
+                $('#bookingForm').find('#bookingDate').val(selectedDateDay + '/' + selectedDateMonth + '/' + selectedDateYear);
             });
 
             $('.diary-block li').click(function () {
@@ -1194,7 +1194,7 @@
             });
             $('.diary-block li').click(function() {
                 var selectedTime = $(this).html();
-                $('#bookingForm').find('#bookingTime').text(selectedTime);
+                $('#bookingForm').find('#bookingTime').val(selectedTime);
             });
             
             $('#formSlide button').click(function() {
