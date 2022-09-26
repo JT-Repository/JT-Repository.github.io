@@ -1,0 +1,462 @@
+<!DOCTYPE>
+<html>
+    <head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/css/datepicker.css">
+
+        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/OwlCarousel2/2.2.1/assets/owl.theme.default.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>-->
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        
+        <style>
+            
+            @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&display=swap');
+
+            :root {
+                --primaryColor: 0,0,0;
+                --secondaryColor: 212,200,53;
+            }
+            
+            body {
+                font-family: "Josefin Sans", sans-serif;
+                font-weight: 500;
+                color: rgba(var(--primaryColor),1);
+            }
+            /*header */
+            .bookings-calendar {
+                font-size: 1.25rem;
+                user-select: none;
+            }
+            .bookings-calendar .ui-datepicker-header {
+                display: flex;
+                padding: .5rem 0;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+            }
+            .bookings-calendar .ui-datepicker-header .ui-datepicker-prev {
+                position: relative;
+                cursor: pointer;
+                order: 1;
+            }
+            .bookings-calendar .ui-datepicker-header .ui-datepicker-prev::before {
+                content: '\f053';
+                font-family: FontAwesome;
+            }
+            .bookings-calendar .ui-datepicker-header .ui-datepicker-next {
+                position: relative;
+                cursor: pointer;
+                order: 3;
+            }
+            .bookings-calendar .ui-datepicker-header .ui-datepicker-next::before {
+                content: '\f054';
+                font-family: FontAwesome;
+            }
+            .bookings-calendar .ui-datepicker-header .ui-datepicker-prev:hover,
+            .bookings-calendar .ui-datepicker-header .ui-datepicker-next:hover {
+                color: rgba(var(--secondaryColor),1);
+            }
+            .bookings-calendar .ui-datepicker-header .ui-datepicker-prev span,
+            .bookings-calendar .ui-datepicker-header .ui-datepicker-next span {
+                display: none;
+            }
+            .bookings-calendar .ui-datepicker-header .ui-datepicker-title {
+                font-size: 1.3rem;
+                font-weight: 700;
+                order: 2;
+            }
+            
+            .bookings-calendar .ui-datepicker-calendar {
+                width: 100%;
+                font-weight: 600;
+                text-align: center;
+                border-collapse: collapse;
+            }
+            .bookings-calendar .ui-datepicker-calendar thead tr th {
+                position: relative;
+                padding: .75rem 0 calc(.75rem + 1px) 0;
+            }
+            .bookings-calendar .ui-datepicker-calendar thead tr th:after {
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 1px;
+                height: 1px;
+                background-color: rgba(var(--primaryColor),.1);
+                border: none;
+            }
+            .bookings-calendar .ui-datepicker-calendar td {
+                border: solid 1px rgba(var(--primaryColor),.1);
+            }
+            .bookings-calendar .ui-datepicker-calendar tr:first-child td {
+                border-top: 0;
+            }
+            .bookings-calendar .ui-datepicker-calendar tr td:first-child {
+                border-left: 0;
+            }
+            .bookings-calendar .ui-datepicker-calendar tr:last-child td {
+                border-bottom: 0;
+            }
+            .bookings-calendar .ui-datepicker-calendar tr td:last-child {
+                border-right: 0;
+            }
+            .bookings-calendar .ui-datepicker-calendar td a {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: calc(.75rem + 1vw) calc(.5rem + 1.5vw);
+                color: rgba(var(--primaryColor),1);
+                text-decoration: none;
+            }
+            .bookings-calendar .ui-datepicker-calendar td a::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                cursor: pointer;
+            }
+            .bookings-calendar .ui-datepicker-calendar td.ui-datepicker-current-day {
+                font-weight: 700;
+                background-color: rgba(var(--secondaryColor),.25);
+            }
+            .bookings-calendar .ui-datepicker-calendar td:hover {
+                background-color: rgba(var(--secondaryColor),.5);
+            }
+            .bookings-calendar .ui-datepicker-calendar td.ui-datepicker-today {
+                background-color: rgba(var(--secondaryColor),.5);
+                font-weight: 700;
+            }
+            .bookings-calendar .ui-datepicker-calendar td.ui-datepicker-today:hover {
+                background-color: rgba(var(--secondaryColor),.75);
+            }
+
+            .bookings-calendar .ui-datepicker-calendar td.ui-state-disabled {
+                background-color: rgba(var(--primaryColor),.015);
+            }
+            .bookings-calendar .ui-datepicker-calendar td.ui-state-disabled:hover {
+                background-color: rgba(var(--primaryColor),.015);
+            }
+            
+            .diary-block {
+                user-select: none;
+            }
+            .diary-block:hover h4 {
+                font-weight: 700;
+            }
+            .diary-block li {
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: .75rem 0 .5rem 0;
+                border-bottom: dotted 1px rgba(var(--primaryColor),.1);
+                overflow: hidden;
+            }
+            .diary-block li:first-child {
+                border-top: dotted 1px rgba(var(--primaryColor),.1);
+            }
+            .diary-block li:not([data-availability="no"])::after {
+                content: '(x) seats available';
+                color: rgba(1,129,1,.5);
+                cursor: pointer;
+            }
+            .diary-block li[data-availability="no"] {
+                pointer-events: none;
+            }
+            .diary-block li[data-availability="no"]::after {
+                content: 'Fully booked';
+                color: rgba(255,0,0,.5);
+            }
+            .diary-block li.disabled {
+                cursor: not-allowed;
+                color: rgba(var(--primaryColor),.25);
+                text-decoration: line-through;
+                pointer-events: none;
+            }
+            .diary-block li.disabled::after {
+                content: '';
+                cursor: not-allowed;
+            }
+            .diary-wrapper span {
+                cursor: pointer;
+            }
+            .diary-wrapper span[aria-expanded="true"] {
+                font-weight: 700;
+            }
+            .diary-wrapper span:not([aria-expanded="true"]):hover {
+                color: rgba(var(--secondaryColor),1);
+            }
+            .diary-wrapper span.disabled {
+                color: rgba(var(--primaryColor),.25);
+                text-decoration: line-through;
+                pointer-events: none;
+            }
+            .bookings-modal .back {
+                position: absolute;
+                display: block;
+                left: 1.25rem;
+                top: 1.25rem;
+                font-size: 1.25rem;
+                color: rgba(var(--primaryColor),1);
+                z-index: +1;
+                cursor: pointer;
+            }
+            .bookings-modal .modal-close {
+                position: absolute;
+                display: block;
+                right: 1.25rem;
+                top: 1.25rem;
+                font-size: 1.25rem;
+                color: rgba(var(--primaryColor),1);
+                z-index: +1;
+                cursor: pointer;
+            }
+            .bookings-modal .back:focus,
+            .bookings-modal .back:hover,
+            .bookings-modal .modal-close:focus,
+            .bookings-modal .modal-close:hover {
+                color: rgba(var(--secondaryColor),1);
+            }
+            .modal-backdrop {
+                background-color: rgba(var(--primaryColor),.25);  
+            }
+            
+            @media screen and (max-width: 991.98px) {
+                .modal-lg {
+                    max-width: calc(100% - 3rem) !important;
+                    margin-right: auto;
+                    margin-left: auto;
+                }
+            }
+            
+        </style>
+        
+    </head>
+    
+    <body> 
+        
+        <script>
+            $(function() {
+                $("#datepicker").datepicker({ 
+                    firstDay: 1
+                });
+                
+            });
+        </script>
+        
+        <div class="d-flex vh-100 justify-content-center align-items-center">
+            <a class="h1 font-weight-bolder text-black stretched-link cursor-pointer" data-toggle="modal" data-target="#bookingsModal" data-backdrop="static" data-keyboard="false">BOOKINGS FOR BISHES</a>
+        </div>
+
+        <div class="bookings-modal modal fade" tabindex="-1" role="dialog" id="bookingsModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content border-0 rounded-0 shadow-lg">
+
+                    <a class="modal-close" data-dismiss="modal" aria-label="Close">
+                        <em class="fa fa-times" aria-hidden="true"></em>
+                    </a>
+                    
+                    <div class="modal-body p-5 text-center">
+
+                        <h2 class="font-weight-bold m-0">Bookings Calendar</h2>
+
+                        <div class="row justify-content-center collapse show" id="calendarSlide">
+                            <div class="col-12 my-auto">
+                                <p class="">Lorem ipsum some text here perhaps</p>
+                                <div class="bookings-calendar" id="datepicker"></div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center collapse" id="diarySlide">
+                            <div class="col-12 my-auto">
+                                <p class="mb-4">Lorem ipsum some text here perhaps</p>
+                                <div class="row diary-wrapper" id="diaryWrapper">
+                                    
+                                    <div class="col-12 mb-3 d-flex justify-content-around d-md-none">
+                                        <span class="h4 mb-0 mx-1 mx-sm-2" data-toggle="collapse" data-target="#lunchSlide" id="lunchButton">Lunch</span>
+                                        <span class="h4 mb-0 mx-1 mx-sm-2" data-toggle="collapse" data-target="#dinnerSlide" id="dinnerButton">Dinner</span>
+                                        <span class="h4 mb-0 mx-1 mx-sm-2" data-toggle="collapse" data-target="#supperSlide" id="supperButton">Supper</span>
+                                    </div>
+                                    
+                                    <div class="col-12 col-md-4 diary-block" id="lunchSlide" data-parent="#diaryWrapper">
+                                        <h4 class="d-none d-md-block mb-4">Lunch</h4>
+                                        <ul class="list-unstyled">
+                                            <li data-slot="1000" data-availability="">10:00AM</li>
+                                            <li data-slot="1030" data-availability="">10:30AM</li>
+                                            <li data-slot="1100" data-availability="">11:00AM</li>
+                                            <li data-slot="1130" data-availability="">11:30AM</li>
+                                            <li data-slot="1200" data-availability="">12:00PM</li>
+                                            <li data-slot="1230" data-availability="">12:30PM</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-12 col-md-4 diary-block" id="dinnerSlide" data-parent="#diaryWrapper">
+                                        <h4 class="d-none d-md-block mb-4">Dinner</h4>
+                                        <ul class="list-unstyled">
+                                            <li data-slot="1300" data-availability="">1:00PM</li>
+                                            <li data-slot="1330" data-availability="">1:30PM</li>
+                                            <li data-slot="1400" data-availability="">2:00PM</li>
+                                            <li data-slot="1430" data-availability="">2:30PM</li>
+                                            <li data-slot="1500" data-availability="">3:00PM</li>
+                                            <li data-slot="1530" data-availability="">3:30PM</li>
+                                            <li data-slot="1600" data-availability="">4:00PM</li>
+                                            <li data-slot="1630" data-availability="">4:30PM</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-12 col-md-4 diary-block" id="supperSlide" data-parent="#diaryWrapper">
+                                        <h4 class="d-none d-md-block mb-4">Supper</h4>
+                                        <ul class="list-unstyled">
+                                            <li data-slot="1800" data-availability="">6:00PM</li>
+                                            <li data-slot="1830" data-availability="">6:30AM</li>
+                                            <li data-slot="1900" data-availability="">7:00PM</li>
+                                            <li data-slot="1930" data-availability="">7:30PM</li>
+                                            <li data-slot="2000" data-availability="no">8:00PM</li>
+                                            <li data-slot="2030" data-availability="no">8:30PM</li>
+                                            <li data-slot="2100" data-availability="no">9:00PM</li>
+                                            <li data-slot="2130" data-availability="no">9:30PM</li>
+                                            <li data-slot="2200" data-availability="no">10:00PM</li>
+                                            <li data-slot="2230" data-availability="no">10:30PM</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        
+                        <div class="row justify-content-center mt-3 collapse" id="formSlide">
+                            <div class="col-md-6 px-xl-4 text-left">
+                                <form class="m-0" action="" method="post">
+                                    <div class="form-row">
+                                        <div class="form-group col-12">
+                                            <label class="m-0 font-weight-bold" for="name">Your name</label>
+                                            <input type="text" class="form-control" id="name" placeholder="..." required>
+                                            <div class="invalid-feedback">Please choose a username.</div>
+                                        </div>
+                                        <div class="form-group col-12">
+                                            <label class="m-0 font-weight-bold" for="tel">Phone number</label>
+                                            <input type="text" class="form-control" id="tel" placeholder="..." required>
+                                        </div>
+                                        <div class="form-group col-12">
+                                            <label class="m-0 font-weight-bold" for="email">Email</label>
+                                            <input type="email" class="form-control" id="email" placeholder="..." required>
+                                        </div>
+                                        
+                                        <div class="form-row flex-row mx-0">
+                                            <div class="form-group col-auto">
+                                                <label class="m-0 font-weight-bold" for="bookingSeats">Seats</label>
+                                                <select type="text" class="form-control m-0" id="bookingSeats">
+                                                    <option selected>...</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col">
+                                                <label class="m-0 font-weight-bold w-100" for="bookingTime">Time</label>
+                                                <input type="text" class="form-control" value="7:30PM" id="bookingTime" readonly>
+                                            </div>
+                                            <div class="form-group col">
+                                                <label class="m-0 font-weight-bold w-100" for="bookingDate">Date</label>
+                                                <input type="text" class="form-control" value="7:30PM" id="bookingDate" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-12 mb-3">
+                                            <input type="checkbox" class="form-check-input mx-0" id="marketingCheck">
+                                            <label class="ml-3 pl-1 font-weight-light" for="marketingCheck">Please tick if you would like to receive money off vouchers, news of upcoming events and new menu releases.</label>
+                                            <input type="checkbox" class="form-check-input mx-0" id="marketingCheck" required>
+                                            <label class="ml-3 pl-1 font-weight-light" for="marketingCheck">I understand the Terms &amp; Conditions*</label>
+                                        </div>
+                                        <div class="form-group col-12 col-md-auto">
+                                            <button type="submit" class="btn btn-success btn-block ml-auto">Confirm your reservation</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-6 px-xl-4 d-none d-md-block order-md-first">
+                                <div class="bg-danger d-flex h-100"></div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <script>
+        
+            $(function() {
+
+                $('.bookings-calendar td a').click(function () {
+                    $('#calendarSlide.collapse').removeClass('show');
+                    $('#diarySlide.collapse').addClass('show');
+                });
+                
+                $('.diary-block li').click(function () {
+                    $('#diarySlide.collapse').removeClass('show');
+                    $('#formSlide.collapse').addClass('show');
+                });
+
+                $('#bookingsModal').on('hidden.bs.modal', function () {
+                    $('#calendarSlide').addClass('show');
+                    $('#diarySlide, #formSlide').removeClass('show');
+                });
+
+                var getCurrent = new Date();
+                var currentHour = ('0'+(getCurrent.getHours())).slice(-2);
+                var currentMinutes = ('0'+(getCurrent.getMinutes())).slice(-2);
+                var currentTime = currentHour + currentMinutes;
+                
+                if ($(window).width() < 768) {
+                    $('.diary-block').addClass('collapse');
+                    $('#lunchSlide.diary-block').addClass('show');
+                    if (currentTime > 1300) {
+                        $('#lunchButton').addClass('disabled').attr('aria-expanded', '');
+                        $('#dinnerButton').attr('aria-expanded', 'true');
+                        $('#lunchSlide.diary-block').removeClass('show');
+                        $('#dinnerSlide.diary-block').addClass('show');
+                    }
+                    if (currentTime > 1800) {
+                        $('#dinnerButton').addClass('disabled').attr('aria-expanded', '');
+                        $('#supperButton').attr('aria-expanded', 'true');
+                        $('#dinnerSlide.diary-block').removeClass('show');
+                        $('#supperSlide.diary-block').addClass('show');
+                    }
+                }
+                else {
+                    $('.diary-block').removeClass('collapse');
+                }
+                
+                $('.diary-block li').each(function() {
+                    var currentElement = $(this);
+                    var currentSlot = $(currentElement).attr('data-slot');
+                    //var currentAvailability = $(currentElement).attr('data-availability');
+                    if (currentSlot < currentTime) {
+                        $(this).addClass('disabled');
+                    }
+                });
+                
+            });
+
+        </script>
+
+    </body>
+</html>
