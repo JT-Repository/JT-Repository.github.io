@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<title>muneo - bespoke responsive website solutions - 403 forbidden error</title>
+<meta charset="utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="author" content="muneo">
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+<meta http-equiv="refresh" content="3; URL=http://www.muneo.co.uk">
+
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/text.css" />
+<link rel="stylesheet" href="css/main.css" />
+<link rel="stylesheet" href="css/menu.css" />
+<link rel="stylesheet" href="css/forms.css" />
+    
+<link href="http://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet" type="text/css">
+
+<link rel="shortcut icon" href="favicon.ico" />
+<!-- For iPad with high-resolution Retina display running iOS ≥ 7: -->
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-152x152-precomposed.png">
+<!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144-precomposed.png">
+<!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="apple-touch-icon-120x120-precomposed.png">
+<!-- For iPhone with high-resolution Retina display running iOS ≤ 6: -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
+<!-- For the iPad mini and the first- and second-generation iPad on iOS ≥ 7: -->
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="apple-touch-icon-76x76-precomposed.png">
+<!-- For the iPad mini and the first- and second-generation iPad on iOS ≤ 6: -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png">
+<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+
+</head>
+
+<body id="403">
+    
+<a class="back-to-top" href="#top" title="Click here to return to the top of the page."></a>
+
+<header class="header">
+    
+    <a class="logo" href="index.php" title="muneo responsive websites logo"></a>
+
+    <nav class="nav">
+        <ul class="nav-list">
+            <li class="nav-item"><a class="about" href="about.php" title="">about<span>muneo</span></a></li>
+            <li class="nav-item"><a class="services" href="design-services.php" title="">design<span>services</span></a></li>
+            <li class="nav-item"><a class="portfolio" href="client-portfolio.php" title="">client<span>portfolio</span></a></li>
+            <li class="nav-item"><a class="contact" href="contact.php" title="">get in<span>touch</span></a></li>
+       </ul>
+    </nav>
+    
+</header>
+
+<a name="top"></a>
+<div class="container">
+
+<div class="row">
+
+    <div class="responsive-full-width">
+        <div class="inflated">
+            <h1>Oops! It looks like you don't have permissions to access this page - 403 forbidden error</h1>
+            <p>Don't worry it's nothing to worry about. If you still keep finding this page, then contact the owner of the website to get it fixed.</p>
+        </div>
+    </div>
+    
+</div> <!--- END .row --->
+    
+</div> <!--- END .container --->
+    
+<script src="js/modernizr.js"></script>
+<script src="js/jquery.respond.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/jquery.menu.js"></script>
+
+<script>
+    
+$.fn.mobileFix = function (options) {
+    var $parent = $(this),
+    $fixedElements = $(options.fixedElements);
+
+    $(document)
+    .on('focus', options.inputElements, function(e) {
+        $parent.addClass(options.addClass);
+    })
+    .on('blur', options.inputElements, function(e) {
+        $parent.removeClass(options.addClass);
+
+        // Fix for some scenarios where you need to start scrolling
+        setTimeout(function() {
+            $(document).scrollTop($(document).scrollTop())
+        }, 1);
+    });
+
+    return this; // Allowing chaining
+};
+
+// Only on touch devices
+if (Modernizr.touch) {
+    $("body").mobileFix({ // Pass parent to apply to
+        inputElements: "input,textarea,select", // Pass activation child elements
+        addClass: "fixfixed" // Pass class name
+    });
+}
+</script> 
+    
+</body>
+</html>

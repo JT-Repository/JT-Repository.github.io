@@ -11,12 +11,7 @@
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/OwlCarousel2/2.2.1/assets/owl.theme.default.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>-->
-    
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    
+
     <style>
         
         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&display=swap');
@@ -84,6 +79,13 @@
             height: 100vh;
             scroll-snap-align: start;
         }*/
+        section {
+            opacity: 0;
+        }
+        section.active {
+            opacity: 1;
+            transition: opacity 1200ms ease;
+        }
         section:target .container-fluid.h-100 > .row {
             padding-top: 6.5rem;
             padding-top: 5rem;
@@ -239,11 +241,19 @@
             background-repeat: no-repeat;
             height: 100vh;
         }
-        .home-panel {
-            opacity: 1;
+        .home-container {
+            background-image: url(ncjgatd56efgatrwl.jpg);
+            background-position: 50% 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
         }
-        .logo-rating {
-            max-width: calc(160px + 2.75vw);
+        .home-container a {
+            color: rgba(255,255,255,1);
+            text-decoration: none;
+        }
+        .home-container a:hover {
+            color: rgba(var(--secondaryColor),1);
         }
         .menu-container {
             background-image: url(ft5afgr466.jpg);
@@ -699,7 +709,7 @@
     <section class="home-container">
         <div class="container-fluid h-100">
             <div class="row h-100 justify-content-center">
-                <div class="col-auto text-center">
+                <div class="col-11 col-sm-10 col-md-9 col-lg-7 col-xl-6 text-center">
                     <div class="h-100 d-flex flex-column justify-content-around">
                         <div class="p-5 bg-primaryColor text-white">
                             <div class="h4 m-0 font-weight-bolder">Welcome to the</div>
@@ -710,13 +720,10 @@
                                 </div>
                             </div>
                         </div>
-
                         <a href="#Bookings">
-                            <em class="fa fa-angle-down fa-5x text-white animate__animated animate__bounce animate__slow animate__delay-2s animate__repeat-2"></em>
+                            <em class="fa fa-angle-down fa-5x text-white animate__animated animate__bounce animate__slow animate__repeat-4 animate__delay-2s"></em>
                         </a>
-
                     </div>
-
                 </div>
             </div>
         </div>
@@ -736,7 +743,6 @@
                             <div class="mb-5">
                                 <!--<button class="btn btn-dark btn-lg rounded-0" data-toggle="modal" data-target="#bookingsModal" data-backdrop="static" data-keyboard="false">View the menu</button>-->
                                 <button class="btn btn-success btn-lg rounded-0 mb-2" data-toggle="modal" data-target="#bookingsModal" data-backdrop="static" data-keyboard="false">Make a booking</button>
-                                <div class="ml-sm-2 lead text-warning">* Availibility is limited today.</div>
                             </div>
 
                             <!--<div id="availabilityAlerts">
@@ -1005,56 +1011,52 @@
 
                     <div class="row justify-content-center mt-3 collapse" id="formSlide">
                         <div class="col-md-6 px-xl-4 text-left">
-                            <form class="m-0 booking-form" id="bookingForm" novalidate>
+                            <form class="m-0 booking-form" method="post" id="bookingForm">
                                 <div class="form-row">
-                                    
-                                    <div class="form-row w-100 mx-0">
-                                        <div class="form-group col-auto">
-                                            <label class="m-0 font-weight-bold" for="bookingSeats">Seats</label>
-                                            <select type="text" class="form-control m-0" id="bookingSeats">
-                                                <option selected>...</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                                <option>8</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col">
-                                            <label class="m-0 font-weight-bold w-100" for="bookingTime">Selected Time</label>
-                                            <input type="text" class="form-control" id="bookingTime" disabled>
-                                        </div>
-                                        <div class="form-group col">
-                                            <label class="m-0 font-weight-bold w-100" for="bookingDate">Selected Date</label>
-                                            <input type="text" class="form-control" id="bookingDate" disabled>
+                                    <div class="form-group">
+                                        <div class="form-row  mx-0">
+                                            <div class="col-3">
+                                                <label class="m-0 font-weight-bold" for="bookingSeats">Seats</label>
+                                                <input type="text" class="form-control" id="bookingSeats" required>
+                                            </div>
+                                            <div class="col">
+                                                <label class="m-0 font-weight-bold" for="bookingTime">Selected Time</label>
+                                                <input type="text" class="form-control" id="bookingTime" disabled>
+                                            </div>
+                                            <div class="col">
+                                                <label class="m-0 font-weight-bold" for="bookingDate">Selected Date</label>
+                                                <input type="text" class="form-control" id="bookingDate" disabled>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="invalid-feedback">Please enter your seating requirements.</div>
+                                            </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-group col-12">
                                         <label class="m-0 font-weight-bold" for="name">Your name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Please enter your full name">
-                                        <div class="invalid-feedback">Please choose a username.</div>
+                                        <input type="text" class="form-control" id="name" placeholder="Please enter your name" autocomplete="yes" required>
+                                        <div class="invalid-feedback">Please enter your name.</div>
                                     </div>
                                     <div class="form-group col-12">
                                         <label class="m-0 font-weight-bold" for="tel">Phone number</label>
-                                        <input type="text" class="form-control" id="tel" placeholder="Please enter your telephone number">
+                                        <input type="text" class="form-control" id="tel" placeholder="Please enter your telephone number" autocomplete="yes" required>
+                                        <div class="invalid-feedback">Please enter your telephone number.</div>
                                     </div>
                                     <div class="form-group col-12">
                                         <label class="m-0 font-weight-bold" for="email">Email</label>
-                                        <input type="email" class="form-control" id="email" placeholder="Please enter your email address">
+                                        <input type="email" class="form-control" id="email" placeholder="Please enter a valid email address" autocomplete="yes" required>
+                                        <div class="invalid-feedback">Please enter your email address.</div>
                                     </div>
 
                                     <div class="form-group col-12 mb-3">
                                         <input type="checkbox" class="form-check-input mx-0" id="marketingCheck">
                                         <label class="ml-3 pl-1 font-weight-light" for="marketingCheck">Please tick if you would like to receive money off vouchers, news of upcoming events and new menu releases.</label>
-                                        <input type="checkbox" class="form-check-input mx-0" id="termsCheck">
-                                        <label class="ml-3 pl-1 font-weight-light" for="termsCheck">I understand the Terms &amp; Conditions*</label>
+                                        <input type="checkbox" class="form-check-input mx-0" id="termsCheck" required>
+                                        <label class="ml-3 pl-1 font-weight-light" for="termsCheck">I understand the Terms &amp; Conditions*</label><div class="invalid-feedback">Please tick to confirm you have read the terms and conditions.</div>
                                     </div>
                                     <div class="form-group col-12 col-md-auto">
-                                        <button class="btn btn-success btn-block ml-auto" data-backdrop="static" data-keyboard="false">Confirm your reservation</button>
+                                        <button type="submit" class="btn btn-success btn-block ml-auto" data-backdrop="static" href="#">Confirm your reservation</button>
                                     </div>
                                 </div>
                             </form>
@@ -1066,10 +1068,9 @@
                     
                     <div class="row justify-content-center mt-3 collapse" id="formConfirm">
                         <div class="col-11 my-auto">
-                            
-                            <h4 class="mb-0 font-weight-light">Your reservation for <strong class="font-weight-bolder"><span id="bookedSeats"></span> persons</strong> has been confirmed for <strong class="font-weight-bolder">{{NUMBER_OF_SEATS}}<span id="bookedDay">{{BOOKED_DAY}}</span><span id="bookedMonth">{{BOOKED_MONTH}}</span><span id="bookedYear">{{BOOKED_YEAR}}</span> at <span id="bookedTime">{{BOOKED_TIME}}</span></strong>.</h4>
-                            <p class="mb-5">You will receive an email confirming your reservation details.</p>
-                            <p class="mb-0">Should any problems arise, please contact us on 01234 567890.</p>
+                            <h4 class="mb-4 font-weight-light">Your reservation for a table of <span class="font-weight-bold" id="bookedSeats">(x)</span> on <span class="font-weight-bold" id="bookedDay">{{BOOKED_DAY}}</span><span class="font-weight-bold" id="bookedMonth">{{BOOKED_MONTH}}</span><span class="font-weight-bold" id="bookedYear">{{BOOKED_YEAR}}</span> at <span class="font-weight-bold" id="bookedTime">{{BOOKED_TIME}}</span> has been confirmed.</h4>
+                            <p class="mb-0">You will shortly receive an email confirming the details of your reservation.</p>
+                            <p class="mb-0">Should any problems arise, please do not heistate in contacting us on 01234 567890.</p>
                         </div>
                     </div>
 
@@ -1078,6 +1079,11 @@
             </div>
         </div>
     </div>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
     <script>
         $(function() {
@@ -1090,17 +1096,6 @@
                     nav.addClass('isVisible');
                 } else {
                     nav.removeClass('isVisible');
-                }
-            });
-            
-            // home info panel fade out/in on scroll
-            var homepanel = $('.home-panel');
-            var homepanelOuter = $('.home-container');
-            var homepanelHeight = homepanelOuter.outerHeight();
-            $(document).scroll(function() {
-                var scrollPercent = (homepanelHeight - window.scrollY) / homepanelHeight;
-                if(scrollPercent >= 0){
-                    homepanel.css('opacity', scrollPercent);
                 }
             });
 
@@ -1139,6 +1134,7 @@
             });
             
             //bookings modal
+            
  
             $('#bookingsModal').on('hidden.bs.modal', function () {
                 $('#calendarSlide').addClass('show');
@@ -1200,12 +1196,36 @@
             $('#formSlide button').click(function() {
                 $('#formSlide').removeClass('show');
                 $('#formConfirm').addClass('show');
-                //$('#formConfirm').find('#bookedDay').html(selectedDateDay);
+                //$('#formConfirm').find('#bookedDay').text(bookedDay);
                 //$('#formConfirm').find('#bookedMonth').text(selectedDateMonth);
                 //$('#formConfirm').find('#bookedYear').text(selectedDateYear);
                 //$('#formConfirm').find('#bookedTime').text(selectedTime);
             });
             
+            
+        });
+        
+    </script>
+    
+    <script>
+        
+        $(function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                var inputs = document.getElementsByClassName('form-control')
+                var validation = Array.prototype.filter.call(inputs, function(input) {
+                    input.addEventListener('blur', function(event) {
+                        input.classList.remove('is-invalid')
+                        input.classList.remove('is-valid')
+                        if (input.checkValidity() === false) {
+                            input.classList.add('is-invalid')
+                        }
+                        else {
+                            input.classList.add('is-valid')
+                        }
+                    }, false);
+                });
+            }, false);
         });
         
     </script>
@@ -1216,6 +1236,7 @@
         const options = {
             threshold: 0
         };
+        const sections = document.querySelectorAll('section');
         const headings = document.querySelectorAll('h1');
         const observer = new IntersectionObserver(function(entries, observer) {
             entries.forEach((entry) => {
@@ -1227,8 +1248,9 @@
             },
             options);
         });
+        sections.forEach(section => observer.observe(section));
         headings.forEach(heading => observer.observe(heading));
-        
+
     </script>
 
 </body>
