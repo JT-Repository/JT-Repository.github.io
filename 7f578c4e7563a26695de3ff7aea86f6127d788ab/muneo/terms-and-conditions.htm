@@ -22,7 +22,7 @@
 <p><b>You appear to be using an outdated browser.</b> Please upgrade your browser by following this <a href="http://browsehappy.com/" title="Upgrade your browser today" target="_blank">link</a>. Alternatively, please <a href="http://www.google.com/chromeframe/?redirect=true" target="_blank">install Google Chrome Frame</a> for a better view of this site and many others.</p>
 <![endif]-->
   
-<link rel="canonical" href="http://www.muneo.co.uk/terms-and-conditions.php" />
+<link rel="canonical" href="http://www.muneo.co.uk/terms-and-conditions.htm" />
 <link rel="stylesheet" href="css/reset.css" />
 <link rel="stylesheet" href="css/text.css" />
 <link rel="stylesheet" href="css/main.css" />
@@ -57,14 +57,14 @@
     
 <header class="header">
     
-    <a class="logo" href="index.php" title="muneo responsive websites logo"></a>
+    <a class="logo" href="index.htm" title="muneo responsive websites logo"></a>
 
     <nav class="nav">
         <ul class="nav-list">
-            <li class="nav-item"><a class="about" href="about.php" title="">about<span>muneo</span></a></li>
-            <li class="nav-item"><a class="services" href="design-services.php" title="">design<span>services</span></a></li>
-            <li class="nav-item"><a class="portfolio" href="client-portfolio.php" title="">client<span>portfolio</span></a></li>
-            <li class="nav-item"><a class="contact" href="contact.php" title="">get in<span>touch</span></a></li>
+            <li class="nav-item"><a class="about" href="about.htm" title="">about<span>muneo</span></a></li>
+            <li class="nav-item"><a class="services" href="design-services.htm" title="">design<span>services</span></a></li>
+            <li class="nav-item"><a class="portfolio" href="client-portfolio.htm" title="">client<span>portfolio</span></a></li>
+            <li class="nav-item"><a class="contact" href="contact.htm" title="">get in<span>touch</span></a></li>
        </ul>
     </nav>
     
@@ -118,7 +118,7 @@ excludes all representations and warranties relating to this website and its con
             <p>Copyright and other relevant intellectual property rights exists on all text relating to the Company’s services and the full content of this website.</p>
 
             <h3>Communication</h3>
-            <p>Our contact information, can be found on our <a class="noline" href="contact.php" title="Link to our Contact page.">Contact Us</a> page on this website or via Company literature or via the Company’s stated telephone numbers.</p>
+            <p>Our contact information, can be found on our <a class="noline" href="contact.htm" title="Link to our Contact page.">Contact Us</a> page on this website or via Company literature or via the Company’s stated telephone numbers.</p>
 
             <h3>Force Majeure</h3>
             <p>Neither party shall be liable to the other for any failure to perform any obligation under any Agreement which is due to an event beyond the control of such party including but not limited to any Act of God, terrorism, war, Political insurgence, insurrection, riot, civil unrest, act of civil or military authority, uprising, earthquake, flood or any other natural or man made eventuality outside of our control, which causes the termination of an agreement or contract entered into, nor which could have been reasonably foreseen. Any Party affected by such event shall forthwith inform the other Party of the same and shall use all reasonable endeavours to comply with the terms and conditions of any Agreement contained herein.</p>
@@ -149,7 +149,7 @@ excludes all representations and warranties relating to this website and its con
             <div class="inflated">
                 <div class="feedback">
                     <h3>client<br/><em>feedback</em></h3>
-                    <p>Please take a few moments to read some of the lovely feedback that we have received from our satisfied customers. <a class="" href="contact.php" title=""><strong>You may even want to leave your own?</strong></a></p>
+                    <p>Please take a few moments to read some of the lovely feedback that we have received from our satisfied customers. <a class="" href="contact.htm" title=""><strong>You may even want to leave your own?</strong></a></p>
                     <ul id="testimonials">  
                         <li>
                             <blockquote><small></small><span><a class="" href="" title="" target="_blank"></a></span></blockquote>
@@ -185,13 +185,6 @@ excludes all representations and warranties relating to this website and its con
                 <div class="get-in-touch">
                     <h3>get in<br/><em>touch</em></h3>
                     <p><strong>Do you have a question?</strong> Please send us your query and one of the team will get back to you as soon as they become available.</p>
-                    
-                    <?php 
-                            $action=$_REQUEST['action']; 
-                            if ($action=="") /* display the contact form */
-                                { 
-                            ?>
-                    
                     <form autocomplete="on" action="" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="action" value="submit">
                     <label>your <strong>name</strong></label>
@@ -202,28 +195,6 @@ excludes all representations and warranties relating to this website and its con
                     <textarea id="message" name="message" spellcheck="true" tabindex="3" title="Please enter your question or personal message."></textarea>
                     <input id="submit" name="submit" type="submit" value="Send us your enquiry.">
                     </form>
-                    
-                    <?php 
-                        
-                            }  
-                            else /* send the submitted data */
-                        { 
-                        $name=$_REQUEST['name']; 
-                        $email=$_REQUEST['email']; 
-                        $message=$_REQUEST['message']; 
-                        if (($name=="")||($email=="")||($message=="")) 
-                            { 
-                            echo "All fields are required, please complete <a href=\"\">the form</a> and resubmit."; 
-                            } 
-                        else{         
-                            $from="From: $name<$email>\r\nReturn-path: $email"; 
-                            $subject="Message sent via the website contact form"; 
-                            mail("sales@muneo.co.uk", $subject, $message, $from);
-                            echo "<p><strong>Your enquiry has been sent.</strong><br/><br/>One of the team will be in touch soon.</p>";
-                            } 
-                        }   
-                    ?>
-                    
                 </div>
             </div>
         </div>
@@ -231,13 +202,13 @@ excludes all representations and warranties relating to this website and its con
         <div class="responsive-full-width">
             <div class="inflated">
                 <div class="legal">
-                    <a class="logo" href="index.php" title="Return to the homepage."></a>
+                    <a class="logo" href="index.htm" title="Return to the homepage."></a>
                     <p>
                         <em>muneo</em>. All rights reserved.
                         <span>
-                            <a class="" href="privacy-policy.php" title="Link to our Privacy Policy">Privacy Policy</a>
-                            <a class="" href="terms-and-conditions.php" title="Link to our Terms &amp; Conditions">Website Terms</a>
-                            <a class="" href="sitemap.php" title="Link to our Sitemap">Site Map</a>
+                            <a class="" href="privacy-policy.htm" title="Link to our Privacy Policy">Privacy Policy</a>
+                            <a class="" href="terms-and-conditions.htm" title="Link to our Terms &amp; Conditions">Website Terms</a>
+                            <a class="" href="sitemap.htm" title="Link to our Sitemap">Site Map</a>
                         </span>
                     </p>
                 </div>

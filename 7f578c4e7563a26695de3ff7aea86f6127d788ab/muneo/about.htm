@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-<title>muneo - bespoke responsive website solutions - site map</title>
+<title>muneo - bespoke responsive website solutions - about muneo</title>
 <meta charset="utf-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge, chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="keywords" content="">
-<meta name="description" content="">
+<meta name="description" content="muneo specialise in the design and build of bespoke responsive website solutions. We are passionate about creating quality hand-crafted responsive websites.">
 <meta name="author" content="muneo">
 <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
 <meta name="mobile-web-app-capable" content="yes">
@@ -21,8 +21,8 @@
 <div class="chromeframe">
 <p><b>You appear to be using an outdated browser.</b> Please upgrade your browser by following this <a href="http://browsehappy.com/" title="Upgrade your browser today" target="_blank">link</a>. Alternatively, please <a href="http://www.google.com/chromeframe/?redirect=true" target="_blank">install Google Chrome Frame</a> for a better view of this site and many others.</p>
 <![endif]-->
- 
-<link rel="canonical" href="http://www.muneo.co.uk/sitemap.php" />
+  
+<link rel="canonical" href="http://www.muneo.co.uk/about.htm" />
 <link rel="stylesheet" href="css/reset.css" />
 <link rel="stylesheet" href="css/text.css" />
 <link rel="stylesheet" href="css/main.css" />
@@ -51,20 +51,20 @@
 
 </head>
 
-<body id="sitemap">
-   
+<body id="about">
+    
 <a class="back-to-top" href="#top" title="Click here to return to the top of the page."></a>
-
+    
 <header class="header">
     
-    <a class="logo" href="index.php" title="muneo responsive websites logo"></a>
+    <a class="logo" href="index.htm" title="muneo responsive websites logo"></a>
 
     <nav class="nav">
         <ul class="nav-list">
-            <li class="nav-item"><a class="about" href="about.php" title="">about<span>muneo</span></a></li>
-            <li class="nav-item"><a class="services" href="design-services.php" title="">design<span>services</span></a></li>
-            <li class="nav-item"><a class="portfolio" href="client-portfolio.php" title="">client<span>portfolio</span></a></li>
-            <li class="nav-item"><a class="contact" href="contact.php" title="">get in<span>touch</span></a></li>
+            <li class="nav-item current"><a class="about" href="about.htm" title="">about<span>muneo</span></a></li>
+            <li class="nav-item"><a class="services" href="design-services.htm" title="">design<span>services</span></a></li>
+            <li class="nav-item"><a class="portfolio" href="client-portfolio.htm" title="">client<span>portfolio</span></a></li>
+            <li class="nav-item"><a class="contact" href="contact.htm" title="">get in<span>touch</span></a></li>
        </ul>
     </nav>
     
@@ -78,13 +78,17 @@
     <div class="responsive-full-width">
         <div class="inflated">
             
-            <h1>site <strong>map</strong></h1>
-            <ul>
-                <li><a class="noline" href="about.php">about muneo</a></li>
-                <li><a class="noline" href="design-services.php">design services</a></li>
-                <li><a class="noline" href="client-portfolio.php">client portfolio</a></li>
-                <li><a class="noline" href="contact.php">get in touch</a></li>
-            </ul>
+            <h1>about <strong>muneo</strong></h1>
+            
+            <h2><em>muneo</em> <strong>website solutions</strong> is a UK based web design consultancy with many years of design experience, providing professional website solutions to many businesses throughout the UK.</h2>
+            
+            <div class="guarantee"></div>
+            
+            <p>We specialise in the design and build of bespoke responsive website solutions and our packages are aimed primarily at small to medium-sized businesses.</p>
+            
+            <p>We are professional, friendly and, more importantly, passionate about creating quality hand-crafted responsive websites for our clients. We can draw upon many years of experience and guarantee that each and every one of <strong>our websites are delivered to the same exacting standards</strong> - so you can rest assured that your site is in safe hands.</p>
+            
+            <p>We take great pride in the quality of our websites and offer a 'continued' high standard of support to all of our valued clients. <strong>We are confident that should you decide to use <em>muneo</em> you will be delighted with results.</strong></p>
             
         </div>
     </div>
@@ -101,7 +105,7 @@
             <div class="inflated">
                 <div class="feedback">
                     <h3>client<br/><em>feedback</em></h3>
-                    <p>Please take a few moments to read some of the lovely feedback that we have received from our satisfied customers. <a class="" href="contact.php" title=""><strong>You may even want to leave your own?</strong></a></p>
+                    <p>Please take a few moments to read some of the lovely feedback that we have received from our satisfied customers. <a class="" href="contact.htm" title=""><strong>You may even want to leave your own?</strong></a></p>
                     <ul id="testimonials">  
                         <li>
                             <blockquote><small></small><span><a class="" href="" title="" target="_blank"></a></span></blockquote>
@@ -138,12 +142,6 @@
                     <h3>get in<br/><em>touch</em></h3>
                     <p><strong>Do you have a question?</strong> Please send us your query and one of the team will get back to you as soon as they become available.</p>
                     
-                    <?php 
-                            $action=$_REQUEST['action']; 
-                            if ($action=="") /* display the contact form */
-                                { 
-                            ?>
-                    
                     <form autocomplete="on" action="" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="action" value="submit">
                     <label>your <strong>name</strong></label>
@@ -155,27 +153,6 @@
                     <input id="submit" name="submit" type="submit" value="Send us your enquiry.">
                     </form>
                     
-                    <?php 
-                        
-                            }  
-                            else /* send the submitted data */
-                        { 
-                        $name=$_REQUEST['name']; 
-                        $email=$_REQUEST['email']; 
-                        $message=$_REQUEST['message']; 
-                        if (($name=="")||($email=="")||($message=="")) 
-                            { 
-                            echo "All fields are required, please complete <a href=\"\">the form</a> and resubmit."; 
-                            } 
-                        else{         
-                            $from="From: $name<$email>\r\nReturn-path: $email"; 
-                            $subject="Message sent via the website contact form"; 
-                            mail("sales@muneo.co.uk", $subject, $message, $from);
-                            echo "<p><strong>Your enquiry has been sent.</strong><br/><br/>One of the team will be in touch soon.</p>";
-                            } 
-                        }   
-                    ?>
-                    
                 </div>
             </div>
         </div>
@@ -183,13 +160,13 @@
         <div class="responsive-full-width">
             <div class="inflated">
                 <div class="legal">
-                    <a class="logo" href="index.php" title="Return to the homepage."></a>
+                    <a class="logo" href="index.htm" title="Return to the homepage."></a>
                     <p>
                         <em>muneo</em>. All rights reserved.
                         <span>
-                            <a class="" href="privacy-policy.php" title="Link to our Privacy Policy">Privacy Policy</a>
-                            <a class="" href="terms-and-conditions.php" title="Link to our Terms &amp; Conditions">Website Terms</a>
-                            <a class="" href="sitemap.php" title="Link to our Sitemap">Site Map</a>
+                            <a class="" href="privacy-policy.htm" title="Link to our Privacy Policy">Privacy Policy</a>
+                            <a class="" href="terms-and-conditions.htm" title="Link to our Terms &amp; Conditions">Website Terms</a>
+                            <a class="" href="sitemap.htm" title="Link to our Sitemap">Site Map</a>
                         </span>
                     </p>
                 </div>
@@ -204,7 +181,7 @@
 <script src="js/jquery.respond.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="js/jquery.menu.js"></script>
-
+    
 <script>
     
 $.fn.mobileFix = function (options) {
@@ -245,7 +222,7 @@ this.randomtip = function(){
 $(document).ready(function(){	
     randomtip();
 });
-
+ 
 </script>
 
 </body>

@@ -22,7 +22,7 @@
 <p><b>You appear to be using an outdated browser.</b> Please upgrade your browser by following this <a href="http://browsehappy.com/" title="Upgrade your browser today" target="_blank">link</a>. Alternatively, please <a href="http://www.google.com/chromeframe/?redirect=true" target="_blank">install Google Chrome Frame</a> for a better view of this site and many others.</p>
 <![endif]-->
  
-<link rel="canonical" href="http://www.muneo.co.uk/planning-for-the-future.php" />
+<link rel="canonical" href="http://www.muneo.co.uk/planning-for-the-future.htm" />
 <link rel="stylesheet" href="css/reset.css" />
 <link rel="stylesheet" href="css/text.css" />
 <link rel="stylesheet" href="css/main.css" />
@@ -57,14 +57,14 @@
     
 <header class="header">
     
-    <a class="logo" href="index.php" title="muneo responsive websites logo"></a>
+    <a class="logo" href="index.htm" title="muneo responsive websites logo"></a>
 
     <nav class="nav">
         <ul class="nav-list">
-            <li class="nav-item"><a class="about" href="about.php" title="">about<span>muneo</span></a></li>
-            <li class="nav-item"><a class="services" href="design-services.php" title="">design<span>services</span></a></li>
-            <li class="nav-item"><a class="portfolio" href="client-portfolio.php" title="">client<span>portfolio</span></a></li>
-            <li class="nav-item"><a class="contact" href="contact.php" title="">get in<span>touch</span></a></li>
+            <li class="nav-item"><a class="about" href="about.htm" title="">about<span>muneo</span></a></li>
+            <li class="nav-item"><a class="services" href="design-services.htm" title="">design<span>services</span></a></li>
+            <li class="nav-item"><a class="portfolio" href="client-portfolio.htm" title="">client<span>portfolio</span></a></li>
+            <li class="nav-item"><a class="contact" href="contact.htm" title="">get in<span>touch</span></a></li>
        </ul>
     </nav>
     
@@ -85,7 +85,7 @@
                 
                 <h3>This is where we come in...</h3>
                 <p>If you already have a website we can convert it into a mobile optimised or 'responsive' website without drastically changing its look. Alternatively, we can discuss a fresh online strategy and create an entirely new site which will deliver across all devices.</p>
-                <p><a class="" href="contact.php" title="Contact us today and let us help you achieve much more from your website.">Contact us</a> today and let us help you achieve much more from your website.</p>
+                <p><a class="" href="contact.htm" title="Contact us today and let us help you achieve much more from your website.">Contact us</a> today and let us help you achieve much more from your website.</p>
 
             </div>
         </div>
@@ -102,7 +102,7 @@
             <div class="inflated">
                 <div class="feedback">
                     <h3>client<br/><em>feedback</em></h3>
-                    <p>Please take a few moments to read some of the lovely feedback that we have received from our satisfied customers. <a class="" href="contact.php" title=""><strong>You may even want to leave your own?</strong></a></p>
+                    <p>Please take a few moments to read some of the lovely feedback that we have received from our satisfied customers. <a class="" href="contact.htm" title=""><strong>You may even want to leave your own?</strong></a></p>
                     <ul id="testimonials">  
                         <li>
                             <blockquote><small></small><span><a class="" href="" title="" target="_blank"></a></span></blockquote>
@@ -138,45 +138,16 @@
                 <div class="get-in-touch">
                     <h3>get in<br/><em>touch</em></h3>
                     <p><strong>Do you have a question?</strong> Please send us your query and one of the team will get back to you as soon as they become available.</p>
-                    
-                    <?php 
-                            $action=$_REQUEST['action']; 
-                            if ($action=="") /* display the contact form */
-                                { 
-                            ?>
-                    
                     <form autocomplete="on" action="" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="action" value="submit">
-                    <label>your <strong>name</strong></label>
-                    <input id="name" name="name" type="text" class="" value="" tabindex="1" title="Please enter your name.">
-                    <label>your <strong>email address</strong></label>
-                    <input id="email" name="email" type="email" spellcheck="false" value="" tabindex="2" title="Please enter your email address.">
-                    <label>your <strong>message</strong></label>
-                    <textarea id="message" name="message" spellcheck="true" tabindex="3" title="Please enter your question or personal message."></textarea>
-                    <input id="submit" name="submit" type="submit" value="Send us your enquiry.">
+                        <input type="hidden" name="action" value="submit">
+                        <label>your <strong>name</strong></label>
+                        <input id="name" name="name" type="text" class="" value="" tabindex="1" title="Please enter your name.">
+                        <label>your <strong>email address</strong></label>
+                        <input id="email" name="email" type="email" spellcheck="false" value="" tabindex="2" title="Please enter your email address.">
+                        <label>your <strong>message</strong></label>
+                        <textarea id="message" name="message" spellcheck="true" tabindex="3" title="Please enter your question or personal message."></textarea>
+                        <input id="submit" name="submit" type="submit" value="Send us your enquiry.">
                     </form>
-                    
-                    <?php 
-                        
-                            }  
-                            else /* send the submitted data */
-                        { 
-                        $name=$_REQUEST['name']; 
-                        $email=$_REQUEST['email']; 
-                        $message=$_REQUEST['message']; 
-                        if (($name=="")||($email=="")||($message=="")) 
-                            { 
-                            echo "All fields are required, please complete <a href=\"\">the form</a> and resubmit."; 
-                            } 
-                        else{         
-                            $from="From: $name<$email>\r\nReturn-path: $email"; 
-                            $subject="Message sent via the website contact form"; 
-                            mail("sales@muneo.co.uk", $subject, $message, $from);
-                            echo "<p><strong>Your enquiry has been sent.</strong><br/><br/>One of the team will be in touch soon.</p>";
-                            } 
-                        }   
-                    ?>
-                    
                 </div>
             </div>
         </div>
@@ -184,13 +155,13 @@
         <div class="responsive-full-width">
             <div class="inflated">
                 <div class="legal">
-                    <a class="logo" href="index.php" title="Return to the homepage."></a>
+                    <a class="logo" href="index.htm" title="Return to the homepage."></a>
                     <p>
                         <em>muneo</em>. All rights reserved.
                         <span>
-                            <a class="" href="privacy-policy.php" title="Link to our Privacy Policy">Privacy Policy</a>
-                            <a class="" href="terms-and-conditions.php" title="Link to our Terms &amp; Conditions">Website Terms</a>
-                            <a class="" href="sitemap.php" title="Link to our Sitemap">Site Map</a>
+                            <a class="" href="privacy-policy.htm" title="Link to our Privacy Policy">Privacy Policy</a>
+                            <a class="" href="terms-and-conditions.htm" title="Link to our Terms &amp; Conditions">Website Terms</a>
+                            <a class="" href="sitemap.htm" title="Link to our Sitemap">Site Map</a>
                         </span>
                     </p>
                 </div>
@@ -246,16 +217,7 @@ this.randomtip = function(){
 $(document).ready(function(){	
     randomtip();
 });
-
-/* google analytics */
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-50141706-1', 'muneo.co.uk');
-ga('send', 'pageview');
-    
+  
 </script>
     
 </body>
