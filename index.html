@@ -1,160 +1,147 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Password Protected</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="robots" content="noindex, nofollow">
+<head>
+<title>Password required...</title>
+<meta name="robots" content="noindex, nofollow">
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<style>
+
+    ::-webkit-input-placeholder { 
+        color: rgba(0,0,0,.35) !important;
+    }
+    :-ms-input-placeholder {
+        color: rgba(0,0,0,.35) !important;
+    }
+    ::placeholder {
+        color: rgba(0,0,0,.35) !important;
+    }
+    body {
+        background-color: rgba(0,0,0,1); 
+    }
+    .icon {
+        max-width: calc(3rem + 1.5vw);
+        border-radius: 50%;
+    }
+    h3 {
+        font-weight: 900;
+        font-size: calc(1rem + .75vw);
+    }
+    h4 {
+        font-weight: 500;
+        font-size: calc(.75rem + .75vw);
+    }
+    form {
+        margin-top: .2rem;
+    }
+    .btn-initial {
+        color: rgba(0,0,0,1);
+        background-color: rgba(186,186,186);
+        border-color: rgba(186,186,186);
+    }
+    .btn-initial:hover,
+    .btn-initial:focus {
+        color: rgba(255,255,255,1);
+        background-color: rgba(40,167,69,1);
+        border-color: rgba(40,167,69,1);
+        box-shadow: 0 0 0 0.2rem rgba(40,167,69,.15);
+    }
+    .btn-error {
+        color: rgba(255,255,255,1);
+        background-color: rgba(255,0,4,1);
+        border-color: rgba(255,0,4,1);
+    }
+    .btn-error:hover,
+    .btn-error:focus {
+        color: rgba(255,255,255,1);
+        border-color: rgba(255,0,4,1);
+        box-shadow: 0 0 0 0.2rem rgba(255,0,4,.15);
+    }
+    [data-id="alert"] {
+        display: none;
+        color: rgba(255,0,4,1)
+    }
+    [data-id="password"]:hover {
+        color: rgba(0,0,0,1);
+        border-color: rgba(40,167,69,1);
+    }
+    [data-id="password"]:focus {
+        color: rgba(0,0,0,1);
+        border-color: rgba(40,167,69,1);
+        box-shadow: 0 0 0 0.2rem rgba(40,167,69,.15);
+    }
+    [data-id="error"] {
+        color: rgba(0,0,0,1);
+        border-color: rgba(255,0,4,1);
+    }
+    [data-id="error"]:hover,
+    [data-id="error"]:focus {
+        color: rgba(0,0,0,1);
+        border-color: rgba(255,0,4,1);
+        box-shadow: 0 0 0 0.2rem rgba(255,0,4,.15);
+    }
+
+</style>
         
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    
+    <div class="container p-4 px-lg-0 py-xl-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-9 col-xl-8 px-lg-5 mb-4">
 
-        <style>
-
-            ::-webkit-input-placeholder { 
-                color: rgba(0,0,0,.35) !important;
-            }
-            :-ms-input-placeholder {
-                color: rgba(0,0,0,.35) !important;
-            }
-            ::placeholder {
-                color: rgba(0,0,0,.35) !important;
-            }
-            body {
-                background-color: rgba(0,0,0,1); 
-            }
-            .icon {
-                max-width: calc(3rem + 1.5vw);
-                border-radius: 50%;
-            }
-            h3 {
-                font-weight: 900;
-                font-size: calc(1rem + .75vw);
-            }
-            h4 {
-                font-weight: 500;
-                font-size: calc(.75rem + .75vw);
-            }
-            form {
-                margin-top: .2rem;
-            }
-            .btn-initial {
-                color: rgba(0,0,0,1);
-                background-color: rgba(186,186,186);
-                border-color: rgba(186,186,186);
-            }
-            .btn-initial:hover,
-            .btn-initial:focus {
-                color: rgba(255,255,255,1);
-                background-color: rgba(40,167,69,1);
-                border-color: rgba(40,167,69,1);
-                box-shadow: 0 0 0 0.2rem rgba(40,167,69,.15);
-            }
-            .btn-error {
-                color: rgba(255,255,255,1);
-                background-color: rgba(255,0,4,1);
-                border-color: rgba(255,0,4,1);
-            }
-            .btn-error:hover,
-            .btn-error:focus {
-                color: rgba(255,255,255,1);
-                border-color: rgba(255,0,4,1);
-                box-shadow: 0 0 0 0.2rem rgba(255,0,4,.15);
-            }
-            [data-id="alert"] {
-                display: none;
-                color: rgba(255,0,4,1)
-            }
-            [data-id="password"]:hover {
-                color: rgba(0,0,0,1);
-                border-color: rgba(40,167,69,1);
-            }
-            [data-id="password"]:focus {
-                color: rgba(0,0,0,1);
-                border-color: rgba(40,167,69,1);
-                box-shadow: 0 0 0 0.2rem rgba(40,167,69,.15);
-            }
-            [data-id="error"] {
-                color: rgba(0,0,0,1);
-                border-color: rgba(255,0,4,1);
-            }
-            [data-id="error"]:hover,
-            [data-id="error"]:focus {
-                color: rgba(0,0,0,1);
-                border-color: rgba(255,0,4,1);
-                box-shadow: 0 0 0 0.2rem rgba(255,0,4,.15);
-            }
-            
-        </style>
-
-    </head>
-<!-- https://www.iconninja.com/files/1013/448/865/man-user-person-male-profile-avatar-icon.svg -->
-    <body>
-        <div class="container p-4 px-lg-0 py-xl-5">
-            <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-9 col-xl-8 px-lg-5 mb-4">
-
-                    <div class="bg-white px-4 py-4 px-xl-5 rounded-top">
-                        <div class="row justify-content-center align-items-center">
-                            <div class="col-auto px-2">
-                                <img class="img-fluid icon animate__animated animate__bounceInLeft" data-id="icon" src="icon.png" />
-                            </div>
-                            <div class="col-auto px-2">
-                                <h3 class="mb-0 mt-1">JT-Repository.github.io</h3>
-                            </div>
+                <div class="bg-white px-4 py-4 px-xl-5 rounded-top">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-auto px-2">
+                            <img class="img-fluid icon animate__animated animate__bounceInLeft" data-id="icon" src="icon.png" />
+                        </div>
+                        <div class="col-auto px-2">
+                            <h3 class="mb-0 mt-1">JT-Repository.github.io</h3>
                         </div>
                     </div>
-                    <form class="bg-white px-4 py-4 px-xl-5 rounded-bottom">
-                        <div class="row">
-                            <div class="col-12">
-                                <h4 class="mb-4" data-id="initial">You will need a password to continue</h4>
-                                <h4 class="mb-4" data-id="alert">The password is incorrect, please try again</h4>
-                                <input class="form-control w-100 mb-4" data-id="password" type="password" placeholder="Enter password" />
-                                <button class="btn btn-initial pull-right" data-id="button" type="button">Continue</button>
-                            </div>
-                        </div>
-                    </form>
-
                 </div>
+                <form class="bg-white px-4 py-4 px-xl-5 rounded-bottom">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="mb-4" data-id="initial">You will need a password to continue</h4>
+                            <h4 class="mb-4" data-id="alert">The password is incorrect, please try again</h4>
+                            <input class="form-control w-100 mb-4" data-id="password" type="password" placeholder="Enter password" />
+                            <button class="btn btn-initial pull-right" data-id="button" type="button">Continue</button>
+                        </div>
+                    </div>
+                </form>
+
             </div>
         </div>
-        
-        
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-sha1/0.6.0/sha1.min.js"></script>
-        <script type="text/javascript">
-            
-            "use strict"
-            
-            var icon = document.querySelectorAll('[data-id="icon"]')
-            var button = document.querySelectorAll('[data-id="button"]')
-            var password = document.querySelectorAll('[data-id="password"]')
+    </div>
 
-            function login(secret) {
-                var hash = sha1(secret)
-                //debugger;
-                var url = hash + "/index.html"
-                var alert = document.querySelectorAll('[data-id="alert"]')
-                var initial = document.querySelectorAll('[data-id="initial"]')
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-sha1/0.6.0/sha1.min.js"></script>
+    <script type="text/javascript">
 
-                var request = new XMLHttpRequest()
-                request.open('GET', url, true)
+        "use strict"
 
-                request.onload = function () {
-                    if (request.status >= 200 && request.status < 400) {
-                        window.location = url
-                    } else {
-                        parent.location.hash = hash
-                        initial[0].style.display = 'none'
-                        alert[0].style.display = 'block'
-                        icon[0].className = 'img-fluid icon border-0 animate__animated animate__headShake'
-                        icon[0].src = 'lock.png'
-                        button[0].className = 'btn btn-error pull-right'
-                        password[0].setAttribute('data-id', 'error')
-                        password[0].value = ''
-                    }
-                }
-                request.onerror = function () {
+        var icon = document.querySelectorAll('[data-id="icon"]')
+        var button = document.querySelectorAll('[data-id="button"]')
+        var password = document.querySelectorAll('[data-id="password"]')
+
+        function login(secret) {
+            var hash = sha1(secret)
+            //debugger;
+            var url = hash + "/index.html"
+            var alert = document.querySelectorAll('[data-id="alert"]')
+            var initial = document.querySelectorAll('[data-id="initial"]')
+
+            var request = new XMLHttpRequest()
+            request.open('GET', url, true)
+
+            request.onload = function () {
+                if (request.status >= 200 && request.status < 400) {
+                    window.location = url
+                } else {
                     parent.location.hash = hash
                     initial[0].style.display = 'none'
                     alert[0].style.display = 'block'
@@ -164,20 +151,31 @@
                     password[0].setAttribute('data-id', 'error')
                     password[0].value = ''
                 }
-                request.send()
             }
+            request.onerror = function () {
+                parent.location.hash = hash
+                initial[0].style.display = 'none'
+                alert[0].style.display = 'block'
+                icon[0].className = 'img-fluid icon border-0 animate__animated animate__headShake'
+                icon[0].src = 'lock.png'
+                button[0].className = 'btn btn-error pull-right'
+                password[0].setAttribute('data-id', 'error')
+                password[0].value = ''
+            }
+            request.send()
+        }
 
-            button[0].addEventListener("click", function () {
+        button[0].addEventListener("click", function () {
+            login(password[0].value)
+        })
+
+        document.onkeydown = function (e) {
+            e = e || window.event
+            if (e.keyCode == 13) {
                 login(password[0].value)
-            })
-
-            document.onkeydown = function (e) {
-                e = e || window.event
-                if (e.keyCode == 13) {
-                    login(password[0].value)
-                }
             }
-        </script>
+        }
+    </script>
         
-    </body>
+</body>
 </html>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-<script src="https://cdn.tailwindcss.com?plugins=forms,line-clamp" defer></script>
-<script src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js" defer></script>
-
+<title>CourseFinder&trade;</title>
+<!--<meta charset="UTF-8">-->
+<meta name="robots" content="noindex, nofollow">
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<script src="https://cdn.tailwindcss.com?plugins=forms,line-clamp"></script>
 <style> 
     
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@200;300;400;600;800;900&display=swap');
@@ -28,28 +28,9 @@ body {
 }
   
 </style>
-<style>
-
-    details summary::-webkit-details-marker {
-		display: none !important;
-    }
-    summary:hover .summary-arrow svg {
-        color: rgb(22,163,4);
-    }
-    details[open] summary:hover .summary-arrow svg {
-        color: currentColor;
-        opacity: .1;
-    }
-    details:not([open]) summary .summary-arrow {
-        transform-origin: center;
-        transform: rotate(180deg);
-    }
-    
-</style>
-
 </head>
 <body>
-
+    
     <!-- GREEN MENU STRIP -->
     <div x-data="topMenu()">
         <div class="bg-green-600 fixed w-full drop-shadow-md z-20 lg:relative lg:z-0">
@@ -60,7 +41,7 @@ body {
                     </button>
                     <div class="w-full items-start lg:items-center lg:justify-end" :class="{ 'flex flex-col py-3' : isOpen, 'hidden lg:flex' : !isOpen }">
                         <a class="inline-flex lg:pl-3 text-md text-white hover:text-yellow-500 active:text-yellow-400" href="#" @click="isOpen = !isOpen">About Us</a>
-                        <a class="inline-flex lg:pl-3 text-md text-white hover:text-yellow-500 active:text-yellow-400" href="#" @click="isOpen = !isOpen">Membership Benefits</a>
+                        <a class="inline-flex lg:pl-3 text-md text-white hover:text-yellow-500 active:text-yellow-400" href="#" @click="isOpen = !isOpen">Members Area</a>
                     </div>
                 </nav>
             </div>
@@ -93,7 +74,7 @@ body {
                 </div>
             </div>
         </div>  
-        <!-- PRELOADER SHIZZLE -->
+        <!-- PRELOADER -->
         <div x-show="loadingCourses">
             <div class="flex justify-center items-center">
                 <div class="text-lg md:text-xl lg:text-2xl xl:text-3xl text-green-600"><span class="font-bold">Loading...</span> course search</div>
@@ -359,12 +340,11 @@ body {
             </div>
         </div>
     </div>
-    <!-- ADVERTISING BLOCK 2 -->
+    <!-- ADVERTISING BLOCK 1 -->
     <div x-data="">
         <div class="bg-white">
             <div class="container mx-auto px-4 lg:px-6">
-                <img class="object-cover mb-6 lg:mb-8" src="https://www.golfgeardirect.co.uk/roots/996/Ping-Banner-Homepage.jpg" />
-                <img class="object-cover mb-6 lg:mb-8" src="https://worldwidegolf.vteximg.com.br/arquivos/titleist-fitting-week-hero_01.jpg" />
+                <img class="object-cover mb-6 lg:mb-8" src="png.jpg" title="PING Science Friction" />
             </div>
         </div>
     </div>
@@ -400,6 +380,14 @@ body {
                         </template>
                     </template>
                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- ADVERTISING BLOCK 2 -->
+    <div x-data="">
+        <div class="bg-white">
+            <div class="container mx-auto px-4 lg:px-6">
+                <img class="object-cover mb-6 lg:mb-8" src="titleist.png" title="Titleist T-Series" />
             </div>
         </div>
     </div>
@@ -578,6 +566,8 @@ body {
         }
 
     </script>
-
+    
+    <script src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js" defer></script>
+    
 </body>
 </html>
