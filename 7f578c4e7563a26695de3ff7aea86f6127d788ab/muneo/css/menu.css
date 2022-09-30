@@ -155,13 +155,13 @@
 	cursor: pointer;
 }
 
-.nav-click i {
+/*.nav-click i {
 	display: block;
 	height: 48px;
 	width: 48px;
 	background: url(../img/drop.svg) no-repeat center center;
 	background-size: 20px;
-}
+}*/
 
 .nav-rotate {
 	-webkit-transform:rotate(180deg);
