@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/OwlCarousel2/2.2.1/assets/owl.theme.default.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>-->
 
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    
     <style>
         
         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&display=swap');
@@ -967,45 +972,43 @@
                                 <div class="col-12 col-md-4 diary-block" id="lunchSlide" data-parent="#diaryWrapper">
                                     <h4 class="d-none d-md-block mb-4">Lunch</h4>
                                     <ul class="list-unstyled">
-                                        <li data-slot="1000" data-availability="">10:00am</li>
-                                        <li data-slot="1030" data-availability="">10:30am</li>
-                                        <li data-slot="1100" data-availability="">11:00am</li>
-                                        <li data-slot="1130" data-availability="">11:30am</li>
-                                        <li data-slot="1200" data-availability="">12:00pm</li>
-                                        <li data-slot="1230" data-availability="">12:30pm</li>
+                                        <li data-slot="1000" data-seats="22" data-availability="">10:00am</li>
+                                        <li data-slot="1030" data-seats="19" data-availability="">10:30am</li>
+                                        <li data-slot="1100" data-seats="15" data-availability="">11:00am</li>
+                                        <li data-slot="1130" data-seats="10" data-availability="">11:30am</li>
+                                        <li data-slot="1200" data-seats="14" data-availability="">12:00pm</li>
+                                        <li data-slot="1230" data-seats="2" data-availability="">12:30pm</li>
                                     </ul>
                                 </div>
                                 <div class="col-12 col-md-4 diary-block" id="dinnerSlide" data-parent="#diaryWrapper">
                                     <h4 class="d-none d-md-block mb-4">Dinner</h4>
                                     <ul class="list-unstyled">
-                                        <li data-slot="1300" data-availability="">1:00pm</li>
-                                        <li data-slot="1330" data-availability="">1:30pm</li>
-                                        <li data-slot="1400" data-availability="">2:00pm</li>
-                                        <li data-slot="1430" data-availability="">2:30pm</li>
-                                        <li data-slot="1500" data-availability="">3:00pm</li>
-                                        <li data-slot="1530" data-availability="">3:30pm</li>
-                                        <li data-slot="1600" data-availability="">4:00pm</li>
-                                        <li data-slot="1630" data-availability="">4:30pm</li>
+                                        <li data-slot="1300" data-seats="9" data-availability="">1:00pm</li>
+                                        <li data-slot="1330" data-seats="7" data-availability="">1:30pm</li>
+                                        <li data-slot="1400" data-seats="12" data-availability="">2:00pm</li>
+                                        <li data-slot="1430" data-seats="19" data-availability="">2:30pm</li>
+                                        <li data-slot="1500" data-seats="11" data-availability="">3:00pm</li>
+                                        <li data-slot="1530" data-seats="14" data-availability="">3:30pm</li>
+                                        <li data-slot="1600" data-seats="21" data-availability="">4:00pm</li>
+                                        <li data-slot="1630" data-seats="32" data-availability="">4:30pm</li>
                                     </ul>
                                 </div>
                                 <div class="col-12 col-md-4 diary-block" id="supperSlide" data-parent="#diaryWrapper">
                                     <h4 class="d-none d-md-block mb-4">Supper</h4>
                                     <ul class="list-unstyled">
-                                        <li data-slot="1800" data-availability="">6:00pm</li>
-                                        <li data-slot="1830" data-availability="">6:30am</li>
-                                        <li data-slot="1900" data-availability="">7:00pm</li>
-                                        <li data-slot="1930" data-availability="">7:30pm</li>
-                                        <li data-slot="2000" data-availability="no">8:00pm</li>
-                                        <li data-slot="2030" data-availability="no">8:30pm</li>
-                                        <li data-slot="2100" data-availability="no">9:00pm</li>
-                                        <li data-slot="2130" data-availability="no">9:30pm</li>
-                                        <li data-slot="2200" data-availability="no">10:00pm</li>
-                                        <li data-slot="2230" data-availability="no">10:30pm</li>
+                                        <li data-slot="1800" data-seats="10" data-availability="">6:00pm</li>
+                                        <li data-slot="1830" data-seats="6" data-availability="">6:30am</li>
+                                        <li data-slot="1900" data-seats="5" data-availability="">7:00pm</li>
+                                        <li data-slot="1930" data-seats="11" data-availability="">7:30pm</li>
+                                        <li data-slot="2000" data-seats="" data-availability="no">8:00pm</li>
+                                        <li data-slot="2030" data-seats="" data-availability="no">8:30pm</li>
+                                        <li data-slot="2100" data-seats="" data-availability="no">9:00pm</li>
+                                        <li data-slot="2130" data-seats="" data-availability="no">9:30pm</li>
+                                        <li data-slot="2200" data-seats="" data-availability="no">10:00pm</li>
+                                        <li data-slot="2230" data-seats="" data-availability="no">10:30pm</li>
                                     </ul>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
 
@@ -1032,7 +1035,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="form-group col-12">
                                         <label class="m-0 font-weight-bold" for="name">Your name</label>
                                         <input type="text" class="form-control" id="name" placeholder="Please enter your name" autocomplete="yes" required>
@@ -1048,7 +1050,6 @@
                                         <input type="email" class="form-control" id="email" placeholder="Please enter a valid email address" autocomplete="yes" required>
                                         <div class="invalid-feedback">Please enter your email address.</div>
                                     </div>
-
                                     <div class="form-group col-12 mb-3">
                                         <input type="checkbox" class="form-check-input mx-0" id="marketingCheck">
                                         <label class="ml-3 pl-1 font-weight-light" for="marketingCheck">Please tick if you would like to receive money off vouchers, news of upcoming events and new menu releases.</label>
@@ -1080,10 +1081,7 @@
         </div>
     </div>
     
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
 
     <script>
         $(function() {
