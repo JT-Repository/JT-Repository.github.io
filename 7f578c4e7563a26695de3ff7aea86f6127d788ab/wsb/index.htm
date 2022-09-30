@@ -5,7 +5,7 @@
 
 <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
- 
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -16,9 +16,9 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js">
 </script>
-    
+
 <script type="text/javascript" src="http://w.soundcloud.com/player/api.js"></script>
-    
+
 <style>
     
     @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;600;800&display=swap'); 
@@ -745,9 +745,9 @@
     }
      
 </style>
-  
+
 </head>
-    
+
 <body data-spy="scroll" data-target="#wsbNav" data-offset="10">
     
     <div class="d-none d-lg-block" id="wsbPlayer">
@@ -957,7 +957,7 @@
                         <img class="card-img-top" src="https://edgbastonshop.com/wp-content/uploads/2021/11/500x500-shop-bp-mug-2.png" alt="">
                         <div class="card-body h-100 d-flex flex-column px-0">
                             <h5 class="mb-0 custom-font">Limited Edition <br><strong class="text-nowrap">[we sell boxes]</strong> <br>Mug</h5>
-                            <p>Limited stock - hurry!</p>
+<p>Limited stock - hurry!</p>
                             <span class="mt-auto">
                                 <span class="price">&euro;10.74</span>
                                 <span class="shipping">+ Postage &amp; Packaging</span>
@@ -1011,9 +1011,6 @@
             $('.loading').show();
             $(function () {
                 var jqXHR = $.getJSON("wsb.json", function(wsb) {
-
-                    // news etc
-                    
                     // featured section
                     $.each(wsb.singles, function(f, featured) {
                         if(featured.hasOwnProperty("featured") && featured.featured === true) {
@@ -1022,14 +1019,12 @@
                             $('#catalogueFeatured').append('<div class="col-lg-5 mb-4 featured-wrapper"><img loading="lazy" class="img-fluid w-100" src="'+featured.artwork+'" alt="'+featured.title+'"></div>');
                         }
                     });
-
                     // catalogue minus featured
                     $.each(wsb.singles, function(c, catalogue) {
                         if(catalogue.hasOwnProperty("featured") && catalogue.featured === false) {
                             $('#catalogueList').append('<div class="col-6 col-md-4 col-xl-3 mb-4 catalogue-block"><div class="artwork-wrapper"><img loading="lazy" class="img-fluid" src="'+catalogue.artwork+'" alt="'+catalogue.title+'"></div><div class="artwork-overlay">'+catalogue.title+'</div><a href="#" class="stretched-link" data-toggle="modal" data-target="#catalogueModal" data-title="'+catalogue.title+'" data-description="'+catalogue.description+'" data-artwork="'+catalogue.artwork+'" data-scid="'+catalogue.scid+'" data-sclink="'+catalogue.sclink+'" data-release="'+catalogue.release+'" data-featured="'+catalogue.featured+'"></a></div>');
                         }
                     });
-
                     // videos
                     $.each(wsb.singles, function(v, videos) {
                         if($.isEmptyObject(videos.ytid)) {
@@ -1049,14 +1044,12 @@
                             });
                         }
                     });
-
                     // load text layers
                     $('#newsText').append(wsb.newstext);
                     $('#catalogueText').append(wsb.cataloguetext);
                     $('#videosText').append(wsb.videostext);
                     $('#merchandiseText').append(wsb.merchandisetext);
                     $('#getinvolvedText').append(wsb.getinvolvedtext);
-
                 })
                 .done (function(data, textStatus, jqXHR) {
                     $('.loading').remove();
@@ -1075,7 +1068,6 @@
     </script>
     
     <script>
-    
         let options = {
             root: null,
             rootMargin: '0px',
@@ -1100,16 +1092,12 @@
         }
         let observer = new IntersectionObserver(handler, options);
         observer.observe(document.getElementById("mainPanel"));
-
     </script>
     
     <!-- // modal functions -->
     <script>
-        
         $(function () {
-            
             $('#wsbVideos_Carousel').owlCarousel('refresh');
-            
             $("#stickyMenu .navbar-collapse.collapse").on('show.bs.collapse', function(){
                 $('.sticky-menu').addClass('with-background');
             });
@@ -1119,7 +1107,6 @@
             $('.sticky-menu .nav-link').on('click', function() {
                 $("#stickyMenu .navbar-collapse").collapse('hide');
             });
-            
             // load data and build modal
             $('#catalogueModal').on('show.bs.modal', function (event) {
                 var modalTitle = $(event.relatedTarget).data('title');
@@ -1133,21 +1120,16 @@
                 $('#catalogueModal').empty();
                 $('#catalogueModal iframe').attr('src', '');
             });
-            
-
         });
-        
     </script>
     
     <!-- // Player -->
     <script>
-
          $(function() {
-
              var titleTrack = document.getElementById('trackInfo');
              var widget = SC.Widget(document.getElementById('soundcloud_widget'));
              widget.bind(SC.Widget.Events.READY, function() {
-                 //console.log('Ready...');
+                 console.log('Ready...steady...');
                  titleTrack.textContent = "";
                  widget.getCurrentSound(function(music)  {
                     titleTrack.textContent += music.title;
@@ -1190,7 +1172,6 @@
                 $('.play').show();
                 widget.pause();
             });
-
             $('.prev').click(function() {
                 titleTrack.textContent = "";
                 widget.prev();
@@ -1206,9 +1187,7 @@
                     titleTrack.textContent += music.title;
                 });
             });
-
         });
-
     </script>
     
 </body>
