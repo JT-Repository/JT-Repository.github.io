@@ -157,7 +157,7 @@
                 } else {
                     parent.location.hash = hash
                     alert[0].style.display = 'block'
-                    button[0].className = 'btn btn-error font-weight-bolder'
+                    button[0].className = 'btn btn-error btn-block font-weight-bolder'
                     password[0].setAttribute('data-id', 'error')
                     password[0].value = ''
                 }
@@ -165,7 +165,7 @@
             request.onerror = function () {
                 parent.location.hash = hash
                 alert[0].style.display = 'block'
-                button[0].className = 'btn btn-error font-weight-bolder'
+                button[0].className = 'btn btn-error btn-block font-weight-bolder'
                 password[0].setAttribute('data-id', 'error')
                 password[0].value = ''
             }
