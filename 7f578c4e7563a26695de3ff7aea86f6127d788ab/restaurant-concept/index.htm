@@ -7,12 +7,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">   
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="https://cdn.bootcss.com/OwlCarousel2/2.2.1/assets/owl.theme.default.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>   
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>  
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <style>
 
@@ -48,19 +47,19 @@
         font-weight: 700 !important;
     }
     .bg-primaryColor {
-        background-color: rgba(var(--primaryColor),1);
+        background-color: rgba(var(--primaryColor),1) !important;
     }
-    .text-primary {
-        color: rgba(var(--primaryColor),1);
+    .text-primaryColor {
+        color: rgba(var(--primaryColor),1) !important;
     }
     .border-primaryColor {
         border-color: rgba(var(--primaryColor),1) !important;
     }
     .bg-secondaryColor {
-        background-color: rgba(var(--secondaryColor),1);
+        background-color: rgba(var(--secondaryColor),1) !important;
     }
     .text-secondaryColor {
-        color: rgba(var(--secondaryColor),1);
+        color: rgba(var(--secondaryColor),1) !important;
     }
     .border-secondaryColor {
         border-color: rgba(var(--secondaryColor),1) !important;
@@ -240,6 +239,7 @@
     .main-navigation .navbar-nav a.active::after {
         animation: line 450ms ease 300ms 1 forwards;
     }
+    
     .home-container {
         background-image: url(ncjgatd56efgatrwl.jpg);
         background-position: 50% 50%;
@@ -254,6 +254,7 @@
     .home-container a:hover {
         color: rgba(var(--secondaryColor),1);
     }
+    
     .menu-container {
         background-image: url(ft5afgr466.jpg);
         background-size: cover;
@@ -263,38 +264,49 @@
     .menu-item .price::before {
         content: '£';
     }
-    .specials-block {
+    .specials-container {
+        background-image: url(ft5afgr466.jpg);
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+    }
+    .specials-image {
         position: relative;
         overflow: hidden;
         background-position: 50% 50%;
         background-size: cover;
         background-image: url(steamy.gif);
+        margin-left: -1px;
     }
-    .specials-block:before{
+    .specials-image:before{
         content: '';
         display: block;
         padding-top: 100%;
     }
-    .specials-block:hover {
+    
+    .owl-carousel .owl-dots {
+        text-align: center;
+        margin-top: 1rem;
     }
-    .specials-block .specials-text {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: all 900ms ease;
-        opacity: 0;
+    .owl-carousel .owl-dots button {
+        display: inline-flex;
+        outline: solid 1px rgba(255,255,255,0);
+        width: calc(2rem + 4vw);
+        height: 3px;
+        margin: 0 .75rem;
+        background: rgba(255,255,255,.5);
     }
-    .specials-block:hover .specials-text {
-        opacity: 1;
-        background-color: rgba(255,255,255,.5);
-        transition: all 450ms ease;
+    .owl-carousel .owl-dots button span {
+        display: none;
     }
+    .owl-carousel .owl-dots button:hover {
+        background: rgba(var(--secondaryColor),.5);
+    }
+    .owl-carousel .owl-dots button:focus,
+    .owl-carousel .owl-dots button.active {
+        background: rgba(var(--secondaryColor),1);
+    }
+
     /* turn off smooth scroll */
     @media screen and (prefers-reduced-motion: reduce) {
         html {
@@ -421,7 +433,8 @@
         .main-navigation .h5 {
             font-size: calc(1.25rem + .1.5vw);
         }
-        .menu-container {
+        .menu-container,
+        .specials-container {
             background-attachment: fixed;
         }
     }
@@ -688,8 +701,9 @@
                         </div>
                         <div class="navbar-collapse collapse justify-content-start justify-content-lg-end align-items-lg-center text-left text-lg-right" id="mainNavCollapse">
                             <div class="nav navbar-nav d-flex flex-column flex-lg-row mt-3 m-lg-0">
-                                <a class="d-inline-block nav-link p-0 my-2 my-lg-0 ml-lg-4 ml-xl-5" href="#Bookings">Bookings</a>
+                                <a class="d-inline-block nav-link p-0 my-2 my-lg-0 ml-lg-4 ml-xl-5" href="#AboutUs">About Us</a>
                                 <a class="d-inline-block nav-link p-0 my-2 my-lg-0 ml-lg-4 ml-xl-5" href="#Menu">Menu</a>
+                                <a class="d-inline-block nav-link p-0 my-2 my-lg-0 ml-lg-4 ml-xl-5" href="#Bookings">Bookings</a>
                                 <a class="d-inline-block nav-link p-0 my-2 my-lg-0 ml-lg-4 ml-xl-5" href="#Specials">Specials</a>
                                 <a class="d-inline-block nav-link p-0 my-2 my-lg-0 ml-lg-4 ml-xl-5" href="#ContactUs">Contact Us</a>
                             </div>
@@ -713,7 +727,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#Bookings">
+                        <a href="#AboutUs" title="Find out about the Fitzwilliam Arms">
                             <em class="fa fa-angle-down fa-5x text-white animate__animated animate__bounce animate__slow animate__infinite animate__delay-2s"></em>
                         </a>
                     </div>
@@ -721,24 +735,39 @@
             </div>
         </div>
     </section>
-    <section class="booking-container h-100" id="Bookings">
+    
+    <section class="aboutus-container h-100" id="AboutUs">
         <div class="container-fluid h-100">
             <div class="row h-100 justify-content-center">
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center text-dark">
-                    <h1 class="font-weight-bolder">Bookings</h1>
+                    <h1 class="font-weight-bolder">About Us</h1>
                     <p class="my-4">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
                     <div class="row">
-                        <div class="col">
-                            <div class="mb-5">
-                                <button class="btn btn-success btn-lg rounded-0 mb-2" data-toggle="modal" data-target="#bookingsModal" data-backdrop="static" data-keyboard="false">Make a booking</button>
+                        <div class="col-lg-6 mb-4">
+                            <div class="specials-image" data-image-src="phvvbgdhrts.jpg"></div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="row">
+                                <div class="col-6 col-md-3 col-lg-6 mb-4">
+                                    <div class="specials-image" data-image-src="hgjghjgjkl.jpg"></div>
+                                </div>
+                                <div class="col-6 col-md-3 col-lg-6 mb-4">
+                                    <div class="specials-image" data-image-src="hgjghjgjkl.jpg"></div>
+                                </div>
+                                <div class="col-6 col-md-3 col-lg-6 mb-4">
+                                    <div class="specials-image" data-image-src="hgjghjgjkl.jpg"></div>
+                                </div>
+                                <div class="col-6 col-md-3 col-lg-6 mb-4">
+                                    <div class="specials-image" data-image-src="hgjghjgjkl.jpg"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </section>
+
     <section class="menu-container" id="Menu">
         <div class="container-fluid h-100">
             <div class="row h-100 justify-content-center">
@@ -822,37 +851,100 @@
             </div>
         </div>
     </section>
-    <section class="specials-container bg-white" id="Specials">
+    
+    <section class="booking-container h-100" id="Bookings">
         <div class="container-fluid h-100">
             <div class="row h-100 justify-content-center">
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center text-dark">
-                    <h1 class="font-weight-bolder">Specials</h1>
+                    <h1 class="font-weight-bolder">Bookings</h1>
                     <p class="my-4">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
-  
                     <div class="row">
-                        <div class="col-lg-6 mb-4">
-                            <div class="specials-block" data-image-src="FitWzIwMDAsMjAwMF0.jpg">
-                                <div class="specials-text p-3 p-xl-5">
-                                    <h2>Lorem ipsum deep-fried in dolor conseqiuat</h2>
-                                    <p class="m-0">Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
-                                </div>
+                        <div class="col">
+                            <div class="mb-5">
+                                <button class="btn btn-success btn-lg rounded-0 mb-2" data-toggle="modal" data-target="#bookingsModal" data-backdrop="static" data-keyboard="false">Make a booking</button>
                             </div>
                         </div>
-                        <div class="col-lg-6 mb-4">
-                            <div class="row">
-                                <div class="col-6 col-md-3 col-lg-6 mb-4">
-                                    <div class="specials-block" data-image-src="9ab73a3.jpg"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="specials-container" id="Specials">
+        <div class="container-fluid h-100">
+            <div class="row h-100 justify-content-center">
+                <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center text-white">
+                    <h1 class="font-weight-bolder">Specials</h1>
+                    <p class="my-4">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-xl-11">
+                            <div class="owl-carousel owl-theme" id="specialsCarousel">
+                                <div class="item bg-white">
+                                    <div class="row m-0">
+                                        <div class="col-lg-6 pt-3 pt-lg-0 pl-lg-0">
+                                            <div class="specials-image" data-image-src="aswrmkppo.jpg"></div>
+                                        </div>
+                                        <div class="col-lg-6 pt-4 px-sm-4 px-md-5 text-center text-dark">
+                                            <div class="d-flex flex-column h-100 align-items-center justify-content-center">
+                                                <h2>Vernos blanditiis expedita</h2>
+                                                <p>Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-6 col-md-3 col-lg-6 mb-4">
-                                    <div class="specials-block" data-image-src=""></div>
+                                <div class="item bg-white">
+                                    <div class="row m-0">
+                                        <div class="col-lg-6 pt-3 pt-lg-0 pl-lg-0">
+                                            <div class="specials-image" data-image-src="sfdyvnxdf.jpg"></div>
+                                        </div>
+                                        <div class="col-lg-6 pt-4 px-sm-4 px-md-5 text-center text-dark">
+                                            <div class="d-flex flex-column h-100 align-items-center justify-content-center">
+                                                <h2>hjkjkl Vernos voluptatem et voluptas expedita</h2>
+                                                <p>Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-6 col-md-3 col-lg-6 mb-4">
-                                    <div class="specials-block" data-image-src="hsdkzfuyhdfng.jpg"></div>
+                                <div class="item bg-white">
+                                    <div class="row m-0">
+                                        <div class="col-lg-6 pt-3 pt-lg-0 pl-lg-0">
+                                            <img class="img-fluid w-100" src="88f8e864.jpg">
+                                        </div>
+                                        <div class="col-lg-6 pt-4 px-sm-4 px-md-5 text-center text-dark">
+                                            <div class="d-flex flex-column h-100 align-items-center justify-content-center">
+                                                <h2>Vernos voluptatem et voluptas expedita</h2>
+                                                <p>Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-6 col-md-3 col-lg-6 mb-4">
-                                    <div class="specials-block" data-image-src="p0bh2kkm.jpg"></div>
+                                <div class="item bg-white">
+                                    <div class="row m-0">
+                                        <div class="col-lg-6 pt-3 pt-lg-0 pl-lg-0">
+                                            <img class="img-fluid w-100" src="nvsereruiuo.jpg">
+                                        </div>
+                                        <div class="col-lg-6 pt-4 px-sm-4 px-md-5 text-center text-dark">
+                                            <div class="d-flex flex-column h-100 align-items-center justify-content-center">
+                                                <h2>Vernos voluptatem et voluptas expedita</h2>
+                                                <p>Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <script>
+                                $('#specialsCarousel').owlCarousel({
+                                    items: 1,
+                                    loop: true,
+                                    autoplay: false,
+                                    touchDrag: true,
+                                    mouseDrag: true,
+                                    autoHeight: true,
+                                    nav: false,
+                                    dots: true
+                                });
+                            </script>
                         </div>
                     </div>
                     
@@ -861,10 +953,10 @@
         </div>
     </section>
     <footer>
-        <section class="footer-container bg-primaryColor" id="ContactUs">
+        <section class="footer-container" id="ContactUs">
             <div class="container-fluid h-100">
                 <div class="row h-100 justify-content-center">
-                    <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-white text-center">
+                    <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-dark text-center">
                         <h1 class="font-weight-bolder">Contact Us</h1>
                         <div class="row mt-4 text-center text-lg-left">
                             <div class="col-lg-auto px-xl-4 mb-3 m-lg-0">
@@ -888,6 +980,16 @@
                     </div>
                     <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2373.329464266114!2d-1.427714548447938!3d53.498309779913036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879709c89c10227%3A0xfc8aa57f6fe813db!2sFitzwilliam%20Arms%2C%2042%20Hill%20St%2C%20Elsecar%2C%20Barnsley%20S74%208EL!5e0!3m2!1sen!2suk!4v1663582131067!5m2!1sen!2suk" width="100%" height="450" style="border:0;" allowfullscreen="yes" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid py-3 bg-primaryColor">
+                <div class="row justify-content-center">
+                    <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 text-white">
+                        <div class="row justify-content-center justify-content-md-between">
+                            <div class="col-auto">Privacy Policy &bull; Terms &amp; Conditions</div>
+                            <div class="col-auto"><span class="text-nowrap">&copy; 2022. The Fitzgerald Arms.</span> <span class="text-nowrap">All rights reserved.</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -986,7 +1088,7 @@
                                         <div class="form-row  mx-0">
                                             <div class="col-3">
                                                 <label class="m-0 font-weight-bold" for="bookingSeats">Seats</label>
-                                                <input type="number" class="form-control" id="bookingSeats" placeholder="-" required>
+                                                <input type="number" class="form-control" min="1" max="8" id="bookingSeats" placeholder="---" required>
                                             </div>
                                             <div class="col">
                                                 <label class="m-0 font-weight-bold" for="bookingTime">Time</label>
@@ -1072,6 +1174,14 @@
                 $('html, body').animate({scrollTop : 0}, 800);
                 return false;
             });
+            // Load specials images
+            $('.specials-image').each(function() {
+                var specials = $(this).attr('data-image-src');
+                if (typeof specials !== typeof undefined && specials !== false) {
+                    $(this).css('background-image', 'url('+specials+')');
+                }
+            });
+            
             // mobile only
             $('.navbar-collapse a').click(function() {
                 $(".navbar-collapse").collapse('hide');
@@ -1084,14 +1194,6 @@
                 $('.navbar-nav').find('a').unwrap('span');
                 $('.main-navigation').removeClass('is-collapsed');
             });
-            // Load specials images
-            $('.specials-block').each(function() {
-                var specials = $(this).attr('data-image-src');
-                if (typeof specials !== typeof undefined && specials !== false) {
-                    $(this).css('background-image', 'url('+specials+')');
-                }
-            });
-            
             $('.bookings-calendar td').click(function () {
                 $('#calendarSlide.collapse').removeClass('show');
                 $('#diarySlide.collapse').addClass('show');

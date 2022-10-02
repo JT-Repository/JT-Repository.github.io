@@ -6,88 +6,142 @@
 <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 <style>
 
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;800&display=swap');
+    
     body {
-        background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 20%, #000000 100%);
-        background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 20%, #000000 100%);
-        background: linear-gradient(to bottom, #ffffff 0%, #ffffff 20%, #000000 100%);
-        min-height: 100vh;
-    }
-    .icon {
-        max-width: calc(3.5rem + 1.75vw);
-        border-radius: 50%;
+        background:
+        linear-gradient(rgba(255,0,0,.75), transparent),
+        linear-gradient(to top left, rgba(0,255,0,.75), transparent),
+        linear-gradient(to top right, rgba(0,0,255,.75), transparent);
+        background-blend-mode: screen;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
     }
     h1 {
         font-weight: 900;
-        font-size: calc(1.75rem + .5vw);
+        font-size: calc(3rem + 2vw);
     }
-    h4 {
+    h2 {
+        font-size: calc(2rem + .75vw);
         font-weight: 800;
+    }
+    h3 {
+        font-size: calc(1rem + .75vw);
+        font-weight: 200;
+    }
+    p {
+        font-size: calc(1rem + .15vw);
+    }
+    .owl-carousel .owl-dots {
+        text-align: center;
+    }
+    .owl-carousel .owl-dots button {
+        display: inline-flex;
+        outline: solid 1px rgba(255,255,255,0);
+        width: calc(2rem + 4vw);
+        height: calc(.75rem + .5vw);
+        margin: 0 .75rem;
+    }
+    .owl-carousel .owl-dots button span {
+        display: flex;
+        flex: 0 0 100%;
+        max-width: 100%;
+        height: 100%;
+        background: rgba(255,255,255,.1);
+    }
+    .owl-carousel .owl-dots button:hover span {
+        background: rgba(255,255,255,.5);
+    }
+    .owl-carousel .owl-dots button:focus span,
+    .owl-carousel .owl-dots button.active span {
+        background: rgba(255,255,255,.75);
     }
     @media screen and (min-width: 992px) {
         body {
             background-attachment: fixed;
         }
+        .owl-carousel .owl-dots button {
+            margin: 0 1rem;
+        }
     }
+
+
     
 </style>
 </head>
 <body>
     
-    <div class="container py-md-4 py-lg-5">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <div class="px-4 py-5 rounded-top">
-                    <div class="row justify-content-center align-items-center">
-                        <div class="col-auto px-2">
-                            <img class="img-fluid icon" src="icon.png" />
-                        </div>
-                        <div class="col-auto px-2">
-                            <h1 class="m-0">Julian Thompson</h1>
-                            <h5 class="m-0 text-black-50 font-weight-light">JT-Repository.github.io</h5>
-                        </div>
+    <div class="container vh-100">
+        <div class="row vh-100 align-content-center justify-content-center">
+            <div class="col-11 col-md-12">
+                <div class="owl-carousel owl-theme" id="portCarousel">
+                    <div class="item">
+                        <div class="row justify-content-center text-center">
+                            <div class="col-12 col-md-11 col-lg-10 col-xl-9">
+                                <img class="img-fluid w-100 shadow" src="rest.jpg" />
+                                <a class="stretched-link" href="restaurant-concept/index.htm" target="new"></a>
+                            </div>
+                            <div class="col-12 pt-4">
+                                <h2 class="mb-0">Fitzwilliam Arms</h2>
+                                <h3 class="mb-4">Bootstrap 4 / jQuery / Owl Carousel / Datepicker UI</h3>
+                                <p class="mb-4">A concept for a restaurant with a modal-based booking mechanism.</p>
+                                <a class="stretched-link" href="restaurant-concept/index.htm" target="new"></a>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="item">
+                        <div class="row justify-content-center text-center">
+                            <div class="col-12 col-md-11 col-lg-10 col-xl-9">
+                                <img class="img-fluid w-100 shadow" src="cf.jpg" />
+                                <a class="stretched-link" href="course-finder/index.htm" target="new"></a>
+                            </div>
+                            <div class="col-12 pt-4">
+                                <h2 class="m-0">CourseFinder&trade;</h2>
+                                <h3 class="mb-4">Tailwind CSS / Alpine JS</h3>
+                                <p class="mb-4">A concept for a golf course directory/social network. This was merely a learning exercise in Tailwind and Alpine JS; so was a all a bit ad hoc.</p>
+                                <a class="stretched-link" href="course-finder/index.htm" target="new"></a>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="item">
+                        <div class="row justify-content-center text-center">
+                            <div class="col-12 col-md-11 col-lg-10 col-xl-9">
+                                <img class="img-fluid w-100 shadow" src="wsb.jpg" />
+                                <a class="stretched-link" href="wsb/index.htm" target="new"></a>
+                            </div>
+                            <div class="col-12 pt-4">
+                                <h2 class="m-0">[wesellboxes]</h2>
+                                <h3 class="mb-4">Faux Parallax / Bootstrap 4 / jQuery / Owl Carousel / SoundCloud API</h3>
+                                <p class="mb-4">Built as a concept for a university friend, who prodcues his own music/music videos in his spare time. There's still a lot of browser testing/fixes to do, specifically the Soundcloud API widget. *Annoyingly it works perfectly in a local environment.</p>
+                                <a class="stretched-link" href="wsb/index.htm" target="new"></a>
+                            </div>
+                        </div> 
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-11 col-md-10 col-lg-6 mb-5">
-                <div class="card h-100 shadow-lg">
-                    <img class="card-img-top" src="rest.jpg" />
-                    <div class="card-body">
-                        <h4 class="m-0">Fitzwilliam Arms</h4>
-                        <h5 class="font-weight-light">Bootstrap 4 / jQuery / Datepicker UI</h5>
-                        <p class="lead m-0">A concept for a restaurant with booking mechanism.</p>
-                        <a class="stretched-link" href="restaurant-concept/index.htm" target="new"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-11 col-md-10 col-lg-6 mb-5">
-                <div class="card h-100 shadow-lg">
-                    <img class="card-img-top" src="cf.jpg" />
-                    <div class="card-body">
-                        <h4 class="m-0">CourseFinder&trade;</h4>
-                        <h5 class="font-weight-light">Tailwind CSS / Alpine JS</h5>
-                        <p class="lead m-0">A concept for a golf course directory/social network. This is was merely a learning exercise in Tailwind and Alpine JS so was a all a bit ad hoc.</p>
-                        <a class="stretched-link" href="course-finder/index.htm" target="new"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-11 col-md-10 col-lg-6 mb-5">
-                <div class="card h-100 shadow-lg">
-                    <img class="card-img-top" src="wsb.jpg" />
-                    <div class="card-body">
-                        <h4 class="m-0">[wesellboxes]</h4>
-                        <h5 class="font-weight-light">Faux Parallax / Bootstrap 4 / jQuery / Owl Carousel / SoundCloud API</h5>
-                        <p class="m-0">Built as a concept for a university friend, who prodcues his own music/music videos in his spare time. There's still a lot of browser testing/fixes to do, specifically the Soundcloud API widget. *Annoyingly it works perfectly in a local environment.</p>
-                        <a class="stretched-link" href="wsb/index.htm" target="new"></a>
-                    </div>
-                </div>
+                <script>
+                    $('#portCarousel').owlCarousel({
+                        loop: true,
+                        items: 1,
+                        autoplay: false,
+                        touchDrag: true,
+                        mouseDrag: true,
+                        autoHeight: true,
+                        nav: false,
+                        dots: true
+                    });
+            </script>
             </div>
         </div>
     </div>
-    
+
 </body>
 </html>

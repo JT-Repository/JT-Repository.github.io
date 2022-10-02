@@ -7,45 +7,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/OwlCarousel2/2.2.1/assets/owl.theme.default.css">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <style>
 
-    ::-webkit-input-placeholder { 
-        color: rgba(0,0,0,.35) !important;
-    }
-    :-ms-input-placeholder {
-        color: rgba(0,0,0,.35) !important;
-    }
-    ::placeholder {
-        color: rgba(0,0,0,.35) !important;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap');
+    
     body {
         background:
-        linear-gradient(red, transparent),
-        linear-gradient(to top left, lime, transparent),
-        linear-gradient(to top right, blue, transparent);
+        linear-gradient(rgba(255,0,0,.5), transparent),
+        linear-gradient(to top left, rgba(0,255,0,.5), transparent),
+        linear-gradient(to top right, rgba(0,0,255,.8), transparent);
         background-blend-mode: screen;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
     }
-    .icon {
-        max-width: calc(3rem + 1.5vw);
-        border-radius: 50%;
+    h1 {
+        font-size: calc(1.5rem + 1vw);
+        font-weight: 800;
     }
-    h3 {
-        font-weight: 900;
-        font-size: calc(1rem + .75vw);
+    h2 {
+        font-size: calc(1rem + .5vw);
     }
-    h4 {
-        font-weight: 500;
-        font-size: calc(.75rem + .75vw);
+    .form-control,
+    button.btn {
+        font-size: calc(1rem + .25vw);
     }
-    form {
-        margin-top: .2rem;
+    input,
+    input::placeholder {
+        text-align: center;
     }
     .btn-initial {
         color: rgba(0,0,0,1);
-        background-color: rgba(186,186,186);
-        border-color: rgba(186,186,186);
+        background-color: rgba(186,186,186,1);
+        border-color: rgba(186,186,186,1);
     }
     .btn-initial:hover,
     .btn-initial:focus {
@@ -93,32 +91,23 @@
         
 </head>
 <body>
-    
-    <div class="container p-4 px-lg-0 py-xl-5">
-        <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-9 col-xl-8 px-lg-5 mb-4">
 
-                <div class="bg-white px-4 py-4 px-xl-5 rounded-top">
-                    <div class="row justify-content-center align-items-center">
-                        <div class="col-auto px-2">
-                            <img class="img-fluid icon animate__animated animate__bounceInLeft" data-id="icon" src="icon.png" />
+    <div class="container vh-100">
+        <div class="row vh-100 align-content-center justify-content-center">
+            <div class="col-11 col-md-10 col-lg-9 col-xl-8 text-center">
+                <div class="bg-white p-5 shadow-lg box">
+                    <h1 class="mb-5">JT-Repository.github.io</h1>
+                    <form class="m-0" method="">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <h2 class="mb-2" data-id="initial">You will need a password to continue</h2>
+                                <h2 class="mb-2" data-id="alert">The password is incorrect, please try again</h2>
+                                <input class="form-control w-75 mx-auto mt-0 mb-5" data-id="password" type="password" placeholder="Enter password" />
+                                <button class="btn btn-initial m-0" data-id="button" type="button">Continue</button>
+                            </div>
                         </div>
-                        <div class="col-auto px-2">
-                            <h3 class="mb-0 mt-1">JT-Repository.github.io</h3>
-                        </div>
-                    </div>
+                    </form>
                 </div>
-                <form class="bg-white px-4 py-4 px-xl-5 rounded-bottom">
-                    <div class="row">
-                        <div class="col-12">
-                            <h4 class="mb-4" data-id="initial">You will need a password to continue</h4>
-                            <h4 class="mb-4" data-id="alert">The password is incorrect, please try again</h4>
-                            <input class="form-control w-100 mb-4" data-id="password" type="password" placeholder="Enter password" />
-                            <button class="btn btn-initial pull-right" data-id="button" type="button">Continue</button>
-                        </div>
-                    </div>
-                </form>
-
             </div>
         </div>
     </div>
@@ -127,8 +116,7 @@
     <script type="text/javascript">
 
         "use strict"
-
-        var icon = document.querySelectorAll('[data-id="icon"]')
+        
         var button = document.querySelectorAll('[data-id="button"]')
         var password = document.querySelectorAll('[data-id="password"]')
 
@@ -149,9 +137,7 @@
                     parent.location.hash = hash
                     initial[0].style.display = 'none'
                     alert[0].style.display = 'block'
-                    icon[0].className = 'img-fluid icon border-0 animate__animated animate__headShake'
-                    icon[0].src = 'lock.png'
-                    button[0].className = 'btn btn-error pull-right'
+                    button[0].className = 'btn btn-error'
                     password[0].setAttribute('data-id', 'error')
                     password[0].value = ''
                 }
@@ -160,9 +146,7 @@
                 parent.location.hash = hash
                 initial[0].style.display = 'none'
                 alert[0].style.display = 'block'
-                icon[0].className = 'img-fluid icon border-0 animate__animated animate__headShake'
-                icon[0].src = 'lock.png'
-                button[0].className = 'btn btn-error pull-right'
+                button[0].className = 'btn btn-error'
                 password[0].setAttribute('data-id', 'error')
                 password[0].value = ''
             }
@@ -179,7 +163,8 @@
                 login(password[0].value)
             }
         }
-    </script>
         
+    </script>
+
 </body>
 </html>
