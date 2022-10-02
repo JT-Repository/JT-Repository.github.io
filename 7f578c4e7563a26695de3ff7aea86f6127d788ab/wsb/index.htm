@@ -1138,27 +1138,13 @@
         
     </script>
     
-    <!-- //  -->
-    <script>
-        function streamingReady(){
-            if (type of SC != 'undefined') {
-                SC.Widget( function() {
-                    console.log('TOP DOWN');
-                });
-            } else {
-                setTimeout(streamingReady, 200);
-            }
-        }
-    
-    </script>
-    
     <!-- // Player -->
     <script>
 
          $(function() {
-             
-            var titleTrack = document.getElementById('trackInfo');
-            var widget = SC.Widget(document.getElementById('soundcloud_widget'));
+
+            var titleTrack = window.getElementById('trackInfo');
+            var widget = SC.Widget(window.getElementById('soundcloud_widget'));
             widget.bind(SC.Widget.Events.LOAD_PROGRESS, function() {
                 titleTrack.textContent = "loading...";
             });
