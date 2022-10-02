@@ -524,6 +524,9 @@
     .modal-backdrop {
         background-color: rgba(var(--primaryColor),.25);  
     }
+    .bookings-modal .modal-body h1 {
+        font-size: calc(1.5rem + .75vw);
+    }
 
     @media screen and (max-width: 991.98px) {
         .modal-lg {
@@ -782,10 +785,10 @@
     <header class="main-navigation">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 py-3">
+                <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 py-3 pr-0 pr-lg-3">
                     <nav class="navbar navbar-expand-lg p-0" id="mainNav">
                         <div class="h5 m-0 font-weight-bolder text-white">The Fitzwilliam Arms</div>
-                        <div class="navbar-toggler ml-auto collapsed" type="button" data-toggle="collapse" data-target="#mainNavCollapse" aria-controls="mainNavCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <div class="navbar-toggler ml-auto p-0 collapsed" type="button" data-toggle="collapse" data-target="#mainNavCollapse" aria-controls="mainNavCollapse" aria-expanded="false" aria-label="Toggle navigation">
                             <span></span>
                             <span></span>
                             <span></span>
@@ -871,8 +874,8 @@
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center text-white">
                     <h1 class="font-weight-bolder mb-4">Menu</h1>
                     
-                    <div class="row pt-4 text-left">
-                        <div class="col-lg-6 px-xl-4">
+                    <div class="row pt-4 justify-content-center text-left">
+                        <div class="col-11 col-lg-6 px-xl-4">
                             <h2 class="text-center text-lg-left my-4">Starters</h2>
                             <div class="menu-item mb-4">
                                 <h3 class="h4 m-0 d-flex justify-content-between">
@@ -896,7 +899,7 @@
                                 <p class="font-weight-light border-top border-white m-0 pt-1">Purus gravida quis blandit turpis cursus in hac. Ipsum suspendisse ultrices gravida dictum.</p>
                             </div>
                         </div>
-                        <div class="col-lg-6 px-xl-4">
+                        <div class="col-11 col-lg-6 px-xl-4">
                             <h2 class="text-center text-lg-left my-4">Main courses</h2>
                             <div class="menu-item mb-4">
                                 <h3 class="m-0 h4 d-flex justify-content-between">
@@ -920,7 +923,7 @@
                                 <p class="font-weight-light border-top border-white m-0 pt-1">Mauris augue neque gravida in fermentum et sollicitudin. Purus semper eget duis at tellus.</p>
                             </div>
                         </div>
-                        <div class="col-lg-6 px-xl-4">
+                        <div class="col-11 col-lg-6 px-xl-4">
                             <h2 class="text-center text-lg-left my-4">Soups and salads</h2>
                             <div class="menu-item mb-4">
                                 <h3 class="h4 m-0 d-flex justify-content-between">
@@ -951,7 +954,7 @@
                                 <p class="font-weight-light border-top border-white m-0 pt-1">Vestibulum mattis ullamcorper velit sed ullamcorper morbi. Diam sit amet nisl suscipit adipiscing.</p>
                             </div>
                         </div>
-                        <div class="col-lg-6 px-xl-4">
+                        <div class="col-11 col-lg-6 px-xl-4">
                             <h2 class="text-center text-lg-left my-4">Desserts</h2>
                             <div class="menu-item mb-4">
                                 <h3 class="h4 m-0 d-flex justify-content-between">
@@ -1147,27 +1150,22 @@
 
         });
     </script>
-    
+         
     <!-- Bookings Modal -->
     <div class="bookings-modal modal fade" tabindex="-1" role="dialog" id="bookingsModal">
         <div class="modal-dialog modal-lg">
             <div class="modal-content border-0 rounded-0 shadow-lg">
-
                 <a class="modal-close" data-dismiss="modal" aria-label="Close">
                     <em class="fa fa-times" aria-hidden="true"></em>
                 </a>
-
                 <div class="modal-body p-5 text-center">
-
-                    <h1 class="h2 font-weight-bold m-0">Bookings Calendar</h1>
-
+                    <h1 class="font-weight-bold m-0">Bookings Calendar</h1>
                     <div class="row justify-content-center collapse show" id="calendarSlide">
                         <div class="col-12 my-auto">
                             <p class="">Pellentesque pulvinar nisl pellentesque habitant.</p>
                             <div class="bookings-calendar" id="datepicker"></div>
                         </div>
                     </div>
-
                     <div class="row justify-content-center collapse" id="diarySlide">
                         <div class="col-12 my-auto">
                             <p class="mb-4">Nunc aliquet bibendum enim facilisis gravida volutpat sed.</p>
@@ -1293,6 +1291,7 @@
     <script>
         
         $(function() {
+            
             // menu scroll into view on .lg sizes
             var nav = $('.main-navigation');
             $(window).scroll(function() {    

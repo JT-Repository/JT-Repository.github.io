@@ -114,9 +114,9 @@
                             <span class="mx-1" x-show="search">for</span>
                             <span x-show="search" class="font-bold" x-text="search"></span>
                             <span class="inline-flex mx-2 pb-2 items-center" x-show="!search">Please refine your search above. 
-                                <svg class="text-green-600 ml-2 animate-bounce" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
+                                <!--<svg class="text-green-600 ml-2 animate-bounce" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
-                                </svg>
+                                </svg>-->
                             </span>
                         </div>
                         <div class="text-zinc-500 opacity-0" :class="{ 'opacity-100 my-6 xl:mb-8' : total==0 }" x-show="total==0">
@@ -359,8 +359,10 @@
     <!-- ADVERTISING BLOCK 1 -->
     <div x-data="">
         <div class="bg-white">
-            <div class="container mx-auto px-4 lg:px-6 mt-10 lg:mt-12">
-                <img class="min-w-full mb-6 lg:mb-8" src="png.jpg" title="PING Science Friction" />
+            <div class="container mx-auto px-4 lg:px-6 mt-4 mb-10 lg:mb-12">
+                <img class="md:hidden min-w-full" src="425-sm.jpg" title="PING G425" />
+                <img class="hidden md:block lg:hidden min-w-full" src="425-md.jpg" title="PING G425" />
+                <img class="hidden lg:block min-w-full" src="425-lg.jpg" title="PING G425" />
             </div>
         </div>
     </div>
@@ -418,7 +420,7 @@
         <div class="bg-white">
             <div class="container mx-auto px-4 lg:px-6 py-6 lg:py-8 opacity-0" :class="{ 'opacity-100' : !loadingReviews }">
                 <div class="mb-6 font-extrabold text-center text-zinc-500 text-3xl xl:text-4xl custom-font">Course Reviews</div>
-                <div class="-mx-3 lg:-mx-5 pb-3 flex flex-row flex-nowrap items-start overflow-y-hidden overflow-x-auto overscroll-none snap-mandatory snap-x focus:touch-pan-x touch-pan-x">
+                <div class=" pb-3 flex flex-row flex-nowrap items-start overflow-y-hidden overflow-x-auto overscroll-none snap-mandatory snap-x focus:touch-pan-x touch-pan-x">
                     <template x-for="(review, index) in courseReviews" :key="index">
                         <div class="flex p-5 pt-0 text-center lg:text-left snap-center">
                             <p class="w-96 sm:w-60 md:w-72 lg:w-80 xl:w-96 line-clamp-6" x-text="review.review_text"></p>
@@ -426,7 +428,7 @@
                     </template>
                 </div>
                 <div class="resize-none hover:resize">
-                  <!-- ... -->
+                    <!-- ... -->
                 </div>
             </div>
         </div>
