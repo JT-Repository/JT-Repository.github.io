@@ -1143,8 +1143,10 @@
 
          $(function() {
 
-            var titleTrack = window.getElementById('trackInfo');
-            var widget = SC.Widget(window.getElementById('soundcloud_widget'));
+            var widgetIframe = document.getElementById('soundcloud_widget'),
+            widget = SC.Widget(widgetIframe);
+            var titleTrack = document.getElementById('trackInfo');
+
             widget.bind(SC.Widget.Events.LOAD_PROGRESS, function() {
                 titleTrack.textContent = "loading...";
             });
