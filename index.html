@@ -32,6 +32,7 @@
         background-blend-mode: screen;
         font-family: 'Poppins', sans-serif;
         font-weight: 400;
+        min-height: 100%;
     }
     h1 {
         font-size: calc(2rem + .75vw);
@@ -123,14 +124,15 @@
                 <div class="bg-white p-4 p-md-5 shadow-lg box">
                     <form class="m-0" method="">
                         <div class="form-row">
-                            <div class="col text-center">
+                            <div class="col-sm text-center">
                                 <input class="form-control w-100" data-id="password" type="password" placeholder="Please enter your password" />
                             </div>
-                            <div class="col-auto">
-                                <button class="btn btn-initial font-weight-bold" data-id="button" type="button">Continue</button>
+                            <div class="col-12 mt-2 mb-0 order-sm-last" data-id="alert"><em class="fa fa-exclamation-triangle" aria-hidden="true"></em> The password is incorrect, please try again.</div>
+                            <div class="col-sm-auto pt-2 pt-sm-0">
+                                <button class="btn btn-initial btn-block font-weight-bold" data-id="button" type="button">Continue</button>
                             </div>
                         </div>
-                        <p class="mt-2 mb-0" data-id="alert"><em class="fa fa-exclamation-triangle" aria-hidden="true"></em> The password is incorrect, please try again.</p>
+                        
                     </form>
                 </div>
             </div>
