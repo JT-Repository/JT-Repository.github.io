@@ -17,8 +17,6 @@
 <style>
 
     @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&display=swap');
-    
-    @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
     :root {
         --primaryColor: 0,0,0;
@@ -236,13 +234,6 @@
     }
     .main-navigation .navbar-nav a.active::after {
         animation: line 450ms ease 300ms 1 forwards;
-    }
-    .home-container {
-        background-image: url(ncjgatd56efgatrwl.jpg);
-        background-position: 50% 50%;
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 100vh;
     }
     .home-container {
         background-image: url(ncjgatd56efgatrwl.jpg);
@@ -751,7 +742,7 @@
                     
                     <div class="row pt-4 text-left">
                         <div class="col-lg-6 px-xl-4">
-                            <h2 class="text-center text-lg-left my-4 custom-font">Starters</h2>
+                            <h2 class="text-center text-lg-left my-4">Starters</h2>
                             <div class="menu-item mb-4">
                                 <h3 class="h4 m-0 d-flex justify-content-between">
                                     <span>Prawn cocktail</span>
@@ -768,7 +759,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 px-xl-4">
-                            <h2 class="text-center text-lg-left my-4 custom-font">Main courses</h2>
+                            <h2 class="text-center text-lg-left my-4">Main courses</h2>
                             <div class="menu-item mb-4">
                                 <h3 class="m-0 h4 d-flex justify-content-between">
                                     <span>Fish and chips</span>
@@ -792,7 +783,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 px-xl-4">
-                            <h2 class="text-center text-lg-left my-4 custom-font">Soups and salads</h2>
+                            <h2 class="text-center text-lg-left my-4">Soups and salads</h2>
                             <div class="menu-item mb-4">
                                 <h3 class="h4 m-0 d-flex justify-content-between">
                                     <span>Minestrone</span>
@@ -809,7 +800,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 px-xl-4">
-                            <h2 class="text-center text-lg-left my-4 custom-font">Desserts</h2>
+                            <h2 class="text-center text-lg-left my-4">Desserts</h2>
                             <div class="menu-item mb-4">
                                 <h3 class="h4 m-0 d-flex justify-content-between">
                                     <span>Lemon meringue pie</span>
@@ -1023,8 +1014,10 @@
                                     <div class="form-group col-12 mb-3">
                                         <input type="checkbox" class="form-check-input mx-0" id="marketingCheck">
                                         <label class="ml-3 pl-1 font-weight-light" for="marketingCheck">Please tick if you would like to receive money off vouchers, news of upcoming events and new menu releases.</label>
+                                    </div>
+                                    <div class="form-group col-12 mb-3">
                                         <input type="checkbox" class="form-check-input mx-0" id="termsCheck" required>
-                                        <label class="ml-3 pl-1 font-weight-light" for="termsCheck">I understand the Terms &amp; Conditions*</label><div class="invalid-feedback">Please tick to confirm you have read the terms and conditions.</div>
+                                        <label class="ml-3 pl-1 font-weight-light" for="termsCheck">I understand the <a href="">Terms &amp; Conditions</a>*</label>
                                     </div>
                                     <div class="form-group col-12 col-md-auto">
                                         <button class="btn btn-success btn-block ml-auto" data-backdrop="static">Confirm your reservation</button>
