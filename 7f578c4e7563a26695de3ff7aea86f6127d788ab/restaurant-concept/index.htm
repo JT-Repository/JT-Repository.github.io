@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Restaurant concept with booking mechanism</title>
+<title>The Fitzwilliam Arms</title>
 <meta name="robots" content="noindex, nofollow">
 <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -14,7 +14,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js"></script>-->  
 <style>
 
     @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&display=swap');
@@ -611,14 +610,14 @@
         border-top: dotted 1px rgba(var(--primaryColor),.1);
     }
     .diary-block li:not([data-availability="no"])::after {
-        content: '(x) seats available';
+        content: attr(data-seats);
         color: rgba(1,129,1,.5);
         cursor: pointer;
     }
     .diary-block li[data-availability="no"] {
         pointer-events: none;
     }
-    .diary-block li[data-availability="no"]::after {
+    .diary-block li[data-availability="no"]::before {
         content: 'Fully booked';
         color: rgba(255,0,0,.5);
     }
@@ -704,16 +703,16 @@
                 <div class="col-11 col-sm-10 col-md-9 col-lg-7 col-xl-6 text-center">
                     <div class="h-100 d-flex flex-column justify-content-around">
                         <div class="p-5 bg-primaryColor text-white">
-                            <div class="h4 m-0 font-weight-bolder">Welcome to the</div>
+                            <div class="h4 m-0 font-weight-bolder">Welcome to &hellip;</div>
                             <div class="display-4 mb-4 font-weight-bolder">The Fitzwilliam Arms</div>
                             <div class="row justify-content-center">
-                                <div class="col-5 col-sm-4">
+                                <div class="col-7 col-sm-6 col-md-4">
                                     <img class="img-fluid w-100" src="tc22w.png">
                                 </div>
                             </div>
                         </div>
                         <a href="#Bookings">
-                            <em class="fa fa-angle-down fa-5x text-white animate__animated animate__bounce animate__slow animate__repeat-4 animate__delay-2s"></em>
+                            <em class="fa fa-angle-down fa-5x text-white animate__animated animate__bounce animate__slow animate__infinite animate__delay-2s"></em>
                         </a>
                     </div>
                 </div>
@@ -1081,18 +1080,14 @@
                 $('.navbar-nav').find('a').unwrap('span');
                 $('.main-navigation').removeClass('is-collapsed');
             });
-            // Load specials
+            // Load specials images
             $('.specials-block').each(function() {
                 var specials = $(this).attr('data-image-src');
                 if (typeof specials !== typeof undefined && specials !== false) {
                     $(this).css('background-image', 'url('+specials+')');
                 }
             });
-            // Reset collapse on modal close
-            $('#bookingsModal').on('hidden.bs.modal', function () {
-                $('#calendarSlide').addClass('show');
-                $('#diarySlide, #formSlide, #formConfirm').removeClass('show');
-            });
+            
             $('.bookings-calendar td').click(function () {
                 $('#calendarSlide.collapse').removeClass('show');
                 $('#diarySlide.collapse').addClass('show');
@@ -1109,6 +1104,7 @@
             var currentHour = ('0'+(getCurrent.getHours())).slice(-2);
             var currentMinutes = ('0'+(getCurrent.getMinutes())).slice(-2);
             var currentTime = currentHour + currentMinutes;
+            
             if ($(window).width() < 768) {
                 $('.diary-block').addClass('collapse');
                 $('#lunchSlide.diary-block').addClass('show');
@@ -1139,7 +1135,9 @@
             $('.diary-block li').click(function() {
                 var selectedTime = $(this).html();
                 $('#bookingForm').find('#bookingTime').val(selectedTime);
+                
             });
+            
             $('#formSlide button').click(function() {
                 $('#formSlide').removeClass('show');
                 $('#formConfirm').addClass('show');
@@ -1148,6 +1146,13 @@
                 //$('#formConfirm').find('#bookedYear').text(selectedDateYear);
                 //$('#formConfirm').find('#bookedTime').text(selectedTime);
             }); 
+        
+            // Reset collapse on modal close
+            $('#bookingsModal').on('hidden.bs.modal', function () {
+                $('#calendarSlide').addClass('show');
+                $('#diarySlide, #formSlide, #formConfirm').removeClass('show');
+            });
+            
         });
 
     </script>
