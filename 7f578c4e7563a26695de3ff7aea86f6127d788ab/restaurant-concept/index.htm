@@ -17,6 +17,8 @@
 <style>
 
     @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&display=swap');
+    
+    @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
     :root {
         --primaryColor: 0,0,0;
@@ -34,6 +36,9 @@
         /*font-family: "Lato", sans-serif;*/
         font-size: 1rem;
         font-weight: 400;
+    }
+    .custom-font {
+        font-family: 'Satisfy', cursive;
     }
     .font-weight-semi-bold {
         font-weight: 500 !important;
@@ -106,6 +111,7 @@
     h1.active::after {
         animation: line 450ms ease 300ms 1 forwards;
     }
+
     /* custom styles */
     .home-link {
         position: fixed;
@@ -610,7 +616,7 @@
         border-top: dotted 1px rgba(var(--primaryColor),.1);
     }
     .diary-block li:not([data-availability="no"])::after {
-        content: attr(data-seats);
+        content: attr(data-content) ' seats available';
         color: rgba(1,129,1,.5);
         cursor: pointer;
     }
@@ -745,7 +751,7 @@
                     
                     <div class="row pt-4 text-left">
                         <div class="col-lg-6 px-xl-4">
-                            <h2 class="text-center text-lg-left my-4">Starters</h2>
+                            <h2 class="text-center text-lg-left my-4 custom-font">Starters</h2>
                             <div class="menu-item mb-4">
                                 <h3 class="h4 m-0 d-flex justify-content-between">
                                     <span>Prawn cocktail</span>
@@ -762,7 +768,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 px-xl-4">
-                            <h2 class="text-center text-lg-left my-4">Main courses</h2>
+                            <h2 class="text-center text-lg-left my-4 custom-font">Main courses</h2>
                             <div class="menu-item mb-4">
                                 <h3 class="m-0 h4 d-flex justify-content-between">
                                     <span>Fish and chips</span>
@@ -786,7 +792,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 px-xl-4">
-                            <h2 class="text-center text-lg-left my-4">Soups and salads</h2>
+                            <h2 class="text-center text-lg-left my-4 custom-font">Soups and salads</h2>
                             <div class="menu-item mb-4">
                                 <h3 class="h4 m-0 d-flex justify-content-between">
                                     <span>Minestrone</span>
@@ -803,7 +809,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 px-xl-4">
-                            <h2 class="text-center text-lg-left my-4">Desserts</h2>
+                            <h2 class="text-center text-lg-left my-4 custom-font">Desserts</h2>
                             <div class="menu-item mb-4">
                                 <h3 class="h4 m-0 d-flex justify-content-between">
                                     <span>Lemon meringue pie</span>
@@ -987,11 +993,11 @@
                                                 <input type="text" class="form-control" id="bookingSeats" required>
                                             </div>
                                             <div class="col">
-                                                <label class="m-0 font-weight-bold" for="bookingTime">Selected Time</label>
+                                                <label class="m-0 font-weight-bold" for="bookingTime">Time</label>
                                                 <input type="text" class="form-control" id="bookingTime" disabled>
                                             </div>
                                             <div class="col">
-                                                <label class="m-0 font-weight-bold" for="bookingDate">Selected Date</label>
+                                                <label class="m-0 font-weight-bold" for="bookingDate">Date</label>
                                                 <input type="text" class="form-control" id="bookingDate" disabled>
                                             </div>
                                             <div class="col-12">
