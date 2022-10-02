@@ -2,23 +2,18 @@
 <html>
 <head>
 <title>[we sell boxes] - Enthusiastically pessimistic, and sometimes angry, electronic music.</title>
-
 <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
- 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdn.bootcss.com/OwlCarousel2/2.2.1/assets/owl.theme.default.css">
-
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js">
 </script>
-    
 <script type="text/javascript" src="http://w.soundcloud.com/player/api.js"></script>
-    
 <style>
     
     @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;600;800&display=swap'); 
@@ -306,22 +301,22 @@
         z-index: -1;
     }
     .scrolling-background.bg-1 {
-        background-image: url("https://media.hero-magazine.com/wp-content/uploads/2022/03/31140538/Bill-Bernstein-2001-Odyssey-Dance-Floor-1979.jpg");
+        background-image: url("odyssey-1979.jpg");
     }
     .scrolling-background.bg-2 {
-        background-image: url("https://photearhome.files.wordpress.com/2019/11/warehouse02.jpg");
+        background-image: url("warehouse.jpg");
     }
     .scrolling-background.bg-3 {
-        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh0m362H5jmFFOW70tpDmCKxTAG0eZP6yLeg&usqp=CAU");
+        background-image: url("hands.jpeg");
     }
     .scrolling-background.bg-4 {
-        background-image: url("https://z9j9e3w7.stackpathcdn.com/wp-content/uploads/WHP-SQ.jpg");
+        background-image: url("space.jpg");
     }
     .scrolling-background.bg-5 {
-        background-image: url("https://media.blogto.com/articles/2020930-studio54-4.jpg?w=2048&cmd=resize_then_crop&height=1365&quality=100");
+        background-image: url("studio.jpg");
     }
     .scrolling-background.bg-6 {
-        background-image: url("https://photearhome.files.wordpress.com/2019/11/warehouse04.jpg");
+        background-image: url("warehouse2.jpg");
     }
     .scrolling-tween {
         min-height: 50vh;
@@ -1017,7 +1012,7 @@
                     $.each(wsb.singles, function(f, featured) {
                         if(featured.hasOwnProperty("featured") && featured.featured === true) {
                             // featured details
-                            $('#catalogueFeatured').append('<div class="col-lg order-lg-2 mb-4 featured-details"><h3 class="mb-0 custom-font">'+featured.title+'</h4><p>'+featured.description+'</p><div class="row"><div class="col d-flex align-items-center"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Bandcamp-button-bc-circle-aqua.svg" style="max-width: 30px;"></div></div></div>');
+                            $('#catalogueFeatured').append('<div class="col-lg order-lg-2 mb-4 featured-details"><h3 class="mb-0 custom-font">'+featured.title+'</h4><p>'+featured.description+'</p><div class="row"><div class="col d-flex align-items-center"><img src="aqua.svg" style="max-width: 30px;"></div></div></div>');
                             $('#catalogueFeatured').append('<div class="col-lg-5 mb-4 featured-wrapper"><img loading="lazy" class="img-fluid w-100" src="'+featured.artwork+'" alt="'+featured.title+'"></div>');
                         }
                     });
@@ -1042,13 +1037,17 @@
                             $('#wsbVideos_Carousel').owlCarousel({
                                 loop: true,
                                 autoplay: false,
+                                touchDrag: false,
+                                mouseDrag: false,
                                 items: 1,
                                 nav: false,
                                 dots: true
                             });
                         }
                     });
-
+                    
+                    $('#wsbVideos_Carousel').trigger('to.owl.carousel', 6);
+                    
                     // load text layers
                     $('#newsText').append(wsb.newstext);
                     $('#catalogueText').append(wsb.cataloguetext);
@@ -1059,7 +1058,7 @@
                 })
                 .done (function(data, textStatus, jqXHR) {
                     $('.loading').remove();
-                    console.log('Loaded');
+                    console.log('Page loaded');
                 })
                 .fail (function(jqXHR, textStatus, errorThrown) {
                     console.log('Hang on... somethings not right');
@@ -1082,18 +1081,18 @@
         };
         var wsbPlayer = document.getElementById("wsbWrapper");
         var stickyMenu = document.getElementById("stickyMenu");
-        //var backToTop = document.getElementById("backToTop");
+        var backToTop = document.getElementById("backToTop");
         function handler (entries, observer) {
             for (entry of entries) {
                 if (entry.isIntersecting) {
                     stickyMenu.classList.remove('show');
                     wsbPlayer.classList.remove('solid');
-                    //backToTop.classList.remove('show');
+                    backToTop.classList.remove('show');
                 }
                 else {
                     stickyMenu.classList.add('show');
                     wsbPlayer.classList.add('solid');
-                    //backToTop.classList.add('show');
+                    backToTop.classList.add('show');
                 }
             }
         }
@@ -1143,15 +1142,13 @@
 
          $(function() {
 
-            var widgetIframe = document.getElementById('soundcloud_widget'),
-            widget = SC.Widget(widgetIframe);
+            var widget = SC.Widget(document.getElementById('soundcloud_widget'));
             var titleTrack = document.getElementById('trackInfo');
 
             widget.bind(SC.Widget.Events.LOAD_PROGRESS, function() {
-                titleTrack.textContent = "loading...";
+                titleTrack.textContent = "";
             });
             widget.bind(SC.Widget.Events.READY, function() {
-                //console.log('Ready...');
                 titleTrack.textContent = "";
                 widget.getCurrentSound(function(music)  {
                    titleTrack.textContent += music.title;
@@ -1159,7 +1156,6 @@
                 $('#wsbPlayer #trackInfo').css({"animation-play-state": "paused"});
             });
             widget.bind(SC.Widget.Events.PLAY, function() {
-                console.log('Sound starts');
                 widget.setVolume(70);
                 $('#wsbPlayer .embed-wrapper').css({"visibility": "hidden"});
                 $('#wsbPlayer #trackInfo').css({"animation-play-state": "running"});
@@ -1169,7 +1165,6 @@
                 $('.next').show();
             });
              widget.bind(SC.Widget.Events.PAUSE, function() {
-                console.log('Sound is paused');
                 $('#wsbPlayer #trackInfo').css({"animation-play-state": "paused"});
                 $('.pause').hide();
                 $('.play').show();
