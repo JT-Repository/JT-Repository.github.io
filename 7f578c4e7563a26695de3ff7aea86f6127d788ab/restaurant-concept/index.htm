@@ -616,7 +616,7 @@
         border-top: dotted 1px rgba(var(--primaryColor),.1);
     }
     .diary-block li:not([data-availability="no"])::after {
-        content: attr(data-content) ' seats available';
+        content: attr(data-seats) ' seats available';
         color: rgba(1,129,1,.5);
         cursor: pointer;
     }
@@ -990,7 +990,7 @@
                                         <div class="form-row  mx-0">
                                             <div class="col-3">
                                                 <label class="m-0 font-weight-bold" for="bookingSeats">Seats</label>
-                                                <input type="text" class="form-control" id="bookingSeats" required>
+                                                <input type="number" class="form-control" id="bookingSeats" placeholder="-" required>
                                             </div>
                                             <div class="col">
                                                 <label class="m-0 font-weight-bold" for="bookingTime">Time</label>
