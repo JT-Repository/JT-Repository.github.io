@@ -32,7 +32,7 @@
         background-blend-mode: screen;
         font-family: 'Poppins', sans-serif;
         font-weight: 400;
-        height: 100%;
+        min-height: 100vh;
     }
     h1 {
         font-size: calc(1.25rem + 2vw);
@@ -111,19 +111,14 @@
         -webkit-box-shadow: 0 0 0 0.2rem rgba(196,17,20,.15);
                 box-shadow: 0 0 0 0.2rem rgba(196,17,20,.15);
     }
-    @media screen and (max-width: 991.98px) {
-        .vh-100 {
-            height: unset;
-        }
-    }
 
 </style>
         
 </head>
 <body>
 
-    <div class="container-fluid">
-        <div class="row vh-100 align-items-center justify-content-center">
+    <div class="container vh-100">
+        <div class="row h-100 align-items-center justify-content-center">
             <div class="col-11 col-md-10 col-lg-auto text-center">
                 <h1 class="mb-5 text-white">JT-Repository.github.io</h1>
                 <div class="bg-white p-4 p-md-5 shadow-lg box">
