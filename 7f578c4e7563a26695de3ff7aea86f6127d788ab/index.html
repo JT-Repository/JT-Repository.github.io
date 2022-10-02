@@ -33,6 +33,7 @@
         background-blend-mode: screen;
         font-family: 'Poppins', sans-serif;
         font-weight: 400;
+        height: 100%;
     }
     h1 {
         font-size: calc(3rem + 2vw);
@@ -71,6 +72,11 @@
     .owl-carousel .owl-dots button:focus,
     .owl-carousel .owl-dots button.active {
         background: rgba(255,255,255,.9);
+    }
+    @media screen and (max-width: 991.98px) {
+        .vh-100 {
+            height: unset;
+        }
     }
     @media screen and (min-width: 992px) {
         body {
