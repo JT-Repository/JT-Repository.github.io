@@ -21,6 +21,20 @@
         --primaryColor: 0,0,0;
         --secondaryColor: 212,200,53;
     }
+    
+    ::-moz-selection {
+        background-color: rgba(var(--secondaryColor),1);
+        color: rgba(0,0,0,1);
+    }
+    
+    ::selection {
+        background-color: rgba(var(--secondaryColor),1);
+        color: rgba(0,0,0,1);
+    }
+    ::-moz-selection {
+        background-color: rgba(var(--secondaryColor),1);
+        color: rgba(0,0,0,1);
+    }
 
     /* smooth scroll */
     html {
@@ -84,7 +98,9 @@
     }
     section.active {
         opacity: 1;
-        transition: opacity 1200ms ease;
+        -webkit-transition: opacity 900ms ease;
+        -o-transition: opacity 900ms ease;
+        transition: opacity 900ms ease;
     }
     section:target .container-fluid.h-100 > .row {
         padding-top: 6.5rem;
@@ -103,10 +119,13 @@
         right: 0;
         height: .15rem;
         background-color: rgba(var(--secondaryColor),1);
-        transform: translateX(-100%) translateY(-.125rem);
+        -webkit-transform: translateX(-100%) translateY(-.125rem);
+            -ms-transform: translateX(-100%) translateY(-.125rem);
+                transform: translateX(-100%) translateY(-.125rem);
     }
     h1.active::after {
-        animation: line 450ms ease 300ms 1 forwards;
+        -webkit-animation: line 450ms ease 300ms 1 forwards;
+                animation: line 450ms ease 300ms 1 forwards;
     }
     .display-5 {
         font-size: 3.125rem;
@@ -114,38 +133,45 @@
     }
 
     /* custom styles */
-    .
     .home-link {
         position: fixed;
         display: block;
         right: .5rem;
-        bottom: .5rem;
+        bottom: 1rem;
         left: 0;
         z-index: 101;
     }
     .home-link a {
         display: none;
         padding: .25rem .5rem;
-        background-color: rgba(var(--primaryColor),.9);
-        opacity: .5;
+        background-color: rgba(var(--primaryColor),.15);
+        -webkit-transition: all 450ms ease;
+        -o-transition: all 450ms ease;
         transition: all 450ms ease;
     }
     .home-link a:hover,
     .home-link a:focus {
         text-decoration: none;
-        opacity: 1;
-        background-color: rgba(var(--primaryColor),.9);
+        background-color: rgba(var(--primaryColor),.75);
+        -webkit-transition: all 450ms ease;
+        -o-transition: all 450ms ease;
         transition: all 450ms ease;
     }
     .home-link a em {
-        font-size: calc(1rem + .5vw);
+        font-size: calc(2.5rem + .5vw);
+        color: rgba(255,255,255,1);
+    }
+    .home-link a:hover em,
+    .home-link a:focus em {
+        -webkit-transform: translateY(-2px);
+            -ms-transform: translateY(-2px);
+                transform: translateY(-2px);
         color: rgba(var(--secondaryColor),1);
     }
-    .home-link a:focus em {
-        transform: translateY(-1px);
-    }
     .home-link a:not(:focus) em {
-        transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+            -ms-transform: translateY(0px);
+                transform: translateY(0px);
     }
     .navbar-toggler:focus,
     .navbar-toggler:active {
@@ -229,7 +255,9 @@
         right: 0;
         height: 1px;
         background-color: rgba(var(--secondaryColor),1);
-        transform: translateX(-110%);
+        -webkit-transform: translateX(-110%);
+            -ms-transform: translateX(-110%);
+                transform: translateX(-110%);
     }
     .main-navigation .navbar-nav a.active,
     .main-navigation .navbar-nav a.active:hover,
@@ -237,7 +265,8 @@
         font-weight: 700;
     }
     .main-navigation .navbar-nav a.active::after {
-        animation: line 450ms ease 300ms 1 forwards;
+        -webkit-animation: line 450ms ease 300ms 1 forwards;
+                animation: line 450ms ease 300ms 1 forwards;
     }
     
     .home-container {
@@ -247,14 +276,15 @@
         background-repeat: no-repeat;
         height: 100vh;
     }
-    .home-container a {
+    .home-container a em {
         color: rgba(255,255,255,1);
         text-decoration: none;
     }
-    .home-container a:hover {
+    .home-container a:hover em {
         color: rgba(var(--secondaryColor),1);
+        -webkit-animation-play-state: paused;
+                animation-play-state: paused;
     }
-    
     .menu-container {
         background-image: url(ft5afgr466.jpg);
         background-size: cover;
@@ -289,6 +319,8 @@
         margin-top: 1rem;
     }
     .owl-carousel .owl-dots button {
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
         display: inline-flex;
         outline: solid 1px rgba(255,255,255,0);
         width: calc(2rem + 4vw);
@@ -342,8 +374,8 @@
             right: 0;
             bottom: 0;
             left: 0;
-            background: -moz-linear-gradient(top,  rgba(var(--primaryColor),1) 70%, rgba(var(--primaryColor),0) 100%);
-            background: -webkit-linear-gradient(top,  rgba(var(--primaryColor),1) 70%,rgba(var(--primaryColor),0) 100%);
+            background: -webkit-gradient(linear,  left top, left bottom,  color-stop(70%, rgba(var(--primaryColor),1)),to(rgba(var(--primaryColor),0)));
+            background: -o-linear-gradient(top,  rgba(var(--primaryColor),1) 70%,rgba(var(--primaryColor),0) 100%);
             background: linear-gradient(to bottom,  rgba(var(--primaryColor),1) 70%,rgba(var(--primaryColor),0) 100%);
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 );
             z-index: -1;
@@ -355,7 +387,8 @@
             position: relative;
             line-height: 1.2;
             overflow: hidden;
-            text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+               text-overflow: ellipsis;
             padding: 0 !important;
         }
         .line-clamp-3 {
@@ -389,45 +422,45 @@
         }
         .home-link {
             right: 0;
-            bottom: 1rem;
+            bottom: 3rem;
         }
-        .home-link a,
+        .home-link a {
+            display: none !important;
+            background-color: rgba(var(--primaryColor),.15);
+        }
         .home-link a:hover {
-            background-color: rgba(var(--primaryColor),0);
-        }
-        .home-link a::before {
-            opacity: 0;
-            transition: opacity 450ms ease;
-        }
-        .home-link a:hover::before {
-            content: 'Back to top';
-            display: block;
-            position: absolute;
-            top: .3rem;
-            right: 2.75rem;
-            width: auto;
-            color: rgba(var(--secondaryColor),1);
-            font-weight: 700;
-            font-size: calc(.9rem + .15vw);
-            opacity: 1;
-            transition: opacity 450ms ease;
+            background-color: rgba(var(--primaryColor),.75);
         }
         .home-link a:focus {
             opacity: 0;
             background-color: rgba(var(--primaryColor),0);
+            -webkit-transition: opacity 1200ms ease;
+            -o-transition: opacity 1200ms ease;
             transition: opacity 1200ms ease;
         }
         .home-container {
             background-attachment: fixed;
         }
         .main-navigation:not(.isVisible) {
-            transform: translateY(-100%);
+            -webkit-transform: translateY(-100%);
+                -ms-transform: translateY(-100%);
+                    transform: translateY(-100%);
+            -webkit-transition: -webkit-transform 600ms ease;
+            transition: -webkit-transform 600ms ease;
+            -o-transition: transform 600ms ease;
             transition: transform 600ms ease;
+            transition: transform 600ms ease, -webkit-transform 600ms ease;
         }
         .main-navigation.isVisible {
             background-color: rgba(var(--primaryColor),1);
-            transform: translateY(0);
+            -webkit-transform: translateY(0);
+                -ms-transform: translateY(0);
+                    transform: translateY(0);
+            -webkit-transition: -webkit-transform 600ms ease;
+            transition: -webkit-transform 600ms ease;
+            -o-transition: transform 600ms ease;
             transition: transform 600ms ease;
+            transition: transform 600ms ease, -webkit-transform 600ms ease;
         }
         .main-navigation .navbar-nav a,
         .main-navigation .h5 {
@@ -439,12 +472,25 @@
         }
     }
 
-    @keyframes line {
+    @-webkit-keyframes line {
         from {
-            transform: translateX(-100%);
+            -webkit-transform: translateX(-100%);
+                    transform: translateX(-100%);
         }
         to {
-            transform: translateX(0%);
+            -webkit-transform: translateX(0%);
+                    transform: translateX(0%);
+        }
+    }
+
+    @keyframes line {
+        from {
+            -webkit-transform: translateX(-100%);
+                    transform: translateX(-100%);
+        }
+        to {
+            -webkit-transform: translateX(0%);
+                    transform: translateX(0%);
         }
     }
 
@@ -488,19 +534,32 @@
     }
 
     .bookings-calendar {
-        user-select: none;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
     }
     .bookings-calendar .ui-datepicker-header {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         padding: .5rem 0;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
     }
     .bookings-calendar .ui-datepicker-header .ui-datepicker-prev {
         position: relative;
         cursor: pointer;
-        order: 1;
+        -webkit-box-ordinal-group: 2;
+            -ms-flex-order: 1;
+                order: 1;
     }
     .bookings-calendar .ui-datepicker-header .ui-datepicker-prev::before {
         content: '\f053';
@@ -509,7 +568,9 @@
     .bookings-calendar .ui-datepicker-header .ui-datepicker-next {
         position: relative;
         cursor: pointer;
-        order: 3;
+        -webkit-box-ordinal-group: 4;
+            -ms-flex-order: 3;
+                order: 3;
     }
     .bookings-calendar .ui-datepicker-header .ui-datepicker-next::before {
         content: '\f054';
@@ -526,7 +587,9 @@
     .bookings-calendar .ui-datepicker-header .ui-datepicker-title {
         font-size: 1.3rem;
         font-weight: 700;
-        order: 2;
+        -webkit-box-ordinal-group: 3;
+            -ms-flex-order: 2;
+                order: 2;
     }
     .bookings-calendar .ui-datepicker-calendar {
         width: 100%;
@@ -566,9 +629,15 @@
     .bookings-calendar .ui-datepicker-calendar td a,
     .bookings-calendar .ui-datepicker-calendar td span {
         position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         padding: calc(.75rem + .5vw) calc(.5rem + .75vw);
         color: rgba(var(--primaryColor),1);
         text-decoration: none;
@@ -607,16 +676,25 @@
         background-color: rgba(var(--primaryColor),.015);
     }
     .diary-block {
-        user-select: none;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
     }
     .diary-block:hover h4 {
         font-weight: 700;
     }
     .diary-block li {
         position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         padding: .75rem 0 .5rem 0;
         border-bottom: dotted 1px rgba(var(--primaryColor),.1);
         overflow: hidden;
@@ -668,6 +746,18 @@
         border: solid 1px rgba(var(--primaryColor),.25);
         border-radius: 0.25rem;
     }
+    .booking-form ::-webkit-input-placeholder {
+        color: rgba(var(--primaryColor),.25);
+    }
+    .booking-form ::-moz-placeholder {
+        color: rgba(var(--primaryColor),.25);
+    }
+    .booking-form :-ms-input-placeholder {
+        color: rgba(var(--primaryColor),.25);
+    }
+    .booking-form ::-ms-input-placeholder {
+        color: rgba(var(--primaryColor),.25);
+    }
     .booking-form ::placeholder {
         color: rgba(var(--primaryColor),.25);
     }
@@ -682,12 +772,13 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-sm-11 col-md-10 col-lg-11 col-xl-10 px-0 d-flex justify-content-end">
                     <a href="#Home">
-                        <em class="fa fa-chevron-up"></em>
+                        <em class="fa fa-angle-up" aria-hidden="true"></em>
                     </a>
                 </div>
             </div>
         </div>
     </div>
+    
     <header class="main-navigation">
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -728,7 +819,7 @@
                             </div>
                         </div>
                         <a href="#AboutUs" title="Find out about the Fitzwilliam Arms">
-                            <em class="fa fa-angle-down fa-5x text-white animate__animated animate__bounce animate__slow animate__infinite animate__delay-2s"></em>
+                            <em class="fa fa-angle-down fa-5x animate__animated animate__bounce animate__slow animate__infinite animate__delay-2s"></em>
                         </a>
                     </div>
                 </div>
@@ -736,29 +827,35 @@
         </div>
     </section>
     
-    <section class="aboutus-container h-100" id="AboutUs">
+    <section class="aboutus-container" id="AboutUs">
         <div class="container-fluid h-100">
             <div class="row h-100 justify-content-center">
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center text-dark">
                     <h1 class="font-weight-bolder">About Us</h1>
-                    <p class="my-4">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
-                    <div class="row">
+                    <div class="row mt-4">
+                        <div class="col-12 mb-4">
+                            <p class="lead font-weight-bolder">Rhoncus urna neque viverra justo. Nec sagittis aliquam malesuada bibendum arcu vitae. In tellus integer feugiat scelerisque varius morbi enim nunc. Nunc scelerisque viverra mauris in aliquam. Feugiat in fermentum posuere urna nec. Sit amet porttitor eget dolor.</p>
+                            <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
                         <div class="col-lg-6 mb-4">
                             <div class="specials-image" data-image-src="phvvbgdhrts.jpg"></div>
                         </div>
-                        <div class="col-lg-6 mb-4">
+                        <div class="col-12 mb-4 order-md-last">
+                            <p class="m-0 mt-lg-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus in hac habitasse platea dictumst quisque sagittis purus sit. Fames ac turpis egestas sed tempus urna et pharetra pharetra. Arcu ac tortor dignissim convallis aenean et. Eget sit amet tellus cras adipiscing enim eu turpis egestas. Commodo elit at imperdiet dui. Sit amet consectetur adipiscing elit duis tristique. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Felis imperdiet proin fermentum leo vel orci porta. Pharetra convallis posuere morbi leo. Vitae purus faucibus ornare suspendisse sed nisi. Feugiat in fermentum posuere urna. Dignissim enim sit amet venenatis. Curabitur vitae nunc sed velit dignissim sodales.</p>
+                        </div>
+                        <div class="col-lg-6">
                             <div class="row">
                                 <div class="col-6 col-md-3 col-lg-6 mb-4">
-                                    <div class="specials-image" data-image-src="hgjghjgjkl.jpg"></div>
+                                    <div class="specials-image" data-image-src="steamy.gif"></div>
                                 </div>
                                 <div class="col-6 col-md-3 col-lg-6 mb-4">
                                     <div class="specials-image" data-image-src="hgjghjgjkl.jpg"></div>
                                 </div>
                                 <div class="col-6 col-md-3 col-lg-6 mb-4">
-                                    <div class="specials-image" data-image-src="hgjghjgjkl.jpg"></div>
+                                    <div class="specials-image" data-image-src="steamy.gif"></div>
                                 </div>
                                 <div class="col-6 col-md-3 col-lg-6 mb-4">
-                                    <div class="specials-image" data-image-src="hgjghjgjkl.jpg"></div>
+                                    <div class="specials-image" data-image-src="steamy.gif"></div>
                                 </div>
                             </div>
                         </div>
@@ -779,68 +876,110 @@
                             <h2 class="text-center text-lg-left my-4">Starters</h2>
                             <div class="menu-item mb-4">
                                 <h3 class="h4 m-0 d-flex justify-content-between">
-                                    <span>Prawn cocktail</span>
+                                    <span>Pellentesque pulvinar</span>
                                     <span class="price">8.99</span>
                                 </h3>
-                                <p class="font-weight-light border-top border-white m-0 pt-1">Fresh prawns and crayfish tails topped with Marie Rose sauce, on a bed of lettuce and spring onions.</p>
+                                <p class="font-weight-light border-top border-white m-0 pt-1">Pellentesque pulvinar pellentesque habitant morbi. Id eu nisl nunc mi ipsum.</p>
                             </div>
                             <div class="menu-item mb-4">
                                 <h3 class="h4 m-0 d-flex justify-content-between">
-                                    <span>Prawn cocktail</span>
-                                    <span class="price">8.99</span>
+                                    <span>Purus gravida quis blandit turpis </span>
+                                    <span class="price">6.99</span>
                                 </h3>
-                                <p class="font-weight-light border-top border-white m-0 pt-1">Fresh prawns and crayfish tails topped with Marie Rose sauce, on a bed of lettuce and spring onions.</p>
+                                <p class="font-weight-light border-top border-white m-0 pt-1">Purus gravida quis blandit turpis cursus in hac. Ipsum suspendisse ultrices gravida dictum. </p>
+                            </div>
+                            <div class="menu-item mb-4">
+                                <h3 class="h4 m-0 d-flex justify-content-between">
+                                    <span>Purus gravida quis blandit turpis </span>
+                                    <span class="price">7.99</span>
+                                </h3>
+                                <p class="font-weight-light border-top border-white m-0 pt-1">Purus gravida quis blandit turpis cursus in hac. Ipsum suspendisse ultrices gravida dictum.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 px-xl-4">
                             <h2 class="text-center text-lg-left my-4">Main courses</h2>
                             <div class="menu-item mb-4">
                                 <h3 class="m-0 h4 d-flex justify-content-between">
-                                    <span>Fish and chips</span>
+                                    <span>Quam id leo in vitae</span>
                                     <span class="price">17.99</span>
                                 </h3>
-                                <p class="font-weight-light border-top border-white m-0 pt-1">Line-caught haddock buried amongst an avalanche of chips.</p>
+                                <p class="font-weight-light border-top border-white m-0 pt-1">Quam id leo in vitae. Pellentesque elit eget gravida cum sociis natoque ante metus dictum at tempor.</p>
                             </div>
                             <div class="menu-item mb-4">
                                 <h3 class="h4 m-0 d-flex justify-content-between">
-                                    <span>Shepherd's pie</span>
+                                    <span>Posuere lorem ipsum dolor sit amet</span>
                                     <span class="price">12.99</span>
                                 </h3>
-                                <p class="font-weight-light border-top border-white m-0 pt-1">Peas, carrots, minced sheep with lashings of thick gravy - topped with velvety, soft mashed potato.</p>
+                                <p class="font-weight-light border-top border-white m-0 pt-1">Posuere lorem ipsum dolor sit amet. Orci porta non pulvinar neque laoreet suspendisse interdum consectetur.</p>
                             </div>
                             <div class="menu-item mb-4">
                                 <h3 class="h4 m-0 d-flex justify-content-between">
-                                    <span>Lasagne</span>
+                                    <span>Mauris augue in fermentum</span>
                                     <span class="price">15.99</span>
                                 </h3>
-                                <p class="font-weight-light border-top border-white m-0 pt-1">Fresh lasagne with homemade pasta and a rich tomato and basil sauce.</p>
+                                <p class="font-weight-light border-top border-white m-0 pt-1">Mauris augue neque gravida in fermentum et sollicitudin. Purus semper eget duis at tellus.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 px-xl-4">
                             <h2 class="text-center text-lg-left my-4">Soups and salads</h2>
                             <div class="menu-item mb-4">
                                 <h3 class="h4 m-0 d-flex justify-content-between">
-                                    <span>Minestrone</span>
+                                    <span>Commodo elit at imperdiet dui</span>
                                     <span class="price">5.79</span>
                                 </h3>
-                                <p class="font-weight-light border-top border-white m-0 pt-1">Lots of floating bits in some coloured water.</p>
+                                <p class="font-weight-light border-top border-white m-0 pt-1">Commodo elit at imperdiet dui. Sit amet consectetur adipiscing elit duis hendrerit dolor magna</p>
                             </div>
                             <div class="menu-item mb-4">
                                 <h3 class="h4 m-0 d-flex justify-content-between">
-                                    <span>Caesar salad</span>
+                                    <span>Vitae purus</span>
                                     <span class="price">5.79</span>
                                 </h3>
-                                <p class="font-weight-light border-top border-white m-0 pt-1">Grilled chicken breast, Baby Gem lettuce topped with the classic Caesar dressing.</p>
+                                <p class="font-weight-light border-top border-white m-0 pt-1">Vitae purus faucibus ornare suspendisse sed nisi. Feugiat in fermentum posuere urna.</p>
+                            </div>
+                            <div class="menu-item mb-4">
+                                <h3 class="h4 m-0 d-flex justify-content-between">
+                                    <span>Aenean sed adipiscing adipiscing</span>
+                                    <span class="price">7.99</span>
+                                </h3>
+                                <p class="font-weight-light border-top border-white m-0 pt-1">Aenean sed adipiscing diam donec adipiscing. Elementum tempus egestas sed sed risus pretium.</p>
+                            </div>
+                            <div class="menu-item mb-4">
+                                <h3 class="h4 m-0 d-flex justify-content-between">
+                                    <span>Vestibulum mattis ullamcorper</span>
+                                    <span class="price">8.99</span>
+                                </h3>
+                                <p class="font-weight-light border-top border-white m-0 pt-1">Vestibulum mattis ullamcorper velit sed ullamcorper morbi. Diam sit amet nisl suscipit adipiscing.</p>
                             </div>
                         </div>
                         <div class="col-lg-6 px-xl-4">
                             <h2 class="text-center text-lg-left my-4">Desserts</h2>
                             <div class="menu-item mb-4">
                                 <h3 class="h4 m-0 d-flex justify-content-between">
-                                    <span>Lemon meringue pie</span>
+                                    <span>Aenean sed adipiscing adipiscing</span>
                                     <span class="price">9.99</span>
                                 </h3>
-                                <p class="font-weight-light border-top border-white m-0 pt-1">What more is there to say...</p>
+                                <p class="font-weight-light border-top border-white m-0 pt-1">Aenean sed adipiscing diam donec adipiscing. Elementum tempus egestas sed sed risus pretium.</p>
+                            </div>
+                            <div class="menu-item mb-4">
+                                <h3 class="h4 m-0 d-flex justify-content-between">
+                                    <span>Vestibulum mattis ullamcorper</span>
+                                    <span class="price">7.99</span>
+                                </h3>
+                                <p class="font-weight-light border-top border-white m-0 pt-1">Vestibulum mattis ullamcorper velit sed ullamcorper morbi. Diam sit amet nisl suscipit adipiscing.</p>
+                            </div>
+                            <div class="menu-item mb-4">
+                                <h3 class="h4 m-0 d-flex justify-content-between">
+                                    <span>Commodo elit at imperdiet dui</span>
+                                    <span class="price">3.99</span>
+                                </h3>
+                                <p class="font-weight-light border-top border-white m-0 pt-1">Commodo elit at imperdiet dui. Sit amet consectetur adipiscing elit duis hendrerit dolor magna</p>
+                            </div>
+                            <div class="menu-item mb-4">
+                                <h3 class="h4 m-0 d-flex justify-content-between">
+                                    <span>Vitae purus</span>
+                                    <span class="price">10.99</span>
+                                </h3>
+                                <p class="font-weight-light border-top border-white m-0 pt-1">Vitae purus faucibus ornare suspendisse sed nisi. Feugiat in fermentum posuere urna.</p>
                             </div>
                         </div>
                     </div>
@@ -852,12 +991,12 @@
         </div>
     </section>
     
-    <section class="booking-container h-100" id="Bookings">
+    <section class="booking-container" id="Bookings">
         <div class="container-fluid h-100">
             <div class="row h-100 justify-content-center">
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center text-dark">
                     <h1 class="font-weight-bolder">Bookings</h1>
-                    <p class="my-4">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+                    <p class="mt-4 mb-5">Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem. Arcu ac tortor dignissim convallis aenean et. Eget sit amet tellus cras adipiscing enim eu turpis egestas. Commodo elit at imperdiet dui. Sit amet consectetur adipiscing elit duis tristique. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Felis imperdiet proin fermentum leo vel orci porta. Pharetra convallis posuere morbi leo. Vitae purus faucibus ornare suspendisse sed nisi.</p>
                     <div class="row">
                         <div class="col">
                             <div class="mb-5">
@@ -876,7 +1015,7 @@
             <div class="row h-100 justify-content-center">
                 <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-center text-white">
                     <h1 class="font-weight-bolder">Specials</h1>
-                    <p class="my-4">Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+                    <p class="mt-4 mb-5">Arcu ac tortor dignissim convallis aenean et. Eget sit amet tellus cras adipiscing enim eu turpis egestas. Commodo elit at imperdiet dui. Sit amet consectetur adipiscing elit duis tristique. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Felis imperdiet proin fermentum leo vel orci porta. Pharetra convallis posuere morbi leo. Vitae purus faucibus ornare suspendisse sed nisi.</p>
                     <div class="row justify-content-center">
                         <div class="col-12">
                             <div class="owl-carousel owl-theme" id="specialsCarousel">
@@ -885,10 +1024,10 @@
                                         <div class="col-lg-6 pt-3 pt-lg-0 pl-lg-0">
                                             <div class="specials-image" data-image-src="aswrmkppo.jpg"></div>
                                         </div>
-                                        <div class="col-lg-6 pt-4 px-sm-4 px-md-5 text-center text-dark">
+                                        <div class="col-lg-6 py-4 py-lg-0 px-sm-4 px-md-5 text-center text-dark">
                                             <div class="d-flex flex-column h-100 align-items-center justify-content-center">
-                                                <h2>Vernos blanditiis expedita</h2>
-                                                <p>Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+                                                <h2>Elementum tempus nec nam egestas</h2>
+                                                <p>Vitae tempus quam pellentesque nec nam aliquam sem. Malesuada fames ac turpis egestas. Aenean sed adipiscing diam donec adipiscing. Elementum tempus egestas sed sed risus pretium. At lectus urna duis convallis convallis. Luctus venenatis lectus magna fringilla urna porttitor rhoncus dolor.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -898,10 +1037,10 @@
                                         <div class="col-lg-6 pt-3 pt-lg-0 pl-lg-0">
                                             <div class="specials-image" data-image-src="sfdyvnxdf.jpg"></div>
                                         </div>
-                                        <div class="col-lg-6 pt-4 px-sm-4 px-md-5 text-center text-dark">
+                                        <div class="col-lg-6 py-4 py-lg-0 px-sm-4 px-md-5 text-center text-dark">
                                             <div class="d-flex flex-column h-100 align-items-center justify-content-center">
-                                                <h2>hjkjkl Vernos voluptatem et voluptas expedita</h2>
-                                                <p>Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+                                                <h2>Nunc scelerisque es viverra mauris</h2>
+                                                <p>Rhoncus urna neque viverra justo. Nec sagittis aliquam malesuada bibendum arcu vitae. In tellus integer feugiat scelerisque varius morbi enim nunc. Nunc scelerisque viverra mauris in aliquam. Feugiat in fermentum posuere urna nec. Sit amet porttitor eget dolor. Auctor urna nunc id cursus metus aliquam eleifend.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -911,10 +1050,10 @@
                                         <div class="col-lg-6 pt-3 pt-lg-0 pl-lg-0">
                                             <img class="img-fluid w-100" src="88f8e864.jpg">
                                         </div>
-                                        <div class="col-lg-6 pt-4 px-sm-4 px-md-5 text-center text-dark">
+                                        <div class="col-lg-6 py-4 py-lg-0 px-sm-4 px-md-5 text-center text-dark">
                                             <div class="d-flex flex-column h-100 align-items-center justify-content-center">
-                                                <h2>Vernos voluptatem et voluptas expedita</h2>
-                                                <p>Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+                                                <h2>Egestas fringilla nisl phasellus</h2>
+                                                <p>In massa tempor nec feugiat nisl. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Elementum tempus egestas sed sed risus pretium.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -924,10 +1063,10 @@
                                         <div class="col-lg-6 pt-3 pt-lg-0 pl-lg-0">
                                             <img class="img-fluid w-100" src="nvsereruiuo.jpg">
                                         </div>
-                                        <div class="col-lg-6 pt-4 px-sm-4 px-md-5 text-center text-dark">
+                                        <div class="col-lg-6 py-4 py-lg-0 px-sm-4 px-md-5 text-center text-dark">
                                             <div class="d-flex flex-column h-100 align-items-center justify-content-center">
-                                                <h2>Vernos voluptatem et voluptas expedita</h2>
-                                                <p>Lorem ipsum dolor sit amet. Et quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis quidem obcaecati et consectetur mollitia est recusandae doloribus in dolore eveniet quo corrupti blanditiis. Vel internos voluptatem et voluptas expedita sit maxime voluptas et reiciendis omnis sit rerum laborum qui nobis voluptatem.</p>
+                                                <h2>Sit amet porttitor eget dolor</h2>
+                                                <p>Rhoncus urna neque viverra justo. Nec sagittis aliquam malesuada bibendum arcu vitae. In tellus integer feugiat scelerisque varius morbi enim nunc. Nunc scelerisque viverra mauris in aliquam. Feugiat in fermentum posuere urna nec. Sit amet porttitor eget dolor. Auctor urna nunc id cursus metus aliquam eleifend.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -958,21 +1097,23 @@
                 <div class="row h-100 justify-content-center">
                     <div class="col-11 col-sm-10 col-md-9 col-lg-10 col-xl-9 my-auto text-dark text-center">
                         <h1 class="font-weight-bolder">Contact Us</h1>
-                        <div class="row mt-4 text-center text-lg-left">
+                        <div class="row justify-content-center mt-4 text-center">
                             <div class="col-lg-auto px-xl-4 mb-3 m-lg-0">
                                 <div class="row">
                                     <div class="col-lg-12 mb-3">
                                         <h4>Address</h4>
-                                        <p>Some building,<br class="d-none d-lg-inline">
-                                        Some street,<br class="d-none d-lg-inline">
-                                        Some town/city,<br class="d-none d-lg-inline">
-                                        Some county<br class="d-none d-lg-inline">
+                                        <p>Some building,
+                                        Some street,
+                                        Some town/city,
+                                        Some county
                                         Some postcode</p>
                                     </div>
                                     <div class="col-lg-12 mb-3">
                                         <h4>Contact details</h4>
-                                        <p class="m-0"><strong>Booking enquiries</strong> <span class="text-nowrap">01234 567890</span></p>
-                                        <p class="m-0"><strong>General enquiries</strong> <span class="text-nowrap">01234 567891</span></p>
+                                        <p class="m-0 d-flex justify-content-center">
+                                            <span class="mx-3"><strong class="text-nowrap">Booking enquiries</strong> <span class="text-nowrap">01234 567890</span></span>
+                                            <span class="mx-3"><strong class="text-nowrap">General enquiries</strong> <span class="text-nowrap">01234 567891</span></span>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -1022,14 +1163,14 @@
 
                     <div class="row justify-content-center collapse show" id="calendarSlide">
                         <div class="col-12 my-auto">
-                            <p class="">Lorem ipsum some text here perhaps</p>
+                            <p class="">Pellentesque pulvinar nisl pellentesque habitant.</p>
                             <div class="bookings-calendar" id="datepicker"></div>
                         </div>
                     </div>
 
                     <div class="row justify-content-center collapse" id="diarySlide">
                         <div class="col-12 my-auto">
-                            <p class="mb-4">Lorem ipsum some text here perhaps</p>
+                            <p class="mb-4">Nunc aliquet bibendum enim facilisis gravida volutpat sed.</p>
                             <div class="row diary-wrapper" id="diaryWrapper">
 
                                 <div class="col-12 mb-3 d-flex justify-content-around d-md-none">

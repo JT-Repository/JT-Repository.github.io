@@ -18,15 +18,23 @@
     
     body {
         background:
-        linear-gradient(rgba(255,0,0,.5), transparent),
-        linear-gradient(to top left, rgba(0,255,0,.5), transparent),
-        linear-gradient(to top right, rgba(0,0,255,.8), transparent);
+        -webkit-gradient(linear, left top, left bottom, from(rgba(255,0,0,1)), to(transparent)),
+        -webkit-gradient(linear, right bottom, left top, from(rgba(0,255,0,1)), to(transparent)),
+        -webkit-gradient(linear, left bottom, right top, from(rgba(0,0,255,1)), to(transparent));
+        background:
+        -o-linear-gradient(rgba(255,0,0,1), transparent),
+        -o-linear-gradient(bottom right, rgba(0,255,0,1), transparent),
+        -o-linear-gradient(bottom left, rgba(0,0,255,1), transparent);
+        background:
+        linear-gradient(rgba(255,0,0,1), transparent),
+        linear-gradient(to top left, rgba(0,255,0,1), transparent),
+        linear-gradient(to top right, rgba(0,0,255,1), transparent);
         background-blend-mode: screen;
         font-family: 'Poppins', sans-serif;
         font-weight: 400;
     }
     h1 {
-        font-size: calc(1.5rem + 1vw);
+        font-size: calc(2rem + .75vw);
         font-weight: 800;
     }
     h2 {
@@ -36,12 +44,24 @@
     button.btn {
         font-size: calc(1rem + .25vw);
     }
+    input::-webkit-input-placeholder {
+        text-align: center;
+    }
+    input::-moz-placeholder {
+        text-align: center;
+    }
+    input:-ms-input-placeholder {
+        text-align: center;
+    }
+    input::-ms-input-placeholder {
+        text-align: center;
+    }
     input,
     input::placeholder {
         text-align: center;
     }
     .btn-initial {
-        color: rgba(0,0,0,1);
+        color: rgba(255,255,255,.5);
         background-color: rgba(186,186,186,1);
         border-color: rgba(186,186,186,1);
     }
@@ -50,22 +70,24 @@
         color: rgba(255,255,255,1);
         background-color: rgba(40,167,69,1);
         border-color: rgba(40,167,69,1);
-        box-shadow: 0 0 0 0.2rem rgba(40,167,69,.15);
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(40,167,69,.15);
+                box-shadow: 0 0 0 0.2rem rgba(40,167,69,.15);
     }
     .btn-error {
         color: rgba(255,255,255,1);
-        background-color: rgba(255,0,4,1);
-        border-color: rgba(255,0,4,1);
+        background-color: rgba(196,17,20,1);
+        border-color: rgba(196,17,20,1);
     }
     .btn-error:hover,
     .btn-error:focus {
         color: rgba(255,255,255,1);
-        border-color: rgba(255,0,4,1);
-        box-shadow: 0 0 0 0.2rem rgba(255,0,4,.15);
+        border-color: rgba(196,17,20,1);
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(196,17,20,.15);
+                box-shadow: 0 0 0 0.2rem rgba(196,17,20,.15);
     }
     [data-id="alert"] {
         display: none;
-        color: rgba(255,0,4,1)
+        color: rgba(196,17,20,1)
     }
     [data-id="password"]:hover {
         color: rgba(0,0,0,1);
@@ -74,17 +96,19 @@
     [data-id="password"]:focus {
         color: rgba(0,0,0,1);
         border-color: rgba(40,167,69,1);
-        box-shadow: 0 0 0 0.2rem rgba(40,167,69,.15);
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(40,167,69,.15);
+                box-shadow: 0 0 0 0.2rem rgba(40,167,69,.15);
     }
     [data-id="error"] {
         color: rgba(0,0,0,1);
-        border-color: rgba(255,0,4,1);
+        border-color: rgba(196,17,20,1);
     }
     [data-id="error"]:hover,
     [data-id="error"]:focus {
         color: rgba(0,0,0,1);
-        border-color: rgba(255,0,4,1);
-        box-shadow: 0 0 0 0.2rem rgba(255,0,4,.15);
+        border-color: rgba(196,17,20,1);
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(196,17,20,.15);
+                box-shadow: 0 0 0 0.2rem rgba(196,17,20,.15);
     }
 
 </style>
@@ -95,68 +119,59 @@
     <div class="container vh-100">
         <div class="row vh-100 align-content-center justify-content-center">
             <div class="col-11 col-md-10 col-lg-9 col-xl-8 text-center">
-                <div class="bg-white p-5 shadow-lg box">
-                    <h1 class="mb-5">JT-Repository.github.io</h1>
+                <h1 class="mb-5 text-white">JT-Repository.github.io</h1>
+                <div class="bg-white p-4 p-md-5 shadow-lg box">
                     <form class="m-0" method="">
-                        <div class="row">
-                            <div class="col-12 text-center">
-                                <h2 class="mb-2" data-id="initial">You will need a password to continue</h2>
-                                <h2 class="mb-2" data-id="alert">The password is incorrect, please try again</h2>
-                                <input class="form-control w-75 mx-auto mt-0 mb-5" data-id="password" type="password" placeholder="Enter password" />
-                                <button class="btn btn-initial m-0" data-id="button" type="button">Continue</button>
+                        <div class="form-row">
+                            <div class="col text-center">
+                                <input class="form-control w-100" data-id="password" type="password" placeholder="Please enter your password" />
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-initial font-weight-bold" data-id="button" type="button">Continue</button>
                             </div>
                         </div>
+                        <p class="mt-2 mb-0" data-id="alert"><em class="fa fa-exclamation-triangle" aria-hidden="true"></em> The password is incorrect, please try again.</p>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-sha1/0.6.0/sha1.min.js"></script>
-    <script type="text/javascript">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha1/0.6.0/sha1.min.js"></script>
+    <script>
 
         "use strict"
-        
         var button = document.querySelectorAll('[data-id="button"]')
         var password = document.querySelectorAll('[data-id="password"]')
-
         function login(secret) {
             var hash = sha1(secret)
-            //debugger;
             var url = hash + "/index.html"
             var alert = document.querySelectorAll('[data-id="alert"]')
-            var initial = document.querySelectorAll('[data-id="initial"]')
-
             var request = new XMLHttpRequest()
             request.open('GET', url, true)
-
             request.onload = function () {
                 if (request.status >= 200 && request.status < 400) {
                     window.location = url
                 } else {
                     parent.location.hash = hash
-                    initial[0].style.display = 'none'
                     alert[0].style.display = 'block'
-                    button[0].className = 'btn btn-error'
+                    button[0].className = 'btn btn-error font-weight-bolder'
                     password[0].setAttribute('data-id', 'error')
                     password[0].value = ''
                 }
             }
             request.onerror = function () {
                 parent.location.hash = hash
-                initial[0].style.display = 'none'
                 alert[0].style.display = 'block'
-                button[0].className = 'btn btn-error'
+                button[0].className = 'btn btn-error font-weight-bolder'
                 password[0].setAttribute('data-id', 'error')
                 password[0].value = ''
             }
             request.send()
         }
-
         button[0].addEventListener("click", function () {
             login(password[0].value)
         })
-
         document.onkeydown = function (e) {
             e = e || window.event
             if (e.keyCode == 13) {
