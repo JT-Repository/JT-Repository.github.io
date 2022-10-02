@@ -2,21 +2,23 @@
 <html>
 <head>
 <title>[we sell boxes] - Enthusiastically pessimistic, and sometimes angry, electronic music.</title>
-<meta name="robots" content="noindex, nofollow">
+
 <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+ 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdn.bootcss.com/OwlCarousel2/2.2.1/assets/owl.theme.default.css">
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="">
-   var SC="object"==typeof SC?SC:{};SC.Widget=function(e){var t={};function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}return n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)n.d(r,o,function(t){return e[t]}.bind(null,o));return r},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=0)}([function(e,t,n){var r,o,i,u=n(1),a=n(2),c=n(3),s=u.api,l=u.bridge,d=[],f=[],p=/^http(?:s?)/;function E(e){var t,n;for(t=0,n=f.length;t<n&&!1!==e(f[t]);t++);}function v(e){return e.contentWindow?e.contentWindow:e.contentDocument&&"parentWindow"in e.contentDocument?e.contentDocument.parentWindow:null}function _(e){var t,n=[];for(t in e)e.hasOwnProperty(t)&&n.push(e[t]);return n}function S(e,t,n){n.callbacks[e]=n.callbacks[e]||[],n.callbacks[e].push(t)}function h(e,t){var n=!0;return t.callbacks[e]=[],E((function(t){if((t.callbacks[e]||[]).length)return n=!1,!1})),n}function y(e,t,n){var r,o,i=v(n);if(!i.postMessage)return!1;r=n.getAttribute("src").split("?")[0],o=JSON.stringify({method:e,value:t}),"//"===r.substr(0,2)&&(r=window.location.protocol+r),r=r.replace(/http:\/\/(w|wt).soundcloud.com/,"https://$1.soundcloud.com"),i.postMessage(o,r)}function b(e){var t;return E((function(n){if(n.instance===e)return t=n,!1})),t}function g(e){var t;return E((function(n){if(v(n.element)===e)return t=n,!1})),t}function m(e,t){return function(n){var r,o=!!((r=n)&&r.constructor&&r.call&&r.apply),i=b(this),u=!o&&t?n:null,a=o&&!t?n:null;return a&&S(e,a,i),y(e,u,i.element),this}}function R(e,t,n){var r,o,i;for(r=0,o=t.length;r<o;r++)e[i=t[r]]=m(i,n)}function O(e,t,n){return e+"?url="+t+"&"+function(e){var t,n,r=[];for(t in e)e.hasOwnProperty(t)&&(n=e[t],r.push(t+"="+("start_track"===t?parseInt(n,10):n?"true":"false")));return r.join("&")}(n)}function w(e,t,n){var r,o,i=e.callbacks[t]||[];for(r=0,o=i.length;r<o;r++)i[r].apply(e.instance,n);(function(e){var t,n=!1;for(t in a)if(a.hasOwnProperty(t)&&a[t]===e){n=!0;break}return n}(t)||t===s.READY)&&(e.callbacks[t]=[])}function A(e){var t,n,r,o,i;try{n=JSON.parse(e.data)}catch(e){return!1}return t=g(e.source),r=n.method,o=n.value,(!t||P(e.origin)===P(t.domain))&&(t?(r===s.READY&&(t.isReady=!0,w(t,"__LATE_BINDING__"),h("__LATE_BINDING__",t)),r!==s.PLAY||t.playEventFired||(t.playEventFired=!0),r!==s.PLAY_PROGRESS||t.playEventFired||(t.playEventFired=!0,w(t,s.PLAY,[o])),i=[],void 0!==o&&i.push(o),void w(t,r,i)):(r===s.READY&&d.push(e.source),!1))}function P(e){return e.replace(p,"")}window.addEventListener?window.addEventListener("message",A,!1):window.attachEvent("onmessage",A),e.exports=i=function(e,t,n){var i;if((""===(i=e)||i&&i.charCodeAt&&i.substr)&&(e=document.getElementById(e)),!function(e){return!(!e||1!==e.nodeType||"IFRAME"!==e.nodeName.toUpperCase())}(e))throw new Error("SC.Widget function should be given either iframe element or a string specifying id attribute of iframe element.");t&&(n=n||{},e.src=O("http://wt.soundcloud.test:9200/",t,n));var u,a,c=g(v(e));return c&&c.instance?c.instance:(u=d.indexOf(v(e))>-1,a=new r(e),f.push(new o(a,e,u)),a)},i.Events=s,window.SC=window.SC||{},window.SC.Widget=i,o=function(e,t,n){this.instance=e,this.element=t,this.domain=function(e){var t,n,r,o="";"//"===e.substr(0,2)&&(e=window.location.protocol+e);for(r=e.split("/"),t=0,n=r.length;t<n&&t<3;t++)o+=r[t],t<2&&(o+="/");return o}(t.getAttribute("src")),this.isReady=!!n,this.callbacks={}},(r=function(){}).prototype={constructor:r,load:function(e,t){if(e){t=t||{};var n=this,r=b(this),o=r.element,i=o.src,u=i.substr(0,i.indexOf("?"));r.isReady=!1,r.playEventFired=!1,o.onload=function(){n.bind(s.READY,(function(){var e,n=r.callbacks;for(e in n)n.hasOwnProperty(e)&&e!==s.READY&&y(l.ADD_LISTENER,e,r.element);t.callback&&t.callback()}))},o.src=O(u,e,t)}},bind:function(e,t){var n=this,r=b(this);return r&&r.element&&(e===s.READY&&r.isReady?setTimeout(t,1):r.isReady?(S(e,t,r),y(l.ADD_LISTENER,e,r.element)):S("__LATE_BINDING__",(function(){n.bind(e,t)}),r)),this},unbind:function(e){var t,n=b(this);n&&n.element&&(t=h(e,n),e!==s.READY&&t&&y(l.REMOVE_LISTENER,e,n.element))}},R(r.prototype,_(a)),R(r.prototype,_(c),!0)},function(e,t){t.api={LOAD_PROGRESS:"loadProgress",PLAY_PROGRESS:"playProgress",PLAY:"play",PAUSE:"pause",FINISH:"finish",SEEK:"seek",READY:"ready",OPEN_SHARE_PANEL:"sharePanelOpened",CLICK_DOWNLOAD:"downloadClicked",CLICK_BUY:"buyClicked",ERROR:"error"},t.bridge={REMOVE_LISTENER:"removeEventListener",ADD_LISTENER:"addEventListener"}},function(e,t){e.exports={GET_VOLUME:"getVolume",GET_DURATION:"getDuration",GET_POSITION:"getPosition",GET_SOUNDS:"getSounds",GET_CURRENT_SOUND:"getCurrentSound",GET_CURRENT_SOUND_INDEX:"getCurrentSoundIndex",IS_PAUSED:"isPaused"}},function(e,t){e.exports={PLAY:"play",PAUSE:"pause",TOGGLE:"toggle",SEEK_TO:"seekTo",SET_VOLUME:"setVolume",NEXT:"next",PREV:"prev",SKIP:"skip"}}]);
-//# sourceMappingURL=http://ent/web-sourcemaps/api.js-27d0ec1de3c5.map 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js">
 </script>
+    
+<script type="text/javascript" src="http://w.soundcloud.com/player/api.js"></script>
+    
 <style>
     
     @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;600;800&display=swap'); 
@@ -304,22 +306,22 @@
         z-index: -1;
     }
     .scrolling-background.bg-1 {
-        background-image: url('odyssey-1979.jpg');
+        background-image: url("https://media.hero-magazine.com/wp-content/uploads/2022/03/31140538/Bill-Bernstein-2001-Odyssey-Dance-Floor-1979.jpg");
     }
     .scrolling-background.bg-2 {
-        background-image: url('warehouse.jpg');
+        background-image: url("https://photearhome.files.wordpress.com/2019/11/warehouse02.jpg");
     }
     .scrolling-background.bg-3 {
-        background-image: url('hands.jpeg');
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh0m362H5jmFFOW70tpDmCKxTAG0eZP6yLeg&usqp=CAU");
     }
     .scrolling-background.bg-4 {
-        background-image: url('space.jpg');
+        background-image: url("https://z9j9e3w7.stackpathcdn.com/wp-content/uploads/WHP-SQ.jpg");
     }
     .scrolling-background.bg-5 {
-        background-image: url('https://media.blogto.com/articles/2020930-studio54-4.jpg?w=2048&cmd=resize_then_crop&height=1365&quality=100');
+        background-image: url("https://media.blogto.com/articles/2020930-studio54-4.jpg?w=2048&cmd=resize_then_crop&height=1365&quality=100");
     }
     .scrolling-background.bg-6 {
-        background-image: url('warehouse2.jpg');
+        background-image: url("https://photearhome.files.wordpress.com/2019/11/warehouse04.jpg");
     }
     .scrolling-tween {
         min-height: 50vh;
@@ -743,8 +745,11 @@
     }
      
 </style>
+  
 </head>
+    
 <body data-spy="scroll" data-target="#wsbNav" data-offset="10">
+    
     <div class="d-none d-lg-block" id="wsbPlayer">
         <div class="sc-wrapper" id="wsbWrapper">
             <div class="container d-flex justify-content-end align-items-center px-lg-0">
@@ -773,6 +778,7 @@
             </div>
         </div>
     </div>
+ 
     <div class="sticky-menu bg-custom-dark p-4 py-lg-3 px-lg-0" id="stickyMenu">
         <div class="container">
             <nav class="navbar navbar-expand-lg p-0">
@@ -784,18 +790,18 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="wsbNav">
                     <ul class="navbar-nav p-0">
-                        <li class="nav-item">
+                        <!--<li class="nav-item">
                             <a class="nav-link" href="#latestNews" title="News">News</a>
-                        </li>
+                        </li>-->
                         <li class="nav-item">
                             <a class="nav-link" href="#backCatalogue" title="Back Catalogue">Back Catalogue</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#videoContent" title="Videos">Videos</a>
                         </li>
-                        <li class="nav-item">
+                        <!--<li class="nav-item">
                             <a class="nav-link" href="#merchandise" title="Merchandise">Merchandise</a>
-                        </li>
+                        </li>-->
                         <li class="nav-item">
                             <a class="nav-link" href="#getInvolved" title="Get Involved">Get Involved</a>
                         </li>
@@ -812,7 +818,7 @@
             <span class="wsb-main-logo" alt="[we sell boxes]">we sell boxes</span>
         </div>
     </div>
-    <div class="scrolling-tween bg-custom-dark px-4 py-5 px-md-0 p-lg-5" id="latestNews">
+    <!--<div class="scrolling-tween bg-custom-dark px-4 py-5 px-md-0 p-lg-5" id="latestNews">
         <div class="container py-5">
             <div class="row">
                 <div class="col-12">
@@ -849,6 +855,7 @@
                         <a class="stretched-link" href="#"></a>
                     </div>
                 </div>
+                
                 <div class="col-12 mb-4">
                     <div class="entry">
                         <h4 class="mb-1 text-truncate custom-font">Urna commodo odio turpis lectus at tortor</h4>
@@ -856,6 +863,7 @@
                         <a class="stretched-link" href="#"></a>
                     </div>
                 </div>
+                
                 <div class="col-12 mb-4">
                     <div class="entry">
                         <h4 class="mb-1 text-truncate custom-font">Urna commodo odio turpis lectus at tortor</h4>
@@ -870,7 +878,7 @@
     </div>
     <div class="scrolling-background bg-2">
         <div class="inner"></div>
-    </div>
+    </div>-->
     <div class="scrolling-tween bg-custom-dark px-4 py-5 px-md-0 p-lg-5" id="backCatalogue">
         <div class="container py-5">
             <div class="row">
@@ -906,7 +914,7 @@
     <div class="scrolling-background bg-4">
         <div class="inner"></div>
     </div>
-    <div class="scrolling-tween bg-custom-dark px-4 py-5 px-md-0 p-lg-5" id="merchandise">
+    <!--<div class="scrolling-tween bg-custom-dark px-4 py-5 px-md-0 p-lg-5" id="merchandise">
         <div class="container py-5">
             <div class="row">
                 <div class="col-12 text-center">
@@ -917,7 +925,7 @@
             <div class="row mt-5 text-center">
                 <div class="col-6 col-lg-4 col-xl-3 mb-4">
                     <div class="card h-100 border-0 bg-transparent">
-                        <img class="card-img-top" src="white-shirt.png" alt="">
+                        <img class="card-img-top" src="https://www.freepnglogos.com/uploads/t-shirt-png/t-shirt-png-download-white-shirt-png-image-png-image-pngimg-0.png" alt="">
                         <div class="card-body h-100 d-flex flex-column justify-content-end px-0">
                             <h5 class="mb-0 custom-font">Design your own <br><strong class="text-nowrap">[we sell boxes]</strong> <br>T-shirt</h5>
                             <p>Brand new for this season.</p>
@@ -931,7 +939,7 @@
                 </div>
                 <div class="col-6 col-lg-4 col-xl-3 mb-4">
                     <div class="card h-100 border-0 bg-transparent">
-                        <img class="card-img-top" src="orange-shirt.png" alt="">
+                        <img class="card-img-top" src="https://www.transparentpng.com/thumb/t-shirt/JcvzGC-orange-t-shirt-image.png" alt="">
                         <div class="card-body h-100 d-flex flex-column justify-content-end px-0">
                             <h5 class="mb-0 custom-font">Limited Edition <br><strong class="text-nowrap">[we sell boxes]</strong> <br>T-shirt</h5>
                             <p>Limited stock - hurry!</p>
@@ -945,7 +953,7 @@
                 </div>
                 <div class="col-6 col-lg-4 col-xl-3 mb-4">
                     <div class="card h-100 border-0 bg-transparent">
-                        <img class="card-img-top" src="mug.png" alt="">
+                        <img class="card-img-top" src="https://edgbastonshop.com/wp-content/uploads/2021/11/500x500-shop-bp-mug-2.png" alt="">
                         <div class="card-body h-100 d-flex flex-column px-0">
                             <h5 class="mb-0 custom-font">Limited Edition <br><strong class="text-nowrap">[we sell boxes]</strong> <br>Mug</h5>
                             <p>Limited stock - hurry!</p>
@@ -963,7 +971,7 @@
     </div>
     <div class="scrolling-background bg-5">
         <div class="inner"></div>
-    </div>
+    </div>-->
     <div class="scrolling-tween bg-custom-dark px-4 py-5 px-md-0 p-lg-5" id="getInvolved">
         <div class="container py-5">
             <div class="row">
@@ -973,9 +981,7 @@
                 </div>
             </div>
             <div class="row mt-5"></div>
-            <div class="loading h3 mb-0 custom-font text-center align-items-center">
-                loading <em class="fa fa-spinner fa-pulse text-wsb-color"></em>
-            </div>
+            <div class="loading h3 mb-0 custom-font text-center align-items-center">loading <em class="fa fa-spinner fa-pulse text-wsb-color"></em></div>
         </div>
     </div>
     <div class="scrolling-background bg-6">
@@ -997,27 +1003,32 @@
     <a id="backToTop" class="text-center" href="#mainPanel"><em class="fa fa-angle-up fa-2x text-wsb-color"></em></a>
     <div class="modal" id="catalogueModal" tabindex="-1" role="dialog" aria-hidden="true"></div>
   
-    <!-- // jqXHR -->
+    <!-- // ajax preload functions -->
     <script>
         
         setTimeout(function() {
             $('.loading').show();
             $(function () {
                 var jqXHR = $.getJSON("wsb.json", function(wsb) {
+
+                    // news etc
+                    
                     // featured section
                     $.each(wsb.singles, function(f, featured) {
                         if(featured.hasOwnProperty("featured") && featured.featured === true) {
                             // featured details
-                            $('#catalogueFeatured').append('<div class="col-lg order-lg-2 mb-4 featured-details"><h3 class="mb-0 custom-font">'+featured.title+'</h4><p>'+featured.description+'</p><div class="row"><div class="col d-flex align-items-center"><img src="aqua.svg" style="max-width: 30px;"></div></div></div>');
+                            $('#catalogueFeatured').append('<div class="col-lg order-lg-2 mb-4 featured-details"><h3 class="mb-0 custom-font">'+featured.title+'</h4><p>'+featured.description+'</p><div class="row"><div class="col d-flex align-items-center"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Bandcamp-button-bc-circle-aqua.svg" style="max-width: 30px;"></div></div></div>');
                             $('#catalogueFeatured').append('<div class="col-lg-5 mb-4 featured-wrapper"><img loading="lazy" class="img-fluid w-100" src="'+featured.artwork+'" alt="'+featured.title+'"></div>');
                         }
                     });
+
                     // catalogue minus featured
                     $.each(wsb.singles, function(c, catalogue) {
                         if(catalogue.hasOwnProperty("featured") && catalogue.featured === false) {
                             $('#catalogueList').append('<div class="col-6 col-md-4 col-xl-3 mb-4 catalogue-block"><div class="artwork-wrapper"><img loading="lazy" class="img-fluid" src="'+catalogue.artwork+'" alt="'+catalogue.title+'"></div><div class="artwork-overlay">'+catalogue.title+'</div><a href="#" class="stretched-link" data-toggle="modal" data-target="#catalogueModal" data-title="'+catalogue.title+'" data-description="'+catalogue.description+'" data-artwork="'+catalogue.artwork+'" data-scid="'+catalogue.scid+'" data-sclink="'+catalogue.sclink+'" data-release="'+catalogue.release+'" data-featured="'+catalogue.featured+'"></a></div>');
                         }
                     });
+
                     // videos
                     $.each(wsb.singles, function(v, videos) {
                         if($.isEmptyObject(videos.ytid)) {
@@ -1025,6 +1036,8 @@
                         }
                         else {
                             $('#wsbVideos_Carousel .owl-stage').append('<div class="item owl-video"><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" width="100%" height="auto" src="https://www.youtube.com/embed/'+videos.ytid+'?controls=1&rel=0&modestbranding=1&playsinline=1" title="'+videos.title+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>');
+                            //$('.owl-thumbs').append('<div class="owl-thumb-item"><!--<div class=""><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" width="560" height="auto" src="https://www.youtube.com/embed/'+videos.ytid+'?controls=0&rel=0&modestbranding=1&playsinline=1" title="'+videos.title+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>--></div>');
+                            //$('#wsbVideos_Carousel').owlCarousel('replace');
                             $('#wsbVideos_Carousel').owlCarousel('destroy');
                             $('#wsbVideos_Carousel').owlCarousel({
                                 loop: true,
@@ -1035,16 +1048,18 @@
                             });
                         }
                     });
+
                     // load text layers
                     $('#newsText').append(wsb.newstext);
                     $('#catalogueText').append(wsb.cataloguetext);
                     $('#videosText').append(wsb.videostext);
                     $('#merchandiseText').append(wsb.merchandisetext);
                     $('#getinvolvedText').append(wsb.getinvolvedtext);
+
                 })
                 .done (function(data, textStatus, jqXHR) {
                     $('.loading').remove();
-                    console.log('Page loaded');
+                    console.log('Loaded');
                 })
                 .fail (function(jqXHR, textStatus, errorThrown) {
                     console.log('Hang on... somethings not right');
@@ -1059,6 +1074,7 @@
     </script>
     
     <script>
+    
         let options = {
             root: null,
             rootMargin: '0px',
@@ -1066,29 +1082,33 @@
         };
         var wsbPlayer = document.getElementById("wsbWrapper");
         var stickyMenu = document.getElementById("stickyMenu");
-        var backToTop = document.getElementById("backToTop");
+        //var backToTop = document.getElementById("backToTop");
         function handler (entries, observer) {
             for (entry of entries) {
                 if (entry.isIntersecting) {
                     stickyMenu.classList.remove('show');
                     wsbPlayer.classList.remove('solid');
-                    backToTop.classList.remove('show');
+                    //backToTop.classList.remove('show');
                 }
                 else {
                     stickyMenu.classList.add('show');
                     wsbPlayer.classList.add('solid');
-                    backToTop.classList.add('show');
+                    //backToTop.classList.add('show');
                 }
             }
         }
         let observer = new IntersectionObserver(handler, options);
         observer.observe(document.getElementById("mainPanel"));
+
     </script>
     
     <!-- // modal functions -->
     <script>
+        
         $(function () {
+            
             $('#wsbVideos_Carousel').owlCarousel('refresh');
+            
             $("#stickyMenu .navbar-collapse.collapse").on('show.bs.collapse', function(){
                 $('.sticky-menu').addClass('with-background');
             });
@@ -1098,6 +1118,7 @@
             $('.sticky-menu .nav-link').on('click', function() {
                 $("#stickyMenu .navbar-collapse").collapse('hide');
             });
+            
             // load data and build modal
             $('#catalogueModal').on('show.bs.modal', function (event) {
                 var modalTitle = $(event.relatedTarget).data('title');
@@ -1111,16 +1132,21 @@
                 $('#catalogueModal').empty();
                 $('#catalogueModal iframe').attr('src', '');
             });
+            
+
         });
+        
     </script>
     
     <!-- // Player -->
     <script>
+
          $(function() {
+
              var titleTrack = document.getElementById('trackInfo');
              var widget = SC.Widget(document.getElementById('soundcloud_widget'));
              widget.bind(SC.Widget.Events.READY, function() {
-                 console.log('Ready...steady...');
+                 //console.log('Ready...');
                  titleTrack.textContent = "";
                  widget.getCurrentSound(function(music)  {
                     titleTrack.textContent += music.title;
@@ -1163,6 +1189,7 @@
                 $('.play').show();
                 widget.pause();
             });
+
             $('.prev').click(function() {
                 titleTrack.textContent = "";
                 widget.prev();
@@ -1178,7 +1205,9 @@
                     titleTrack.textContent += music.title;
                 });
             });
+
         });
+
     </script>
     
 </body>
