@@ -1145,6 +1145,9 @@
 
              var titleTrack = document.getElementById('trackInfo');
              var widget = SC.Widget(document.getElementById('soundcloud_widget'));
+             widget.bind(SC.Widget.Events.LOAD_PROGRESS, function() {
+                titleTrack.textContent = "loading...";
+             });
              widget.bind(SC.Widget.Events.READY, function() {
                  //console.log('Ready...');
                  titleTrack.textContent = "";
@@ -1152,9 +1155,6 @@
                     titleTrack.textContent += music.title;
                  });
                  $('#wsbPlayer #trackInfo').css({"animation-play-state": "paused"});
-             });
-             widget.bind(SC.Widget.Events.LOAD_PROGRESS, function() {
-                titleTrack.textContent = "loading...";
              });
              widget.bind(SC.Widget.Events.PLAY, function() {
                 console.log('Sound starts');
@@ -1207,7 +1207,21 @@
             });
 
         });
-
+        
+    </script>
+    
+    <script>
+        
+        function streamingReady(){
+            if (type of SC != 'undefined') {
+                SC.whenStreamingReady( function() {
+                    console.log('TOP DOWN');
+                });
+            } else {
+                setTimeout(streamingReady, 200);
+            }
+        }
+        
     </script>
     
 </body>
