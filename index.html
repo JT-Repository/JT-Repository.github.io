@@ -21,7 +21,11 @@
         color: rgba(0,0,0,.35) !important;
     }
     body {
-        background-color: rgba(0,0,0,1); 
+        background:
+        linear-gradient(red, transparent),
+        linear-gradient(to top left, lime, transparent),
+        linear-gradient(to top right, blue, transparent);
+        background-blend-mode: screen;
     }
     .icon {
         max-width: calc(3rem + 1.5vw);
