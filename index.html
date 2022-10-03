@@ -17,6 +17,21 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap');
     
     body {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+    }
+    .gradient {
+        position: absolute
+        z-index: -1;
+    }
+    .gradient::before {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
         background:
         -webkit-gradient(linear, left top, left bottom, from(rgba(255,0,0,1)), to(transparent)),
         -webkit-gradient(linear, right bottom, left top, from(rgba(0,255,0,1)), to(transparent)),
@@ -30,9 +45,6 @@
         linear-gradient(to top left, rgba(0,255,0,1), transparent),
         linear-gradient(to top right, rgba(0,0,255,1), transparent);
         background-blend-mode: screen;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 400;
-        min-height: 100vh;
     }
     h1 {
         font-size: calc(1.25rem + 2vw);
@@ -127,9 +139,10 @@
 </head>
 <body>
 
+    <div class="gradient"></div>
     <div class="container">
         <div class="row vh-100 align-content-center justify-content-center">
-            <div class="col-11 col-md-10 col-lg-auto text-center my-auto">
+            <div class="col-11 col-md-10 col-lg-auto text-center">
                 <h1 class="mb-5 text-white">JT-Repository.github.io</h1>
                 <div class="bg-white p-4 p-md-5 shadow-lg box">
                     <form class="m-0" method="">

@@ -18,6 +18,21 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;800&display=swap');
     
     body {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+    }
+    .gradient {
+        position: absolute
+        z-index: -1;
+    }
+    .gradient::before {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
         background:
         -webkit-gradient(linear, left top, left bottom, from(rgba(255,0,0,1)), to(transparent)),
         -webkit-gradient(linear, right bottom, left top, from(rgba(0,255,0,1)), to(transparent)),
@@ -31,9 +46,6 @@
         linear-gradient(to top left, rgba(0,255,0,1), transparent),
         linear-gradient(to top right, rgba(0,0,255,1), transparent);
         background-blend-mode: screen;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 400;
-        min-height: 100vh;
     }
     h1 {
         font-size: calc(3rem + 2vw);
@@ -91,9 +103,10 @@
 </head>
 <body>
     
-    <div class="container vh-100">
-        <div class="row h-100 align-content-around align-content-md-center justify-content-center">
-            <div class="col-11 col-md-12 text-white">
+    <div class="gradient"></div>
+    <div class="container">
+        <div class="row vh-100 align-items-start align-items-md-center justify-content-center">
+            <div class="col-11 col-md-12 text-white pt-5 pt-md-0">
                 <div class="owl-carousel owl-theme" id="portCarousel">
                     <div class="item">
                         <div class="row justify-content-center text-center">
