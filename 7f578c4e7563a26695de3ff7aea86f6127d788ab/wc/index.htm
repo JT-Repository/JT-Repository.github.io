@@ -1652,10 +1652,10 @@
             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            document.getElementById("countdown").innerHTML = "Only <span class='days mx-1'>" + days + " days</span><span class='hours mx-1'>" + hours + "h</span><span class='minutes mx-1'>" + minutes + "m</span> until kick off!";
+            document.getElementById("countdown").innerHTML = "Only <span class='days ml-1'>" + days + " days</span><span class='hours ml-1'>" + hours + "h</span><span class='minutes ml-1'>" + minutes + "m</span> until kick off!";
             if (distance < 0) {
                 clearInterval(x);
-                document.getElementById("demo").innerHTML = "Come on England!!!";
+                document.getElementById("countdown").innerHTML = "Come on England!!!";
             }
         }, 1000);
         
