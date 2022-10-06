@@ -23,10 +23,6 @@
 </style>
 <style>
 
-    :root {
-        --wc-maroon: #950732;
-        --wc-grey: #d6d7d9;
-    }
     body {
         font-family: 'Qatar2022';
         font-weight: 500;
@@ -50,8 +46,17 @@
         line-height: 1;
     }
     
-    /* custom scrollers */
+    :target + table tbody tr > td:fist-child {
+        background-color: rgba(243,244,246,1);
+        color: rgba(153,27,27,1);
+    }
     
+    /* Hero images */
+    #mainHero .bg-image {
+        background-image: url(images/gdsrstjmod-sm.jpg);
+    }
+    
+    /* Custom scrollers */
     .scrollbar::-webkit-scrollbar {
         width: 1.25rem;
         height: 1.5rem;
@@ -70,7 +75,6 @@
     }
     
     /* booking component */
-    
     .booking-header:not(.active) {
         background-color: rgba(243,244,246,1);
     }
@@ -105,6 +109,9 @@
     }
     
     @media screen and (min-width: 1024px) {
+        #mainHero .bg-image {
+            background-image: url(images/gdsrstjmod.jpg);
+        }
         .booking-header {
             position: relative;
             min-height: 35rem;
@@ -139,14 +146,14 @@
 </head>
 <body>
     
-    <!-- Global book button -->
+    <!-- Absolute button -->
     <div class="fixed bottom-6 right-4 left-4 sm:left-auto sm:right-6 lg:bottom-8 lg:right-8 xl:bottom-10 xl:right-10 2xl:bottom-12 2xl:right-12 z-20" id="staticContainer">
-        <a class="block w-full sm:w-fit bg-red-800 text-lg text-white text-center p-2.5 px-6 border-2 border-white shadow-lg rounded-t rounded-lg sm:rounded-none" href="#BookTable" id="staticButton">Book your table today!</a>
+        <a class="block w-full sm:w-fit bg-red-800 text-lg text-white text-center p-2.5 px-6 border-2 border-white shadow-lg rounded-b-lg sm:rounded-none" href="#BookTable" id="staticButton">Book your table today!</a>
     </div>
 
-    <!-- header/nav elements -->
+    <!-- Header and nav elements -->
     <header class="fixed w-full top-0 z-50 user-none">
-        <nav class="relative flex items-center justify-between flex-wrap py-4 sm:py-5 md:py-6 px-6 xl:px-8 2xl:px-12 bg-white dark:bg-black dark:text-gray-300 border-b border-red-800 dark:border-0" id="topNavigation">
+        <nav class="relative flex items-center justify-between flex-wrap py-4 sm:py-5 md:py-6 px-6 xl:px-8 2xl:px-12 bg-white dark:bg-slate-800 dark:text-gray-300 border-b border-red-800 dark:border-0" id="topNavigation">
             <div class="block lg:hidden">
                 <button class="flex text-red-800 hover:text-red-700 focus:outline-none dark:text-white dark:hover:text-red-700" id="navPaneToggle">
                     <svg viewBox="0 0 10 8" width="1.6rem">
@@ -163,7 +170,7 @@
                     <a class="block lg:inline-block text-xl lg:text-lg mt-3 lg:mt-0 lg:mr-6 xl:mr-8 2xl:mr-12 hover:text-red-800 nav-link" href="#WatchGames" title="Watch Games">Watch Games</a>
                     <a class="block lg:inline-block text-xl lg:text-lg mt-3 lg:mt-0 lg:mr-6 xl:mr-8 2xl:mr-12 hover:text-red-800 nav-link" href="#Schedule" title="Games Schedule">Games Schedule</a>
                     <a class="block lg:inline-block text-xl lg:text-lg mt-3 lg:mt-0 lg:mr-6 xl:mr-8 2xl:mr-12 hover:text-red-800 nav-link" href="#BookTable" title="Book A Table">Book A Table</a>
-                    <a class="absolute bottom-20 left-4 right-4 lg:hidden w-auto sm:w-fit self-end mb-auto bg-red-800 text-lg text-white text-center p-2.5 px-6 -mt-5 border-2 border-white shadow-lg rounded-t rounded-lg sm:rounded-none" href="#BookTable" id="staticButton">Book your table today!</a>
+                    <a class="absolute bottom-20 left-4 right-4 lg:hidden w-auto sm:w-fit self-end mb-auto bg-red-800 text-lg text-white text-center p-2.5 px-6 -mt-5 border-2 border-white shadow-lg rounded-b-lg sm:rounded-none" href="#BookTable" id="staticButton">Book your table today!</a>
                 </div>
             </div>
         </nav>
@@ -171,9 +178,7 @@
     
     <!-- Hero -->
     <section class="relative h-auto w-100 z-20" id="mainHero">
-        <!-- Underlay image -->
-        <div class="absolute z-0 w-full h-full bg-cover bg-no-repeat bg-center bg-fixed" style="background-image: url(images/gdsrstjmod.jpg)"></div>
-        <!-- Overlay content/trnasitions -->
+        <div class="absolute z-0 w-full h-full bg-cover bg-no-repeat bg-center bg-fixed bg-image"></div>
         <div class="relative h-screen lg:h-auto lg:py-24 xl:py-28 2xl:py-32 duration-700 ease-in bg-gradient-to-b from-red-800/0 via-red-800/20 to-red-800/40 hover:duration-700 hover:bg-red-800/50 focus:bg-red-800/50 focus:duration-500 transition-all">
             <div class="flex flex-col h-screen lg:block lg:h-auto justify-center items-center px-10 xl:px-12 mx-auto text-center text-white">
                 <div class="h1 mx-auto mb-10 lg:mt-24 xl:mt-28 font-bold uppercase" title="Qatar World Cup 2022 VIP Experience">Qatar World Cup 2022 VIP Experience</div>
@@ -183,7 +188,7 @@
         </div>
     </section>
    
-    <!-- Watch Games -->
+    <!-- Watch games -->
     <section class="container mx-auto px-6 xl:px-8 2xl:px-12 py-20 xl:py-24 2xl:py-28 text-center bg-white dark:bg-black dark:text-gray-300" id="WatchGames">
         <h1 class="text-red-800 font-bold uppercase dark:text-white">Watch Games</h1>
         <div class="flex flex-wrap items-center justify-center mt-20">
@@ -215,127 +220,191 @@
         </div>
     </section>
 
-    <!-- Schedule -->
+    <!-- Games schedule -->
     <section class="bg-gradient-to-b from-white to-gray-300 dark:from-black dark:to-black dark:text-gray-300" id="Schedule">
         <div class="container mx-auto px-6 xl:px-8 2xl:px-12 py-20 xl:py-24 2xl:py-28">
-            <h1 class="text-center text-red-800 font-bold uppercase dark:text-gray-300 -mt-12">Games Schedule</h1>
+            <h1 class="text-center text-red-800 font-bold uppercase dark:text-gray-300 -mt-12 xl:-mt-16 2xl:-mt-24">Games Schedule</h1>
             <div class="text-xl lg:text-2xl text-center dark:text-gray-300" id="countdown">
                 <span class="text-lg">Loading World Cup&trade; countdown...</span>
             </div>
-            <div class="columns-1 text-center px-6 sm:px-12 md:px-4 lg:px-16 xl:px-32 2xl:px-48 mt-12">
+            <div class="columns-1 text-center px-6 sm:px-12 md:px-4 lg:px-16 xl:px-32 2xl:px-48 mt-12 flags">
                 <div class="columns-4 md:columns-8">
                     <div class="col mb-3">
-                        <img class="" src="images/flags/qa.png" alt="Qatar" />
+                        <a class="flag" href="#groupTableA1">
+                            <img src="images/flags/qa.png" alt="Qatar" />
+                        </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/ec.png" alt="Ecuador" />
+                        <a class="flag" href="#groupTableA2">
+                            <img src="images/flags/ec.png" alt="Ecuador" />
+                        </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/sn.png" alt="Senegal" />
+                        <a class="flag" href="#groupTableA3">
+                            <img src="images/flags/sn.png" alt="Senegal" />
+                        </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/nl.png" alt="Netherlands" />
+                        <a class="flag" href="#groupTableA4">
+                            <img src="images/flags/nl.png" alt="Netherlands" />
+                        </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/en.png" alt="England" />
+                        <a class="flag" href="#groupTableB1">
+                            <img src="images/flags/en.png" alt="England" />
+                        </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/ir.png" alt="Iran" />
+                        <a class="flag" href="#groupTableB2">
+                            <img src="images/flags/ir.png" alt="Iran" />
+                        </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/us.png" alt="USA" />
+                        <a class="flag" href="#groupTableB3">
+                            <img src="images/flags/us.png" alt="USA" />
+                        </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/wa.png" alt="Wales" />
+                        <a class="flag" href="#groupTableB4">
+                            <img src="images/flags/wa.png" alt="Wales" />
+                        </a>
                     </div>
                 </div>
                 <div class="columns-4 md:columns-8">
                     <div class="col mb-3">
-                        <img class="" src="images/flags/ar.png" alt="Argentina" />
+                        <a class="flag" href="#groupTableC1">
+                            <img src="images/flags/ar.png" alt="Argentina" />
+                        </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/sa.png" alt="Saudi Arabia" />
+                        <a class="flag" href="#groupTableC2">
+                            <img src="images/flags/sa.png" alt="Saudi Arabia" />
+                        </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/mx.png" alt="Mexico" />
+                        <a class="flag" href="#groupTableC3">
+                            <img src="images/flags/mx.png" alt="Mexico" />
+                        </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/pl.png" alt="Poland" />
+                        <a class="flag" href="#groupTableC4">
+                            <img src="images/flags/pl.png" alt="Poland" />
+                        </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/fr.png" alt="France" />
+                        <a class="flag" href="#groupTableD1">
+                            <img src="images/flags/fr.png" alt="France" />
+                        </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/dk.png" alt="Denmark" />
+                        <a class="flag" href="#groupTableD2">
+                            <img src="images/flags/dk.png" alt="Denmark" />
+                        </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/tn.png" alt="Tunisia" />
+                        <a class="flag" href="#groupTableD3">
+                            <img src="images/flags/tn.png" alt="Tunisia" />
+                        </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/au.png" alt="Australia" />
-                    </div>
-                </div>
-                <div class="columns-4 md:columns-8">
-                    <div class="col mb-3">
-                        <img class="" src="images/flags/es.png" alt="Spain" />
-                    </div>
-                    <div class="col mb-3">
-                        <img class="" src="images/flags/de.png" alt="Germany" />
-                    </div>
-                    <div class="col mb-3">
-                        <img class="" src="images/flags/jp.png" alt="Japan" />
-                    </div>
-                    <div class="col mb-3">
-                        <img class="" src="images/flags/cr.png" alt="Costa Rica" />
-                    </div>
-                    <div class="col mb-3">
-                        <img class="" src="images/flags/be.png" alt="Belgium" />
-                    </div>
-                    <div class="col mb-3">
-                        <img class="" src="images/flags/ca.png" alt="Canada" />
-                    </div>
-                    <div class="col mb-3">
-                        <img class="" src="images/flags/mc.png" alt="Morocco" />
-                    </div>
-                    <div class="col mb-3">
-                        <img class="" src="images/flags/croa.png" alt="Croatia" />
+                        <a class="flag" href="#groupTableD4">
+                            <img src="images/flags/au.png" alt="Australia" />
+                        </a>
                     </div>
                 </div>
                 <div class="columns-4 md:columns-8">
                     <div class="col mb-3">
-                        <img class="" src="images/flags/br.png" alt="Brazil" />
+                        <a class="flag" href="#groupTableE1">
+                            <img src="images/flags/es.png" alt="Spain" />
+                        </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/se.png" alt="Serbia" />
+                        <a class="flag" href="#groupTableE2">
+                            <img src="images/flags/de.png" alt="Germany" />
+                         </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/sw.png" alt="Switzerland" />
+                        <a class="flag" href="#groupTableE3">
+                            <img src="images/flags/jp.png" alt="Japan" />
+                         </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/cm.png" alt="Cameroon" />
+                        <a class="flag" href="#groupTableE4">
+                            <img src="images/flags/cr.png" alt="Costa Rica" />
+                         </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/pt.png" alt="Portugal" />
+                        <a class="flag" href="#groupTableF1">
+                            <img src="images/flags/be.png" alt="Belgium" />
+                        </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/gh.png" alt="Ghana" />
+                        <a class="flag" href="#groupTableF2">
+                            <img src="images/flags/ca.png" alt="Canada" />
+                        </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/uy.png" alt="Uruguay" />
+                        <a class="flag" href="#groupTableF3">
+                            <img src="images/flags/mc.png" alt="Morocco" />
+                        </a>
                     </div>
                     <div class="col mb-3">
-                        <img class="" src="images/flags/sk.png" alt="South Korea" />
+                        <a class="flag" href="#groupTableF4">
+                            <img src="images/flags/croa.png" alt="Croatia" />
+                        </a>
+                    </div>
+                </div>
+                <div class="columns-4 md:columns-8">
+                    <div class="col mb-3">
+                        <a class="flag" href="#groupTableG1">
+                            <img src="images/flags/br.png" alt="Brazil" />
+                        </a>
+                    </div>
+                    <div class="col mb-3">
+                        <a class="flag" href="#groupTableG2">
+                            <img src="images/flags/se.png" alt="Serbia" />
+                        </a>
+                    </div>
+                    <div class="col mb-3">
+                        <a class="flag" href="#groupTableG3">
+                            <img src="images/flags/sw.png" alt="Switzerland" />
+                        </a>
+                    </div>
+                    <div class="col mb-3">
+                        <a class="flag" href="#groupTableG4">
+                            <img src="images/flags/cm.png" alt="Cameroon" />
+                        </a>
+                    </div>
+                    <div class="col mb-3">
+                        <a class="flag" href="#groupTableH1">
+                            <img src="images/flags/pt.png" alt="Portugal" />
+                        </a>
+                    </div>
+                    <div class="col mb-3">
+                        <a class="flag" href="#groupTableH2">
+                            <img src="images/flags/gh.png" alt="Ghana" />
+                        </a>
+                    </div>
+                    <div class="col mb-3">
+                        <a class="flag" href="#groupTableH3">
+                            <img src="images/flags/uy.png" alt="Uruguay" />
+                        </a>
+                    </div>
+                    <div class="col mb-3">
+                        <a class="flag" href="#groupTableH4">
+                            <img src="images/flags/sk.png" alt="South Korea" />
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TABLES -->
+    <!-- Group tables -->
     <section class="relative bg-red-800" id="GetInvolved">
         <div class="container mx-auto px-6 xl:px-8 2xl:px-12 py-20 xl:py-24 2xl:py-28">
             <h1 class="text-center text-white font-bold uppercase mb-12">Group Tables</h1>
-            <div class="flex flex-row items-start pb-6 lg:pb-8 xl:pb-10 2xl:pb-12 overflow-y-hidden overflow-x-auto overscroll-none snap-mandatory snap-x focus:touch-pan-x touch-pan-x scrollbar">
+            <div class="flex flex-row items-end pb-6 lg:pb-8 xl:pb-10 2xl:pb-12 overflow-y-hidden overflow-x-auto overscroll-none snap-mandatory snap-x focus:touch-pan-x touch-pan-x scrollbar">
                 <div class="w-auto mx-3 lg:mx-4 xl:mx-5 2xl:mx-6 snap-center">
                     <h2 class="mb-4 text-center text-white">Group A</h2>
                     <div class="border-b border-gray-200 shadow">
@@ -345,146 +414,150 @@
                                     <th class="px-2 md:pl-6 md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
                                         Team
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         MP
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         W
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         D
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         L
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GF
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GA
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GD
                                     </th>
-                                    <th class="px-2 md:pr-6 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5">
                                         Pts
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
+                                <a name="groupTableA1" id="groupTableA1"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Qatar
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="ppx-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableA2" id="groupTableA2"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Ecuador
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableA3" id="groupTableA3"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Senegal
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="v py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableA4" id="groupTableA4"></a>
                                 <tr class="whitespace-nowrap hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Netherlands
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
@@ -501,146 +574,150 @@
                                     <th class="px-2 md:pl-6 md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
                                         Team
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         MP
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         W
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         D
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         L
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GF
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GA
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GD
                                     </th>
-                                    <th class="px-2 md:pr-6 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5">
                                         Pts
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
+                                <a name="groupTableB1" id="groupTableB1"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         England
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableB2" id="groupTableB2"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Iran
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableB3" id="groupTableB3"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         USA
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableB4" id="groupTableB4"></a>
                                 <tr class="whitespace-nowrap hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Wales
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
@@ -657,146 +734,150 @@
                                     <th class="px-2 md:pl-6 md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
                                         Team
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         MP
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         W
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         D
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         L
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GF
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GA
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GD
                                     </th>
-                                    <th class="px-2 md:pr-6 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5">
                                         Pts
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
+                                <a name="groupTableC1" id="groupTableC1"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Argentina
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableC2" id="groupTableC2"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Saudi Arabia
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableC3" id="groupTableC3"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Mexico
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableC4" id="groupTableC4"></a>
                                 <tr class="whitespace-nowrap hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Poland
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
@@ -813,146 +894,150 @@
                                     <th class="px-2 md:pl-6 md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
                                         Team
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         MP
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         W
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         D
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         L
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GF
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GA
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GD
                                     </th>
-                                    <th class="px-2 md:pr-6 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5">
                                         Pts
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
+                                <a name="groupTableD1" id="groupTableD1"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         France
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableD2" id="groupTableD2"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Australia
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableD3" id="groupTableD3"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Denmark
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableD4" id="groupTableD4"></a>
                                 <tr class="whitespace-nowrap hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Tunisia
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
@@ -969,146 +1054,150 @@
                                     <th class="px-2 md:pl-6 md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
                                         Team
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         MP
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         W
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         D
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         L
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GF
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GA
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GD
                                     </th>
-                                    <th class="px-2 md:pr-6 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5">
                                         Pts
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
+                                <a name="groupTableE1" id="groupTableE1"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Spain
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableE2" id="groupTableE2"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Costa Rica
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableE3" id="groupTableE3"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Germany
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableE4" id="groupTableE4"></a>
                                 <tr class="whitespace-nowrap hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Japan
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
@@ -1125,146 +1214,150 @@
                                     <th class="px-2 md:pl-6 md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
                                         Team
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         MP
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         W
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         D
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         L
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GF
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GA
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GD
                                     </th>
-                                    <th class="px-2 md:pr-6 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5">
                                         Pts
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
+                                <a name="groupTableF1" id="groupTableF1"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Belgium
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableF2" id="groupTableF2"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Canada
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableF3" id="groupTableF3"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Morocco
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableF4" id="groupTableF4"></a>
                                 <tr class="whitespace-nowrap hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Croatia
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
@@ -1281,146 +1374,150 @@
                                     <th class="px-2 md:pl-6 md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
                                         Team
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         MP
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         W
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         D
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         L
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GF
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GA
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GD
                                     </th>
-                                    <th class="px-2 md:pr-6 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5">
                                         Pts
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
+                                <a name="groupTableG1" id="groupTableG1"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Brazil
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableG2" id="groupTableG2"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Serbia
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableG3" id="groupTableG3"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Switzerland
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableG4" id="groupTableG4"></a>
                                 <tr class="whitespace-nowrap hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Cameroon
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
@@ -1429,7 +1526,7 @@
                     </div>
                 </div>
                 <div class="w-auto mx-3 lg:mx-4 xl:mx-5 2xl:mx-6 snap-center">
-                    <h2 class="mb-4 pl-6 text-xl text-center text-white">Group H</h2>
+                    <h2 class="mb-4 text-xl text-center text-white">Group H</h2>
                     <div class="border-b border-gray-200 shadow">
                         <table class="text-center">
                             <thead class="bg-gray-300 text-sm md:text-base text-red-800">
@@ -1437,146 +1534,150 @@
                                     <th class="px-2 md:pl-6 md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
                                         Team
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         MP
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         W
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         D
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         L
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GF
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GA
                                     </th>
-                                    <th class="px-2 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 py-4 xl:py-5">
                                         GD
                                     </th>
-                                    <th class="px-2 md:pr-6 py-4 xl:py-5">
+                                    <th class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5">
                                         Pts
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
+                                <a name="groupTableH1" id="groupTableH1"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Portugal
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableH2" id="groupTableH2"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Ghana
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableH3" id="groupTableH3"></a>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Uruguay
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
+                                <a name="groupTableH4" id="groupTableH4"></a>
                                 <tr class="whitespace-nowrap hover:bg-gray-100">
                                     <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         South Korea
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-1 sm:px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
@@ -1594,11 +1695,12 @@
         </div>
     </section>
 
-    <!-- Book A Table -->
-    <section class="dark:bg-black dark:text-gray-300" id="BookTable">
+    <!-- Book a table -->
+    <section class="dark:bg-black" id="BookTable">
         <div class="w-full select-none">
             <div class="container mx-auto px-6 xl:px-8 2xl:px-12 py-20 xl:py-24 2xl:py-28">
-                <h1 class="text-red-800 text-center font-bold uppercase dark:text-white mb-12 lg:mb-20">Book A Table</h1>
+                <h1 class="text-red-800 text-center font-bold uppercase dark:text-white mb-6">Book A Table</h1>
+                <p class="lg:text-lg text-center mb-12 dark:text-white">Habitant morbi tristique senectus et. In ornare quam viverra orci. Sed risus ultricies tristique nulla aliquet. Non consectetur a erat nam. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Orci porta non pulvinar neque laoreet. Ipsum dolor sit amet consectetur adipiscing elit duis tristique.</p>
                 <div class="flex flex-wrap lg:flex-nowrap" id="blockGameVenue">
                     <div class="w-full lg:w-auto lg:flex-grow booking-outer" id="selectGameBlock">
                         <div class="flex p-6 lg:p-10 bg-cover bg-center border-white border-y-2 lg:border-t-0 lg:border-x-2 booking-header active" id="selectGameHeader">
@@ -1636,7 +1738,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full lg:w-auto lg:flex-col booking-outer" id="selectVenueBlock">
+                    <div class="w-full lg:w-auto lg:flex-col booking-outer -mt-1 lg:mt-0" id="selectVenueBlock">
                         <div class="flex p-6 lg:p-10 bg-cover bg-center border border-white border-y-2 lg:border-t-0 lg:border-x-2 booking-header" id="selectVenueHeader">
                             <div class="flex-wrap mx-auto text-center lg:self-center lg:justify-center">
                                 <div class="relative">
@@ -1648,51 +1750,52 @@
                                     </div>
                                     <div class="booking-header-inner p-6 lg:p-10 bg-white">
                                         <h3 class="mb-3 lg:mb-6">Choose where you want to watch the game?</h3>
-                                        <select class="p-2 border-2 border-gray-200 focus:border-red-800/50 focus:ring-0 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 lg:text-lg valid:text-gray-300 valid:truncate dark:text-slate-500" id="selectVenue" required>
+                                        <select class="p-2 truncate border-2 border-gray-200 focus:border-red-800/50 focus:ring-0 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 lg:text-lg valid:text-gray-300 valid:truncate dark:text-slate-500" id="selectVenue" required>
                                             <option value="" selected>Find your nearest venue</option>
-                                            <option value="The Gordon Arms, High Street, Swansea">The Gordon Arms, High Street, Swanse</option>
-                                            <option value=""></option>
+                                            <option value="The Gordon Arms, Swansea">The Gordon Arms, Swansea</option>
+                                            <option value="String of Horses, Lichfield">String of Horses, Lichfield</option>
+                                            <option value="Rat &amp; Carrot, Camberwell">Rat &amp; Carrot, Camberwell</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="w-full lg:w-auto flex-col" id="formBlock">
+                    <div class="w-full lg:w-auto flex-col -mt-1 lg:mt-0" id="formBlock">
                         <div class="w-full p-6 lg:p-10 lg:mt-0 bg-gray-100 border-white border-y-2 lg:border-t-0 lg:border-x-2 booking-header" id="formBlockHeader">
                             <div class="flex-wrap mx-auto lg:ml-auto text-left lg:self-center lg:justify-center">
                                 <div class="relative">
                                     <h3 class="rotated text-center" id="tabGame">Your booking details</h3>
                                     <div class="booking-header-inner">
-                                        <h3 class="mb-6 xl:mb-10 text-center lg:text-left">Your booking details</h3>
+                                        <h3 class="mb-6 xl:mb-10 text-center lg:text-left dark:text-slate-700">Your booking details</h3>
                                         <form action="" id="bookingForm">
                                             <div class="flex flex-col lg:flex-row"> 
                                                 <div class="flex flex-col lg:w-1/2 lg:mr-3 xl:mr-5 mb-3">
-                                                    <label class="lg:text-lg" for="selectedvenue">Selected game</label>
-                                                    <input class="p-2 border-2 border-gray-200 valid:selection:bg-transparent selection:bg-white lg:text-lg truncate" type="text" name="selectedgame" id="selectedGame" disabled />
+                                                    <label class="lg:text-lg dark:text-slate-700" for="selectedvenue">Selected game</label>
+                                                    <input class="p-2 border-2 border-gray-200 valid:selection:bg-transparent selection:bg-white lg:text-lg truncate dark:text-slate-700" type="text" name="selectedgame" id="selectedGame" disabled />
                                                 </div>
                                                 <div class="flex flex-col lg:w-1/2 lg:ml-3 xl:ml-5 mb-3">
-                                                    <label class="lg:text-lg" for="selectedvenue">Selected venue</label>
-                                                    <input class="p-2 border-2 border-gray-200 valid:selection:bg-transparent selection:bg-white lg:text-lg truncate" type="text" name="selectedvenue" id="selectedVenue" disabled />
+                                                    <label class="lg:text-lg dark:text-slate-700" for="selectedvenue">Selected venue</label>
+                                                    <input class="p-2 border-2 border-gray-200 valid:selection:bg-transparent selection:bg-white lg:text-lg truncate dark:text-slate-700" type="text" name="selectedvenue" id="selectedVenue" disabled />
                                                 </div>
                                             </div>
                                             <div class="flex flex-col lg:flex-row">
                                                 <div class="flex flex-col lg:w-full lg:mr-3 xl:mr-5 mb-3">
-                                                    <label class="lg:text-lg" for="name">Your full name</label>
-                                                    <input class="p-2 border-2 border-gray-200 lg:text-lg truncate focus:border-gray-300 focus:ring-0 placeholder:text-gray-300 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 valid:selection:bg-transparent selection:bg-red-800" type="text" name="name" id="name" placeholder="Please enter your name" required />
+                                                    <label class="lg:text-lg dark:text-slate-700" for="name">Your full name</label>
+                                                    <input class="p-2 border-2 border-gray-200 lg:text-lg truncate focus:border-gray-500 focus:ring-0 placeholder:text-gray-300 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 valid:selection:bg-transparent selection:bg-red-800 dark:placeholder:text-slate-500 dark:text-slate-700" type="text" name="name" id="name" placeholder="Please enter your name" required />
                                                 </div>
                                                 <div class="flex flex-col lg:w-40 lg:ml-3 xl:ml-5 mb-3">
-                                                    <label class="lg:text-lg" for="seats">Required seats</label>
-                                                    <input class="p-2 border-2 border-gray-200 lg:text-lg truncate focus:border-gray-300 focus:ring-0 placeholder:text-gray-300 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 valid:selection:bg-transparent selection:bg-red-800"  type="number" min="1" placeholder="Please select the number of your party" name="seats" id="seats" required />
+                                                    <label class="lg:text-lg dark:text-slate-700" for="seats">Required seats</label>
+                                                    <input class="p-2 border-2 border-gray-200 lg:text-lg truncate focus:border-gray-500 focus:ring-0 placeholder:text-gray-300 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 valid:selection:bg-transparent selection:bg-red-800 dark:placeholder:text-slate-500 dark:text-slate-700"  type="number" min="1" placeholder="Please select the number of your party" name="seats" id="seats" required />
                                                 </div>
                                             </div>
                                             <div class="flex flex-col mb-3">
-                                                <label class="lg:text-lg" for="email">Your email address</label>
-                                                <input class="p-2 border-2 border-gray-200 lg:text-lg truncate focus:border-red-800/50 focus:ring-0 placeholder:text-gray-300 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 valid:selection:bg-transparent selection:bg-white" type="email" name="email" id="email" placeholder="Please enter your email address" required />
+                                                <label class="lg:text-lg dark:text-slate-700" for="email">Your email address</label>
+                                                <input class="p-2 border-2 border-gray-200 lg:text-lg truncate focus:border-gray-500 focus:ring-0 placeholder:text-gray-300 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 valid:selection:bg-transparent selection:bg-white dark:placeholder:text-slate-500 dark:text-slate-700" type="email" name="email" id="email" placeholder="Please enter your email address" required />
                                             </div>
                                             <div class="flex flex-row mb-3">
                                                 <label class="inline-flex items-center mt-3">
-                                                    <input type="checkbox" class="form-checkbox -mt-2 h-6 w-6 text-green-600 focus:ring-0">
+                                                    <input type="checkbox" class="form-checkbox mb-auto mt-1 h-6 w-6 text-green-600 focus:ring-0">
                                                     <span class="ml-6 text-gray-700">Please tick the box if you would like receive future promotions, offers, and communications.</span>
                                                 </label>
                                             </div>
@@ -1717,21 +1820,20 @@
         </section>
     </footer>
     
-    <script>
+<script>
 
-        // invoke menu
+        // Menu functions
         document.getElementById('navPaneToggle').onclick = function() {
             document.body.classList.toggle('overflow-hidden');
             document.getElementById('navPane').classList.toggle('hidden');
             document.getElementById('staticContainer').classList.toggle('z-40');
         }
-        
         document.getElementById('navPane').addEventListener('click', (event) => {
             document.body.classList.remove('overflow-hidden');
             document.getElementById('navPane').classList.add('hidden');
         });
 
-        // select game routines
+        // Select game routines
         document.getElementById('selectGame').addEventListener('change', (event) => {
             var selectedGame = event.target.value;
             document.getElementById('selectGameHeader').classList.remove('active');
@@ -1740,16 +1842,14 @@
             document.getElementById('selectGameHeader').classList.add('valid');
             document.getElementById('selectedGame').value = selectedGame;
             document.getElementById('selectedGame').classList.add('border-green-600');
-            
             document.getElementById('selectGameBlock').classList.remove('lg:flex-grow');
             document.getElementById('selectGameBlock').classList.add('lg:flex-col');
             document.getElementById('selectVenueBlock').classList.add('lg:flex-grow');
             document.getElementById('selectVenueBlock').classList.remove('lg:flex-col');
-            
             document.getElementById('tabGame').innerHTML = "Game selected";
         });
         
-        // select venue routines
+        // Select venue routines
         document.getElementById('selectVenue').addEventListener('change', (event) => {
             var selectedVenue = event.target.value;
             document.getElementById('selectVenueHeader').classList.remove('active');
@@ -1758,7 +1858,6 @@
             document.getElementById('selectVenueHeader').classList.add('valid');
             document.getElementById('selectedVenue').value = selectedVenue;
             document.getElementById('selectedVenue').classList.add('border-green-600');
-            
             document.getElementById('selectVenueBlock').classList.remove('lg:flex-grow');
             document.getElementById('selectVenueBlock').classList.add('lg:flex-col');
             document.getElementById('formBlock').classList.add('lg:flex-grow');
@@ -1766,7 +1865,7 @@
             document.getElementById('tabVenue').innerHTML = "Venue selected";
         });
         
-        // intersection to control floating button visibility
+        // Intersection to control floating button visibility
         const options = {
             threshold: 0
         };
@@ -1783,7 +1882,7 @@
         });
         sections.forEach(section => observer.observe(section));
         
-        // countdown timer
+        // Countdown timer
         var countDownDate = new Date("Nov 20, 2022 16:00:00 GMT").getTime();
         var x = setInterval(function() {
             var now = new Date().getTime();
