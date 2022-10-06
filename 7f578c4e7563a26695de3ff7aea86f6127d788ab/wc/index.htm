@@ -33,22 +33,24 @@
         font-style: normal;
         font-size: 16px;
     }
-    h1 {
+    h1,.h1 {
         font-size: calc(2.5rem + .5vw) !important;
         line-height: 1;
     }
-    h2 {
+    h2,.h2 {
         font-size: calc(1.25rem + 1vw) !important;
         line-height: 1;
     }
-    h3 {
+    h3,.h3 {
         font-size: calc(1.25rem + .5vw) !important;
         line-height: 1;
     }
-    h4 {
+    h4,.h4 {
         font-size: calc(1rem + .75vw) !important;
         line-height: 1;
     }
+    
+    /* custom scrollers */
     
     .scrollbar::-webkit-scrollbar {
         width: 1.25rem;
@@ -66,10 +68,70 @@
     .scrollbar::-webkit-scrollbar-thumb:hover {
         background: rgba(153,27,27,1);
     }
-    .top-100 {top: 100%}
-    .bottom-100 {bottom: 100%}
-    .max-h-select {
-        max-height: 300px;
+    
+    /* booking component */
+    
+    .booking-header:not(.active) {
+        background-color: rgba(243,244,246,1);
+    }
+    .booking-header.active .rotated {
+        display: none;
+    }
+    .booking-header.valid {
+        background-image: none !important;
+        background-color: rgba(22,163,74,1); 
+    }
+    .booking-header.valid .rotated {
+        color: rgba(255,255,255,1);
+        display: block;
+    }
+    .booking-header .rotated svg {
+        visibility: hidden;
+    }
+    .booking-header.valid .rotated svg {
+        visibility: visible;
+    }
+    .booking-header:not(.active) .lg\:self-center {
+        align-self: unset !important;
+    }
+    .booking-header:not(.active) .booking-header-inner {
+        display: none;
+    }
+    #selectGameBlock .booking-header.active {
+        background-image: url(images/tfjlfhjlfhl-sm.jpg);
+    }
+    #selectVenueBlock .booking-header.active {
+        background-image: url(images/01g.jpg);
+    }
+    
+    @media screen and (min-width: 1024px) {
+        .booking-header {
+            position: relative;
+            min-height: 35rem;
+        }
+        .booking-header:not(.active) .rotated {
+            content: '';
+            display: block;
+            position: absolute;
+            left: .5rem;
+            top: -1.25rem;
+            width: max-content;
+            transform: rotate(90deg);
+            transform-origin: 0 0;
+        }
+        .booking-header .rotated svg {
+            transform: rotate(-90deg);
+            transform-origin: center;
+        }
+        .booking-header:not(.active) {
+            width: 0px;
+        }
+        #selectGameBlock .booking-header {
+            background-image: url(images/tfjlfhjlfhl.jpg);
+        }
+        #selectVenueBlock .booking-header.active {
+            background-image: url(images/gdsrstjmod-md.jpg);
+        }
     }
 
 </style>
@@ -78,30 +140,30 @@
 <body>
     
     <!-- Global book button -->
-    <div class="fixed bottom-4 right-4 left-4 sm:left-auto sm:bottom-6 md:right-6 xl:bottom-8 xl:right-8 xl:bottom-12 xl:right-12 z-20" id="staticContainer">
-        <a class="block w-full sm:w-fit bg-red-800 text-lg text-white text-center p-2.5 px-6 border-2 border-white shadow-lg" href="#BookTable" id="staticButton">Book your table today!</a>
+    <div class="fixed bottom-6 right-4 left-4 sm:left-auto sm:right-6 lg:bottom-8 lg:right-8 xl:bottom-10 xl:right-10 2xl:bottom-12 2xl:right-12 z-20" id="staticContainer">
+        <a class="block w-full sm:w-fit bg-red-800 text-lg text-white text-center p-2.5 px-6 border-2 border-white shadow-lg rounded-t rounded-lg sm:rounded-none" href="#BookTable" id="staticButton">Book your table today!</a>
     </div>
 
     <!-- header/nav elements -->
-    <header class="fixed top-0 w-full z-30 border-b-1 border-red-800">
-        <nav class="flex items-center justify-between flex-wrap py-4 px-6 sm:py-5 md:py-6 xl:px-8 2xl:px-12 bg-white dark:bg-black dark:text-gray-300 border-b border-red-800 dark:border-0" id="topNavigation">
+    <header class="fixed w-full top-0 z-50 user-none">
+        <nav class="relative flex items-center justify-between flex-wrap py-4 sm:py-5 md:py-6 px-6 xl:px-8 2xl:px-12 bg-white dark:bg-black dark:text-gray-300 border-b border-red-800 dark:border-0" id="topNavigation">
             <div class="block lg:hidden">
-                <button class="flex text-red-800 hover:text-red-700 focus:outline-none dark:text-white dark:hover:text-red-800" id="navPaneToggle">
+                <button class="flex text-red-800 hover:text-red-700 focus:outline-none dark:text-white dark:hover:text-red-700" id="navPaneToggle">
                     <svg viewBox="0 0 10 8" width="1.6rem">
                         <path d="M1 1h8M1 4h 8M1 7h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                     </svg>
-                    <!--<span class="ml-2">MENU</span>-->
                 </button>
             </div>
             <div class="flex items-center lg:order-last">
-                <span class="text-lg text-neutral-500" id="countdown"></span>
+                <span class="text-lg lg:text-xl">{{COMPANY NAME}}</span>
             </div>
-            <div id="navPane" class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0 h-screen lg:h-auto">
-                <div class="lg:flex-grow text-lg">
-                    <a class="block lg:hidden mt-3 lg:mt-0 lg:mr-6 xl:mr-8 2xl:mr-12 menu-link" href="#mainHero" title="Home">Home</a>
-                    <a class="block lg:inline-block mt-3 lg:mt-0 lg:mr-6 xl:mr-8 2xl:mr-12 hover:text-red-800" href="#WatchGames" title="Watch Games">Watch Games</a>
-                    <a class="block lg:inline-block mt-3 lg:mt-0 lg:mr-6 xl:mr-8 2xl:mr-12 hover:text-red-800" href="#Schedule" title="Games Schedule">Games Schedule</a>
-                    <a class="block lg:inline-block mt-3 lg:mt-0 lg:mr-6 xl:mr-8 2xl:mr-12 hover:text-red-800" href="#BookTable" title="Book A Table" id="menuBook">Book A Table</a>  
+            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0 h-screen lg:h-auto" id="navPane">
+                <div class="lg:flex-grow">
+                    <a class="block lg:hidden text-xl lg:text-lg mt-3 lg:mt-0 lg:mr-6 xl:mr-8 2xl:mr-12 hover:text-red-800 nav-link" href="#mainHero" title="Home">Home</a>
+                    <a class="block lg:inline-block text-xl lg:text-lg mt-3 lg:mt-0 lg:mr-6 xl:mr-8 2xl:mr-12 hover:text-red-800 nav-link" href="#WatchGames" title="Watch Games">Watch Games</a>
+                    <a class="block lg:inline-block text-xl lg:text-lg mt-3 lg:mt-0 lg:mr-6 xl:mr-8 2xl:mr-12 hover:text-red-800 nav-link" href="#Schedule" title="Games Schedule">Games Schedule</a>
+                    <a class="block lg:inline-block text-xl lg:text-lg mt-3 lg:mt-0 lg:mr-6 xl:mr-8 2xl:mr-12 hover:text-red-800 nav-link" href="#BookTable" title="Book A Table">Book A Table</a>
+                    <a class="absolute bottom-20 left-4 right-4 lg:hidden w-auto sm:w-fit self-end mb-auto bg-red-800 text-lg text-white text-center p-2.5 px-6 -mt-5 border-2 border-white shadow-lg rounded-t rounded-lg sm:rounded-none" href="#BookTable" id="staticButton">Book your table today!</a>
                 </div>
             </div>
         </nav>
@@ -110,50 +172,42 @@
     <!-- Hero -->
     <section class="relative h-auto w-100 z-20" id="mainHero">
         <!-- Underlay image -->
-        <div class="absolute z-0 w-full h-full bg-cover bg-no-repeat bg-center bg-fixed" style="background-image: url(images/8f98973.jpg)"></div>
+        <div class="absolute z-0 w-full h-full bg-cover bg-no-repeat bg-center bg-fixed" style="background-image: url(images/gdsrstjmod.jpg)"></div>
         <!-- Overlay content/trnasitions -->
-        <div class="relative h-screen lg:h-auto lg:py-20 xl:py-24 2xl:py-28 duration-700 ease-in bg-gradient-to-b from-red-800/0 via-red-800/30 to-red-800/60 hover:duration-700 hover:bg-red-800/50 focus:bg-red-800/50 focus:duration-500 transition-all">
+        <div class="relative h-screen lg:h-auto lg:py-24 xl:py-28 2xl:py-32 duration-700 ease-in bg-gradient-to-b from-red-800/0 via-red-800/20 to-red-800/40 hover:duration-700 hover:bg-red-800/50 focus:bg-red-800/50 focus:duration-500 transition-all">
             <div class="flex flex-col h-screen lg:block lg:h-auto justify-center items-center px-10 xl:px-12 mx-auto text-center text-white">
-                <!--<img class="w-3/4 sm:w-1/2 lg:w-2/5 xl:w-1/3 2xl:w-1/4 mx-auto mb-10 mt-10 lg:mt-30 xl:mt-36" src="images/wc-lg.png" alt="" />-->
-                <!--<h1 class="md:-mb-2 font-bold uppercase">
-                    <span class="block md:inline">32 Teams</span>
-                    <span class="hidden md:inline">&bull;</span>
-                    <span class="block md:inline">64 Games</span>
-                    <span class="hidden md:inline">&bull;</span>
-                    <span class="block md:inline">28 Days</span>
-                </h1>-->
-                <h1 class="mx-auto mb-10 lg:mt-24 xl:mt-30 font-bold uppercase">Qatar World Cup 2022 VIP  Experience</h1>
-                <h1 class="md:w-11/12 xl:w-10/12 2xl:w-3/4 mx-auto mb-10">32 teams, 64 games, 28 days - and you can watch them all live - at a venue near you!</h1>
-                <a class="text-xl text-red-800 bg-white lg:text-white lg:bg-transparent lg:hover:text-red-800 lg:hover:bg-white/100 p-2.5 px-6 xl:px-8 2xl:px-12 hover:duration-500 transition-colors" href="#BookTable" id="heroButton">Book your table today!</a>
+                <div class="h1 mx-auto mb-10 lg:mt-24 xl:mt-28 font-bold uppercase" title="Qatar World Cup 2022 VIP Experience">Qatar World Cup 2022 VIP Experience</div>
+                <h1 class="md:w-11/12 xl:w-10/12 2xl:w-3/4 mx-auto mb-10" title="32 teams, 64 games, 28 days - and you can watch them all live - at a venue near you!">32 teams, 64 games, 28 days - and you can watch them all live - at a {{COMPANY NAME}} venue near you!</h1>
+                <a class="text-xl xl:text-2xl text-red-800 bg-white lg:text-white lg:bg-transparent lg:hover:text-red-800 lg:hover:bg-white/100 p-2.5 px-6 xl:px-8 2xl:px-12 hover:duration-500 transition-colors" href="#BookTable" id="heroButton">Book your table today!</a>
             </div>
         </div>
     </section>
    
     <!-- Watch Games -->
     <section class="container mx-auto px-6 xl:px-8 2xl:px-12 py-20 xl:py-24 2xl:py-28 text-center bg-white dark:bg-black dark:text-gray-300" id="WatchGames">
-        <h1 class="text-red-800 font-bold uppercase">Watch Games</h1>
+        <h1 class="text-red-800 font-bold uppercase dark:text-white">Watch Games</h1>
         <div class="flex flex-wrap items-center justify-center mt-20">
-            <div class="w-full lg:w-1/2 lg:px-12 xl:px-20">
+            <div class="w-11/12 lg:w-1/2 lg:px-12 xl:px-20">
                 <h2 class="mb-3 lg:mb-6">Live 4K streams</h2>
-                <p class="">Habitant morbi tristique senectus et. In ornare quam viverra orci. Sed risus ultricies tristique nulla aliquet. Non consectetur a erat nam. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Orci porta non pulvinar neque laoreet. Ipsum dolor sit amet consectetur adipiscing elit duis tristique.</p>
+                <p class="lg:text-lg">Habitant morbi tristique senectus et. In ornare quam viverra orci. Sed risus ultricies tristique nulla aliquet. Non consectetur a erat nam. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Orci porta non pulvinar neque laoreet. Ipsum dolor sit amet consectetur adipiscing elit duis tristique.</p>
             </div>
             <div class="w-11/12 sm:w-10/12 lg:w-1/2 lg:px-12 xl:px-20 mt-6 lg:mt-0">
                 <img class="shadow-lg" src="images/04g.jpg" alt="" />
             </div>
         </div>
         <div class="flex flex-wrap items-center justify-center mt-20">
-            <div class="w-full lg:w-1/2 lg:px-12 xl:px-20">
+            <div class="w-11/12 lg:w-1/2 lg:px-12 xl:px-20">
                 <h2 class="mb-3 lg:mb-6">Priority service</h2>
-                <p class="">Habitant morbi tristique senectus et. In ornare quam viverra orci. Sed risus ultricies tristique nulla aliquet. Non consectetur a erat nam. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Orci porta non pulvinar neque laoreet. Ipsum dolor sit amet consectetur adipiscing elit duis tristique.</p>
+                <p class="lg:text-lg">Habitant morbi tristique senectus et. In ornare quam viverra orci. Sed risus ultricies tristique nulla aliquet. Non consectetur a erat nam. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Orci porta non pulvinar neque laoreet. Ipsum dolor sit amet consectetur adipiscing elit duis tristique.</p>
             </div>
             <div class="w-11/12 sm:w-10/12 lg:w-1/2 lg:px-12 xl:px-20 mt-6 lg:mt-0 lg:order-first">
                 <img class="shadow-lg" src="images/03g.jpg" alt="" />
             </div>
         </div>
         <div class="flex flex-wrap items-center justify-center mt-20">
-            <div class="w-full lg:w-1/2 lg:px-12 xl:px-20">
+            <div class="w-11/12 lg:w-1/2 lg:px-12 xl:px-20">
                 <h2 class="mb-3 lg:mb-6">No queueing</h2>
-                <p class="">Habitant morbi tristique senectus et. In ornare quam viverra orci. Sed risus ultricies tristique nulla aliquet. Non consectetur a erat nam. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Orci porta non pulvinar neque laoreet. Ipsum dolor sit amet consectetur adipiscing elit duis tristique.</p>
+                <p class="lg:text-lg">Habitant morbi tristique senectus et. In ornare quam viverra orci. Sed risus ultricies tristique nulla aliquet. Non consectetur a erat nam. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Orci porta non pulvinar neque laoreet. Ipsum dolor sit amet consectetur adipiscing elit duis tristique.</p>
             </div>
             <div class="w-11/12 sm:w-10/12 lg:w-1/2 lg:px-12 xl:px-20 mt-6 lg:mt-0">
                 <img class="shadow-lg" src="images/01g.jpg" alt="" />
@@ -162,112 +216,115 @@
     </section>
 
     <!-- Schedule -->
-    <section class="bg-gradient-to-b from-white to-gray-300 dark:bg-black dark:text-gray-300" id="Schedule">
+    <section class="bg-gradient-to-b from-white to-gray-300 dark:from-black dark:to-black dark:text-gray-300" id="Schedule">
         <div class="container mx-auto px-6 xl:px-8 2xl:px-12 py-20 xl:py-24 2xl:py-28">
-            <h1 class="text-center text-red-800 font-bold uppercase mb-12 dark:text-gray-300">Games Schedule</h1>
-            <div class="columns-1 text-center px-6 sm:px-12 md:px-4 lg:px-16 xl:px-32 2xl:px-48">
+            <h1 class="text-center text-red-800 font-bold uppercase dark:text-gray-300 -mt-12">Games Schedule</h1>
+            <div class="text-xl lg:text-2xl text-center dark:text-gray-300" id="countdown">
+                <span class="text-lg">Loading World Cup&trade; countdown...</span>
+            </div>
+            <div class="columns-1 text-center px-6 sm:px-12 md:px-4 lg:px-16 xl:px-32 2xl:px-48 mt-12">
                 <div class="columns-4 md:columns-8">
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/qa.png" alt="Qatar" />
+                        <img class="" src="images/flags/qa.png" alt="Qatar" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/ec.png" alt="Ecuador" />
+                        <img class="" src="images/flags/ec.png" alt="Ecuador" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/sn.png" alt="Senegal" />
+                        <img class="" src="images/flags/sn.png" alt="Senegal" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/nl.png" alt="Netherlands" />
+                        <img class="" src="images/flags/nl.png" alt="Netherlands" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/en.png" alt="England" />
+                        <img class="" src="images/flags/en.png" alt="England" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/ir.png" alt="Iran" />
+                        <img class="" src="images/flags/ir.png" alt="Iran" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/us.png" alt="USA" />
+                        <img class="" src="images/flags/us.png" alt="USA" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/wa.png" alt="Wales" />
+                        <img class="" src="images/flags/wa.png" alt="Wales" />
                     </div>
                 </div>
                 <div class="columns-4 md:columns-8">
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/ar.png" alt="Argentina" />
+                        <img class="" src="images/flags/ar.png" alt="Argentina" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/sa.png" alt="Saudi Arabia" />
+                        <img class="" src="images/flags/sa.png" alt="Saudi Arabia" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/mx.png" alt="Mexico" />
+                        <img class="" src="images/flags/mx.png" alt="Mexico" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/pl.png" alt="Poland" />
+                        <img class="" src="images/flags/pl.png" alt="Poland" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/fr.png" alt="France" />
+                        <img class="" src="images/flags/fr.png" alt="France" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/dk.png" alt="Denmark" />
+                        <img class="" src="images/flags/dk.png" alt="Denmark" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/tn.png" alt="Tunisia" />
+                        <img class="" src="images/flags/tn.png" alt="Tunisia" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/au.png" alt="Australia" />
-                    </div>
-                </div>
-                <div class="columns-4 md:columns-8">
-                    <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/es.png" alt="Spain" />
-                    </div>
-                    <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/de.png" alt="Germany" />
-                    </div>
-                    <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/jp.png" alt="Japan" />
-                    </div>
-                    <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/cr.png" alt="Costa Rica" />
-                    </div>
-                    <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/be.png" alt="Belgium" />
-                    </div>
-                    <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/ca.png" alt="Canada" />
-                    </div>
-                    <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/mc.png" alt="Morocco" />
-                    </div>
-                    <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/croa.png" alt="Croatia" />
+                        <img class="" src="images/flags/au.png" alt="Australia" />
                     </div>
                 </div>
                 <div class="columns-4 md:columns-8">
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/br.png" alt="Brazil" />
+                        <img class="" src="images/flags/es.png" alt="Spain" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/se.png" alt="Serbia" />
+                        <img class="" src="images/flags/de.png" alt="Germany" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/sw.png" alt="Switzerland" />
+                        <img class="" src="images/flags/jp.png" alt="Japan" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/cm.png" alt="Cameroon" />
+                        <img class="" src="images/flags/cr.png" alt="Costa Rica" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/pt.png" alt="Portugal" />
+                        <img class="" src="images/flags/be.png" alt="Belgium" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/gh.png" alt="Ghana" />
+                        <img class="" src="images/flags/ca.png" alt="Canada" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/uy.png" alt="Uruguay" />
+                        <img class="" src="images/flags/mc.png" alt="Morocco" />
                     </div>
                     <div class="col mb-3">
-                        <img class="border border-2 border-transparent hover:border-white" src="images/flags/sk.png" alt="South Korea" />
+                        <img class="" src="images/flags/croa.png" alt="Croatia" />
+                    </div>
+                </div>
+                <div class="columns-4 md:columns-8">
+                    <div class="col mb-3">
+                        <img class="" src="images/flags/br.png" alt="Brazil" />
+                    </div>
+                    <div class="col mb-3">
+                        <img class="" src="images/flags/se.png" alt="Serbia" />
+                    </div>
+                    <div class="col mb-3">
+                        <img class="" src="images/flags/sw.png" alt="Switzerland" />
+                    </div>
+                    <div class="col mb-3">
+                        <img class="" src="images/flags/cm.png" alt="Cameroon" />
+                    </div>
+                    <div class="col mb-3">
+                        <img class="" src="images/flags/pt.png" alt="Portugal" />
+                    </div>
+                    <div class="col mb-3">
+                        <img class="" src="images/flags/gh.png" alt="Ghana" />
+                    </div>
+                    <div class="col mb-3">
+                        <img class="" src="images/flags/uy.png" alt="Uruguay" />
+                    </div>
+                    <div class="col mb-3">
+                        <img class="" src="images/flags/sk.png" alt="South Korea" />
                     </div>
                 </div>
             </div>
@@ -278,14 +335,14 @@
     <section class="relative bg-red-800" id="GetInvolved">
         <div class="container mx-auto px-6 xl:px-8 2xl:px-12 py-20 xl:py-24 2xl:py-28">
             <h1 class="text-center text-white font-bold uppercase mb-12">Group Tables</h1>
-            <div class="flex flex-row items-start pb-6 lg:pb-8 xl:pb-10 2xl:pb-12 overflow-y-hidden overflow-x-auto overscroll-none snap-mandatory snap-x focus:touch-pan-x touch-pan-x scrollbar scrollbar-thumb-red-100 scrollbar-track-red-200">
+            <div class="flex flex-row items-start pb-6 lg:pb-8 xl:pb-10 2xl:pb-12 overflow-y-hidden overflow-x-auto overscroll-none snap-mandatory snap-x focus:touch-pan-x touch-pan-x scrollbar">
                 <div class="w-auto mx-3 lg:mx-4 xl:mx-5 2xl:mx-6 snap-center">
-                    <h4 class="mb-4 pl-6 text-xl text-center text-white">Group A</h4>
+                    <h2 class="mb-4 text-center text-white">Group A</h2>
                     <div class="border-b border-gray-200 shadow">
                         <table class="text-center">
                             <thead class="bg-gray-300 text-sm md:text-base text-red-800">
                                 <tr>
-                                    <th class="pl-6 pr-auto md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
+                                    <th class="px-2 md:pl-6 md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
                                         Team
                                     </th>
                                     <th class="px-2 py-4 xl:py-5">
@@ -309,14 +366,14 @@
                                     <th class="px-2 py-4 xl:py-5">
                                         GD
                                     </th>
-                                    <th class="px-2 pr-6 py-4 xl:py-5">
+                                    <th class="px-2 md:pr-6 py-4 xl:py-5">
                                         Pts
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Qatar
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -340,12 +397,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Ecuador
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -369,12 +426,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Senegal
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -398,12 +455,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Netherlands
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -427,7 +484,7 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
@@ -436,12 +493,12 @@
                     </div>
                 </div>
                 <div class="w-auto mx-3 lg:mx-4 xl:mx-5 2xl:mx-6 snap-center">
-                    <h4 class="mb-4 pl-6 text-xl text-center text-white">Group B</h4>
+                    <h2 class="mb-4 text-center text-white">Group B</h2>
                     <div class="border-b border-gray-200 shadow">
                         <table class="text-center">
                             <thead class="bg-gray-300 text-sm md:text-base text-red-800">
                                 <tr>
-                                    <th class="pl-6 pr-auto md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
+                                    <th class="px-2 md:pl-6 md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
                                         Team
                                     </th>
                                     <th class="px-2 py-4 xl:py-5">
@@ -465,14 +522,14 @@
                                     <th class="px-2 py-4 xl:py-5">
                                         GD
                                     </th>
-                                    <th class="px-2 pr-6 py-4 xl:py-5">
+                                    <th class="px-2 md:pr-6 py-4 xl:py-5">
                                         Pts
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         England
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -496,12 +553,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Iran
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -525,12 +582,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         USA
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -554,12 +611,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Wales
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -583,7 +640,7 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
@@ -592,12 +649,12 @@
                     </div>
                 </div>
                 <div class="w-auto mx-3 lg:mx-4 xl:mx-5 2xl:mx-6 snap-center">
-                    <h4 class="mb-4 pl-6 text-xl text-center text-white">Group C</h4>
+                    <h2 class="mb-4 text-center text-white">Group C</h2>
                     <div class="border-b border-gray-200 shadow">
                         <table class="text-center">
                             <thead class="bg-gray-300 text-sm md:text-base text-red-800">
                                 <tr>
-                                    <th class="pl-6 pr-auto md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
+                                    <th class="px-2 md:pl-6 md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
                                         Team
                                     </th>
                                     <th class="px-2 py-4 xl:py-5">
@@ -621,14 +678,14 @@
                                     <th class="px-2 py-4 xl:py-5">
                                         GD
                                     </th>
-                                    <th class="px-2 pr-6 py-4 xl:py-5">
+                                    <th class="px-2 md:pr-6 py-4 xl:py-5">
                                         Pts
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Argentina
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -652,12 +709,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Saudi Arabia
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -681,12 +738,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Mexico
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -710,12 +767,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Poland
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -739,7 +796,7 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
@@ -748,12 +805,12 @@
                     </div>
                 </div>
                 <div class="w-auto mx-3 lg:mx-4 xl:mx-5 2xl:mx-6 snap-center">
-                    <h4 class="mb-4 pl-6 text-xl text-center text-white">Group D</h4>
+                    <h2 class="mb-4 text-center text-white">Group D</h2>
                     <div class="border-b border-gray-200 shadow">
                         <table class="text-center">
                             <thead class="bg-gray-300 text-sm md:text-base text-red-800">
                                 <tr>
-                                    <th class="pl-6 pr-auto md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
+                                    <th class="px-2 md:pl-6 md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
                                         Team
                                     </th>
                                     <th class="px-2 py-4 xl:py-5">
@@ -777,14 +834,14 @@
                                     <th class="px-2 py-4 xl:py-5">
                                         GD
                                     </th>
-                                    <th class="px-2 pr-6 py-4 xl:py-5">
+                                    <th class="px-2 md:pr-6 py-4 xl:py-5">
                                         Pts
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         France
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -808,12 +865,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Australia
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -837,12 +894,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Denmark
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -866,12 +923,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Tunisia
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -895,7 +952,7 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
@@ -904,12 +961,12 @@
                     </div>
                 </div>
                 <div class="w-auto mx-3 lg:mx-4 xl:mx-5 2xl:mx-6 snap-center">
-                    <h4 class="mb-4 pl-6 text-xl text-center text-white">Group E</h4>
+                    <h2 class="mb-4 text-center text-white">Group E</h2>
                     <div class="border-b border-gray-200 shadow">
                         <table class="text-center">
                             <thead class="bg-gray-300 text-sm md:text-base text-red-800">
                                 <tr>
-                                    <th class="pl-6 pr-auto md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
+                                    <th class="px-2 md:pl-6 md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
                                         Team
                                     </th>
                                     <th class="px-2 py-4 xl:py-5">
@@ -933,14 +990,14 @@
                                     <th class="px-2 py-4 xl:py-5">
                                         GD
                                     </th>
-                                    <th class="px-2 pr-6 py-4 xl:py-5">
+                                    <th class="px-2 md:pr-6 py-4 xl:py-5">
                                         Pts
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Spain
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -964,12 +1021,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Costa Rica
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -993,12 +1050,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Germany
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -1022,12 +1079,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Japan
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -1051,7 +1108,7 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
@@ -1060,12 +1117,12 @@
                     </div>
                 </div>
                 <div class="w-auto mx-3 lg:mx-4 xl:mx-5 2xl:mx-6 snap-center">
-                    <h4 class="mb-4 pl-6 text-xl text-center text-white">Group F</h4>
+                    <h2 class="mb-4 text-center text-white">Group F</h2>
                     <div class="border-b border-gray-200 shadow">
                         <table class="text-center">
                             <thead class="bg-gray-300 text-sm md:text-base text-red-800">
                                 <tr>
-                                    <th class="pl-6 pr-auto md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
+                                    <th class="px-2 md:pl-6 md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
                                         Team
                                     </th>
                                     <th class="px-2 py-4 xl:py-5">
@@ -1089,14 +1146,14 @@
                                     <th class="px-2 py-4 xl:py-5">
                                         GD
                                     </th>
-                                    <th class="px-2 pr-6 py-4 xl:py-5">
+                                    <th class="px-2 md:pr-6 py-4 xl:py-5">
                                         Pts
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Belgium
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -1120,12 +1177,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Canada
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -1149,12 +1206,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Morocco
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -1178,12 +1235,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Croatia
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -1207,7 +1264,7 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
@@ -1216,12 +1273,12 @@
                     </div>
                 </div>
                 <div class="w-auto mx-3 lg:mx-4 xl:mx-5 2xl:mx-6 snap-center">
-                    <h4 class="mb-4 pl-6 text-xl text-center text-white">Group G</h4>
+                    <h2 class="mb-4 text-center text-white">Group G</h2>
                     <div class="border-b border-gray-200 shadow">
                         <table class="text-center">
                             <thead class="bg-gray-300 text-sm md:text-base text-red-800">
                                 <tr>
-                                    <th class="pl-6 pr-auto md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
+                                    <th class="px-2 md:pl-6 md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
                                         Team
                                     </th>
                                     <th class="px-2 py-4 xl:py-5">
@@ -1245,14 +1302,14 @@
                                     <th class="px-2 py-4 xl:py-5">
                                         GD
                                     </th>
-                                    <th class="px-2 pr-6 py-4 xl:py-5">
+                                    <th class="px-2 md:pr-6 py-4 xl:py-5">
                                         Pts
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Brazil
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -1276,12 +1333,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Serbia
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -1305,12 +1362,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Switzerland
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -1334,12 +1391,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Cameroon
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -1363,7 +1420,7 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
@@ -1372,12 +1429,12 @@
                     </div>
                 </div>
                 <div class="w-auto mx-3 lg:mx-4 xl:mx-5 2xl:mx-6 snap-center">
-                    <h4 class="mb-4 pl-6 text-xl text-center text-white">Group H</h4>
+                    <h2 class="mb-4 pl-6 text-xl text-center text-white">Group H</h2>
                     <div class="border-b border-gray-200 shadow">
                         <table class="text-center">
                             <thead class="bg-gray-300 text-sm md:text-base text-red-800">
                                 <tr>
-                                    <th class="pl-6 pr-auto md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
+                                    <th class="px-2 md:pl-6 md:pr-40 xl:pr-60 py-4 xl:py-5 text-left">
                                         Team
                                     </th>
                                     <th class="px-2 py-4 xl:py-5">
@@ -1401,14 +1458,14 @@
                                     <th class="px-2 py-4 xl:py-5">
                                         GD
                                     </th>
-                                    <th class="px-2 pr-6 py-4 xl:py-5">
+                                    <th class="px-2 md:pr-6 py-4 xl:py-5">
                                         Pts
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Portugal
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -1432,12 +1489,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Ghana
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -1461,12 +1518,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap border-b border-gray-300 hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         Uruguay
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -1490,12 +1547,12 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
                                 <tr class="whitespace-nowrap hover:bg-gray-100">
-                                    <td class="px-6 py-4 xl:py-5 2xl:py-6 text-left">
+                                    <td class="px-2 md:pl-6 py-4 xl:py-5 2xl:py-6 text-left">
                                         South Korea
                                     </td>
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
@@ -1519,7 +1576,7 @@
                                     <td class="px-2 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
-                                    <td class="px-2 pr-6 py-4 xl:py-5 2xl:py-6">
+                                    <td class="px-2 md:pr-6 py-4 xl:py-5 2xl:py-6">
                                         -
                                     </td>
                                 </tr>
@@ -1529,100 +1586,136 @@
                 </div>
             </div>
         </div>
-        <div class="hidden md:block absolute -top-12 lg:-top-24 left-20">
-            <img class="w-48 lg:w-56 xl:w-60 2xl:w-64" src="images/msct-right-md.png" />
+        <div class="hidden md:block absolute -top-16 lg:-top-24 left-12 lg:left-20">
+            <img class="w-52 lg:w-56 xl:w-60 2xl:w-64" src="images/msct-right-md.png" />
         </div>
-        <div class="hidden md:block absolute -top-16 lg:-top-20 right-20">
-            <img class="w-48 lg:w-56 xl:w-60 2xl:w-64" src="images/msct-left-md.png" />
+        <div class="hidden md:block absolute -top-16 lg:-top-20 right-12 lg:right-20">
+            <img class="w-52 lg:w-56 xl:w-60 2xl:w-64" src="images/msct-left-md.png" />
         </div>
     </section>
 
-    <!-- Book a table -->
+    <!-- Book A Table -->
     <section class="dark:bg-black dark:text-gray-300" id="BookTable">
-        <div class="container mx-auto px-6 xl:px-8 2xl:px-12 py-20 xl:py-24 2xl:py-28">
-            <h1 class="text-center text-red-800 font-bold uppercase dark:text-white mb-12">Book A Table</h1>
-            <p class="text-center mb-8 2xl:mb-12">Habitant morbi tristique senectus et. In ornare quam viverra orci. Sed risus ultricies tristique nulla aliquet. Non consectetur a erat nam. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Orci porta non pulvinar neque laoreet. Ipsum dolor sit amet consectetur adipiscing elit duis tristique. Habitant morbi tristique senectus et. In ornare quam viverra orci. Sed risus ultricies tristique nulla aliquet. Non consectetur a erat nam. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Orci porta non pulvinar neque laoreet. Ipsum dolor sit amet consectetur adipiscing elit duis tristique.</p>
-            <div class="md:flex" id="selectionOuter">
-                
-                <div class="flex flex-wrap lg:flex-nowrap w-full" id="blockGameVenue">
-                    <form class="flex flex-wrap lg:flex-nowrap w-full" action="">
-                        <div class="w-full flex flex-col items-center justify-center h-72 lg:h-80 xl:h-96 lg:w-1/2 mb-6 lg:mb-0 p-6 bg-cover bg-center bg-no-repeat" style="background: url(images/bygame.png)" id="selectGameBlock">
-                            <h3 class="mb-3 lg:mb-6 text-center md:text-left text-white">Which game?</h3>
-                            <select class="w-full md:w-10/12 p-2 border-2 border-gray-200 text-lg" id="selectGame" required>
-                                <option value="" selected>Choose which game</option>
-                                <option value="Group A: Qatar v Ecuador (7pm)">Group A: Qatar v Ecuador (7pm)</option>
-                                <option value="Group B: England vs Iran (1pm)">Group B: England vs Iran (1pm)</option>
-                                <option value="Group A: Senegal vs Netherlands (4pm)">Group A: Senegal vs Netherlands (4pm)</option>
-                                <option value="Group B: USA vs Wales (7pm)">Group B: USA vs Wales (7pm)</option>
-                                <option value="Group C: Argentina vs Saudi Arabia (10am)">Group C: Argentina vs Saudi Arabia (10am)</option>
-                                <option value="Group D: Denmark vs Tunisia (1pm)">Group D: Denmark vs Tunisia (1pm)</option>
-                                <option value="Group C: Mexico vs Poland (4pm)">Group C: Mexico vs Poland (4pm)</option>
-                                <option value=" "></option>
-                                <option value=" "></option>
-                                <option value=" "></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                            </select>
-                            <div class="hidden text-lg text-green-600 mt-3" id="gameTick">
-                                Game selected
+        <div class="w-full select-none">
+            <div class="container mx-auto px-6 xl:px-8 2xl:px-12 py-20 xl:py-24 2xl:py-28">
+                <h1 class="text-red-800 text-center font-bold uppercase dark:text-white mb-12 lg:mb-20">Book A Table</h1>
+                <div class="flex flex-wrap lg:flex-nowrap" id="blockGameVenue">
+                    <div class="w-full lg:w-auto lg:flex-grow booking-outer" id="selectGameBlock">
+                        <div class="flex p-6 lg:p-10 bg-cover bg-center border-white border-y-2 lg:border-t-0 lg:border-x-2 booking-header active" id="selectGameHeader">
+                            <div class="flex-wrap mx-auto text-center lg:self-center lg:justify-center">
+                                <div class="relative">
+                                    <div class="rotated hidden">
+                                        <h3 class="inline" id="tabGame">Game selection</h3>
+                                        <svg class="inline fill-white -mt-3 ml-3 w-8 h-8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 11c2.761.575 6.312 1.688 9 3.438 3.157-4.23 8.828-8.187 15-11.438-5.861 5.775-10.711 12.328-14 18.917-2.651-3.766-5.547-7.271-10-10.917z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="booking-header-inner p-6 lg:p-10 bg-white">
+                                        <h3 class="mb-3 lg:mb-6">Choose which game you want to watch?</h3>
+                                        <select class="p-2 border-2 border-gray-200 focus:border-red-800/50 focus:ring-0 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 lg:text-lg valid:text-gray-300 valid:truncate dark:text-slate-500" id="selectGame" required>
+                                            <option value="" selected>FIFA World Cup Qatar 2022&trade; schedule</option>
+                                            <option value="Group A: Qatar vs Ecuador, 20/11/22, 7pm">Group A: Qatar vs Ecuador, 20/11/22, 7pm</option>
+                                            <option value="Group B: England vs Iran, 21/11/22, 1pm">Group B: England vs Iran, 21/11/22, 1pm</option>
+                                            <option value="Group A: Senegal vs Netherlands, 21/11/22, 4pm">Group A: Senegal vs Netherlands, 21/11/22, 4pm</option>
+                                            <option value="Group B: USA vs Wales, 21/11/22, 7pm">Group B: USA vs Wales, 21/11/22, 7pm</option>
+                                            <option value="Group C: Argentina vs Saudi Arabia, 22/11/22, 10am">Group C: Argentina vs Saudi Arabia, 22/11/22, 10am</option>
+                                            <option value="Group D: Denmark vs Tunisia, 22/11/22, 1pm">Group D: Denmark vs Tunisia, 22/11/22, 1pm</option>
+                                            <option value="Group C: Mexico vs Poland, 22/11/22, 4pm">Group C: Mexico vs Poland, 22/11/22, 4pm</option>
+                                            <option value="Group D: France vs Australia, 22/11/22, 7pm">Group D: France vs Australia, 22/11/22, 7pm</option>
+                                            <option value="Group F: Morocco vs Croatia, 23/11/22, 10am">Group F: Morocco vs Croatia, 23/11/22, 10am</option>
+                                            <option value="Group E: Germany vs Japan, 23/11/22, 1pm">Group E: Germany vs Japan, 23/11/22, 1pm</option>
+                                            <option value="Group E: Spain vs Costa Rica, 23/11/22, 4pm">Group E: Spain vs Costa Rica, 23/11/22, 4pm</option>
+                                            <option value="Group F: Belgium vs Canada, 23/11/22, 7pm">Group F: Belgium vs Canada, 23/11/22, 7pm</option>
+                                            <option value="Group G: Switzerland vs Cameroon, 24/11/22, 10am">Group G: Switzerland vs Cameroon, 24/11/22, 10am</option>
+                                            <option value="Group H: Uruguay vs South Korea, 24/11/22, 1pm">Group H: Uruguay vs South Korea, 24/11/22, 1pm</option>
+                                            <option value="Group H: Portugal vs Ghana, 24/11/22, 4pm">Group H: Portugal vs Ghana, 24/11/22, 4pm</option>
+                                            <option value="Group G: Brazil vs Serbia, 24/11/22, 7pm">Group G: Brazil vs Serbia, 24/11/22, 7pm</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="w-full flex flex-col items-center justify-center h-72 lg:h-80 xl:h-96 lg:w-1/2 lg:ml-6 2xl:ml-12 mb-6 md:mb-0 lg:mb-0 p-6 bg-cover bg-center bg-no-repeat" style="background-image: url(https://cdn0.hitched.co.uk/vendor/9547/3_2/960/jpg/lb-bar_4_199547-164735301369616.jpeg);" id="selectVenueBlock">
-                            <h3 class="mb-3 lg:mb-6 text-center md:text-left text-white">Which venue?</h3>
-                            <select class="w-full md:w-10/12 p-2 border-2 border-gray-200 text-lg" id="selectVenue" required>
-                                <option value="" selected>Select your venue</option>
-                                <option value="The Gordon Arms, High Street, Swansea">The Gordon Arms, High Street, Swanse</option>
-                                <option value="">fghgfh</option>
-                            </select>
-                            <div class="hidden text-lg text-green-600 mt-3" id="venueTick">
-                                Venue selected
+                    </div>
+                    <div class="w-full lg:w-auto lg:flex-col booking-outer" id="selectVenueBlock">
+                        <div class="flex p-6 lg:p-10 bg-cover bg-center border border-white border-y-2 lg:border-t-0 lg:border-x-2 booking-header" id="selectVenueHeader">
+                            <div class="flex-wrap mx-auto text-center lg:self-center lg:justify-center">
+                                <div class="relative">
+                                    <div class="rotated">
+                                        <h3 class="inline" id="tabVenue">Venue selection</h3>
+                                        <svg class="inline fill-white -mt-3 ml-3 w-8 h-8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 11c2.761.575 6.312 1.688 9 3.438 3.157-4.23 8.828-8.187 15-11.438-5.861 5.775-10.711 12.328-14 18.917-2.651-3.766-5.547-7.271-10-10.917z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="booking-header-inner p-6 lg:p-10 bg-white">
+                                        <h3 class="mb-3 lg:mb-6">Choose where you want to watch the game?</h3>
+                                        <select class="p-2 border-2 border-gray-200 focus:border-red-800/50 focus:ring-0 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 lg:text-lg valid:text-gray-300 valid:truncate dark:text-slate-500" id="selectVenue" required>
+                                            <option value="" selected>Find your nearest venue</option>
+                                            <option value="The Gordon Arms, High Street, Swansea">The Gordon Arms, High Street, Swanse</option>
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </form>
-                </div>
-                
-                <div class="hidden w-auto md:w-1/2 lg:w-1/3 bg-gray-100 p-6 2xl:p-12 md:ml-3 2xl:ml-6" id="blockForm">
-                    <h3 class="mb-6 text-center lg:text-left">Your booking details</h3>
-                    <form action="" id="bookingForm">
-                        <div class="flex flex-col mb-3">
-                            <label class="text-lg" for="selectedvenue">Selected game</label>
-                            <input class="p-2 border-2 border-gray-200" type="text" name="selectedgame" id="selectedGame" disabled />
+                    </div>
+                    <div class="w-full lg:w-auto flex-col" id="formBlock">
+                        <div class="w-full p-6 lg:p-10 lg:mt-0 bg-gray-100 border-white border-y-2 lg:border-t-0 lg:border-x-2 booking-header" id="formBlockHeader">
+                            <div class="flex-wrap mx-auto lg:ml-auto text-left lg:self-center lg:justify-center">
+                                <div class="relative">
+                                    <h3 class="rotated text-center" id="tabGame">Your booking details</h3>
+                                    <div class="booking-header-inner">
+                                        <h3 class="mb-6 xl:mb-10 text-center lg:text-left">Your booking details</h3>
+                                        <form action="" id="bookingForm">
+                                            <div class="flex flex-col lg:flex-row"> 
+                                                <div class="flex flex-col lg:w-1/2 lg:mr-3 xl:mr-5 mb-3">
+                                                    <label class="lg:text-lg" for="selectedvenue">Selected game</label>
+                                                    <input class="p-2 border-2 border-gray-200 valid:selection:bg-transparent selection:bg-white lg:text-lg truncate" type="text" name="selectedgame" id="selectedGame" disabled />
+                                                </div>
+                                                <div class="flex flex-col lg:w-1/2 lg:ml-3 xl:ml-5 mb-3">
+                                                    <label class="lg:text-lg" for="selectedvenue">Selected venue</label>
+                                                    <input class="p-2 border-2 border-gray-200 valid:selection:bg-transparent selection:bg-white lg:text-lg truncate" type="text" name="selectedvenue" id="selectedVenue" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col lg:flex-row">
+                                                <div class="flex flex-col lg:w-full lg:mr-3 xl:mr-5 mb-3">
+                                                    <label class="lg:text-lg" for="name">Your full name</label>
+                                                    <input class="p-2 border-2 border-gray-200 lg:text-lg truncate focus:border-gray-300 focus:ring-0 placeholder:text-gray-300 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 valid:selection:bg-transparent selection:bg-red-800" type="text" name="name" id="name" placeholder="Please enter your name" required />
+                                                </div>
+                                                <div class="flex flex-col lg:w-40 lg:ml-3 xl:ml-5 mb-3">
+                                                    <label class="lg:text-lg" for="seats">Required seats</label>
+                                                    <input class="p-2 border-2 border-gray-200 lg:text-lg truncate focus:border-gray-300 focus:ring-0 placeholder:text-gray-300 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 valid:selection:bg-transparent selection:bg-red-800"  type="number" min="1" placeholder="Please select the number of your party" name="seats" id="seats" required />
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col mb-3">
+                                                <label class="lg:text-lg" for="email">Your email address</label>
+                                                <input class="p-2 border-2 border-gray-200 lg:text-lg truncate focus:border-red-800/50 focus:ring-0 placeholder:text-gray-300 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 valid:selection:bg-transparent selection:bg-white" type="email" name="email" id="email" placeholder="Please enter your email address" required />
+                                            </div>
+                                            <div class="flex flex-row mb-3">
+                                                <label class="inline-flex items-center mt-3">
+                                                    <input type="checkbox" class="form-checkbox -mt-2 h-6 w-6 text-green-600 focus:ring-0">
+                                                    <span class="ml-6 text-gray-700">Please tick the box if you would like receive future promotions, offers, and communications.</span>
+                                                </label>
+                                            </div>
+                                            <div class="flex flex-col mt-6 lg:mt-8 xl:mt-12">
+                                                <button class="w-full sm:w-fit sm:ml-auto bg-green-600/50 hover:bg-green-600/80 focus:bg-green-700 -valid:bg-red-600 lg:text-lg text-white text-center p-2.5 px-6" type="submit" class="">Confirm your Booking</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="flex flex-col mb-3">
-                            <label class="text-lg" for="selectedvenue">Selected venue</label>
-                            <input class="p-2 border-2 border-gray-200" type="text" name="selectedvenue" id="selectedVenue" disabled />
-                        </div>
-                        <div class="flex flex-col mb-3">
-                            <label class="text-lg" for="name">Your full name</label>
-                            <input class="p-2 border-2 border-gray-200 placeholder:text-gray-300 valid:border-green-700" type="text" name="name" id="name" placeholder="Please enter your name" required />
-                        </div>
-                        <div class="flex flex-col mb-3">
-                            <label class="text-lg" for="email">Your email address</label>
-                            <input class="p-2 border-2 border-gray-200 placeholder:text-gray-300 valid:border-green-500" type="email" name="email" id="email" placeholder="Please enter your email address" required />
-                        </div>
-                        <div class="flex flex-row mb-3">
-
-                        </div>
-                        <div class="flex flex-col">
-                            
-                        </div>
-                        <div class="flex flex-col mt-6">
-                            <button class="w-full sm:w-fit sm:ml-auto bg-red-800 text-lg text-white text-center p-2.5 px-6" type="submit" class="">Confirm your Booking</button>
-                        </div>
-                    </form>
-                </div>
-                
+                    </div>
+                </div> 
             </div>
         </div>
     </section>
     
-    <footer></footer>
+    <!-- Footer elements -->
+    <footer class="bg-red-800 dark:bg-black">
+        <section class="p-6 xl:px-8 2xl:px-12">
+            <div class="text-white text-right dark:text-gray-300">&copy; 2022 MVGMedia.</div>
+        </section>
+    </footer>
     
     <script>
 
@@ -1632,57 +1725,48 @@
             document.getElementById('navPane').classList.toggle('hidden');
             document.getElementById('staticContainer').classList.toggle('z-40');
         }
-        document.getElementById('navPane').onclick = function() {
+        
+        document.getElementById('navPane').addEventListener('click', (event) => {
             document.body.classList.remove('overflow-hidden');
-            this.classList.add('hidden');
-        }
-        document.getElementById('menuBook').onclick = function() {
-            document.getElementById('staticContainer').classList.add('hidden');
-        }
-        document.getElementById('heroButton').onclick = function() {
-            document.getElementById('staticContainer').classList.add('hidden');
-        }
-        document.getElementById('staticButton').onclick = function() {
-            document.getElementById('staticContainer').classList.add('hidden');
-        }
-        document.getElementById('bookingForm').submit = function() {
-            document.getElementById('staticContainer').classList.remove('hidden');
-        }
-        document.getElementById('BookTable').click = function() {
-            document.getElementById('staticContainer').classList.toggle('hidden');
-        }
-        
-        document.getElementById('selectGame').addEventListener('change', (event) => {
-            var selectedGame = event.target.value;
-            alert(selectedGame);
-            document.getElementById('blockGameVenue').classList.add('md:w-1/2', 'lg:w-2/3', 'md:mr-3', '2xl:mr-6');
-            document.getElementById('blockForm').classList.remove('hidden');
-            document.getElementById('selectedGame').value = selectedGame;
-            document.getElementById('selectedGame').classList.add('border-green-600');
-            document.getElementById('selectGameBlock').style.backgroundImage = "none";
-            //document.getElementById('selectGameBlock').style.background = "rgba(243,244,246,.5)";
-            document.getElementById('selectGameBlock').classList.remove('h-72', 'lg:h-80', 'xl:h-96');
-            document.getElementById('selectVenueBlock').classList.remove('h-72', 'lg:h-80', 'xl:h-96');
-            document.getElementById('selectionOuter').classList.add('bg-gray-100');
-            document.getElementById('gameTick').classList.remove('hidden');
-        });
-        
-        document.getElementById('selectVenue').addEventListener('change', (event) => {
-            var selectedVenue = event.target.value;
-            alert(selectedVenue);
-            document.getElementById('blockGameVenue').classList.add('md:w-1/2', 'lg:w-2/3', 'md:mr-3', '2xl:mr-6');
-            document.getElementById('blockForm').classList.remove('hidden');
-            document.getElementById('selectedVenue').value = selectedVenue;
-            document.getElementById('selectedVenue').classList.add('border-green-600');
-            document.getElementById('selectVenueBlock').style.backgroundImage = "none";
-            //document.getElementById('selectVenueBlock').style.background = "rgba(243,244,246,.5)";
-            document.getElementById('selectVenueBlock').classList.remove('h-72', 'lg:h-80', 'xl:h-96');
-            document.getElementById('selectGameBlock').classList.remove('h-72', 'lg:h-80', 'xl:h-96');
-            document.getElementById('selectionOuter').classList.add('bg-gray-100');
-            document.getElementById('venueTick').classList.remove('hidden');
+            document.getElementById('navPane').classList.add('hidden');
         });
 
-        // intersection to control staticContainer/staticButton
+        // select game routines
+        document.getElementById('selectGame').addEventListener('change', (event) => {
+            var selectedGame = event.target.value;
+            document.getElementById('selectGameHeader').classList.remove('active');
+            document.getElementById('selectVenueHeader').classList.add('active');
+            document.getElementById('selectGameHeader').style.backgroundImage = "none";
+            document.getElementById('selectGameHeader').classList.add('valid');
+            document.getElementById('selectedGame').value = selectedGame;
+            document.getElementById('selectedGame').classList.add('border-green-600');
+            
+            document.getElementById('selectGameBlock').classList.remove('lg:flex-grow');
+            document.getElementById('selectGameBlock').classList.add('lg:flex-col');
+            document.getElementById('selectVenueBlock').classList.add('lg:flex-grow');
+            document.getElementById('selectVenueBlock').classList.remove('lg:flex-col');
+            
+            document.getElementById('tabGame').innerHTML = "Game selected";
+        });
+        
+        // select venue routines
+        document.getElementById('selectVenue').addEventListener('change', (event) => {
+            var selectedVenue = event.target.value;
+            document.getElementById('selectVenueHeader').classList.remove('active');
+            document.getElementById('formBlockHeader').classList.add('active');
+            document.getElementById('selectVenueHeader').style.backgroundImage = "none";
+            document.getElementById('selectVenueHeader').classList.add('valid');
+            document.getElementById('selectedVenue').value = selectedVenue;
+            document.getElementById('selectedVenue').classList.add('border-green-600');
+            
+            document.getElementById('selectVenueBlock').classList.remove('lg:flex-grow');
+            document.getElementById('selectVenueBlock').classList.add('lg:flex-col');
+            document.getElementById('formBlock').classList.add('lg:flex-grow');
+            document.getElementById('formBlock').classList.remove('lg:flex-col');
+            document.getElementById('tabVenue').innerHTML = "Venue selected";
+        });
+        
+        // intersection to control floating button visibility
         const options = {
             threshold: 0
         };
@@ -1690,7 +1774,6 @@
         const observer = new IntersectionObserver(function(entries, observer) {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    //entry.target.classList.add('active')
                     document.getElementById('staticContainer').classList.add('hidden');
                 } else {
                     document.getElementById('staticContainer').classList.remove('hidden');
@@ -1709,10 +1792,11 @@
             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            document.getElementById("countdown").innerHTML = "Only <span class='days mx-1'>" + days + " days</span><span class='hours mx-1'>" + hours + "h</span><span class='minutes mx-1'>" + minutes + "m</span> until kick off!";
+            document.getElementById("countdown").innerHTML = "Only <span class='days'>" + days + " days</span> <span class='hours'>" + hours + "h</span> <span class='minutes'>" + minutes + "m</span> <span class='seconds'>" + seconds + "s</span> until kick off!";
             if (distance < 0) {
                 clearInterval(x);
                 document.getElementById("countdown").innerHTML = "Come on England!!!";
+                //document.getElementById("countdown").style.display = "none";
             }
         }, 1000);
         
