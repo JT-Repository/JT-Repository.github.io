@@ -90,10 +90,10 @@
         display: block;
     }
     .booking-header .rotated svg {
-        visibility: hidden;
+        display: none;
     }
     .booking-header.valid .rotated svg {
-        visibility: visible;
+        display: inline;
     }
     .booking-header:not(.active) .lg\:self-center {
         align-self: unset !important;
@@ -153,7 +153,7 @@
 
     <!-- Header and nav elements -->
     <header class="fixed w-full top-0 z-50 user-none">
-        <nav class="relative flex items-center justify-between flex-wrap py-4 sm:py-5 md:py-6 px-6 xl:px-8 2xl:px-12 bg-white dark:bg-slate-800 dark:text-gray-300 border-b border-red-800 dark:border-0" id="topNavigation">
+        <nav class="relative flex items-center justify-between flex-wrap py-4 sm:py-5 md:py-6 px-6 xl:px-8 2xl:px-12 bg-white dark:bg-black dark:text-gray-300 border-b border-red-800 dark:border-0" id="topNavigation">
             <div class="block lg:hidden">
                 <button class="flex text-red-800 hover:text-red-700 focus:outline-none dark:text-white dark:hover:text-red-700" id="navPaneToggle">
                     <svg viewBox="0 0 10 8" width="1.6rem">
@@ -179,7 +179,7 @@
     <!-- Hero -->
     <section class="relative h-auto w-100 z-20" id="mainHero">
         <div class="absolute z-0 w-full h-full bg-cover bg-no-repeat bg-center bg-fixed bg-image"></div>
-        <div class="relative h-screen lg:h-auto lg:py-24 xl:py-28 2xl:py-32 duration-700 ease-in bg-gradient-to-b from-red-800/0 via-red-800/20 to-red-800/40 hover:duration-700 hover:bg-red-800/50 focus:bg-red-800/50 focus:duration-500 transition-all">
+        <div class="relative h-screen lg:h-auto lg:py-24 xl:py-28 2xl:py-32 duration-700 ease-in bg-red-800/20 lg:bg-gradient-to-b lg:from-red-800/0 lg:via-red-800/20 lg:to-red-800/40 hover:duration-700 lg:hover:bg-red-800/50 focus:duration-500 transition-all">
             <div class="flex flex-col h-screen lg:block lg:h-auto justify-center items-center px-10 xl:px-12 mx-auto text-center text-white">
                 <div class="h1 mx-auto mb-10 lg:mt-24 xl:mt-28 font-bold uppercase" title="Qatar World Cup 2022 VIP Experience">Qatar World Cup 2022 VIP Experience</div>
                 <h1 class="md:w-11/12 xl:w-10/12 2xl:w-3/4 mx-auto mb-10" title="32 teams, 64 games, 28 days - and you can watch them all live - at a venue near you!">32 teams, 64 games, 28 days - and you can watch them all live - at a {{COMPANY NAME}} venue near you!</h1>
@@ -1714,7 +1714,7 @@
                                     </div>
                                     <div class="booking-header-inner p-6 lg:p-10 bg-white">
                                         <h3 class="mb-3 lg:mb-6">Choose which game you want to watch?</h3>
-                                        <select class="p-2 border-2 border-gray-200 focus:border-red-800/50 focus:ring-0 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 lg:text-lg valid:text-gray-300 valid:truncate dark:text-slate-500" id="selectGame" required>
+                                        <select class="p-2 border-2 border-gray-200 focus:border-gray-400 focus:ring-0 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 lg:text-lg valid:text-gray-300 valid:truncate dark:text-slate-500" id="selectGame" required>
                                             <option class="truncate" value="" selected>Games schedule</option>
                                             <option class="truncate" value="Group A: Qatar vs Ecuador">Group A: Qatar vs Ecuador</option>
                                             <option class="truncate" value="Group B: England vs Iran">Group B: England vs Iran</option>
@@ -1750,7 +1750,7 @@
                                     </div>
                                     <div class="booking-header-inner p-6 lg:p-10 bg-white">
                                         <h3 class="mb-3 lg:mb-6">Choose where you want to watch the game?</h3>
-                                        <select class="p-2 truncate border-2 border-gray-200 focus:border-red-800/50 focus:ring-0 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 lg:text-lg valid:text-gray-300 valid:truncate dark:text-slate-500" id="selectVenue" required>
+                                        <select class="p-2 truncate border-2 border-gray-200 focus:border-gray-400 focus:ring-0 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 lg:text-lg valid:text-gray-300 valid:truncate dark:text-slate-500" id="selectVenue" required>
                                             <option value="" selected>Find your nearest venue</option>
                                             <option value="The Gordon Arms, Swansea">The Gordon Arms, Swansea</option>
                                             <option value="String of Horses, Lichfield">String of Horses, Lichfield</option>
@@ -1772,26 +1772,26 @@
                                             <div class="flex flex-col lg:flex-row"> 
                                                 <div class="flex flex-col lg:w-1/2 lg:mr-3 xl:mr-5 mb-3">
                                                     <label class="lg:text-lg dark:text-slate-700" for="selectedvenue">Selected game</label>
-                                                    <input class="p-2 border-2 border-gray-200 valid:selection:bg-transparent selection:bg-white lg:text-lg truncate dark:text-slate-700" type="text" name="selectedgame" id="selectedGame" disabled />
+                                                    <input class="p-2 border-2 border-gray-200 valid:selection:bg-transparent selection:bg-white lg:text-lg truncate dark:text-slate-700 dark:disabled:text-slate-700" type="text" name="selectedgame" id="selectedGame" disabled />
                                                 </div>
                                                 <div class="flex flex-col lg:w-1/2 lg:ml-3 xl:ml-5 mb-3">
                                                     <label class="lg:text-lg dark:text-slate-700" for="selectedvenue">Selected venue</label>
-                                                    <input class="p-2 border-2 border-gray-200 valid:selection:bg-transparent selection:bg-white lg:text-lg truncate dark:text-slate-700" type="text" name="selectedvenue" id="selectedVenue" disabled />
+                                                    <input class="p-2 border-2 border-gray-200 valid:selection:bg-transparent selection:bg-white lg:text-lg truncate dark:text-slate-700 dark:disabled:text-slate-700" type="text" name="selectedvenue" id="selectedVenue" disabled />
                                                 </div>
                                             </div>
                                             <div class="flex flex-col lg:flex-row">
                                                 <div class="flex flex-col lg:w-full lg:mr-3 xl:mr-5 mb-3">
                                                     <label class="lg:text-lg dark:text-slate-700" for="name">Your full name</label>
-                                                    <input class="p-2 border-2 border-gray-200 lg:text-lg truncate focus:border-gray-500 focus:ring-0 placeholder:text-gray-300 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 valid:selection:bg-transparent selection:bg-red-800 dark:placeholder:text-slate-500 dark:text-slate-700" type="text" name="name" id="name" placeholder="Please enter your name" required />
+                                                    <input class="p-2 border-2 border-gray-200 lg:text-lg truncate focus:border-gray-400 focus:ring-0 placeholder:text-gray-300 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 valid:selection:bg-transparent selection:bg-red-800 dark:placeholder:text-slate-500 dark:text-slate-700" type="text" name="name" id="name" placeholder="Please enter your name" required />
                                                 </div>
                                                 <div class="flex flex-col lg:w-40 lg:ml-3 xl:ml-5 mb-3">
                                                     <label class="lg:text-lg dark:text-slate-700" for="seats">Required seats</label>
-                                                    <input class="p-2 border-2 border-gray-200 lg:text-lg truncate focus:border-gray-500 focus:ring-0 placeholder:text-gray-300 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 valid:selection:bg-transparent selection:bg-red-800 dark:placeholder:text-slate-500 dark:text-slate-700"  type="number" min="1" placeholder="Please select the number of your party" name="seats" id="seats" required />
+                                                    <input class="p-2 border-2 border-gray-200 lg:text-lg truncate focus:border-gray-400 focus:ring-0 placeholder:text-gray-300 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 valid:selection:bg-transparent selection:bg-red-800 dark:placeholder:text-slate-500 dark:text-slate-700"  type="number" min="1" placeholder="Please select the number of your party" name="seats" id="seats" required />
                                                 </div>
                                             </div>
                                             <div class="flex flex-col mb-3">
                                                 <label class="lg:text-lg dark:text-slate-700" for="email">Your email address</label>
-                                                <input class="p-2 border-2 border-gray-200 lg:text-lg truncate focus:border-gray-500 focus:ring-0 placeholder:text-gray-300 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 valid:selection:bg-transparent selection:bg-white dark:placeholder:text-slate-500 dark:text-slate-700" type="email" name="email" id="email" placeholder="Please enter your email address" required />
+                                                <input class="p-2 border-2 border-gray-200 lg:text-lg truncate focus:border-gray-400 focus:ring-0 placeholder:text-gray-300 valid:border-green-600 valid:ring-0 valid:focus:border-green-600 valid:selection:bg-transparent selection:bg-white dark:placeholder:text-slate-500 dark:text-slate-700" type="email" name="email" id="email" placeholder="Please enter your email address" required />
                                             </div>
                                             <div class="flex flex-row mb-3">
                                                 <label class="inline-flex items-center mt-3">
