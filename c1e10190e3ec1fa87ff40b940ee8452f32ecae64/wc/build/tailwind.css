@@ -879,6 +879,8 @@ select {
   }
 }
 .main-hero .hero-button {
+  margin-left: auto;
+  margin-right: auto;
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   padding: 0.625rem;
@@ -1481,6 +1483,9 @@ button[type=submit]:focus {
 }
 .z-50 {
   z-index: 50;
+}
+.z-30 {
+  z-index: 30;
 }
 .z-20 {
   z-index: 20;

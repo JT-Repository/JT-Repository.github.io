@@ -2,7 +2,7 @@
 const options = {
     threshold: 0
 };
-const sections = document.querySelectorAll('section#BookTable');
+const sections = document.querySelectorAll('section#BookTable, section#mainHero');
 const observer = new IntersectionObserver(function(entries, observer) {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
