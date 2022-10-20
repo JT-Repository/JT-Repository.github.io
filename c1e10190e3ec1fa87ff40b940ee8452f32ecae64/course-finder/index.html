@@ -16,14 +16,21 @@
 </head>
 <body class="antialiased text-zinc-500">
 
-    <div x-data="{scrollBackTop: false}" x-cloak>
+    <div name="top" id="top"></div>
+    <a class="fixed bottom-6 right-6 p-4 bg-green-600/30 hover:bg-green-600 hover:shadow-lg z-50" id="topToggle" @click.window="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <svg class="w-8 h-8 text-white hover:text-yellow-500 rotate-180" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" stroke-width="2" />
+        </svg>
+    </a>
+
+    <!--<div x-data="{scrollBackTop: false}" x-cloak>
         <button x-show="scrollBackTop" x-on:scroll.window="scrollBackTop = (window.pageYOffset > window.outerHeight * 0.5) ? true : false" @click.window="window.scrollTo({top: 0, behavior: 'smooth'})"
            aria-label="Back to top" class="fixed bottom-6 right-6 p-4 bg-green-600/30 hover:bg-green-600 hover:shadow-lg z-50 focus:outline-none">
            <svg class="w-8 h-8 text-white hover:text-yellow-500 rotate-180" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                 <path fill="currentColor" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" stroke-width="2" />
             </svg>
        </button>
-   </div>
+   </div>-->
 
     <!-- MAIN NAV -->
     <header x-data="topMenu()">
@@ -473,7 +480,7 @@
         </div>
     </footer>
 
-    <!--MODAL IN PROGRESS <div class="hidden fixed flex h-full w-full bg-zinc-500/60 top-0 left-0 p-6 md:p-10 lg:p-16 xl:p-20 z-[1000]" id="tempModal">
+    <!--<div class="hidden fixed flex h-full w-full bg-zinc-500/60 top-0 left-0 p-6 md:p-10 lg:p-16 xl:p-20 z-[1000]" id="tempModal">
         <div class="flex flex-col bg-white h-full w-full lg:max-w-screen-lg mx-auto shadow">
             <div class="w-full px-4 py-3 border-b border-gray-200 text-right">
                 <span>&times;</span>
