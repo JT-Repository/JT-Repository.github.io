@@ -16,7 +16,7 @@
 </head>
 <body class="antialiased text-zinc-500">
 
-    <div name="top" id="top"></div>
+    <a name="top" id="top"></a>
     <div x-data="{scrollBackTop: false}" x-cloak>
         <button x-show="scrollBackTop" x-on:scroll.window="scrollBackTop = (window.pageYOffset > window.outerHeight * 0.5) ? true : false" x-on:click="$scroll('#top')"
            aria-label="Back to top" class="fixed bottom-6 right-6 p-4 bg-green-600/30 hover:bg-green-600 hover:shadow-lg z-50 focus:outline-none">
