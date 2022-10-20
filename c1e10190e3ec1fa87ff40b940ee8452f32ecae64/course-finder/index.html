@@ -16,15 +16,15 @@
 </head>
 <body class="antialiased text-zinc-500">
 
-    <div name="top" id="top"></div>
-    <!--<a class="fixed bottom-6 right-6 p-4 bg-green-600/30 hover:bg-green-600 hover:shadow-lg z-50" href="#top" id="topToggle">
+    <!--<div name="top" id="top"></div>
+    <a class="fixed bottom-6 right-6 p-4 bg-green-600/30 hover:bg-green-600 hover:shadow-lg z-50" id="topToggle" @click.window="window.scrollTo({top: 0, behavior: 'smooth'})">
         <svg class="w-8 h-8 text-white hover:text-yellow-500 rotate-180" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <path fill="currentColor" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" stroke-width="2" />
         </svg>
     </a>-->
 
     <div x-data="{scrollBackTop: false}" x-cloak>
-        <button x-show="scrollBackTop" x-on:scroll.window="scrollBackTop = (window.pageYOffset > window.outerHeight * 0.5) ? true : false" x-on:click="$scroll('#top')"
+        <button x-show="scrollBackTop" x-on:scroll.window="scrollBackTop = (window.pageYOffset > window.outerHeight * 0.5) ? true : false" @click.window="window.scrollTo({top: 0, behavior: 'smooth'})"
            aria-label="Back to top" class="fixed bottom-6 right-6 p-4 bg-green-600/30 hover:bg-green-600 hover:shadow-lg z-50 focus:outline-none">
            <svg class="w-8 h-8 text-white hover:text-yellow-500 rotate-180" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                 <path fill="currentColor" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" stroke-width="2" />
