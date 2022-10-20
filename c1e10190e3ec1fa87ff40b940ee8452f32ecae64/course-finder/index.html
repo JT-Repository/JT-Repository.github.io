@@ -16,7 +16,13 @@
 </head>
 <body class="antialiased text-zinc-500">
 
-    <!--<a name="top" id="top"></a>-->
+    <div name="top" id="top"></div>
+    <!--<a class="fixed bottom-6 right-6 p-4 bg-green-600/30 hover:bg-green-600 hover:shadow-lg z-50" href="#top" id="topToggle">
+        <svg class="w-8 h-8 text-white hover:text-yellow-500 rotate-180" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" stroke-width="2" />
+        </svg>
+    </a>-->
+
     <div x-data="{scrollBackTop: false}" x-cloak>
         <button x-show="scrollBackTop" x-on:scroll.window="scrollBackTop = (window.pageYOffset > window.outerHeight * 0.5) ? true : false" x-on:click="$scroll('#top')"
            aria-label="Back to top" class="fixed bottom-6 right-6 p-4 bg-green-600/30 hover:bg-green-600 hover:shadow-lg z-50 focus:outline-none">
@@ -125,6 +131,7 @@
                     </div>
                     <!-- COURSES -->
                     <div class="w-11/12 mx-auto mb-10 lg:mb-12" :class="{ 'hidden' : total==0 }" x-show="!loadingCourses">
+                        <!--<div class="absolute bg-white bg-opacity-90 w-full h-full z-10" :class="{ 'hidden' : search }"></div>-->
                         <div class="flex flex-col border-t border-zinc-200">
                             <template x-for="item in getSearchResults" :key="item.id">
                                 <div x-data="{ cardOpen: false }">
@@ -136,10 +143,10 @@
                                             </svg>
                                         </span>
 
-                                        <button class="flex w-auto font-tommy font-bold cursor-pointer text-xl lg:text-2xl hover:text-green-600 hover:text-yellow-500 active:text-yellow-500 focus:outline-0" :class="{ 'mt-2 lg:mt-3 text-green-600' : cardOpen }" @click="cardOpen = true" x-text="item.title" x-on:click="$refs.theEl.scrollTop(100px)"></button>
+                                        <button class="flex w-auto font-tommy font-bold cursor-pointer text-xl lg:text-2xl hover:text-green-600 hover:text-yellow-500 active:text-yellow-500 focus:outline-0" :class="{ 'mt-2 lg:mt-3 text-green-600' : cardOpen }" @click="cardOpen = true" x-text="item.title"></button>
 
                                         <div x-show="cardOpen" @click.outside="cardOpen = false">
-
+                                            
                                             <div class="flex flex-col pb-1.5">
                                                 <p><span x-text="item.location.address"></span>, <span x-text="item.location.town"></span>, <span x-text="item.location.county"></span></p>
                                                 <p class="mb-10" x-text="item.description"></p>
@@ -495,6 +502,8 @@
             </div>
         </div>
     </div>
+
+    <div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=52.97510430308787, -1.5342723821569757+(TEST)&amp;t=&amp;z=8&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/sport-gps/">gps watches</a></iframe></div>
 
     <script src="js/site.js"></script>
 
