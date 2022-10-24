@@ -655,11 +655,15 @@
             });
             
             $('#preOrderForm .payment-wrapper input').focus(function() {
-                $('section.preorder .payment-wrapper').addClass('active');
+                $('#preOrderForm .payment-wrapper').addClass('active');
+            });
+            
+            $('#preOrderForm .payment-wrapper input').focusout(function() {
+                $('#preOrderForm .payment-wrapper').removeClass('active');
             });
             
             $('#preOrderForm').submit(function() {
-                $('section.preorder .payment-wrapper').removeClass('active');
+                $('#preOrderForm .payment-wrapper').removeClass('active');
             });
             
         });
