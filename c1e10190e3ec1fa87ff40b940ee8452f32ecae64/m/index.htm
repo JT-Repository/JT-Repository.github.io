@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Moor Farm Shop &amp; Restaurant, Newborough</title>
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap');
+
+    :root {
+        /*--mainColor: 13,55,112;*/
+        --mainColor: 0,0,1;
+        --accentColor: 241,246,218;
+    }
+
+    ::selection,
+    --moz::selection {
+        background-color: rgba(var(--mainColor),1) !important;
+        color: rgba(255,255,255,1);
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        font-family: 'Lato', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+    }
+    header {
+        z-index: 50 !important;
+    }
+    h1, .h1 {
+        font-size: calc(3rem + 1vw);
+    }
+    h2, .h2 {
+        font-size: calc(2rem + .5vw);
+    }
+    .font-lighter {
+        font-weight: 300;
+    }
+    .font-bolder {
+        font-weight: 700;
+    }
+    .custom-font {
+        /*font-family: 'Satisfy', cursive;
+        font-family: 'Signika', sans-serif;*/
+        font-family: 'Cinzel', serif;
+        font-weight: 500;
+    }
+    .custom-font.font-bolder {
+        font-weight: 600;
+    }
+    .custom-font.font-bold {
+        font-weight: 700;
+    }
+    .btn-custom {
+        padding: .675rem 1rem;
+        background-color: rgba(var(--mainColor),.9);
+        color: rgba(255,255,255,1);
+        border: solid 2px rgba(255,255,255,1);
+        border-radius: 0;
+        outline: solid 2px rgba(var(--mainColor),1) !important;
+        box-shadow: 0 .25rem 1rem rgba(var(--mainColor),.35);
+    }
+    .btn-custom.focus,
+    .btn-custom:focus {
+        background-color: rgba(var(--mainColor),1);
+        color: rgba(var(--accentColor),1);
+        text-decoration: none;
+        box-shadow: 0 .25rem 1rem rgba(var(--mainColor),.15);
+    }
+    .btn-custom:hover {
+        background-color: rgba(var(--mainColor),1);
+        color: rgba(var(--accentColor),1);
+        text-decoration: none;
+    }
+    .btn-custom:not(:disabled):not(.disabled).active:focus,
+    .btn-custom:not(:disabled):not(.disabled):active:focus,
+    .show>.btn-custom.dropdown-toggle:focus {
+        box-shadow: 0 .25rem 1rem rgba(var(--mainColor),.15);
+    }
+    .text-maincolor {
+        color: rgba(var(--mainColor),1);
+    }
+    .bg-accentcolor {
+        background-color: rgba(var(--accentColor),1) !important;
+    }
+    .main-navigation {
+        background-color: rgba(var(--mainColor),1);
+        border-bottom: solid 2px rgba(255,255,255,1);
+        outline: solid 2px rgba(var(--mainColor),1);
+        font-size: calc(1.15rem + .25vw);
+        user-select: none;
+    }
+    .main-navigation a {
+        color: rgba(255,255,255,1);
+        text-decoration: none;
+    }
+    .main-navigation a:hover {
+        color: rgba(var(--accentColor),1);
+    }
+    .main-navigation button {
+        outline: none;
+        border: none;
+        background: none;
+        color: rgba(255,255,255,1);
+        font-size: 1.175rem;
+        line-height: 1;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    .main-navigation .welcome {
+        display: none !important;
+    }
+    .main-navigation .logo {
+        display: inline-flex !important;
+        flex-direction: column;
+        line-height: .9;
+        text-align: center;
+        letter-spacing: .125rem;
+        font-size: clac(1.15rem + .15rem);
+        color: rgba(var(--accentColor),1) !important;
+        vertical-align: top;
+    }
+    .main-navigation .logo > span + span {
+        font-size: calc(.75rem + .1rem);
+    }
+    .main-navigation .basket .basket-count::after {
+        content: attr(data-basket-count);
+        position: absolute;
+        right: 0;
+        top: -.375rem;
+        width: 1.375rem;
+        height: 1.375rem;
+        text-align: center;
+        font-weight: 700;
+        font-size: 70%;
+        border-radius: 50%;
+        line-height: 150%;
+        background-color: rgba(241,246,218,1);
+        color: rgba(var(--mainColor),1);
+    }
+    .main-navigation .basket .basket-icon {
+        cursor: pointer;
+    }
+    .main-navigation .basket .basket-icon > em {
+        margin-right: .5rem;
+    }
+    .main-navigation .basket .dropdown-menu {
+        position: relative;  
+        left: auto;
+        right: 0;
+        min-width: max-content;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+    }
+    .main-navigation .basket .dropdown-menu a {
+        font-size: 1rem;
+        font-weight: 300;
+    }
+    .main-navigation .basket.basket-empty {
+        display: none;
+    }
+
+    section.preorder::before { 
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(images/1024x672.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: -1;
+    }
+    section.preorder::after {
+        content: attr(basket-items);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding: .25rem;
+        background-color: rgba(var(--mainColor),.35);
+        z-index: -1;
+    }
+    .preorder-box {
+        border: solid 2px crimson;
+        transition: all .6s ease-out;
+    }
+    .preorder-box:focus,
+    .preorder-box:hover {
+        background-color:crimson;
+        color: rgba(255,255,255,1);
+        transition: all .3s ease-in;
+    }
+    .preorder-box img {
+        max-width: 120px;
+    }
+
+    @media (max-width: 991.98px) {
+        section.preorder .order-bg {
+            min-height: 20rem;
+            background-image: url(images/RoastedTurkey-bg.jpg);
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+    }
+    
+    @media (min-width: 768px) {
+        .gobble-left {
+            content: url(images/turkey_left.png);
+            position: absolute;
+            display: block;
+            bottom: -80px;
+            left: calc(1rem + 4vw);
+            height: auto;
+            width: calc(200px + 2.25vw);
+            z-index: 20;
+        }
+        .gobble-right {
+            content: url(images/turkey_right.png);
+            position: absolute;
+            display: block;
+            bottom: -80px;
+            right: calc(1rem + 4vw);
+            height: auto;
+            width: calc(200px + 2.25vw);
+            z-index: 20;
+        }
+    }
+
+    @media (min-width: 992px) {
+        header {
+            background-color: rgba(var(--mainColor),0);
+        }
+        header.underlay {
+            background-color: rgba(var(--mainColor),1);
+        }
+        .main-navigation {
+            background-color: rgba(255,255,255,1);
+            border: unset;
+            outline: unset;
+        }
+        .main-navigation.underlay {
+            background-color: rgba(var(--mainColor),1);
+            top: 1rem;
+            border: solid 2px rgba(255,255,255,1) !important;
+            outline: solid 2px rgba(var(--mainColor),1);
+        }
+        .main-navigation a,
+        .main-navigation a:hover {
+            color: rgba(var(--mainColor),1);
+        }
+        .main-navigation.underlay a {
+            color: rgba(255,255,255,1);
+        }
+        .main-navigation.underlay a:hover {
+            color: rgba(var(--accentColor),1);
+        }
+
+        .main-navigation .basket .basket-count::after {
+            color: rgba(var(--mainColor),1);
+        }
+        .main-navigation.underlay .basket .basket-count::after {
+            color: rgba(var(--mainColor),1);
+        }
+        .main-navigation .welcome {
+            display: unset !important;
+        }
+        .main-navigation .logo {
+            display: none !important;
+        }
+        .main-navigation .basket .dropdown-menu {
+            background: rgba(255,255,255,1);
+            border: solid 1px rgba(var(--mainColor),1);
+        }
+        .main-navigation .dropdown-menu.with-underlay {
+            background-color: rgba(var(--mainColor),1);
+        }
+        .main-navigation .dropdown-menu.show {
+            position: absolute;
+            top: 40px;
+            border: solid 1px rgba(var(--mainColor),1);
+        }
+        .main-navigation .dropdown-menu.with-underlay.show {
+            top: 40px;
+            border: solid 2px rgba(255,255,255,1);
+        }
+        section.preorder::before {
+            background-attachment: fixed;
+        }
+        section.preorder .order-bg {
+            height: 100%;
+            background-image: url(images/RoastedTurkey-bg.jpg);
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+    }
+    @media (min-width: 1200px) {
+        .container-xl {
+            max-width: 1200px;
+        }
+        .preorder-box img {
+            max-width: 140px;
+        }
+        .gobble-left,
+        .gobble-right {
+            bottom: -50px;
+            width: calc(200px + 3vw);
+        }
+    }
+
+</style>
+</head>  
+<body>
+
+    <header class="position-fixed w-100">
+        <div class="container-xl mx-auto px-0 px-lg-3">
+            <nav class="navbar navbar-expand-lg align-items-center p-3 p-lg-2 main-navigation" id="mainNav">
+                <div class="greeting">
+                    <span class="px-lg-3 custom-font welcome">
+                        Welcome to <span class="custom-font font-bold">Moor Farm</span>
+                    </span>
+                    <a class="px-lg-3 custom-font logo" href="#" title="">
+                        <span>Moor Farm</span>
+                        <span>Newborough</span>
+                    </a>
+                </div>
+                <button class="d-flex align-items-center d-lg-none p-0" data-toggle="collapse" data-target="#navPanel" aria-controls="navPanel" aria-expanded="false" aria-label="Toggle navigation">
+                    <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#ffffff" d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/>
+                    </svg>
+                </button>
+                
+                <div class="collapse navbar-collapse justify-content-lg-end" id="navPanel">
+                    <div class="d-flex flex-column w-auto flex-lg-row align-items-end align-items-lg-center">
+                        <ul class="navbar-nav text-right">
+                            <li class="nav-item mt-3 mt-lg-0 ml-lg-1">
+                                <a class="py-2 px-lg-3 py-lg-0 custom-font font-bolder" href="#FarmShop" title="Farm Shop">Farm Shop</a>
+                            </li>
+                            <li class="nav-item mt-3 mt-lg-0 ml-lg-1">
+                                <a class="py-2 px-lg-3 py-lg-0 custom-font font-bolder" href="#Restaurant" title="Restaurant">Restaurant</a>
+                            </li>
+                            
+                            <li class="nav-item mt-3 mt-lg-0 ml-lg-1 dropdown basket">
+                                <a class="py-2 px-lg-3 py-lg-0 custom-font font-bolder basket-icon dropdown-toggle" title="Your Basket" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                                    <span class="d-lg-none mr-2">Your Basket</span>
+                                    <span class="position-relative basket-count" data-basket-count="" id="basketCount">
+                                        <em class="fa fa-shopping-basket"></em>
+                                    </span>
+                                </a>
+                                <div class="m-0 py-1 dropdown-menu shadow">
+                                    <div class="d-flex flex-column w-100 text-right">
+                                        <a class="px-3 py-1 dropdown-link" href="#" title="Your Order">View your Order</a>
+                                        <a class="px-3 py-1 dropdown-link" href="#" title="Your Account">Proceed to Checkout</a>
+                                        <a class="px-3 py-1 dropdown-link" href="#" title="Empty Your Basket" id="emptyBasket">Empty your Basket</a>
+                                    </div>
+                                </div>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        
+        <section class="position-relative home">
+            <div class="container-xl mx-auto py-5">
+                <div class="min-vh-100 d-flex flex-column justify-content-center align-items-center py-5">
+                    <div class="row justify-content-center">
+                        <div class="col-11 col-sm-10 col-md-11 col-xl-12 text-center">
+                            <h1 class="mb-2 custom-font" id="sentinel">Farm Shop &amp; Restaurant</h1>
+                            <p class="mb-4 mb-xl-5 h5 font-lighter">We pride ourselves in supplying the finest quality produce and sell high welfare beef and lamb, at affordable prices. We supply meat products to some of the most demanding retailers and restauranteurs who recognize that all our beef and lamb is born and fed at Moor Farm and only travels as far as the RSPB Whittlesey Washes to graze for the summer, meaning it is stress free and quality assured.</p>
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-11 col-md-10 col-xl-9 p-4 py-lg-5 px-xl-5 shadow preorder-box">
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-auto text-lg-right order-lg-last">
+                                            <img class="img-fluid mb-4 mb-lg-0" src="images/turkey_right.png" alt="Pre-Order Christmas Turkey" />
+                                        </div>
+                                        <div class="col-lg-8 d-flex flex-column justify-content-around">
+                                            <h2 class="custom-font">Christmas <span class="text-nowrap">Pre-Orders</span></h2>
+                                            <p class="h5 font-bolder">We are now taking orders for Christmas turkeys* and meat hampers. Hurry, whilst stocks last!</p>
+                                            <p class="h5 font-bolder">Please order now to avoid disappointment.</p>
+                                            <small>* Subject to availability. A deposit of &pound;5 will be required to secure a reservation.</small>
+                                        </div>
+                                    </div>
+                                    <a class="stretched-link" href="#PreOrder"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <section class="position-relative preorder" id="PreOrder">
+            <div class="gobble-left"></div>
+            <div class="container-xl mx-auto py-5">
+                <div class="min-vh-100 d-flex flex-column justify-content-center align-items-center py-5">
+                    <h1 class="mb-5 text-white text-center custom-font" title="">Christmas Pre-Orders</h1>
+                    <div class="row justify-content-center mx-4">
+                        <div class="col-11 col-lg-12 py-5 px-4 px-xl-5 bg-white">
+                            <div class="row justify-content-center">  
+                                <div class="col-sm-11 col-md-12 col-lg-4 mb-4 mb-lg-0">
+                                    <div class="order-bg h-100"></div>
+                                </div>
+                                <div class="col-sm-11 col-md-12 col-lg-8">
+                                    <div class="row justify-content-center">
+                                        <div class="col-12">
+                                            <p class="mb-4 text-center text-lg-left lead ">Please enter your details into the spaces below. Once payment has been received, you will receive confirmation via email.</p>
+                                            <form class="m-0 w-100 preorder-form" method="" id="preOrderForm" validate>
+                                                <div class="row justify-content-md-end">
+                                                    <div class="col-12 col-md-6">
+                                                        <h4 class="mb-3 text-maincolor custom-font font-bolder" title="Your Payment Details">Order Details</h4>
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="row">
+                                                                    <div class="col-auto mb-3">
+                                                                        <label class="mb-1 font-bolder" for="deposit">Deposit</label>
+                                                                        <input class="form-control w-auto" type="text" placeholder="&pound;5.00" name="deposit" disabled>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <label class="mb-1 h6 font-bolder" for="turkeysize">Turkey Size &amp; Weight <span class="text-danger">*</span></label>
+                                                                <select class="form-control w-100" type="select" name="turkeysize" required>
+                                                                    <option value="" selected>Please choose your turkey size</option>
+                                                                    <option value="x-small">2-2.5kg (Serves 4-6)</option>
+                                                                    <option value="small">3kg (Serves 6-7)</option>
+                                                                    <option value="medium">3.5kg (Serves 7-8)</option>
+                                                                    <option value="m-large">4-4.5kg (Serves 8-10)</option>
+                                                                    <option value="large">5-5.5kg (Serves 10-12)</option>
+                                                                    <option value="x-large">6-6.5kg (Serves 12-15)</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-12 mb-3">
+                                                                <label class="mb-1 font-bolder" for="fullname">Your Name <span class="text-danger">*</span></label>
+                                                                <input class="form-control w-100" type="text" placeholder="Please enter your full name" autocomplete="yes" name="fullname" required>
+                                                            </div>
+                                                            <div class="col-12 mb-3">
+                                                                <label class="mb-1 font-bolder" for="telephone">Telephone Number <span class="text-danger">*</span></label>
+                                                                <input class="form-control w-100" type="text" placeholder="Please enter your name" autocomplete="yes" name="telephone" required>
+                                                            </div>
+                                                            <div class="col-12 mb-3">
+                                                                <label class="mb-1 font-bolder" for="email">Email Address <span class="text-danger">*</span></label>
+                                                                <input class="form-control w-100" type="email" placeholder="Please enter your name" autocomplete="yes" name="email" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 mb-4">
+                                                        <h4 class="mb-4 text-maincolor custom-font font-bolder" title="Your Payment Details">Payment Details</h4>
+                                                        <div class="bg-light border border-default p-3">
+                                                            <div class="row">
+                                                                <div class="col-12 mb-3">
+                                                                    <label class="mb-1 font-bolder" for="cardname">Cardholder's Name <span class="text-danger">*</span></label>
+                                                                    <input class="form-control w-100" type="text" placeholder="" name="cardname" required>
+                                                                </div>
+                                                                <div class="col-12 mb-3">
+                                                                    <label class="mb-1 font-bolder" for="accountnumber">Account Number <span class="text-danger">*</span></label>
+                                                                    <input class="form-control w-100" type="text" placeholder="" name="accountnumber" required>
+                                                                </div>
+                                                                <div class="col-12 mb-3">
+                                                                    <label class="mb-1 font-bolder" for="sortcode">Sort Code <span class="text-danger">*</span></label>
+                                                                    <div class="form-row align-items-center">
+                                                                        <div class="col">
+                                                                            <input class="form-control" type="text" maxlength="2" name="" required>
+                                                                        </div>
+                                                                        <div class="col-auto px-0">
+                                                                            <strong>-</strong>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <input class="form-control" type="text" maxlength="2" name="" required>
+                                                                        </div>
+                                                                        <div class="col-auto px-0">
+                                                                            <strong>-</strong>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <input class="form-control" type="text" maxlength="2" name="" required>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 mb-2">
+                                                                    <label class="mb-1 font-bolder" for="branch">Account Holding Branch <span class="text-danger">*</span></label>
+                                                                    <input class="form-control w-100" type="text" placeholder="" name="branch" required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 mb-2">
+                                                        <label class="mb-1" for="email">
+                                                            <input class="mr-2" type="checkbox"> Please tick this box if you would like to receive the latest news from around the farm, plus special offers and promotions.
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 mb-4">
+                                                        <label class="mb-1" for="email">
+                                                            <input class="mr-2" type="checkbox" required> I have read and understood the <a class="text-maincolor" href="#" title="I have read and understood the Terms & Conditions.">Terms &amp; Conditions</a>.
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-auto d-flex justify-content-end">
+                                                        <button class="btn-block d-md-inline-block btn btn-custom custom-font font-bolder" type="submit" aria-expanded="false" aria-label="Submit Your Order" id="preOrderButton">Submit Your Order</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="position-relative farm-shop" id="FarmShop">
+            <div class="container-xl mx-auto py-5">
+                <div class="min-vh-100 d-flex flex-column justify-content-center align-items-center py-5">
+                    <h1 class="mb-lg-5 text-center custom-font" title="The very best in farm-fresh produce">The very best in farm-fresh produce</h1>
+                    <div class="row justify-content-center mx-4">
+                        <div class="col-11 col-sm-10 col-md-11 col-lg pr-lg-5 text-center text-lg-center pt-3">
+                            <h2 class="mb-4 h4 font-lighter">Pellentesque et odio vel neque vulputate consequat. Vestibulum scelerisque, ante quis ultrices molestie, quam urna convallis arcu, at varius ex ante nec felis.</h2>
+                            <p class="mb-4 font-lighter">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec iaculis dictum magna et bibendum. Morbi eu maximus enim. Pellentesque porta a velit vitae ultrices. Praesent in est diam. Sed gravida molestie felis eget dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod vel magna augue venenatis, nec facilisis ipsum aliquet.</p>
+                            <p class="mb-4 font-lighter">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec iaculis dictum magna et bibendum. Morbi eu maximus enim. Pellentesque porta a velit vitae ultrices. Praesent in molestie felis eget dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod vel magna augue venenatis, nec facilisis ipsum aliquet.</p>
+                            <button class="btn btn-custom custom-font font-bolder" type="button" id="addtoBasket">Add {{PRODUCT}} to your basket</button>
+                        </div>
+                        <div class="col-10 col-sm-9 col-md-11 col-lg-6">
+                            <div class="row">
+                                <div class="col-6 col-md-3 col-lg-6 my-3">
+                                    <img class="img-fluid w-100" src="images/carrots.jpg" alt="" />
+                                </div>
+                                <div class="col-6 col-md-3 col-lg-6 my-3">
+                                    <img class="img-fluid w-100" src="images/cauliflower.jpg" alt="" />
+                                </div>
+                                <div class="col-6 col-md-3 col-lg-6 my-3">
+                                    <img class="img-fluid w-100" src="images/brussels.jpg" alt="" />
+                                </div>
+                                <div class="col-6 col-md-3 col-lg-6 my-3">
+                                    <img class="img-fluid w-100" src="images/parsnips.jpg" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="position-relative" id="Shop">
+            <div class="container-xl mx-auto py-5">
+                <div class="min-vh-100 d-flex flex-column justify-content-center align-items-center py-5">
+                    <h1 class="mb-lg-5 text-center custom-font" title="">Shop</h1>
+                    <div class="row justify-content-center mx-4">
+                        <div class="col"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="position-relative" id="Restaurant">
+            <div class="container-xl mx-auto py-5">
+                <div class="min-vh-100 d-flex flex-column justify-content-center align-items-center py-5">
+                    <h1 class="mb-lg-5 text-center custom-font" title="">Restaurant</h1>
+                    <div class="row justify-content-center mx-4">
+                        <div class="col"></div>
+                    </div>
+                </div>
+            </div>
+        </section>  
+        
+    </main>
+
+    <footer>
+        <div class="container-xl mx-auto">
+            
+            <div class="row justify-content-center py-3 px-xl-0">
+                <div class="col">
+                    <nav></nav>
+                </div>
+                <div class="col">
+                
+                </div>
+                
+                <div class="col-12 d-flex flex-column align-items-center flex-md-row">
+                    <span class="d-flex flex-row order-md-last">
+                        <a class="d-flex mx-2 text-black-50" href="" title="">Terms &amp; Conditons</a>
+                        <a class="d-flex mx-2 text-black-50" href="" title="">Privacy Policy</a>
+                    </span>
+                    <span class="d-flex mx-2 flex-md-grow-1">
+                        &copy; 2022. Moor Farm Limited. All rights reserved.
+                    </span>
+                </div>
+                
+            </div>
+        </div>       
+    </footer>
+
+    <script>
+
+        // general
+
+        $(function() {
+            var basketCheck = $('#basketCount').attr('data-basket-count');
+            if (basketCheck.length === 0) {
+                //console-log('basket count empty');
+                $('.main-navigation .basket').addClass('basket-empty');
+            } else {
+                
+            }
+            var basketTally = $('#basketCount').data('basket-count');
+            $('#addtoBasket').click(function() {
+                basketTally++;
+                $('#basketCount').attr('data-basket-count', basketTally);
+                $('.main-navigation .basket').removeClass('basket-empty');
+                return false;
+            });
+            $('#emptyBasket').click(function() {
+                $('#basketCount').attr('data-basket-count', '');
+                $('.main-navigation .basket').addClass('basket-empty');
+                return false;
+            });
+        });
+
+        // menu close at mobile
+        $('.main-navigation .navbar-collapse a:not(.dropdown-toggle)').on('click', function() {
+            $(".main-navigation .navbar-collapse").collapse('hide');
+        });
+            
+    </script>
+    
+    <script>
+
+        // form validation
+        $(function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                var inputs = document.getElementsByClassName('form-control')
+                var validation = Array.prototype.filter.call(inputs, function(input) {
+                    input.addEventListener('blur', function(event) {
+                        input.classList.remove('is-invalid')
+                        input.classList.remove('is-valid')
+                        if (input.checkValidity() === false) {
+                            input.classList.add('is-invalid')
+                        }
+                        else {
+                            input.classList.add('is-valid')
+                        }
+                    }, false);
+                });
+            }, false);
+        });
+
+    </script>
+    
+    <script>
+        
+        // intersection bits
+        const options = {
+            threshold: 0.35
+        };
+        let mainHeader = document.querySelector('header');
+        let mainNavigation = document.querySelector('.main-navigation');
+        let welcomeMsg = document.querySelector('.welcome');
+        let mainLogo = document.querySelector('.main-navigation .logo');
+        let dropDown = document.querySelector('.dropdown-menu');
+        function handler (entries, observer) {
+            for (entry of entries) {
+                if (entry.isIntersecting) {
+                    mainNavigation.classList.remove('underlay', 'shadow');
+                    mainHeader.classList.add('pt-lg-4', 'pt-xl-5');
+                    mainNavigation.classList.remove('p-lg-3');
+                    welcomeMsg.style.display = 'inline-flex';
+                    mainLogo.style.display = 'none';
+                    dropDown.classList.remove('with-underlay');
+                } else {
+                    mainNavigation.classList.add('underlay', 'shadow');
+                    mainHeader.classList.remove('pt-lg-4', 'pt-xl-5');
+                    mainNavigation.classList.add('py-lg-3');
+                    welcomeMsg.style.setProperty('display', 'none', 'important');
+                    mainLogo.style.setProperty('display', 'inline-flex', 'important');
+                    dropDown.classList.add('with-underlay');
+                }
+            }
+        }
+        let observer = new IntersectionObserver(handler, options);
+        observer.observe(document.getElementById('sentinel'));
+        
+    </script>
+
+</body>
+</html>
