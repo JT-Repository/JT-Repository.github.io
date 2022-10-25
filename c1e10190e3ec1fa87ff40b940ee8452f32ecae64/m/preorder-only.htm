@@ -94,10 +94,11 @@
     .temp-header {
         background-color: rgba(var(--mainColor),1);
         border: solid 2px rgba(255,255,255,1);
+        user-select: none;
     }
     .temp-header span {
         font-size: calc(1.75rem + .2vw);
-        letter-spacing: 0.25rem;
+        letter-spacing: 0.2rem;
         line-height: .9;
     }
     .temp-header span + span {
@@ -111,7 +112,7 @@
         top: 0;
         width: 100%;
         height: 100%;
-        background-image: url(images/splash-sm.jpg);
+        background-image: url(images/nsplash.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: 50% 50%;
@@ -150,16 +151,7 @@
             height: auto;
             width: 175px;
             z-index: 20;
-            pointer-events: none;
-        }
-    }
-    
-    @media (max-width: 991.98px) {
-        section.preorder .order-bg {
-            min-height: 20rem;
-            background-image: url(images/meal.jpg);
-            background-size: cover;
-            background-position: 50% 50%;
+            user-select: none;
         }
     }
     
@@ -167,13 +159,7 @@
         section.preorder::before {
             background-attachment: fixed;
             background-size: cover;
-            background-image: url(images/splash.jpg);
-        }
-        section.preorder .order-bg {
-            height: 100%;
-            background-image: url(images/meal.jpg);
-            background-size: cover;
-            background-position: 50% 50%;
+            background-image: url(images/nsplash.jpg);
         }
         .gobble {
             left: calc(1rem + 2vw);
@@ -200,7 +186,7 @@
             <div class="min-vh-100 d-flex flex-column justify-content-center align-items-center py-5">
                 <div class="row justify-content-center">
                     <div class="col-12 col-sm-10 col-md-11 col-xl-12">
-                        <div class="d-flex flex-column align-items-center justify-content-center p-3 temp-header">
+                        <div class="d-flex flex-column align-items-center justify-content-center p-3 py-lg-4 temp-header">
                             <span class="text-accentcolor custom-font font-bolder">Moor Farm</span>
                             <span class="text-accentcolor custom-font">Newborough</span>
                         </div>
@@ -209,7 +195,7 @@
                                 <div class="col-12 text-center text-md-left">
                                     <p class="mb-0 px-lg-1 px-xl-2 lead font-bolder">We are now taking orders for Christmas turkeys* and meat hampers. Please order now to avoid disappointment.</p>
                                     <p class="mb-4 px-lg-1 px-xl-2 lead">Please enter your details into the spaces below. Once your order has been received, you will receive an order number and confirmation via email.</p>
-                                    <hr class="mb-4 mx-lg-1 mx-xl-2 bg-maincolor">
+                                    <hr class="mb-4 mx-lg-1 mx-xl-2">
                                     <form class="m-0 w-100 preorder-form" method="" id="preOrderForm" validate>
                                         <div class="row justify-content-md-end">
                                             <div class="col-12 col-md-6 px-lg-3 px-xl-4">
@@ -217,9 +203,9 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="row">
-                                                            <div class="col-12 mb-3">
+                                                            <div class="col-12 col-md-auto mb-3">
                                                                 <label class="mb-1 font-bolder" for="deposit">Deposit</label>
-                                                                <input class="form-control w-50" type="text" placeholder="&pound;5.00" name="deposit" disabled>
+                                                                <input class="form-control w-100" type="text" placeholder="&pound;5.00" name="deposit" disabled>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -322,7 +308,8 @@
         </div>
     </section>
     
-    <div class="gobble"></div>
+    <a class="gobble" href="javascript:playSound('turkey')"></a>
+    <audio id="turkey" src="images/gobble.mp3" preload="auto"></audio>
     
     <footer>
         <div class="container-xl mx-auto">
@@ -342,6 +329,10 @@
     </footer>
 
     <script>
+
+        function playSound(turkey) {
+            document.getElementById(turkey).play();
+        };
 
         $(function() {
 
