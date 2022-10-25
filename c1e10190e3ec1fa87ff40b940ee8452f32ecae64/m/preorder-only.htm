@@ -308,8 +308,8 @@
         </div>
     </section>
     
-    <a class="gobble" href="javascript:playSound('turkey')"></a>
-    <audio id="turkey" src="images/gobble.mp3" preload="auto"></audio>
+    <div class="gobble"></div>
+    <audio src="images/gobble.mp3" preload="auto" id="gobbleGobble"></audio>
     
     <footer>
         <div class="container-xl mx-auto">
@@ -330,11 +330,11 @@
 
     <script>
 
-        function playSound(turkey) {
-            document.getElementById(turkey).play();
-        };
-
         $(function() {
+            
+            $('.gobble').click(function() {
+                $('#gobbleGobble').play();
+            });
 
             $('#preOrderForm .payment-wrapper input').focus(function() {
                 $('#preOrderForm .payment-wrapper').addClass('active');
