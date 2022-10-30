@@ -1,0 +1,325 @@
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/_variables.scss';
+
+// brand fonts
+@font-face {
+    font-family: 'Gilroy Regular';
+    font-weight: 400 !important;
+    src: url("../fonts/gilroy/gilroy-regular/gilroy-regular-webfont.woff2") format('woff2');
+}
+@font-face {
+    font-family: 'Gilroy Medium';
+    font-weight: 500 !important;
+    src: url("../fonts/gilroy/gilroy-medium/gilroy-medium-webfont.woff2") format('woff2');
+}
+@font-face {
+    font-family: 'Gilroy Semibold';
+    font-weight: 600 !important;
+    src: url("../fonts/gilroy/gilroy-semibold/gilroy-semibold-webfont.woff2") format('woff2');
+}
+@font-face {
+    font-family: 'Gilroy Bold';
+    font-weight: 800 !important;
+    src: url("../fonts/gilroy/gilroy-bold/gilroy-bold-webfont.woff2") format('woff2');
+}
+$brand-font-normal: 'Gilroy Regular';
+$brand-font-medium: 'Gilroy Medium';
+//$brand-font-medium-italic: 'Helvetica', serif;
+$brand-font-semibold: 'Gilroy Semibold';
+$brand-font-bold: 'Gilroy Bold';
+
+// brand backrounds
+$brand-main-logo: url('../images/ID__Pentana Audit.svg');
+$brand-cubes-background: url('../images/cubes.svg');
+$brand-page-background: url('../images/page-background-cubes.svg');
+
+// brand colours
+$brand-primary: #d510a7;
+$brand-secondary: #2a7e8f;
+$brand-tertiary: #304050;
+
+// project theme overrides
+$body-bg: $white;
+$body-color: $brand-tertiary;
+$font-family-base: $brand-font-normal;
+$font-size-base: 1rem;
+$font-weight-base: 400;
+$font-style-base: normal;
+$headings-font-family: $brand-font-bold;
+$headings-margin-bottom: $spacer;
+$h1-font-size: calc($font-size-base * 2.5 + 1vw);
+$h2-font-size: calc($font-size-base * 1.75 + .75vw);
+$h3-font-size: calc($font-size-base * 1.75 + .5vw);
+$h4-font-size: calc($font-size-base * 1.5 + .25vw);
+$input-border-radius: $border-radius * 1.5;
+$btn-border-radius: $border-radius * 1.5;
+$blockquote-small-color: $gray-500;
+$blockquote-font-size: $font-size-base * 1.5;
+$blockquote-small-font-size: $font-size-base;
+$blockquote-box-shadow-sm:	0 .125rem .25rem rgba($brand-primary, .075);
+$blockquote-box-shadow: 0 .5rem 1rem rgba($brand-primary, .15);
+$blockquote-transition-base: all 450ms ease-in-out;
+
+$theme-colors: (
+    "primary": $brand-primary,
+    "secondary": $brand-secondary,
+    "tertiary": $brand-tertiary
+);
+
+// project specifics
+html {
+    scroll-behavior: smooth;
+}
+section {
+    position: relative;
+    overflow: hidden;
+    &::before {
+        content: $brand-page-background;
+        position: absolute;
+        left: -25vh;
+        top: 0;
+        transform: scale(.75);
+        z-index: -2;
+        @media (min-width: map-get($grid-breakpoints, lg)) {
+            transform: scale(.8);
+        }
+    }
+    &::after {
+        content: $brand-page-background;
+        position: absolute;
+        right: -20vh;
+        bottom: -50vh;
+        transform: scale(.75);
+        z-index: -2;
+        @media (min-width: map-get($grid-breakpoints, lg)) {
+            bottom: -60vh;
+            transform: scale(.8);
+        }
+    }
+    div[class*="-wrapper"] {
+        min-height: 100vh;
+        @media (min-width: map-get($grid-breakpoints, sm)) {
+            min-height: auto;
+        }
+    }
+    .branding-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &::before {
+            content: '';
+            position: absolute;
+            left: -50%;
+            right: -50%;
+            bottom: 0;
+            width: auto;
+            height: 100%;
+            background-color: $brand-tertiary;
+            z-index: -1;
+        }
+        .branding-inner {
+            padding: 0 $spacer * 3;
+            color: $white;
+            .main-logo {
+                margin: -$spacer * .375 0 0 -$spacer * .375;
+                user-select: none;
+                @media (min-width: map-get($grid-breakpoints, sm)) {
+                    margin-bottom: $spacer * 1;
+                }
+                @media (min-width: map-get($grid-breakpoints, lg)) {
+                    margin-bottom: $spacer * 1.5;
+                }
+                @media (min-width: map-get($grid-breakpoints, xl)) {
+                    margin-bottom: $spacer * 2;
+                }
+                svg {
+                    width: 100%;
+                    max-width: 500px;
+                    path {
+                        fill: $white;
+                    }
+                    @media (min-width: map-get($grid-breakpoints, sm)) {
+                        width: 80%;
+                    }
+                }
+            }
+            h1 {
+                margin-bottom: 0;
+                line-height: $line-height-base * .75;
+            }
+            @media (min-width: map-get($grid-breakpoints, sm)) {
+                padding: $spacer * 2 $spacer * 2.5;
+            }
+            @media (min-width: map-get($grid-breakpoints, lg)) {
+                flex: 0 0 65%;
+                max-width: 65%;
+            }
+        }
+    }
+    .content-wrapper {
+        position: relative;
+        .content-inner {
+            padding: $spacer * 3;
+            h2 {
+                font-family: $brand-font-bold;
+            }
+            ul {
+                list-style: none;
+                line-height: 2;
+                margin-left: 0;
+                li::before {
+                    content: '\2022';
+                    display: inline-block; 
+                    color: $brand-secondary;
+                    font-family: $brand-font-bold;
+                    width: $spacer;
+                    margin-left: -$spacer;
+                    transform: scale(2);
+                }
+            }
+            @media (min-width: map-get($grid-breakpoints, sm)) {
+                padding: $spacer * 2.5;
+            }
+            @media (min-width: map-get($grid-breakpoints, lg)) {
+                flex: 0 0 66.6666666667%;
+                max-width: 66.6666666667%;
+            }
+        }
+    }
+    .signup-wrapper {
+        background-color: $brand-secondary;
+        .signup-inner {
+            color: $white;
+            padding: $spacer * 3;
+            background-color: $brand-secondary;
+            font-family: $brand-font-normal;
+            p {
+                font-size: $font-size-base * 1.375;
+                margin-bottom: $spacer * 1.5;
+                strong {
+                    font-family: $brand-font-bold;
+                }
+            }
+            form {
+                margin-top: $spacer * .25;
+                font-family: $brand-font-bold;
+                user-select: none;
+                .form-row {
+                    margin-right: -$form-grid-gutter-width * .75;
+                    margin-left: -$form-grid-gutter-width * .75;
+                    > .col,
+                    > [class*="col-"] {
+                        padding-right: $form-grid-gutter-width * .75;
+                        padding-left: $form-grid-gutter-width * .75;
+                    }
+                }
+                .form-group {
+                    margin-bottom: $spacer * 1.25;
+                    .form-control {
+                        color: rgba($body-color, 35%);
+                        border: none;
+                        &[type="text"] {
+                            text-transform: capitalize;
+                        }
+                        &::placeholder {
+                            color: rgba($body-color, 35%);
+                            text-transform: none;
+                        }
+                        &.is-invalid {
+                            color: $form-feedback-invalid-color;
+                            &::placeholder {
+                                color: $form-feedback-invalid-color;
+                            }
+                            &:focus-within {
+                                color: $form-feedback-invalid-color;
+                            }
+                        }
+                        &.is-valid {
+                            color: $body-color;
+                            &::placeholder {
+                                color: $body-color;
+                            }
+                        }
+                        &:focus,
+                        &:focus-within {
+                            color: rgba($body-color, 70%);
+                            outline: solid $border-width * 2 $white;
+                            box-shadow: none;
+                        }
+                    }
+                }
+                button {
+                    font-size: $font-size-base * 1.125;
+                }
+            }
+            @media (min-width: map-get($grid-breakpoints, lg)) {
+                position: absolute; 
+                padding: $spacer * 1.5;
+                top: $spacer * 1.5;
+                right: $spacer * 1.5;
+                border-top-right-radius: $spacer * 3;
+                flex: 0 0 calc(35% - $spacer * 1.5);
+                max-width: calc(35% - $spacer * 1.5);
+            }
+            @media (min-width: map-get($grid-breakpoints, xl)) {
+                border-top-right-radius: $spacer * 4;
+                padding: $spacer * 2;
+                top: $spacer * 2;
+            }
+        }
+    }
+    .testimonial-wrapper {
+        position: relative;
+        .testimonial-inner {
+            padding: $spacer * 3;
+            blockquote {
+                background-color: $white;
+                padding: $spacer * 1.5;
+                border: solid $border-width $gray-300;
+                .quote-photo {
+                    width: 30%;
+                    height: auto;
+                    max-width: 200px;
+                    float: right;
+                    margin-bottom: $spacer * .375;
+                    margin-left: $spacer * .375;
+                    border-radius: 50%;
+                    user-select: none;
+                    @media (min-width: 768px) {
+                        width: 25%;
+                    }
+                }
+                .quote-logo {
+                    width: 100%;
+                    height: auto;
+                    max-width: 100px;
+                    user-select: none;
+                }
+            }
+            @media (min-width: map-get($grid-breakpoints, lg)) {
+                padding: 0 $spacer * 3 $spacer * 3 $spacer * 3;
+                flex: 0 0 66.6666666667%;
+                max-width: 66.6666666667%;
+            }
+        }
+    }
+}
+
+@media (min-width: map-get($grid-breakpoints, xl)) {
+    .container-xl, .container-lg, .container-md, .container-sm, .container {
+        max-width: 1366px !important;
+    }
+}
+
+@mixin selection {
+    ::-moz-selection { @content; }
+    ::selection { @content; }
+}
+@include selection {
+    color: $white;
+    background: rgba($brand-secondary, 75%);
+}
+
+
+@import "../node_modules/bootstrap/scss/bootstrap";
