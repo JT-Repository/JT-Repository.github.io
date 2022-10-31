@@ -470,10 +470,11 @@ section {
     h1 {
         display: block !important;
     }
-    .branding-wrapper > .branding-inner {
-        display: block;
-        height: auto;
-        min-height: 250px;
+    .branding-wrapper {
+        display: block !important;
+        @media (min-width: map-get($grid-breakpoints, lg)) {
+            max-width: $spacer * 8;
+        }
     }
 }
 

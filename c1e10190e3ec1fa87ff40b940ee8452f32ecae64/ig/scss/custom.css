@@ -407,10 +407,13 @@ section .testimonial-wrapper .testimonial-inner blockquote .quote-logo {
   h1 {
     display: block !important;
   }
-  .branding-wrapper > .branding-inner {
-    display: block;
-    height: auto;
-    min-height: 250px;
+  .branding-wrapper {
+    display: block !important;
+  }
+}
+@media (-ms-high-contrast: none) and (min-width: 992px), (-ms-high-contrast: active) and (min-width: 992px) {
+  .branding-wrapper {
+    max-width: 8rem;
   }
 }
 ::-moz-selection {
