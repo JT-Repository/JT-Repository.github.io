@@ -33,7 +33,7 @@ section::before {
   left: -25vh;
   top: 0;
   transform: scale(0.75);
-  z-index: -2;
+  z-index: -1;
 }
 @media (min-width: 992px) {
   section::before {
@@ -46,7 +46,7 @@ section::after {
   right: -20vh;
   bottom: -50vh;
   transform: scale(0.75);
-  z-index: -2;
+  z-index: -1;
 }
 @media (min-width: 992px) {
   section::after {
@@ -58,6 +58,11 @@ section div[class*=-wrapper] {
   min-height: 100vh;
 }
 @media (min-width: 576px) {
+  section div[class*=-wrapper] {
+    min-height: 50vh;
+  }
+}
+@media (min-width: 768px) {
   section div[class*=-wrapper] {
     min-height: auto;
   }
@@ -84,30 +89,14 @@ section .branding-wrapper .branding-inner {
   color: #fff;
 }
 section .branding-wrapper .branding-inner .main-logo {
-  margin: -0.375rem 0 -0.375rem;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-@media (min-width: 576px) {
-  section .branding-wrapper .branding-inner .main-logo {
-    margin-bottom: 1rem;
-  }
-}
-@media (min-width: 992px) {
-  section .branding-wrapper .branding-inner .main-logo {
-    margin-bottom: 1.5rem;
-  }
-}
-@media (min-width: 1200px) {
-  section .branding-wrapper .branding-inner .main-logo {
-    margin-bottom: 2rem;
-  }
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 section .branding-wrapper .branding-inner .main-logo svg {
   width: 100%;
-  max-width: 500px;
+  margin-left: -0.5rem;
 }
 section .branding-wrapper .branding-inner .main-logo svg path {
   fill: #fff;
@@ -115,36 +104,56 @@ section .branding-wrapper .branding-inner .main-logo svg path {
 @media (min-width: 576px) {
   section .branding-wrapper .branding-inner .main-logo svg {
     width: 80%;
+    max-width: 500px;
+    margin-bottom: 1rem;
+  }
+}
+@media (min-width: 992px) {
+  section .branding-wrapper .branding-inner .main-logo svg {
+    margin-bottom: 1.25rem;
   }
 }
 section .branding-wrapper .branding-inner h1 {
   margin-bottom: 0;
-  line-height: 1.125;
+  line-height: 1.275;
 }
 @media (min-width: 576px) {
   section .branding-wrapper .branding-inner {
-    padding: 2rem 2.5rem;
+    padding: 3rem;
+  }
+}
+@media (min-width: 768px) {
+  section .branding-wrapper .branding-inner {
+    padding: 3rem 4rem;
   }
 }
 @media (min-width: 992px) {
   section .branding-wrapper .branding-inner {
+    padding: 2rem 2.5rem;
     flex: 0 0 65%;
     max-width: 65%;
   }
 }
+@media (min-width: 992px) {
+  section .branding-wrapper .branding-inner {
+    padding: 2.5rem;
+  }
+}
 section .content-wrapper {
   position: relative;
+  font-size: 1.05rem;
 }
 section .content-wrapper .content-inner {
-  padding: 3rem;
+  padding: 3rem 2.5rem;
 }
 section .content-wrapper .content-inner h2 {
   font-family: "Gilroy Bold";
 }
 section .content-wrapper .content-inner ul {
   list-style: none;
-  line-height: 2;
+  line-height: 2.25;
   margin-left: 0;
+  margin-bottom: 0;
 }
 section .content-wrapper .content-inner ul li::before {
   content: "•";
@@ -157,13 +166,19 @@ section .content-wrapper .content-inner ul li::before {
 }
 @media (min-width: 576px) {
   section .content-wrapper .content-inner {
-    padding: 2.5rem;
+    padding: 3rem;
+  }
+}
+@media (min-width: 768px) {
+  section .content-wrapper .content-inner {
+    padding: 3rem 4rem;
   }
 }
 @media (min-width: 992px) {
   section .content-wrapper .content-inner {
-    flex: 0 0 66.6666666667%;
-    max-width: 66.6666666667%;
+    padding: 2.5rem;
+    flex: 0 0 65%;
+    max-width: 65%;
   }
 }
 section .signup-wrapper {
@@ -171,7 +186,7 @@ section .signup-wrapper {
 }
 section .signup-wrapper .signup-inner {
   color: #fff;
-  padding: 3rem;
+  padding: 3rem 2.5rem;
   background-color: #2a7e8f;
   font-family: "Gilroy Regular";
 }
@@ -186,9 +201,9 @@ section .signup-wrapper .signup-inner form {
   margin-top: 0.25rem;
   font-family: "Gilroy Bold";
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 section .signup-wrapper .signup-inner form .form-row {
   margin-right: -7.5px;
@@ -204,6 +219,7 @@ section .signup-wrapper .signup-inner form .form-group {
 }
 section .signup-wrapper .signup-inner form .form-group .form-control {
   color: rgba(48, 64, 80, 0.35);
+  height: 2.75rem;
   border: none;
 }
 section .signup-wrapper .signup-inner form .form-group .form-control[type=text] {
@@ -248,37 +264,67 @@ section .signup-wrapper .signup-inner form .form-group .form-control.is-valid:-m
 section .signup-wrapper .signup-inner form .form-group .form-control.is-valid::placeholder {
   color: #304050;
 }
-section .signup-wrapper .signup-inner form .form-group .form-control:focus, section .signup-wrapper .signup-inner form .form-group .form-control:focus-within {
+section .signup-wrapper .signup-inner form .form-group .form-control.is-valid:focus {
+  color: #304050;
+}
+section .signup-wrapper .signup-inner form .form-group .form-control:focus {
   color: rgba(48, 64, 80, 0.7);
-  outline: solid 2px #fff;
-  box-shadow: none;
+  box-shadow: 0 0 0 2px #fff;
 }
 section .signup-wrapper .signup-inner form button {
+  height: 2.75rem;
   font-size: 1.125rem;
+  outline: none;
+}
+section .signup-wrapper .signup-inner form button:focus {
+  box-shadow: 0 0 0 2px #fff !important;
+}
+@media (min-width: 576px) {
+  section .signup-wrapper .signup-inner {
+    padding: 3rem;
+  }
+}
+@media (min-width: 768px) {
+  section .signup-wrapper .signup-inner {
+    padding: 3rem 4rem;
+  }
 }
 @media (min-width: 992px) {
   section .signup-wrapper .signup-inner {
     position: absolute;
     padding: 1.5rem;
-    top: 1.5rem;
+    top: 2rem;
     right: 1.5rem;
-    border-top-right-radius: 3rem;
+    border-radius: 1rem 3rem 1rem 1rem;
     flex: 0 0 calc(35% - 1.5rem);
     max-width: calc(35% - 1.5rem);
+  }
+  section .signup-wrapper .signup-inner:before {
+    content: "";
+    position: absolute;
+    bottom: 1rem;
+    left: 0.75rem;
+    width: 50%;
+    top: 80%;
+    max-width: 19rem;
+    background: #6c757d;
+    z-index: -1;
+    box-shadow: 0 1rem 0.75rem #6c757d;
+    transform: rotate(-3.5deg);
   }
 }
 @media (min-width: 1200px) {
   section .signup-wrapper .signup-inner {
     border-top-right-radius: 4rem;
     padding: 2rem;
-    top: 2rem;
+    top: 2.5rem;
   }
 }
 section .testimonial-wrapper {
   position: relative;
 }
 section .testimonial-wrapper .testimonial-inner {
-  padding: 3rem;
+  padding: 3rem 2.5rem;
 }
 section .testimonial-wrapper .testimonial-inner blockquote {
   background-color: #fff;
@@ -288,15 +334,15 @@ section .testimonial-wrapper .testimonial-inner blockquote {
 section .testimonial-wrapper .testimonial-inner blockquote .quote-photo {
   width: 30%;
   height: auto;
-  max-width: 200px;
+  max-width: 12rem;
   float: right;
-  margin-bottom: 0.375rem;
-  margin-left: 0.375rem;
+  margin-bottom: 0.75rem;
+  margin-left: 0.75rem;
   border-radius: 50%;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 @media (min-width: 768px) {
   section .testimonial-wrapper .testimonial-inner blockquote .quote-photo {
@@ -306,33 +352,48 @@ section .testimonial-wrapper .testimonial-inner blockquote .quote-photo {
 section .testimonial-wrapper .testimonial-inner blockquote .quote-logo {
   width: 100%;
   height: auto;
-  max-width: 100px;
+  max-width: 6rem;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+@media (min-width: 992px) {
+  section .testimonial-wrapper .testimonial-inner blockquote .quote-logo {
+    max-width: 7rem;
+  }
+}
+@media (min-width: 576px) {
+  section .testimonial-wrapper .testimonial-inner {
+    padding: 3rem;
+  }
+}
+@media (min-width: 576px) {
+  section .testimonial-wrapper .testimonial-inner {
+    padding: 3rem 4rem;
+  }
 }
 @media (min-width: 992px) {
   section .testimonial-wrapper .testimonial-inner {
     padding: 0 3rem 3rem 3rem;
-    flex: 0 0 66.6666666667%;
-    max-width: 66.6666666667%;
+    flex: 0 0 65%;
+    max-width: 65%;
   }
 }
 
 @media (min-width: 1200px) {
   .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1366px !important;
+    max-width: 1300px !important;
   }
 }
 ::-moz-selection {
   color: #fff;
-  background: rgba(42, 126, 143, 0.75);
+  background: #2a7e8f;
 }
 
 ::selection {
   color: #fff;
-  background: rgba(42, 126, 143, 0.75);
+  background: #2a7e8f;
 }
 
 /*!
@@ -692,13 +753,13 @@ template {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 1rem;
-  font-family: "Gilroy Bold";
+  font-family: "Gilroy Semibold";
   font-weight: 500;
   line-height: 1.2;
 }
 
 h1, .h1 {
-  font-size: calc(2.5rem + 1vw);
+  font-size: calc(3rem + 0.75vw);
 }
 
 h2, .h2 {
