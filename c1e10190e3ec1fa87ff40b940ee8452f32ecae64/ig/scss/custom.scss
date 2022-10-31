@@ -4,23 +4,43 @@
 // brand fonts files
 @font-face {
     font-family: 'Gilroy Regular';
+    src: url('../fonts/gilroy/gilroy-regular/69bb4ffd823b9943939cb043a8083f41.eot');
+    src: url('../fonts/gilroy/gilroy-regular/69bb4ffd823b9943939cb043a8083f41.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gilroy/gilroy-regular/69bb4ffd823b9943939cb043a8083f41.woff') format('woff'),
+         url('../fonts/gilroy/gilroy-regular/69bb4ffd823b9943939cb043a8083f41.ttf') format('truetype'),
+         url('../fonts/gilroy/gilroy-regular/69bb4ffd823b9943939cb043a8083f41.svg#gilroy_regular') format('svg');
     font-weight: 400 !important;
-    src: url("../fonts/gilroy/gilroy-regular/gilroy-regular-webfont.woff2") format('woff2');
+    font-style: normal;
 }
 @font-face {
     font-family: 'Gilroy Medium';
+    src: url('../fonts/gilroy/gilroy-medium/e7d68399d8222d33f8fa233d978bc119.eot');
+    src: url('../fonts/gilroy/gilroy-medium/e7d68399d8222d33f8fa233d978bc119.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gilroy/gilroy-medium/e7d68399d8222d33f8fa233d978bc119.woff') format('woff'),
+         url('../fonts/gilroy/gilroy-medium/e7d68399d8222d33f8fa233d978bc119.ttf') format('truetype'),
+         url('../fonts/gilroy/gilroy-medium/e7d68399d8222d33f8fa233d978bc119.svg#gilroy_medium') format('svg');
     font-weight: 500 !important;
-    src: url("../fonts/gilroy/gilroy-medium/gilroy-medium-webfont.woff2") format('woff2');
+    font-style: normal;
 }
 @font-face {
     font-family: 'Gilroy Semibold';
+    src: url('../fonts/gilroy/gilroy-semibold/1dc2a858e4dc869e73a75173b410c0b2.eot');
+    src: url('../fonts/gilroy/gilroy-semibold/1dc2a858e4dc869e73a75173b410c0b2.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gilroy/gilroy-semibold/1dc2a858e4dc869e73a75173b410c0b2.woff') format('woff'),
+         url('../fonts/gilroy/gilroy-semibold/1dc2a858e4dc869e73a75173b410c0b2.ttf') format('truetype'),
+         url('../fonts/gilroy/gilroy-semibold/1dc2a858e4dc869e73a75173b410c0b2.svg#gilroy_semibold') format('svg');
     font-weight: 600 !important;
-    src: url("../fonts/gilroy/gilroy-semibold/gilroy-semibold-webfont.woff2") format('woff2');
+    font-style: normal;
 }
 @font-face {
     font-family: 'Gilroy Bold';
+    src: url('../fonts/gilroy/gilroy-bold/6af95b0d3e0e81f302805de0137e7379.eot');
+    src: url('../fonts/gilroy/gilroy-bold/6af95b0d3e0e81f302805de0137e7379.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gilroy/gilroy-bold/6af95b0d3e0e81f302805de0137e7379.woff') format('woff'),
+         url('../fonts/gilroy/gilroy-bold/6af95b0d3e0e81f302805de0137e7379.ttf') format('truetype'),
+         url('../fonts/gilroy/gilroy-bold/6af95b0d3e0e81f302805de0137e7379.svg#gilroy_bold') format('svg');
     font-weight: 800 !important;
-    src: url("../fonts/gilroy/gilroy-bold/gilroy-bold-webfont.woff2") format('woff2');
+    font-style: normal;
 }
 
 //brand fonts
@@ -46,7 +66,7 @@ $font-family-base: $brand-font-normal;
 $font-size-base: 1rem;
 $headings-font-family: $brand-font-semibold;
 $headings-margin-bottom: $spacer;
-$h1-font-size: calc($font-size-base * 2.75 + 1vw);
+$h1-font-size: calc($font-size-base * 2.5 + 1.25vw);
 $h2-font-size: calc($font-size-base * 1.75 + .75vw);
 $h3-font-size: calc($font-size-base * 1.75 + .5vw);
 $h4-font-size: calc($font-size-base * 1.5 + .25vw);
@@ -432,6 +452,16 @@ section {
 @media (min-width: map-get($grid-breakpoints, xl)) {
     .container-xl, .container-lg, .container-md, .container-sm, .container {
         max-width: 1300px !important;
+    }
+}
+
+// ie11 fixes
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .typing {
+        display: none !important;
+    }
+    h1 {
+        display: block !important;
     }
 }
 
