@@ -475,9 +475,6 @@ section {
         .branding-inner {
             display: block !important;
             max-width: 65%;
-            @media (min-width: map-get($grid-breakpoints, lg)) {
-                max-width: $spacer * 8;
-            }
         }
     }
 }
