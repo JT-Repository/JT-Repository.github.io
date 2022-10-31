@@ -457,6 +457,12 @@ section {
 
 // ie11 fixes
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    section {
+        &::before,
+        &::after {
+            z-index: -3 !important;
+        }
+    }
     #sentinel,
     .typing {
         display: none !important;
