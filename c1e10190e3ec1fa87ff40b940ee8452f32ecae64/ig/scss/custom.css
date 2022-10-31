@@ -397,7 +397,8 @@ section .testimonial-wrapper .testimonial-inner blockquote .quote-logo {
   }
 }
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  .typing {
+  #sentinel,
+.typing {
     display: none !important;
   }
   h1 {
