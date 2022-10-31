@@ -149,23 +149,23 @@ section {
             padding-right: $spacer * 3;
             color: $white;
             .main-logo {
+                width: 100%;
                 -webkit-user-select: none;
                    -moz-user-select: none;
                     -ms-user-select: none;
                         user-select: none;
+                @media (min-width: map-get($grid-breakpoints, sm)) {
+                    width: 80%;
+                    max-width: $spacer * 31.25;
+                    margin-bottom: $spacer * 1;
+                }
+                @media (min-width: map-get($grid-breakpoints, lg)) {
+                    margin-bottom: $spacer * 1.25;
+                }
                 svg {
-                    width: 100%;
                     margin-left: -$spacer * .5;
                     path {
                         fill: $white;
-                    }
-                    @media (min-width: map-get($grid-breakpoints, sm)) {
-                        width: 80%;
-                        max-width: $spacer * 31.25;
-                        margin-bottom: $spacer * 1;
-                    }
-                    @media (min-width: map-get($grid-breakpoints, lg)) {
-                        margin-bottom: $spacer * 1.25;
                     }
                 }
             }

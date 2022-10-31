@@ -91,29 +91,29 @@ section .branding-wrapper .branding-inner {
   color: #fff;
 }
 section .branding-wrapper .branding-inner .main-logo {
+  width: 100%;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
-section .branding-wrapper .branding-inner .main-logo svg {
-  width: 100%;
-  margin-left: -0.5rem;
-}
-section .branding-wrapper .branding-inner .main-logo svg path {
-  fill: #fff;
-}
 @media (min-width: 576px) {
-  section .branding-wrapper .branding-inner .main-logo svg {
+  section .branding-wrapper .branding-inner .main-logo {
     width: 80%;
     max-width: 31.25rem;
     margin-bottom: 1rem;
   }
 }
 @media (min-width: 992px) {
-  section .branding-wrapper .branding-inner .main-logo svg {
+  section .branding-wrapper .branding-inner .main-logo {
     margin-bottom: 1.25rem;
   }
+}
+section .branding-wrapper .branding-inner .main-logo svg {
+  margin-left: -0.5rem;
+}
+section .branding-wrapper .branding-inner .main-logo svg path {
+  fill: #fff;
 }
 section .branding-wrapper .branding-inner h1 {
   margin-bottom: 0;
