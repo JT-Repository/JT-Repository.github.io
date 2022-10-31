@@ -91,6 +91,7 @@ section .branding-wrapper .branding-inner {
   color: #fff;
 }
 section .branding-wrapper .branding-inner .main-logo {
+  display: block;
   width: 100%;
   -webkit-user-select: none;
   -moz-user-select: none;
