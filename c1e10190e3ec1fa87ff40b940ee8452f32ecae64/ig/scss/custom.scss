@@ -46,11 +46,11 @@ $font-family-base: $brand-font-normal;
 $font-size-base: 1rem;
 $headings-font-family: $brand-font-semibold;
 $headings-margin-bottom: $spacer;
-$h1-font-size: calc($font-size-base * 3 + .75vw);
+$h1-font-size: calc($font-size-base * 2.75 + 1vw);
 $h2-font-size: calc($font-size-base * 1.75 + .75vw);
 $h3-font-size: calc($font-size-base * 1.75 + .5vw);
 $h4-font-size: calc($font-size-base * 1.5 + .25vw);
-$input-border-radius: $border-radius * 1.5;
+$input-border-radius: $border-radius * 2.5;
 $btn-border-radius: $input-border-radius;
 $blockquote-font-size: $font-size-base * 1.5;
 $blockquote-small-font-size: $font-size-base;
@@ -69,14 +69,13 @@ html {
 section {
     position: relative;
     overflow: hidden;
-    &::before {
+    &::before,
+    &::after {
         content: $brand-page-background;
         position: absolute;
-        left: -25vh;
-        top: 0;
         -webkit-transform: scale(.75);
-            -ms-transform: scale(.75);
-                transform: scale(.75);
+        -ms-transform: scale(.75);
+            transform: scale(.75);
         z-index: -1;
         @media (min-width: map-get($grid-breakpoints, lg)) {
             -webkit-transform: scale(.8);
@@ -84,21 +83,14 @@ section {
                     transform: scale(.8);
         }
     }
+    &::before {
+        top: 0;
+        left: -25vw;
+        mix-blend-mode: multiply;
+    }
     &::after {
-        content: $brand-page-background;
-        position: absolute;
-        right: -20vh;
+        right: -15vw;
         bottom: -50vh;
-        -webkit-transform: scale(.75);
-            -ms-transform: scale(.75);
-                transform: scale(.75);
-        z-index: -1;
-        @media (min-width: map-get($grid-breakpoints, lg)) {
-            bottom: -60vh;
-            -webkit-transform: scale(.8);
-                -ms-transform: scale(.8);
-                    transform: scale(.8);
-        }
     }
     div[class*="-wrapper"] {
         min-height: 100vh;
@@ -130,10 +122,11 @@ section {
             width: auto;
             height: 100%;
             background-color: $brand-tertiary;
-            z-index: -1;
+            z-index: -2;
         }
         .branding-inner {
-            padding: 0 $spacer * 3;
+            padding-left: $spacer * 3;
+            padding-right: $spacer * 3;
             color: $white;
             .main-logo {
                 -webkit-user-select: none;
@@ -148,7 +141,7 @@ section {
                     }
                     @media (min-width: map-get($grid-breakpoints, sm)) {
                         width: 80%;
-                        max-width: 500px;
+                        max-width: $spacer * 31.25;
                         margin-bottom: $spacer * 1;
                     }
                     @media (min-width: map-get($grid-breakpoints, lg)) {
@@ -158,7 +151,7 @@ section {
             }
             h1 {
                 margin-bottom: 0;
-                line-height: $line-height-base * .85;
+                line-height: $line-height-base * .75;
             }
             @media (min-width: map-get($grid-breakpoints, sm)) {
                 padding: $spacer * 3;
@@ -181,6 +174,7 @@ section {
     .content-wrapper {
         position: relative;
         font-size: $font-size-base * 1.05;
+        border-top: solid $border-width * 2 $brand-tertiary;
         .content-inner {
             padding: $spacer * 3 $spacer * 2.5;
             h2 {
@@ -188,9 +182,11 @@ section {
             }
             ul {
                 list-style: none;
-                line-height: $line-height-base * 1.5;
                 margin-left: 0;
                 margin-bottom: 0;
+                li {
+                    margin-bottom: $spacer;
+                }
                 li::before {
                     content: '\2022';
                     display: inline-block; 
@@ -217,6 +213,9 @@ section {
                 max-width: 65%;
             }
         }
+        @media (min-width: map-get($grid-breakpoints, lg)) {
+            border-top: none;
+        }
     }
     .signup-wrapper {
         background-color: $brand-secondary;
@@ -229,7 +228,7 @@ section {
                 font-size: $font-size-base * 1.375;
                 margin-bottom: $spacer * 1.5;
                 strong {
-                    font-family: $brand-font-bold;
+                    font-family: $brand-font-semibold;
                 }
             }
             form {
@@ -352,7 +351,7 @@ section {
                     -ms-flex: 0 0 calc(35% - $spacer * 1.5);
                         flex: 0 0 calc(35% - $spacer * 1.5);
                 max-width: calc(35% - $spacer * 1.5);
-                &:before {
+                &::before {
                     content: '';
                     position: absolute;
                     bottom: $spacer;
@@ -385,12 +384,11 @@ section {
                 padding: $spacer * 1.5;
                 border: solid $border-width $gray-300;
                 .quote-photo {
-                    width: 30%;
+                    width: 35%;
                     height: auto;
                     max-width: $spacer * 12;
                     float: right;
-                    margin-bottom: $spacer * .75;
-                    margin-left: $spacer * .75;
+                    margin: $spacer * .5 0 $spacer * .5 $spacer * .5;
                     border-radius: 50%;
                     -webkit-user-select: none;
                        -moz-user-select: none;
@@ -403,13 +401,14 @@ section {
                 .quote-logo {
                     width: 100%;
                     height: auto;
-                    max-width: $spacer * 6;
+                    max-width: $spacer * 8;
+                    margin-bottom: $spacer * .5;
                     -webkit-user-select: none;
                        -moz-user-select: none;
                         -ms-user-select: none;
                             user-select: none;
                     @media (min-width: map-get($grid-breakpoints, lg)) {
-                        max-width: $spacer * 7;
+                        max-width: $spacer * 8;
                     }
                 }
             }
