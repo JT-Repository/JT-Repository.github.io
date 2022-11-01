@@ -463,13 +463,6 @@ section {
         &::after {
             z-index: -3 !important;
         }
-        #sentinel,
-        .typing {
-            display: none !important;
-        }
-        h1 {
-            display: block !important;
-        }
         @media (min-width: map-get($grid-breakpoints, lg)) {
             .branding-wrapper {
                 display: block !important;
