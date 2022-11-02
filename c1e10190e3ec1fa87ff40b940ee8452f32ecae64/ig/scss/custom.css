@@ -31,66 +31,73 @@ html {
   scroll-behavior: smooth;
 }
 
-section {
+.project {
   position: relative;
   overflow: hidden;
 }
-section::before, section::after {
+.project::before, .project::after {
   content: url("../images/page-background-cubes.svg");
   position: absolute;
   transform: scale(0.75);
   z-index: -1;
 }
 @media (min-width: 992px) {
-  section::before, section::after {
+  .project::before, .project::after {
     transform: scale(0.8);
   }
 }
-section::before {
+.project::before {
   top: 0;
   left: -25vw;
   mix-blend-mode: multiply;
 }
-section::after {
+.project::after {
   right: -15vw;
   bottom: -50vh;
 }
-section div[class*=-wrapper] {
+.project .branding,
+.project .content,
+.project .signup,
+.project .testimonials {
   min-height: 100vh;
 }
 @media (min-width: 576px) {
-  section div[class*=-wrapper] {
+  .project .branding,
+.project .content,
+.project .signup,
+.project .testimonials {
     min-height: 50vh;
   }
 }
 @media (min-width: 768px) {
-  section div[class*=-wrapper] {
+  .project .branding,
+.project .content,
+.project .signup,
+.project .testimonials {
     min-height: auto;
   }
 }
-section .branding-wrapper {
+.project .branding {
   position: relative;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-section .branding-wrapper::before {
+.project .branding::before {
   content: "";
   position: absolute;
-  left: -50%;
-  right: -50%;
+  left: -100%;
+  right: 0;
   bottom: 0;
-  width: auto;
+  width: 200vw;
   height: 100%;
   background-color: #304050;
   z-index: -2;
 }
-section .branding-wrapper .branding-inner {
-  padding-left: 3rem;
-  padding-right: 3rem;
-  color: #fff;
-}
-section .branding-wrapper .branding-inner .main-logo {
+.project .branding .main-logo {
   display: block;
   width: 100%;
   -webkit-user-select: none;
@@ -99,69 +106,65 @@ section .branding-wrapper .branding-inner .main-logo {
   user-select: none;
 }
 @media (min-width: 576px) {
-  section .branding-wrapper .branding-inner .main-logo {
+  .project .branding .main-logo {
     width: 80%;
     max-width: 31.25rem;
     margin-bottom: 1rem;
   }
 }
 @media (min-width: 992px) {
-  section .branding-wrapper .branding-inner .main-logo {
+  .project .branding .main-logo {
+    margin-bottom: 1rem;
+  }
+}
+@media (min-width: 1200px) {
+  .project .branding .main-logo {
     margin-bottom: 1.25rem;
   }
 }
-section .branding-wrapper .branding-inner .main-logo svg {
+.project .branding .main-logo svg {
   margin-left: -0.5rem;
 }
-section .branding-wrapper .branding-inner .main-logo svg path {
+.project .branding .main-logo svg path {
   fill: #fff;
 }
-section .branding-wrapper .branding-inner h1 {
+.project .branding h1 {
   margin-bottom: 0;
   line-height: 1.125;
 }
 @media (min-width: 576px) {
-  section .branding-wrapper .branding-inner {
+  .project .branding {
     padding: 3rem;
   }
 }
 @media (min-width: 768px) {
-  section .branding-wrapper .branding-inner {
+  .project .branding {
     padding: 3rem 4rem;
   }
 }
 @media (min-width: 992px) {
-  section .branding-wrapper .branding-inner {
-    padding: 2rem 2.5rem;
+  .project .branding {
+    padding: 2.5rem;
     flex: 0 0 65%;
     max-width: 65%;
   }
 }
-@media (min-width: 992px) {
-  section .branding-wrapper .branding-inner {
-    padding: 2.5rem;
-  }
-}
-section .content-wrapper {
-  position: relative;
+.project .content {
   font-size: 1.05rem;
-  border-top: solid 2px #304050;
-}
-section .content-wrapper .content-inner {
   padding: 3rem 2.5rem;
 }
-section .content-wrapper .content-inner h2 {
+.project .content h2 {
   font-family: "Gilroy Bold";
 }
-section .content-wrapper .content-inner ul {
+.project .content ul {
   list-style: none;
   margin-left: 0;
   margin-bottom: 0;
 }
-section .content-wrapper .content-inner ul li {
+.project .content ul li {
   margin-bottom: 1rem;
 }
-section .content-wrapper .content-inner ul li::before {
+.project .content ul li::before {
   content: "•";
   display: inline-block;
   color: #2a7e8f;
@@ -171,44 +174,37 @@ section .content-wrapper .content-inner ul li::before {
   transform: scale(2);
 }
 @media (min-width: 576px) {
-  section .content-wrapper .content-inner {
+  .project .content {
     padding: 3rem;
   }
 }
 @media (min-width: 768px) {
-  section .content-wrapper .content-inner {
+  .project .content {
     padding: 3rem 4rem;
   }
 }
 @media (min-width: 992px) {
-  section .content-wrapper .content-inner {
+  .project .content {
     padding: 2.5rem;
     flex: 0 0 65%;
     max-width: 65%;
   }
 }
-@media (min-width: 992px) {
-  section .content-wrapper {
-    border-top: none;
-  }
-}
-section .signup-wrapper {
-  background-color: #2a7e8f;
-}
-section .signup-wrapper .signup-inner {
+.project .signup {
   color: #fff;
+  background-color: #2a7e8f;
   padding: 3rem 2.5rem;
   background-color: #2a7e8f;
   font-family: "Gilroy Regular";
 }
-section .signup-wrapper .signup-inner p {
+.project .signup p {
   font-size: 1.375rem;
   margin-bottom: 1.5rem;
 }
-section .signup-wrapper .signup-inner p strong {
+.project .signup p strong {
   font-family: "Gilroy Semibold";
 }
-section .signup-wrapper .signup-inner form {
+.project .signup form {
   margin-top: 0.25rem;
   font-family: "Gilroy Bold";
   -webkit-user-select: none;
@@ -216,92 +212,92 @@ section .signup-wrapper .signup-inner form {
   -ms-user-select: none;
   user-select: none;
 }
-section .signup-wrapper .signup-inner form .form-row {
+.project .signup form .form-row {
   margin-right: -7.5px;
   margin-left: -7.5px;
 }
-section .signup-wrapper .signup-inner form .form-row > .col,
-section .signup-wrapper .signup-inner form .form-row > [class*=col-] {
+.project .signup form .form-row > .col,
+.project .signup form .form-row > [class*=col-] {
   padding-right: 7.5px;
   padding-left: 7.5px;
 }
-section .signup-wrapper .signup-inner form .form-group {
+.project .signup form .form-group {
   margin-bottom: 1.25rem;
 }
-section .signup-wrapper .signup-inner form .form-group .form-control {
+.project .signup form .form-group .form-control {
   color: rgba(48, 64, 80, 0.35);
   height: 2.75rem;
   border: none;
 }
-section .signup-wrapper .signup-inner form .form-group .form-control[type=text] {
+.project .signup form .form-group .form-control[type=text] {
   text-transform: capitalize;
 }
-section .signup-wrapper .signup-inner form .form-group .form-control::-moz-placeholder {
+.project .signup form .form-group .form-control::-moz-placeholder {
   color: rgba(48, 64, 80, 0.35);
   text-transform: none;
 }
-section .signup-wrapper .signup-inner form .form-group .form-control:-ms-input-placeholder {
+.project .signup form .form-group .form-control:-ms-input-placeholder {
   color: rgba(48, 64, 80, 0.35);
   text-transform: none;
 }
-section .signup-wrapper .signup-inner form .form-group .form-control::placeholder {
+.project .signup form .form-group .form-control::placeholder {
   color: rgba(48, 64, 80, 0.35);
   text-transform: none;
 }
-section .signup-wrapper .signup-inner form .form-group .form-control.is-invalid {
+.project .signup form .form-group .form-control.is-invalid {
   color: #dc3545;
 }
-section .signup-wrapper .signup-inner form .form-group .form-control.is-invalid::-moz-placeholder {
+.project .signup form .form-group .form-control.is-invalid::-moz-placeholder {
   color: #dc3545;
 }
-section .signup-wrapper .signup-inner form .form-group .form-control.is-invalid:-ms-input-placeholder {
+.project .signup form .form-group .form-control.is-invalid:-ms-input-placeholder {
   color: #dc3545;
 }
-section .signup-wrapper .signup-inner form .form-group .form-control.is-invalid::placeholder {
+.project .signup form .form-group .form-control.is-invalid::placeholder {
   color: #dc3545;
 }
-section .signup-wrapper .signup-inner form .form-group .form-control.is-invalid:focus-within {
+.project .signup form .form-group .form-control.is-invalid:focus-within {
   color: #dc3545;
 }
-section .signup-wrapper .signup-inner form .form-group .form-control.is-valid {
+.project .signup form .form-group .form-control.is-valid {
   color: #304050;
 }
-section .signup-wrapper .signup-inner form .form-group .form-control.is-valid::-moz-placeholder {
+.project .signup form .form-group .form-control.is-valid::-moz-placeholder {
   color: #304050;
 }
-section .signup-wrapper .signup-inner form .form-group .form-control.is-valid:-ms-input-placeholder {
+.project .signup form .form-group .form-control.is-valid:-ms-input-placeholder {
   color: #304050;
 }
-section .signup-wrapper .signup-inner form .form-group .form-control.is-valid::placeholder {
+.project .signup form .form-group .form-control.is-valid::placeholder {
   color: #304050;
 }
-section .signup-wrapper .signup-inner form .form-group .form-control.is-valid:focus {
+.project .signup form .form-group .form-control.is-valid:focus {
   color: #304050;
 }
-section .signup-wrapper .signup-inner form .form-group .form-control:focus {
+.project .signup form .form-group .form-control:focus {
   color: rgba(48, 64, 80, 0.7);
   box-shadow: 0 0 0 2px #fff;
 }
-section .signup-wrapper .signup-inner form button {
+.project .signup form button {
   height: 2.75rem;
   font-size: 1.125rem;
   outline: none;
 }
-section .signup-wrapper .signup-inner form button:focus {
+.project .signup form button:focus {
   box-shadow: 0 0 0 2px #fff !important;
 }
 @media (min-width: 576px) {
-  section .signup-wrapper .signup-inner {
+  .project .signup {
     padding: 3rem;
   }
 }
 @media (min-width: 768px) {
-  section .signup-wrapper .signup-inner {
+  .project .signup {
     padding: 3rem 4rem;
   }
 }
 @media (min-width: 992px) {
-  section .signup-wrapper .signup-inner {
+  .project .signup {
     position: absolute;
     padding: 1.5rem;
     top: 2rem;
@@ -310,7 +306,7 @@ section .signup-wrapper .signup-inner form button:focus {
     flex: 0 0 calc(35% - 1.5rem);
     max-width: calc(35% - 1.5rem);
   }
-  section .signup-wrapper .signup-inner::before {
+  .project .signup::before {
     content: "";
     position: absolute;
     bottom: 1rem;
@@ -325,24 +321,21 @@ section .signup-wrapper .signup-inner form button:focus {
   }
 }
 @media (min-width: 1200px) {
-  section .signup-wrapper .signup-inner {
+  .project .signup {
     border-top-right-radius: 4rem;
     padding: 2rem;
     top: 2.5rem;
   }
 }
-section .testimonial-wrapper {
-  position: relative;
-}
-section .testimonial-wrapper .testimonial-inner {
+.project .testimonials {
   padding: 3rem 2.5rem;
 }
-section .testimonial-wrapper .testimonial-inner blockquote {
+.project .testimonials blockquote {
   background-color: #fff;
   padding: 1.5rem;
   border: solid 1px #dee2e6;
 }
-section .testimonial-wrapper .testimonial-inner blockquote .quote-photo {
+.project .testimonials blockquote .quote-photo {
   width: 35%;
   height: auto;
   max-width: 12rem;
@@ -355,11 +348,11 @@ section .testimonial-wrapper .testimonial-inner blockquote .quote-photo {
   user-select: none;
 }
 @media (min-width: 768px) {
-  section .testimonial-wrapper .testimonial-inner blockquote .quote-photo {
+  .project .testimonials blockquote .quote-photo {
     width: 25%;
   }
 }
-section .testimonial-wrapper .testimonial-inner blockquote .quote-logo {
+.project .testimonials blockquote .quote-logo {
   width: 100%;
   height: auto;
   max-width: 8rem;
@@ -370,22 +363,22 @@ section .testimonial-wrapper .testimonial-inner blockquote .quote-logo {
   user-select: none;
 }
 @media (min-width: 992px) {
-  section .testimonial-wrapper .testimonial-inner blockquote .quote-logo {
+  .project .testimonials blockquote .quote-logo {
     max-width: 8rem;
   }
 }
 @media (min-width: 576px) {
-  section .testimonial-wrapper .testimonial-inner {
+  .project .testimonials {
     padding: 3rem;
   }
 }
 @media (min-width: 576px) {
-  section .testimonial-wrapper .testimonial-inner {
+  .project .testimonials {
     padding: 3rem 4rem;
   }
 }
 @media (min-width: 992px) {
-  section .testimonial-wrapper .testimonial-inner {
+  .project .testimonials {
     padding: 0 3rem 3rem 3rem;
     flex: 0 0 65%;
     max-width: 65%;
@@ -394,7 +387,7 @@ section .testimonial-wrapper .testimonial-inner blockquote .quote-logo {
 
 @media (min-width: 1200px) {
   .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1300px !important;
+    max-width: 1366px !important;
   }
 }
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
