@@ -100,6 +100,7 @@ html {
 .project .branding .main-logo {
   display: block;
   width: 100%;
+  margin-bottom: 2rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
