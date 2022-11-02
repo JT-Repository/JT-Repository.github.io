@@ -405,10 +405,11 @@ html {
                 }
             }
             .quote-logo {
+                display: block;
                 width: 100%;
                 height: auto;
                 max-width: $spacer * 8;
-                margin-bottom: $spacer * .5;
+                margin-top: $spacer * .5;
                 -webkit-user-select: none;
                     -moz-user-select: none;
                     -ms-user-select: none;
