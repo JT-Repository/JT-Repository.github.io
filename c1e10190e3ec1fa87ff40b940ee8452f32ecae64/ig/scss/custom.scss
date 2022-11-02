@@ -137,6 +137,7 @@ html {
         &::before {
             content: '';
             position: absolute;
+            overflow: hidden;
             left: -100%;
             right: 0;
             bottom: 0;
@@ -188,6 +189,13 @@ html {
                     flex: 0 0 65%;
             max-width: 65%;
         }
+        @media (min-width: map-get($grid-breakpoints, xl)) {
+            padding: $spacer * 2.5;
+            -webkit-box-flex: 0;
+                -ms-flex: 0 0 67.5%;
+                    flex: 0 0 67.5%;
+            max-width: 67.5%;
+        }
     }
     .content {
         font-size: $font-size-base * 1.05;
@@ -226,6 +234,13 @@ html {
                 -ms-flex: 0 0 65%;
                     flex: 0 0 65%;
             max-width: 65%;
+        }
+        @media (min-width: map-get($grid-breakpoints, xl)) {
+            padding: $spacer * 2.5;
+            -webkit-box-flex: 0;
+                -ms-flex: 0 0 67.5%;
+                    flex: 0 0 67.5%;
+            max-width: 67.5%;
         }
     }
     .signup {
@@ -368,7 +383,7 @@ html {
                 left: $spacer * .75;
                 width: 50%;
                 top: 80%;
-                max-width: $spacer * 19;
+                max-width: $spacer * 20;
                 background: $gray-600;
                 z-index: -1;
                 -webkit-box-shadow: 0 $spacer $spacer * .75 $gray-600;
@@ -382,6 +397,10 @@ html {
             border-top-right-radius: $spacer * 4;
             padding: $spacer * 2;
             top: $spacer * 2.5;
+            -webkit-box-flex: 0;
+                -ms-flex: 0 0 calc(32.5% - $spacer * 1.5);
+                    flex: 0 0 calc(32.5% - $spacer * 1.5);
+            max-width: calc(32.5% - $spacer * 1.5);
         }
     }
     .testimonials {
@@ -409,12 +428,15 @@ html {
                 display: block;
                 width: 100%;
                 height: auto;
-                max-width: $spacer * 8;
+                max-width: $spacer * 7;
                 margin-top: $spacer * .5;
                 -webkit-user-select: none;
                     -moz-user-select: none;
                     -ms-user-select: none;
                         user-select: none;
+                @media (min-width: map-get($grid-breakpoints, md)) {
+                    max-width: $spacer * 7.5;
+                }     
                 @media (min-width: map-get($grid-breakpoints, lg)) {
                     max-width: $spacer * 8;
                 }
@@ -432,6 +454,12 @@ html {
                 -ms-flex: 0 0 65%;
                     flex: 0 0 65%;
             max-width: 65%;
+        }
+        @media (min-width: map-get($grid-breakpoints, xl)) {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 67.5%;
+                flex: 0 0 67.5%;
+            max-width: 67.5%;
         }
     }
 }
