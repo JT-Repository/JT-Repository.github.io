@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  body {
+    font-family: 'Courier New', Courier, monospace;
+  }
+  h1 {
+    font-size: calc(2.75rem + 1vw);
+    font-weight: 800;
+  }
+  h2 {
+    font-size: calc(2rem + .5vw);
+    font-weight: 800;
+  }
+  h3 {
+    font-size: calc(1.75rem + .5vw);
+    font-weight: 800;
+  }
+  h4 {
+    font-size: calc(1.5rem + .25vw);
+    font-weight: 800;
+  }
+  #wsbSplash h1 + span span {
+    box-decoration-break: clone;
+  }
+  input[type="range"] {
+    /*-webkit-appearance: none;*/
+    height: 8px;
+    background: rgba(255,255,255,0.8) !important;
+    border-radius: 5px;
+    background-image: linear-gradient(rgba(249,115,22,.8), rgba(249, 115 ,22,.9)) !important;
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    -moz-appearance: none;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    cursor: ew-resize;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06) !important;
+    -webkit-transition: background-color .3s ease-in-out;
+    transition: background-color .3s ease-in-out;
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track,
+  input[type="range"]::-moz-range-track,
+  input[type="range"]::-ms-track {
+    -webkit-appearance: none;
+    appearance: none;
+    -moz-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+  }
+
+  div.amplitude-play-pause.amplitude-playing #pause-icon {
+    display: block;
+  }
+  
+  div.amplitude-play-pause.amplitude-paused #pause-icon {
+    display: none;
+  }
+  
+  div.amplitude-play-pause.amplitude-paused #play-icon {
+    display: block;
+  }
+  
+  div.amplitude-play-pause.amplitude-playing #play-icon {
+    display: none;
+  }
+  
+  div.amplitude-shuffle.amplitude-shuffle-on svg path {
+    fill: black;
+  }
+  
+  div.amplitude-repeat-song.amplitude-repeat-song-on svg path {
+    fill: Black;
+  }
+
+  .amplitude-mute.amplitude-muted .unmute {
+    display: block;
+    fill: Black;
+  }
+  .amplitude-mute.amplitude-not-muted .mute {
+    display: block;
+  }
+  .amplitude-mute.amplitude-muted .mute,
+  .amplitude-mute.amplitude-not-muted .unmute {
+    display: none;
+  }
+
+  .main-navigation:not(.menu-shown) {
+    transform: translateY(-100%);
+    transition: all 600ms ease;
+    opacity: 0;
+  }
+  .main-navigation.menu-shown {
+    transform: translateY(0);
+    transition: all 900ms ease;
+    opacity: 1;
+  }
+
+
+
+
+    /* IMAGE PARALLAX */
+    .scrolling-background {
+      position: relative;
+      background-attachment: fixed;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 100vh;
+  }
+  .scrolling-background:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      background: -o-repeating-linear-gradient(right, rgba(var(--custom-dark),1), rgba(var(--custom-dark),1) 2px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 4px);
+      background: repeating-linear-gradient(-90deg, rgba(var(--custom-dark),1), rgba(var(--custom-dark),1) 2px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 4px);
+      z-index: auto;
+  }
+  .scrolling-background .inner {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      margin-top: -2rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      z-index: +1;
+  }
+  .scrolling-background .background-video {
+      height: 100vh;
+      width: 100vw;
+      -o-object-fit: cover;
+        object-fit: cover;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: -1;
+  }
+  .scrolling-background.bg-1 {
+      background-image: url("../src/odyssey-1979.jpg");
+      opacity: .75;
+  }
+  .scrolling-background.bg-2 {
+      background-image: url("../src/warehouse.jpg");
+      opacity: .75;
+  }
+  .scrolling-background.bg-3 {
+      background-image: url("../src/hands.jpeg");
+      opacity: .75;
+  }
+  .scrolling-background.bg-4 {
+      background-image: url("../src/space.jpg");
+      opacity: .75;
+  }
+  .scrolling-background.bg-5 {
+      background-image: url("../src/studio.jpg");
+      opacity: .75;
+  }
+  .scrolling-background.bg-6 {
+      background-image: url("src/warehouse2.jpg");
+  }
+  
+  /* MOBILE FIX */
+  @media only screen and (max-device-width: 1024px) {
+      .scrolling-background {
+          background-attachment: scroll;
+      }
+  }
+
+  .container-custom {
+    max-width: 1280px;
+  }
+  @media screen and (min-width: 1536px) {
+    .container-custom {
+      max-width: 1400px;
+    }
+  }
+
+
+
+
+  ::selection {
+    background-color: rgba(0,0,0,1);
+  }
+  ::-moz-selection {
+    background-color: rgba(0,0,0,1);
+  }
+  x-cloak { display: none; }
+
+}
