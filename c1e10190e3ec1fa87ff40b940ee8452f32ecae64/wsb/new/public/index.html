@@ -8,45 +8,44 @@
 <script src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/amplitudejs@5.2.0/dist/amplitude.js"></script>
 </head>
-<body class="antialiased bg-black text-white">
+<body class="">
 
 	<div x-data="wsbSplash()">
-		<div class="relative w-full z-[100] scrolling-tween" id="wsbSplash">
-			<div class="hidden lg:flex w-full min-h-screen lg:aspect-video bg-black">
+		<div class="wsb-splash" id="wsbSplash">
+			<div class="splash-video">
 				<video class="w-full h-full object-cover" autoplay loop muted poster="https://wesellboxes.net/we_sell_boxes-video-screenshot.jpg" id="splashVideo">
 					<source src="https://wesellboxes.net/we_sell_boxes-background_video.mp4" type="video/mp4">
 				</video>
 			</div>
-			<div class="lg:hidden w-full min-h-screen bg-black bg-center bg-cover" style="background-image: url(https://wesellboxes.net/we_sell_boxes-video-screenshot.jpg);"></div>
-			<div class="absolute left-0 top-0 flex flex-col w-full h-full items-center justify-center text-center overflow-hidden" x-init="root = await (await fetch('wsb.json')).json()" x-data="{ root: [] }">
-				<h1 class="font-extrabold text-orange-500 lg:mix-blend-multiply p-3 select-none" x-text="root.name"></h1>
-				<span class="w-10/12 sm:w-3/4 lg:w-auto text-lg xl:text-xl font-bold -mt-4 -rotate-1">
-					<span class="bg-black p-2 md:px-3 lg:py-3 lg:px-4 xl:px-5 2xl:px-6" x-text="root.title"></span>
+			<div class="splash-poster"></div>
+			<div class="splash-content" x-init="root = await (await fetch('wsb.json')).json()" x-data="{ root: [] }">
+				<h1 class="splash-title" x-text="root.name"></h1>
+				<span class="splash-text-wrapper">
+					<span class="splash-text" x-text="root.title"></span>
 				</span>
 			</div>
 		</div>
 	</div>
 
     <header x-data="wsbMenu()">
-        <div class="fixed top-0 w-full bg-black p-4 lg:py-5 main-navigation" :class="{ 'h-full z-[70]' : menuOpen , 'h-auto z-[90]' : !menuOpen }" id="wsbMenu">
-            <div class="container max-w-screen-xl mx-auto">
-                <nav class="flex flex-wrap flex-row items-center justify-between" @click.away="menuOpen = false">
-					<div class="flex flex-wrap flex-row w-full lg:w-auto items-center justify-between">
-						<span class="font-bold text-xl" x-init="root = await (await fetch('wsb.json')).json()" x-data="{ root: [] }"><span x-text="root.name"></span></span>
-						<button class="lg:hidden inline-flex items-center text-white" type="button" @click="menuOpen = !menuOpen">
+        <div class="wsb-menu" :class="{ 'h-full z-20' : menuOpen , 'h-auto z-40' : !menuOpen }" x-init="root = await (await fetch('wsb.json')).json()" x-data="{ root: [] }" id="wsbMenu">
+            <div class="menu-container">
+                <nav class="menu-nav" @click.away="menuOpen = false">
+					<div class="menu-toggle">
+						<span class="font-bold text-xl" x-text="root.name"></span>
+						<button type="button" @click="menuOpen = !menuOpen">
 							<!--<span class="font-bold text-xl">Menu</span>-->
 							<svg class="w-6 h-6 text-white hover:text-orange-500" viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg">
 								<path d="M1 1h8M1 4h 8M1 7h8" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
 							</svg>
 						</button>
 					</div>
-                    <div class="flex" :class="{ 'flex flex-col' : menuOpen, 'hidden lg:flex' : !menuOpen }" @click="menuOpen = false">
-                        <div class="flex flex-col lg:flex-row justify-start lg:justify-end">
-							<a class="font-bold text-xl hover:text-orange-500 lg:ml-4" href="#wsbAbout" title="About Us">About Us</a>
-                            <a class="font-bold text-xl hover:text-orange-500 lg:ml-4" href="#wsbCatalogue" title="Back Catalogue">Back Catalogue</a>
-                            <a class="font-bold text-xl hover:text-orange-500 lg:ml-4" href="#wsbVideos" title="Videos">Videos</a>
-                            <a class="font-bold text-xl hover:text-orange-500 lg:ml-4" href="#wsbSocial" title="Get Involved">Get Involved</a>
-							<!--<a class="font-bold text-xl hover:text-orange-500 lg:ml-4" href="#wsbMerchandise" title="Merchandise">Merchandise</a>-->
+                    <div class="menu" :class="{ 'flex flex-col' : menuOpen, 'hidden lg:flex' : !menuOpen }" @click="menuOpen = false">
+                        <div class="menu-inner">
+							<a class="menu-link" href="#wsbAbout" title="About Us">About Us</a>
+                            <a class="menu-link" href="#wsbCatalogue" title="Back Catalogue">Back Catalogue</a>
+                            <a class="menu-link" href="#wsbVideos" title="Videos">Videos</a>
+                            <a class="menu-link" href="#wsbSocial" title="Get Involved">Get Involved</a>
                         </div>
                     </div>
 
@@ -55,24 +54,19 @@
         </div>
     </header>
 
-	<div x-init="root = await (await fetch('wsb.json')).json()" x-data="{ root: [] }">
-		<div class="container flex flex-col h-full max-w-screen-xl min-h-screen justify-center mx-auto px-6 py-20 scrolling-tween" id="wsbAbout">
-			<h1 class="font-bold text-center mb-10">About Us</h1>
-			<h4 class="text-center" x-text="root.description"></h4>
-		</div>
+	<div class="flex flex-col justify-center h-full scrolling-tween" x-init="root = await (await fetch('wsb.json')).json()" x-data="{ root: [] }" id="wsbAbout">
+		<h1 class="font-bold text-center mb-10">About Us</h1>
+		<h4 class="text-center" x-text="root.description"></h4>
 	</div>
 
-	<div class="scrolling-background bg-5">
+	<div class="scrolling-background bg-bg5">
         <div class="inner"></div>
     </div>
 
 	<div x-data="wsbCatalogue()">
-		<div class="container max-w-screen-xl min-h-screen mx-auto flex-col px-6 py-20 scrolling-tween">
-
+		<div class="scrolling-tween flex-col">
 			<h1 class="w-full text-center pb-6">Back Catalogue</h1>
-
 			<div class="flex flex-nowrap" :class="{ 'md:flex-wrap' : poppedOut }">
-
 				<div class="flex" :class="{ 'md:grow md:w-full' : poppedOut , 'md:mr-8' : !poppedOut }" id="wsbCatalogue">
 					<div x-show="loadingCatalogue">
 						<div class="flex justify-center items-center">
@@ -93,27 +87,20 @@
 						</template>
 					</div>
 				</div>
-
-				<div class="fixed w-full bottom-0 left-0 md:relative md:left-[unset] md:bottom-[unset] md:flex-none md:w-72 xl:w-80 md:pt-6 z-[75] transition duration-1000 delay-500 ease-in player-wrapper" :class="{ 'md:w-0 md:pt-0 z-[101]' : poppedOut }">
-					
-					<div class="bg-orange-500 select-none" :class="{ 'fixed bottom-0 md:right-0 w-full md:w-1/2 lg:w-2/5 xl:w-1/3 h-fit md:h-auto bg-gradient-to-b from-orange-500 to-orange-600' : poppedOut , 'sticky md:top-20' : !poppedOut }" id="wsbPlayer">
-
-						<div class="flex">
-
+				<div class="wsb-player-wrapper" :class="{ 'md:w-0 md:pt-0 z-50' : poppedOut }">
+					<div class="wsb-player" :class="{ 'fixed bottom-0 md:right-0 w-full md:w-1/2 lg:w-2/5 xl:w-1/3 h-fit md:h-auto' : poppedOut , 'sticky md:top-24' : !poppedOut }" id="wsbPlayer">
+						<div class="" :class="{ 'flex-none md:flex' : poppedOut , 'flex md:flex-none' : !poppedOut }">
 							<img class="h-24" :class="{ 'hidden md:flex' : poppedOut , 'md:hidden' : !poppedOut }" data-amplitude-song-info="cover_art_url"/>
-
 							<div class="flex flex-col flex-wrap" :class="{ 'md:flex-row p-10 sm:p-14 md:p-3 lg:px-4 xl:px-5 2xl:px-6' : poppedOut , 'p-4 xl:p-5 2xl:p-6 z-75' : !poppedOut }">
 
-								<div class="absolute top-3 md:top-2 right-3 md:right-2 ml-6">
-									<button class="" @click="poppedOut = !poppedOut">
-										<svg class="w-7 h-7 fill-white hover:fill-black focus:fill-white" :class="{ 'w-8 h-8 sm:w-10 sm:h-10 md:w-6 md:h-6' : poppedOut , 'hidden' : !poppedOut }" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-											<path clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" d="m22 5c0-.478-.379-1-1-1h-18c-.62 0-1 .519-1 1v14c0 .621.52 1 1 1h18c.478 0 1-.379 1-1zm-11.5 13.5h-7v-4h7zm1.5 0v-4.5c0-.478-.379-1-1-1h-7.5v-7.5h17v13zm2.5-8.057v-1.243c0-.414-.336-.75-.75-.75s-.75.336-.75.75v3.05c0 .414.336.75.75.75h3.033c.414 0 .75-.336.75-.75s-.336-.75-.75-.75h-1.218l3.198-3.198c.292-.293.292-.768 0-1.061-.293-.292-.768-.292-1.061 0z"/>
-										</svg>
-										<svg class="w-7 h-7 fill-white hover:fill-black focus:fill-white" :class="{ 'hidden' : poppedOut }" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-											<path clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" d="m22 5c0-.478-.379-1-1-1h-18c-.62 0-1 .519-1 1v14c0 .621.52 1 1 1h18c.478 0 1-.379 1-1zm-6.5 13.5h-12v-10h12zm1.5 0v-10.5c0-.478-.379-1-1-1h-12.5v-1.5h17v13zm-6.518-4.943v1.243c0 .414.336.75.75.75.415 0 .75-.336.75-.75 0-.715 0-2.335 0-3.05 0-.414-.335-.75-.75-.75-.714 0-2.318 0-3.033 0-.414 0-.75.336-.75.75s.336.75.75.75h1.219l-3.198 3.198c-.293.293-.293.768 0 1.061.292.292.767.292 1.06 0z"/>
-										</svg>
-									</button>
-								</div>
+								<button class="player-popout" @click="poppedOut = !poppedOut">
+									<svg class="w-7 h-7 fill-white hover:fill-black focus:fill-white" :class="{ 'w-8 h-8 sm:w-10 sm:h-10 md:w-6 md:h-6' : poppedOut , 'hidden' : !poppedOut }" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+										<path clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" d="m22 5c0-.478-.379-1-1-1h-18c-.62 0-1 .519-1 1v14c0 .621.52 1 1 1h18c.478 0 1-.379 1-1zm-11.5 13.5h-7v-4h7zm1.5 0v-4.5c0-.478-.379-1-1-1h-7.5v-7.5h17v13zm2.5-8.057v-1.243c0-.414-.336-.75-.75-.75s-.75.336-.75.75v3.05c0 .414.336.75.75.75h3.033c.414 0 .75-.336.75-.75s-.336-.75-.75-.75h-1.218l3.198-3.198c.292-.293.292-.768 0-1.061-.293-.292-.768-.292-1.061 0z"/>
+									</svg>
+									<svg class="w-7 h-7 fill-white hover:fill-black focus:fill-white" :class="{ 'hidden' : poppedOut }" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+										<path clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" d="m22 5c0-.478-.379-1-1-1h-18c-.62 0-1 .519-1 1v14c0 .621.52 1 1 1h18c.478 0 1-.379 1-1zm-6.5 13.5h-12v-10h12zm1.5 0v-10.5c0-.478-.379-1-1-1h-12.5v-1.5h17v13zm-6.518-4.943v1.243c0 .414.336.75.75.75.415 0 .75-.336.75-.75 0-.715 0-2.335 0-3.05 0-.414-.335-.75-.75-.75-.714 0-2.318 0-3.033 0-.414 0-.75.336-.75.75s.336.75.75.75h1.219l-3.198 3.198c-.293.293-.293.768 0 1.061.292.292.767.292 1.06 0z"/>
+									</svg>
+								</button>
 
 								<div class="flex w-full" :class="{ 'flex-col md:flex-row' : poppedOut , 'md:flex-col' : !poppedOut }">
 
@@ -187,28 +174,25 @@
 								</div>
 							</div>
 						</div>
-
-						<div class="flex bg-black pt-4" :class="{ 'md:hidden' : poppedOut , 'hidden md:flex' : !poppedOut }">
-							<div class="flex flex-col w-full bg-orange-500 p-4 xl:p-5 2xl:p-6">
-								<span class="font-bold text-black leading-5"><strong>Like this track?</strong></span>
-								<span class="font-bold text-sm leading-5">...you can buy it on Bandcamp</span>
-							</div>
-						</div>
-
-					
-
+						<!--<div class="flex bg-black" :class="{ 'md:hidden' : poppedOut , 'hidden md:flex md:pt-5 lg:pt-6 xl:pt-7 2xl:pt-8' : !poppedOut }">
+							<a class="flex md:flex-col w-full items-center justify-between bg-orange-500 hover:bg-orange-600 py-6 px-10 sm:py-8 sm:px-14 md:p-4 xl:p-5 2xl:p-6 bc-link" href="">
+								<span class="font-bold text-black text-lg leading-3"><strong>Do you like this track?</strong></span>
+								<span class="w-auto font-bold bg-black py-1.5 px-3 md:mt-3 lg:mt-4 xl:mt-5 md:self-end" aria-hidden="true">BUY NOW</span>
+								<span class="hidden bc-url" data-amplitude-song-info="bclink"></span>
+							</a>
+						</div>-->
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="scrolling-background bg-4">
+	<div class="scrolling-background bg-bg4">
         <div class="inner"></div>
     </div>
 
 	<div x-data="wsbVideos()">
-		<div class="container max-w-screen-xl min-h-screen mx-auto px-6 py-20 scrolling-tween" id="wsbVideos">
+		<div class="scrolling-tween" id="wsbVideos">
 			<div x-show="loadingVideos">
 				<div class="flex h-full justify-center items-center">
 					<span class="text-3xl text-white">Loading videos</span>
@@ -231,32 +215,30 @@
 		</div>
 	</div>
 
-	<div class="scrolling-background bg-2">
+	<div class="scrolling-background bg-bg2">
         <div class="inner"></div>
     </div>
 
-	<div class="container max-w-screen-xl min-h-screen mx-auto px-6 py-20 scrolling-tween" id="wsbSocial">
+	<div class="scrolling-tween" id="wsbSocial">
 		<h1 class="font-bold text-center mb-6">Get Involved</h1>
 		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, unde architecto amet alias magni porro est. Sunt voluptatum mollitia, ratione modi officia voluptate nesciunt minima. Expedita vitae ipsa maxime. Quod.</p>
 	</div>
 
-	<div class="scrolling-background bg-1">
+	<div class="scrolling-background bg-bg1">
         <div class="inner"></div>
     </div>
 
-	<div class="container max-w-screen-xl mx-auto px-4 py-5 mb-24 md:mb-0">
-		<div class="flex justify-between">
-			<span class="font-bold">[we sell boxes]</span>
-			<span class="font-bold">&copy; 2022. All rights reserved.</span>
+	<footer>
+		<div class="wsb-footer">
+			<div class="inner">
+				<span class="font-bold lg:order-2">[we sell boxes]</span>
+				<span class="font-bold lg:order-1">&copy; 2022. All rights reserved.</span>
+			</div>
 		</div>
-	</div>
+	</footer>
 
 	<!-- alpine bits -->
 	<script>
-		
-		function wsbSplash() {
-			return {}
-		}
 
 		function wsbMenu() {
 			return {
@@ -310,9 +292,9 @@
 		let options = {
 			threshold: 0
 		}
-		let mainMenu = document.querySelector('.main-navigation');
+		let mainMenu = document.querySelector('.wsb-menu');
 		let mainVideo = document.getElementById('splashVideo');
-		let musicPlayer = document.querySelector('.player-wrapper');
+		let playerWrapper = document.querySelector('.wsb-player-wrapper');
 		function handler (entries, observer) {
 			for (entry of entries) {
 				if (entry.isIntersecting) {
