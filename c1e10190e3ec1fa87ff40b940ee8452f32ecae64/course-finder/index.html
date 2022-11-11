@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tailwind CSS Project</title>
+<title>CourseFinder</title>
 <link rel="stylesheet" href="build/tailwind.css">
 <script src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js" defer></script>
 <style>
@@ -22,7 +22,6 @@
             <path fill="currentColor" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" stroke-width="2" />
         </svg>
     </button>-->
-
     <!--<div x-data="{scrollBackTop: false}" x-cloak>
         <button x-show="scrollBackTop" x-on:scroll.window="scrollBackTop = (window.pageYOffset > window.outerHeight * 0.5) ? true : false" @click.window="window.scrollTo({top: 0, behavior: 'smooth'})"
            aria-label="Back to top" class="fixed bottom-6 right-6 p-4 bg-green-600/30 hover:bg-green-600 hover:shadow-lg z-50 focus:outline-none">
@@ -30,7 +29,7 @@
                 <path fill="currentColor" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" stroke-width="2" />
             </svg>
        </button>
-   </div>-->
+    </div>-->
 
     <!-- MAIN NAV -->
     <header x-data="topMenu()">
@@ -66,113 +65,130 @@
     <!-- SEARCH COMPONENT -->
     <section x-data="searchCourses()">
 
-        <div class="relative w-full px-4 pt-24 lg:pt-10 xl:pt-12 xl:px-6 2xl:px-7"> 
-            <div class="container max-w-screen-xl mx-auto">
-                <div class="flex w-11/12 mx-auto flex-col md:flex-row md:justify-between md:items-center">
-                    <div class="flex w-auto justify-center items-center">
-                        <img class="" src="images/golf-pin.png" alt="">
-                        <span class="relative font-tommy font-extrabold text-3xl xl:text-4xl">CourseFinder</span>
-                    </div>
-                    <form class="flex flex-col sm:flex-row items-center sm:justify-center md:justify-end sm:space-x-2 md:space-x-2.5 lg:space-x-3 xl:space-x-3.5 2xl:space-x-4">
-                        <div class="flex">
-                            <label>
-                                <span class="sr-only">Search by course name</span>
-                                <input class="search-field" type="search" placeholder="Search by course name" id="courseSearch" x-ref="searchField" x-model="search" x-on:click="viewPage(0)" x-on:keydown.window.prevent.slash="viewPage(0), $refs.searchField.focus()" />
-                            </label>
-                        </div>
-                        <div class="flex">
-                            <label>
-                                <span class="sr-only">Search by county</span>
-                                <select class="search-field" x-model="search">
-                                    <option class="truncate">Search by county</option>
-                                    <template x-for="item in countyList" :key="index">
-                                        <option :value="item" x-text="item"></option>
-                                    </template>
-                                </select>
-                            </label>
-                        </div>
-                    </form>
+        <!-- LOGO AND INPUTS -->
+        <div class="container max-w-screen-xl mx-auto px-4 pt-24 lg:pt-10 xl:pt-12 xl:px-6 2xl:px-7">
+            <div class="flex w-11/12 mx-auto flex-col md:flex-row md:justify-between md:items-center">
+                <div class="flex w-auto justify-center items-center">
+                    <img class="" src="images/golf-pin.png" alt="">
+                    <span class="relative font-tommy font-extrabold text-3xl xl:text-4xl">CourseFinder</span>
                 </div>
+                <form class="flex flex-col sm:flex-row items-center sm:justify-center md:justify-end sm:space-x-2 md:space-x-2.5 lg:space-x-3 xl:space-x-3.5 2xl:space-x-4">
+                    <div class="flex">
+                        <label>
+                            <span class="sr-only">Search by course name</span>
+                            <input class="search-field" type="search" placeholder="Search by course name" id="courseSearch" x-ref="searchField" x-model="search" x-on:click="viewPage(0)" x-on:keydown.window.prevent.slash="viewPage(0), $refs.searchField.focus()" />
+                        </label>
+                    </div>
+                    <div class="flex">
+                        <label>
+                            <span class="sr-only">Search by county</span>
+                            <select class="search-field" x-model="search">
+                                <option class="truncate">Search by county</option>
+                                <template x-for="item in countyList" :key="index">
+                                    <option :value="item" x-text="item"></option>
+                                </template>
+                            </select>
+                        </label>
+                    </div>
+                </form>
             </div>
         </div>
 
         <!-- PRELOADER -->
         <div x-show="loadingCourses">
             <div class="flex justify-center items-center h-96">
-                <div class="font-tommy font-extrabold text-lg md:text-xl lg:text-2xl xl:text-3xl text-green-600">
-                    Loading courses ...
-                </div>
+                <div class="font-tommy font-extrabold text-lg md:text-xl lg:text-2xl xl:text-3xl text-green-600">Loading courses ...</div>
             </div>
         </div>
 
-        <div class="px-4 lg:px-5 xl:px-6 2xl:px-7">
-            <div class="container max-w-screen-xl mx-auto">
-                <!-- SEARCH RESULTS -->
-                <div class="flex flex-col">
-                    <!-- RESULTS MESSAGING -->
-                    <div class="w-11/12 mx-auto mb-6 lg:mb-8 mt-4 md:mt-1 xl:mt-1.5 md:pr-3.5 z-10 opacity-0" :class="{ 'opacity-100' : !loadingCourses }">
-                        <div class="flex justify-center md:justify-end items-center">
-                            <div class="text-center" x-show="total > 0">
-                                <span x-show="search">
-                                    <span>Displaying </span>
-                                    <span class="font-bold" x-text="endResults()" x-show="total > 1"></span>
-                                    <span x-show="total > 1">of </span>
-                                </span>
-                                <span class="font-bold" x-text="total"></span>
-                                <span>course<span x-show="total > 1">s</span><span x-show="!search">.</span></span>
-                                <span x-show="search">for </span>
-                                <span class="inline-block font-bold text-nowrap" x-show="search" x-text="search"></span>
-                                <span x-show="!search">Please refine your search above.</span>
-                            </div>
-                            <div class="text-zinc-500 opacity-0" :class="{ 'opacity-100 my-6 xl:mb-8' : total==0 }" x-show="total==0">
-                                <p>There are no courses listed for <span class="font-bold" x-text="search"></span>. Please search again.</p>
-                            </div>
+        <div class="container max-w-screen-xl mx-auto px-4 xl:px-6 2xl:px-7">
+            <!-- SEARCH RESULTS -->
+            <div class="flex flex-col">
+                <!-- RESULTS MESSAGING -->
+                <div class="w-11/12 mx-auto mb-6 lg:mb-8 mt-4 md:mt-1 xl:mt-1.5 md:pr-3.5 z-10 opacity-0" :class="{ 'opacity-100' : !loadingCourses }">
+                    <div class="flex justify-center md:justify-end items-center">
+                        <div class="text-center" x-show="total > 0">
+                            <span x-show="search">
+                                <span>Displaying </span>
+                                <span class="font-bold" x-text="endResults()" x-show="total > 1"></span>
+                                <span x-show="total > 1">of </span>
+                            </span>
+                            <span class="font-bold" x-text="total"></span>
+                            <span>course<span x-show="total > 1">s</span><span x-show="!search">.</span></span>
+                            <span x-show="search">for </span>
+                            <span class="inline-block font-bold text-nowrap" x-show="search" x-text="search"></span>
+                            <span x-show="!search">Please refine your search above.</span>
+                        </div>
+                        <div class="text-zinc-500 opacity-0" :class="{ 'opacity-100 my-6 xl:mb-8' : total==0 }" x-show="total==0">
+                            <p>There are no courses listed for <span class="font-bold" x-text="search"></span>. Please search again.</p>
                         </div>
                     </div>
-                    <!-- COURSES -->
-                    <div class="w-11/12 mx-auto mb-10 lg:mb-12" :class="{ 'hidden' : total==0 }" x-show="!loadingCourses">
-                        <!--<div class="absolute bg-white bg-opacity-90 w-full h-full z-10" :class="{ 'hidden' : search }"></div>-->
-                        <div class="flex flex-col border-t border-zinc-200">
-                            <template x-for="item in getSearchResults" :key="item.id">
-                                <div x-data="{ cardOpen: false }">
-                                    <div class="relative py-2 xl:py-2.5 border-b border-zinc-200" :class="{ '-mx-2 md:-mx-3 px-5 lg:px-6 border-0 outline outline-2 outline-yellow-500 transition-colors ease-in duration-500' : cardOpen }">
-                                        
-                                        <span class="absolute inline-block w-fit h-fit top-5 xl:top-6 right-5 lg:right-6 xl:right-7 text-zinc-300 hover:text-yellow-500 z-10 cursor-pointer" :class="{ 'hidden' : !cardOpen }">
-                                            <svg class="w-4 h-4 lg:w-5 lg:h-5" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z" />
-                                            </svg>
-                                        </span>
-
-                                        <button class="flex w-auto font-tommy font-bold cursor-pointer text-xl lg:text-2xl hover:text-green-600 hover:text-yellow-500 active:text-yellow-500 focus:outline-0" :class="{ 'mt-2 lg:mt-3 text-green-600' : cardOpen }" @click="cardOpen = true" x-text="item.title"></button>
-
-                                        <div x-show="cardOpen" @click.outside="cardOpen = false">
-                                            
-                                            <div class="flex flex-col pb-1.5">
+                </div>
+                <!-- COURSES -->
+                <div class="w-11/12 mx-auto mb-10 lg:mb-12" :class="{ 'hidden' : total==0 }" x-show="!loadingCourses">
+                    <!--<div class="absolute bg-white bg-opacity-90 w-full h-full z-10" :class="{ 'hidden' : search }"></div>-->
+                    <div class="flex flex-col border-t border-zinc-200">
+                        <template x-for="item in getSearchResults" :key="item.id">
+                            <div x-data="{ cardOpen: false }">
+                                <div class="relative py-2.5 xl:py-3 border-b border-zinc-200 select-none" :class="{ '-mx-2 md:-mx-3 px-5 lg:px-6 border-0 outline outline-2 outline-yellow-500 transition-colors ease-in duration-500 rounded' : cardOpen }">
+                                    
+                                    <span class="absolute inline-block w-fit h-fit top-5 lg:top-6 xl:top-7 right-5 lg:right-6 xl:right-7 z-10 cursor-pointer" :class="{ 'hidden' : !cardOpen }">
+                                        <svg class="w-4 h-4 lg:w-5 lg:h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path class="fill-zinc-200 hover:fill-yellow-500" d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/>
+                                        </svg>
+                                    </span>
+                                    <button class="flex w-auto font-tommy font-bold cursor-pointer text-xl lg:text-2xl hover:text-green-600 hover:text-yellow-500 active:text-yellow-500 focus:outline-0" :class="{ 'mt-2 lg:mt-3 text-green-600' : cardOpen }" @click="cardOpen = true" x-text="item.title"></button>
+                                    <div x-show="cardOpen" @click.outside="cardOpen = false">
+                                        <div class="flex flex-col md:flex-row">
+                                            <div class="w-full">
                                                 <p><span x-text="item.location.address"></span>, <span x-text="item.location.town"></span>, <span x-text="item.location.county"></span></p>
-                                                <p class="mb-10" x-text="item.description"></p>
+                                                <a class="text-green-600 hover:text-yellow-500 underline cursor-pointer" x-text="item.url"></a>
+                                            </div>
+                                            <div class="flex flex-row md:flex-col lg:flex-row w-fit md:justify-end lg:items-end mt-3 mb-1 md:mb-0 lg:m-0">
+                                                <span class="flex md:w-full lg:w-auto items-center justify-end">
+                                                    <span class="font-extrabold text-sm">SLOPE&nbsp;RATING</span>
+                                                    <span class="font-tommy bg-green-600 text-sm text-white ml-2 p-1 rounded" x-text="item.slope_rating"></span>
+                                                </span>
+                                                <span class="flex md:w-full lg:w-auto items-center justify-end md:mt-2 ml-5 md:ml-0 lg:ml-5 xl:ml-6">
+                                                    <span class="font-extrabold text-sm">COURSE&nbsp;RATING</span>
+                                                    <span class="font-tommy bg-green-600 text-sm text-white ml-2 p-1 rounded" x-text="item.rating"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex flex-col md:flex-row lg:pb-3 pt-3 mt-2 lg:mt-3 border-t border-gray-300">
+                                            <div class="w-full md:w-1/2 lg:w-3/5">
+                                                <p class="mb-3" x-text="item.description"></p>
+                                            </div>
+                                            <div class="w-full md:w-1/2 lg:w-2/5 md:ml-5 lg:ml-6 xl:ml-8">
+                                                <img class="w-full" x-bind:src="item.image" x-bind:alt="item.title"/>
+                                            </div>
+                                        </div>
+                                        <div class="flex w-full flex-col">
+
+                                            <div class="flex flex-col panel" x-data="{ directionsOpen: false }">
+                                                <div class="border-t border-zinc-200" @click.outside="directionsOpen = false">
+                                                    <button class="relative flex w-auto font-tommy font-bold text-lg lg:text-[1.375rem] py-2.5 lg:py-3 mr-3 items-center outline-0 hover:text-green-600 active:text-yellow-500 focus:fing-0 cursor-pointer fill-zinc-200 hover:fill-yellow-500" :class="{ 'text-green-600' : directionsOpen }" x-on:click="showCourseMap" @click="directionsOpen = !directionsOpen" x-bind:data-location="'https://maps.google.com/maps?q=' + item.location.lat + ', ' + item.location.lng + '&t=m&z=12&ie=UTF8&iwloc=B&output=embed'" id="directionsButton">
+                                                        Map &amp; Directions
+                                                        <svg class="ml-3 w-3.5 h-3.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                            <path :class="{ 'hidden' : directionsOpen }" d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/>
+                                                            <path :class="{ 'hidden' : !directionsOpen }" d="M0 9h24v6h-24z"/>
+                                                        </svg>
+                                                    </button>
+                                                    <div class="w-full h-fit" x-show="directionsOpen" id="directionsMap"></div>
+                                                </div>
                                             </div>
 
-
-                                            <div class="flex w-full flex-col">
-
-                                                <div class="flex flex-col" x-data="{ directionsOpen: false }">
-                                                    <div class="border-t border-zinc-200" @click.outside="directionsOpen = false">
-                                                        <button class="flex w-auto text-lg font-bold py-2 lg:py-3 mr-3 outline-0 focus:fing-0 cursor-pointer" :class="{ 'text-green-600 font-extrabold pl-3' : directionsOpen }" x-on:click="showCourseMap" @click="directionsOpen = !directionsOpen" x-bind:data-location="'https://maps.google.com/maps?q=' + item.location.lat + ', ' + item.location.lng + '&t=m&z=12&ie=UTF8&iwloc=B&output=embed'" id="directionsButton">Map &amp; Directions</button>
-                                                        <div class="w-full h-fit" :class="{ 'border-t border-zinc-200' : directionsOpen }" x-show="directionsOpen" id="directionsMap"></div>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="py-2 lg:py-3 border-t border-zinc-200">
-                                                    <details class="cursor-pointer open:cursor-text" x-data="{}" x-ref="stats" @click.outside="$refs.stats.removeAttribute('open');">
-                                                        <summary class="flex justify-start items-center">
-                                                            <span class="font-bold text-lg focus:text-yellow-500 mr-3">Scorecard</span>
-                                                            <span class="summary-arrow">
-                                                                <svg class="text-zinc-300" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
-                                                                    <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
-                                                                </svg>
-                                                            </span>
-                                                        </summary>
+                                            <div class="flex flex-col" x-data="{ scorecardOpen: false }">
+                                                <div class="border-t border-zinc-200" @click.outside="scorecardOpen = false">
+                                                    <button class="relative flex w-auto font-tommy font-bold text-lg lg:text-[1.375rem] py-2.5 lg:py-3 mr-3 items-center outline-0 hover:text-green-600 active:text-yellow-500 focus:fing-0 cursor-pointer fill-zinc-200 hover:fill-yellow-500" :class="{ 'text-green-600' : scorecardOpen }" @click="scorecardOpen = !scorecardOpen" id="scorecardButton">
+                                                        Scorecard
+                                                        <svg class="ml-3 w-3.5 h-3.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                            <path :class="{ 'hidden' : scorecardOpen }" d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/>
+                                                            <path :class="{ 'hidden' : !scorecardOpen }" d="M0 9h24v6h-24z"/>
+                                                        </svg>
+                                                    </button>
+                                                    <div class="w-full h-fit" :class="{ 'px-3 py-2.5 lg:py-3 border-t border-zinc-200' : scorecardOpen }" x-show="scorecardOpen">
                                                         <div class="my-3 lg:px-3 xl:px-8 hidden md:flex">
                                                             <table class="w-full text-sm lg:text-md text-center border-collapse border border-zinc-200 my-3 select-none">
                                                                 <tr class="">
@@ -265,78 +281,68 @@
                                                                 </tr>
                                                             </table>
                                                         </div>
-                                                    </details>
+                                                    </div>
                                                 </div>
+                                            </div>
 
-                                                <div class="py-2 lg:py-3 border-t border-zinc-200">
-                                                    <details class="cursor-pointer open:cursor-text" x-data="{}" x-ref="reviews" @click.outside="$refs.reviews.removeAttribute('open')">
-                                                        <summary class="flex justify-start items-center">
-                                                            <span class="font-bold text-lg mr-3">Course Reviews</span>
-                                                            <span class="summary-arrow">
-                                                                <svg class="text-zinc-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
-                                                                    <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
-                                                                </svg>
-                                                            </span>
-                                                        </summary>
-                                                        <div class="my-3 lg:px-3 xl:px-8">
-                                                            content
-                                                        </div>
-                                                    </details>
+                                            <div class="flex flex-col" x-data="{ reviewsOpen: false }">
+                                                <div class="border-t border-zinc-200" @click.outside="reviewsOpen = false">
+                                                    <button class="relative flex w-auto font-tommy font-bold text-lg lg:text-[1.375rem] py-2.5 lg:py-3 mr-3 items-center outline-0 hover:text-green-600 active:text-yellow-500 focus:fing-0 cursor-pointer fill-zinc-200 hover:fill-yellow-500" :class="{ 'text-green-600' : reviewsOpen }" @click="reviewsOpen = !reviewsOpen" id="reviewsButton">
+                                                        Course Reviews
+                                                        <svg class="ml-3 w-3.5 h-3.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                            <path :class="{ 'hidden' : reviewsOpen }" d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/>
+                                                            <path :class="{ 'hidden' : !reviewsOpen }" d="M0 9h24v6h-24z"/>
+                                                        </svg>
+                                                    </button>
+                                                    <div class="w-full h-fit" :class="{ 'px-3 py-2.5 lg:py-3 border-t border-zinc-200' : reviewsOpen }" x-show="reviewsOpen">
+                                                        {{REVIEWS_TO_COME}}
+                                                    </div>
                                                 </div>
-
                                             </div>
 
                                         </div>
-                                        
                                     </div>
-                                    
                                 </div>
-
-                            </template>
-                        </div>
+                            </div>
+                        </template>
                     </div>
-                    <!-- PAGINATION -->
-                    <div class="w-auto mx-auto -mt-2 lg:-mt-4 mb-10 lg:mb-12" x-show="total < 50" :class="{ 'hidden' : total < 10 }">
-                        <div class="flex flex-row justify-center items-center">
-                            <button class="inline-block mx-1 md:mx-2 xl:mx-3 hover:scale-125 focus:outline-0" x-on:click="viewPage(0)" :disabled="pageNumber==0" :class="{ 'disabled cursor-not-allowed' : pageNumber==0 }">
-                                <svg class="text-zinc-500 hover:text-green-600 active:text-yellow-500" :class="{ 'text-zinc-200 hover:text-zinc-200 active:text-zinc-200' : pageNumber==0 }" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="15 18 9 12 15 6"></polyline>
-                                    <line x1="5" y1="19" x2="5" y2="5"></line>
-                                </svg>   
+                </div>
+                <!-- PAGINATION -->
+                <div class="w-auto mx-auto -mt-2 lg:-mt-4 mb-10 lg:mb-12" x-show="total < 50" :class="{ 'hidden' : total < 10 }">
+                    <div class="flex flex-row justify-center items-center">
+                        <button class="inline-block mx-1 md:mx-2 xl:mx-3 hover:scale-125 focus:outline-0" x-on:click="viewPage(0)" :disabled="pageNumber==0" :class="{ 'disabled cursor-not-allowed' : pageNumber==0 }">
+                            <svg class="text-zinc-500 hover:text-green-600 active:text-yellow-500" :class="{ 'text-zinc-200 hover:text-zinc-200 active:text-zinc-200' : pageNumber==0 }" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                                <line x1="5" y1="19" x2="5" y2="5"></line>
+                            </svg>   
+                        </button>
+                        <button class="inline-block mx-1 md:mx-2 xl:mx-3 hover:scale-125 focus:outline-0" x-on:click="prevPage" :disabled="pageNumber==0" :class="{ 'disabled cursor-not-allowed text-gray-600' : pageNumber==0 }">
+                            <svg class="text-zinc-500 hover:text-green-600 active:text-yellow-500" :class="{ 'text-zinc-200 hover:text-zinc-200 active:text-zinc-200' : pageNumber==0 }" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <template x-for="(page, index) in pages" :key="index">
+                            <button class="inline-block px-3 py-1 mx-2 hover:bg-green-600 hover:text-white hover:font-bold hover:scale-105 active:bg-yellow-500 active:text-white focus:outline-0" :class="{ 'm-l-1 bg-green-600 text-white font-bold active:bg-green-600 disabled cursor-not-allowed' : index === pageNumber }" x-on:click="viewPage(index)">
+                                <span x-text="index+1"></span>
                             </button>
-                            <button class="inline-block mx-1 md:mx-2 xl:mx-3 hover:scale-125 focus:outline-0" x-on:click="prevPage" :disabled="pageNumber==0" :class="{ 'disabled cursor-not-allowed text-gray-600' : pageNumber==0 }">
-                                <svg class="text-zinc-500 hover:text-green-600 active:text-yellow-500" :class="{ 'text-zinc-200 hover:text-zinc-200 active:text-zinc-200' : pageNumber==0 }" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="15 18 9 12 15 6"></polyline>
-                                </svg>
-                            </button>
-                            <template x-for="(page, index) in pages" :key="index">
-                                <button class="inline-block px-3 py-1 mx-2 hover:bg-green-600 hover:text-white hover:font-bold hover:scale-105 active:bg-yellow-500 active:text-white focus:outline-0" :class="{ 'm-l-1 bg-green-600 text-white font-bold active:bg-green-600 disabled cursor-not-allowed' : index === pageNumber }" x-on:click="viewPage(index)">
-                                    <span x-text="index+1"></span>
-                                </button>
-                            </template>
-                            <button class="inline-block mx-1 md:mx-2 xl:mx-3 hover:scale-125 focus:outline-0" x-on:click="nextPage" :disabled="pageNumber >= pageCount() -1" :class="{ 'disabled cursor-not-allowed text-gray-600' : pageNumber >= pageCount() -1 }">
-                                <svg class="text-zinc-500 hover:text-green-600 active:text-yellow-500" :class="{ 'text-zinc-200 hover:text-zinc-200 active:text-zinc-200' : pageNumber >= pageCount() -1 }" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                            </button>
-                            <button class="inline-block mx-1 md:mx-2 xl:mx-3 hover:scale-125 focus:outline-0" x-on:click="viewPage(Math.ceil(total/size)-1)" :disabled="pageNumber >= pageCount() -1" :class="{ 'disabled cursor-not-allowed text-gray-600' : pageNumber >= pageCount() -1 }">
-                                <svg class="text-zinc-500 hover:text-green-600 active:text-yellow-500" :class="{ 'text-zinc-200 hover:text-zinc-200 active:text-zinc-200' : pageNumber >= pageCount() -1 }" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                    <line x1="19" y1="5" x2="19" y2="19"></line>
-                                </svg>
-                            </button>
-                        </div>
+                        </template>
+                        <button class="inline-block mx-1 md:mx-2 xl:mx-3 hover:scale-125 focus:outline-0" x-on:click="nextPage" :disabled="pageNumber >= pageCount() -1" :class="{ 'disabled cursor-not-allowed text-gray-600' : pageNumber >= pageCount() -1 }">
+                            <svg class="text-zinc-500 hover:text-green-600 active:text-yellow-500" :class="{ 'text-zinc-200 hover:text-zinc-200 active:text-zinc-200' : pageNumber >= pageCount() -1 }" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                        <button class="inline-block mx-1 md:mx-2 xl:mx-3 hover:scale-125 focus:outline-0" x-on:click="viewPage(Math.ceil(total/size)-1)" :disabled="pageNumber >= pageCount() -1" :class="{ 'disabled cursor-not-allowed text-gray-600' : pageNumber >= pageCount() -1 }">
+                            <svg class="text-zinc-500 hover:text-green-600 active:text-yellow-500" :class="{ 'text-zinc-200 hover:text-zinc-200 active:text-zinc-200' : pageNumber >= pageCount() -1 }" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                                <line x1="19" y1="5" x2="19" y2="19"></line>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- MAP
-    <section class="w-full h-fit">
-        <div class="relative" id="courseLocationMap"></div>
-    </section>-->
-    <!--<div class="absolute w-full h-full select-none opacity-20 -z-10" id="courseLocationMap"></div>-->
+    </section>
 
     <!-- SIGNUP -->
     <section>
@@ -354,7 +360,7 @@
                             <input class="signup-field" type="email" placeholder="Your email address" id="email" />
                         </div>
                         <div class="flex w-full md:w-auto lg:w-64 2xl:w-80">
-                            <button class="signup-button">Submit your details</button>
+                            <button class="signup-button">SIGN UP NOW</button>
                         </div> 
                     </form>
                 </div>
@@ -365,8 +371,12 @@
     <!-- ADVERTISING BLOCK 1 -->
     <section x-data="">
         <div class="bg-white">
-            <div class="container mx-auto px-4 lg:px-6 py-6 lg:py-8">
-                <img class="min-w-full mb-6 lg:mb-8" src="png.jpg" title="PING Science Friction" />
+            <div class="container max-w-screen-xl mx-auto px-4 lg:px-6 py-8">
+                <div class="w-11/12 mx-auto">
+                    <img class="min-w-full md:hidden" src="images/sigma-sm.jpg" title="PING Sigma 2" />
+                    <img class="min-w-full hidden md:block lg:hidden" src="images/sigma-md.jpg" title="PING Sigma 2" />
+                    <img class="min-w-full hidden lg:block" src="images/sigma-lg.jpg" title="PING Sigma 2" />
+                </div>
             </div>
         </div>
     </section>
@@ -382,14 +392,14 @@
         </div>
 
         <div class="bg-zinc-100 hover:bg-opacity-75">
-            <div class="container mx-auto px-4 lg:px-6 py-6 lg:py-8 opacity-0" :class="{ 'opacity-100' : !loadingFeatured }">
+            <div class="container max-w-screen-xl mx-auto px-4 lg:px-6 py-8 opacity-0" :class="{ 'opacity-100' : !loadingFeatured }">
                 <div class="mb-6 font-extrabold text-center text-3xl xl:text-4xl font-tommy">Featured Course</div>
-                <div class="flex flex-wrap w-100 items-center">
+                <div class="flex flex-wrap w-11/12 mx-auto items-center">
                     <template x-for="item in featuredCourse" :key="index">
                         <template x-if="item.featured === true">
-                            <div class="flex flex-col lg:flex-row items-center lg:items-start mb-4 lg:mb-2 space-y-6 lg:space-y-0 lg:space-x-8 xl:space-x-12">
-                                <div class="w-5/6 lg:w-3/5 text-center lg:text-left">
-                                    <h3 class="font-bold text-green-600 text-2xl lg:text-3xl" x-text="item.title"></h3>
+                            <div class="flex flex-col lg:flex-row items-center lg:items-start mb-4 lg:mb-2">
+                                <div class="w-11/12 lg:w-1/2 xl:w-3/5 text-center lg:text-left mb-6 lg:mb-0">
+                                    <h3 class="font-extrabold text-green-600 text-2xl lg:text-3xl" x-text="item.title"></h3>
                                     <div class="-mb-1 xl:text-lg">
                                         <span class="" x-text="item.location.address"></span>
                                         <span class="" x-text="item.location.town"></span>
@@ -398,8 +408,8 @@
                                     <a class="lowercase underline xl:text-lg hover:no-underline hover:text-green-600 focus:text-yellow-500" x-bind:href="'mailto:' + item.url" x-text="'www.' + item.title + '.com'"></a>
                                     <div class="mt-3" x-text="item.description"></div>
                                 </div>
-                                <div class="w-5/6 sm:w-4/5 md:w-3/4 lg:w-2/5 xl:w-1/3">
-                                    <img class="object-fill drop-shadow-lg lg:aspect-square xl:aspect-auto" :src="item.image" />
+                                <div class="w-11/12 md:w-3/4 lg:w-1/2 xl:w-2/5 lg:ml-8 xl:ml-10">
+                                    <img class="object-fill" :src="item.image" />
                                 </div>
                             </div>
                         </template>
@@ -412,8 +422,12 @@
     <!-- ADVERTISING BLOCK 2 -->
     <section x-data="">
         <div class="bg-white">
-            <div class="container mx-auto px-4 lg:px-6 py-6 lg:py-8">
-                <img class="min-w-full mb-6 lg:mb-8" src="tseries.png" title="Titleist T-Series" />
+            <div class="container max-w-screen-xl mx-auto px-4 lg:px-6 py-8">
+                <div class="w-11/12 mx-auto">
+                    <img class="min-w-full md:hidden" src="images/mavrik-sm.jpg" title="Callaway Mavrik" />
+                    <img class="min-w-full hidden md:block lg:hidden" src="images/mavrik-md.jpg" title="Callaway Mavrik" />
+                    <img class="min-w-full hidden lg:block" src="images/mavrik-lg.jpg" title="Callaway Mavrik" />
+                </div>
             </div>
         </div>
     </section>

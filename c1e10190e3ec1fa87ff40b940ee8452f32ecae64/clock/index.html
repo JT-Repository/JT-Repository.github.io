@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="build/tailwind.css">
+<script src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js" defer></script>
+<style>
+ @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
+</style>
+</head>
+
+<body class="antialiased" x-data="clockOn()">
+
+    <div class="fixed left-0 top-0 h-full w-full bg-bricks bg-center bg-cover select-none z-0">
+
+        <div class="absolute flex w-full h-full bg-hole bg-center bg-no-repeat z-10" :class="{ '' : clockOn , '' : !clockOn }"></div>
+
+        <div class="absolute flex w-full h-full z-20 bg-black/90" :class="{ 'opacity-90' : clockOn , 'opacity-70' : !clockOn }">
+
+        </div>
+
+        <div class="absolute flex lg:flex-col justify-center lg:items-center bottom-0 right-0 lg:right-10 lg:bottom-10 w-full lg:w-fit p-8 md:p-10 text-white/20 hover:text-white/80 bg-black/30 hover:bg-black/80 z-20  animate-flick">   
+            <span class="font-extrabold text-2xl mr-3 md:mr-6 lg:mb-5 lg:mr-0" :class="{ 'text-white' : clockOn }">CLOCK SWITCH</span>
+            <div class="flex items-center cursor-pointer">
+                <span class="text-lg font-extrabold" :class="{ 'text-white' : clockOn , 'text-white/40 hover:text-white/80' : !clockOn }" @click="clockOn = true">ON</span>
+                <span class="relative mx-5 w-12 h-6 p-2 border border-gray-100/30 rounded-full transition duration-500 ease" :class="{ 'bg-green-500/50' : clockOn , 'bg-red-800/30 before:transition before:duration-500 before:ease' : !clockOn }" @click="clockOn = !clockOn">
+                    <span class="absolute top-0 right-0 bottom-0 left-0 before:content[''] before:absolute before:w-6 before:h-6 before:rounded-full" :class="{ 'before:bg-white  before:transition before:duration-500 before:ease' : clockOn , 'before:bg-white/50 before:translate-x-6 before:transition before:duration-500 before:ease' : !clockOn }"></span>
+                </span>
+                <span class="text-lg font-extrabold" :class="{ 'text-white/30' : clockOn , 'text-white/70 hover:text-white/80' : !clockOn }" @click="clockOn = false">OFF</span>
+            </div>
+        </div>
+
+        <div class="flex w-full h-full items-center justify-center">
+
+            <span class="hub" :class="{ 'opacity-100 transition duration-[2000ms] ease-in' : clockOn , 'opacity-0 transition duration-[2000ms] ease-out' : !clockOn }"></span>
+
+            <div class="" :class="{ 'opacity-100 transition duration-[1500ms] ease-in delay-[1500ms]' : clockOn , 'opacity-0 transition duration-1000 ease-out' : !clockOn }">
+                <span class="hours">
+                    <div class="relative">
+                        <span class="digits"></span>
+                    </div>
+                </span>
+                <span class="minutes">
+                    <div class="relative">
+                        <span class="digits"></span>
+                    </div>
+                </span>
+                <span class="seconds">
+                    <div class="relative">
+                        <span class="digits"></span>
+                    </div>
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        setInterval(function buildClock () {
+            var getCurrent = new Date();
+            var getCurrentHours = getCurrent.getHours() % 12 || 12;
+            var getCurrentMinutes = getCurrent.getMinutes();
+            var getCurrentSeconds = getCurrent.getSeconds();
+            getCurrentMinutes = getCurrentMinutes < 10 ? '0'+getCurrentMinutes : getCurrentMinutes;
+            //getCurrentSeconds = getCurrentSeconds < 10 ? '0'+getCurrentSeconds : getCurrentSeconds;
+            
+            var hoursDegrees = (360*(getCurrentHours/12))+((360/12)*(getCurrentMinutes/60)) - 90;
+            var minutesDegrees = 360*(getCurrentMinutes/60) - 90;
+            var secondsDegrees = (getCurrentSeconds/60) * 360 - 90;
+
+            var clockHours = document.querySelector('.hours');
+            var clockMinutes = document.querySelector('.minutes');
+            var clockSeconds = document.querySelector('.seconds');
+            var clockHoursDigits = document.querySelector('.hours .digits');
+            var clockMinutesDigits = document.querySelector('.minutes .digits');
+            var clockSecondsDigits = document.querySelector('.seconds .digits');
+
+            clockHours.style.transform = `rotate(${hoursDegrees}deg)`;
+            clockHours.style.transformOrigin = 'left';
+            clockHoursDigits.innerHTML = getCurrentHours;
+            clockHoursDigits.style.transform = `rotate(${-hoursDegrees}deg)`;
+
+            clockMinutes.style.transform = `rotate(${minutesDegrees}deg)`;
+            clockMinutes.style.transformOrigin = 'left';
+            clockMinutesDigits.innerHTML = getCurrentMinutes;
+            clockMinutesDigits.style.transform = `rotate(${-minutesDegrees}deg)`;
+
+            clockSeconds.style.transform = `rotate(${secondsDegrees}deg)`;
+            clockSeconds.style.transformOrigin = 'left';
+            clockSecondsDigits.innerHTML = getCurrentSeconds;
+            clockSecondsDigits.style.transform = `rotate(${-secondsDegrees}deg)`;
+
+            if (secondsDegrees === 90) {
+                clockSeconds.style.transition = 'none'
+            } else {
+                clockSeconds.style.transition = ''
+            }
+
+        }, 1000);
+
+        function clockOn() {
+            return {
+                clockOn: false
+            }
+        }
+
+    </script>
+
+</body>
+</html>

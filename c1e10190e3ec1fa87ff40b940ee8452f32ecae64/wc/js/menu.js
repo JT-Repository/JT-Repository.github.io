@@ -1,10 +1,15 @@
 // Menu functions
-document.getElementById('navPaneToggle').onclick = function() {
-    document.body.classList.toggle('overflow-hidden');
-    document.getElementById('navPane').classList.toggle('hidden');
-    document.getElementById('staticContainer').classList.toggle('z-40');
-}
-document.getElementById('navPane').addEventListener('click', (event) => {
-    document.body.classList.remove('overflow-hidden');
-    document.getElementById('navPane').classList.add('hidden');
+
+const scrn = document.body;
+const btn = document.querySelector("#navPaneToggle");
+const menu = document.querySelector("#navPane");
+
+btn.addEventListener("click", () => {
+    scrn.classList.toggle('overflow-hidden');
+    menu.classList.toggle("hidden");
+});
+
+menu.addEventListener("click", () => {
+    scrn.classList.remove('overflow-hidden');
+    menu.classList.add('hidden');
 });

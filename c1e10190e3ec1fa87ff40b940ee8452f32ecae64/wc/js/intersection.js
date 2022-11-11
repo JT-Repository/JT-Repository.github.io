@@ -1,16 +1,20 @@
-// insersection
-const options = {
-    threshold: 0
+// Insersection
+
+const options = { 
+    threshold: 0,
 };
-const sections = document.querySelectorAll('section#BookTable, section#mainHero');
+const sections = document.querySelectorAll('#BookTable');
+const button = document.querySelector('#staticContainer');
+
 const observer = new IntersectionObserver(function(entries, observer) {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            document.getElementById('staticContainer').classList.add('hidden');
+            button.classList.add('hidden');
         } else {
-            document.getElementById('staticContainer').classList.remove('hidden');
+            button.classList.remove('hidden');
         }
     },
     options);
 });
+
 sections.forEach(section => observer.observe(section));
