@@ -55,9 +55,9 @@
                 </ul>
         </div>
 
-        <div class="relative flex flex-col md:order-1" :class="{ 'md:w-2/3 lg:w-3/4 xl:w-4/5' : menuPanel , 'w-fit' : !menuPanel }">
+        <div class="relative flex flex-col justify-start md:order-1" :class="{ 'md:w-2/3 lg:w-3/4 xl:w-4/5' : menuPanel , 'w-fit' : !menuPanel }">
             
-            <div class="nav-panel" :class="{ 'sticky top-0 h-full flex flex-col md:flex-row items-start justify-start md:justify-between border-r border-zinc-400/20 md:border-none' : menuPanel , 'fixed left-0 right-0 md:sticky md:top-0 flex flex-row justify-between' : !menuPanel }">
+            <div class="nav-panel" :class="{ 'sticky top-0 flex flex-col md:flex-row items-start justify-start md:justify-between border-r border-zinc-400/20 md:border-none' : menuPanel , 'fixed left-0 right-0 md:sticky md:top-0 flex flex-row justify-between' : !menuPanel }">
 
                 <div class="logo" :class="{ 'hidden md:inline-flex' : menuPanel }">
                     <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -75,20 +75,49 @@
                 </div>
 
             </div>
+
             <div class="content-panel" :class="{ 'hidden md:flex md:flex-col' : menuPanel , 'flex flex-col' : !menuPanel }">
 
-                <section class="">
-                    <div class="flex flex-col lg:flex-row h-full justify-center items-center mx-auto" :class="{ 'lg:flex-col xl:flex-row' : menuPanel }">
-                        <div class="flex w-full pb-8 lg:pb-10" :class="{ 'lg:w-full xl:w-2/3 lg:pr-0' : menuPanel , 'lg:w-3/5 xl:w-2/3 lg:pr-6 xl:pr-10 2xl:pr-14' : !menuPanel }">
-                            <h1>Do you find youself struggling with complicated and time-consming tax returns? <span class="text-pink-500">Let us take away the headache!</span></h1>
+                <section class="mb-5 xl:mb-6 2xl:mb-7 pb-4 lg:pb-5 xl:pb-6 2xl:pb-7 border-b-4 border-zinc-100/70">
+                    <div class="flex flex-col lg:flex-row justify-center mx-auto" :class="{ 'lg:flex-col xl:flex-row' : menuPanel }">
+                        <div class="flex flex-col items-start justify-evenly w-full pb-8 lg:pb-10" :class="{ 'lg:w-full xl:w-2/3 lg:pr-0' : menuPanel , 'lg:w-3/5 xl:w-2/3 lg:pr-6 xl:pr-10 2xl:pr-14' : !menuPanel }">
+                            <h1>Do you find youself struggling with complicated and time-consuming tax returns?</h1>
+                            <h1 class="text-pink-500">Let us take away the headache!</h1>
                         </div>
-                        <div class="w-10/12 sm:w-3/4 mx-auto self-end pb-8 lg:pb-10 xl:pb-12" :class="{ 'md:w-3/4 xl:w-1/3' : menuPanel , 'md:w-3/5 lg:w-2/5 xl:w-1/3' : !menuPanel }">
+                        <div class="w-10/12 sm:w-3/4 mx-auto self-end pb-8 lg:pb-10 xl:pb-12" :class="{ 'md:w-3/4 lg:w-2/3 xl:w-1/3' : menuPanel , 'md:w-3/5 lg:w-2/5 xl:w-1/3' : !menuPanel }">
                             <img class="opacity-80 bg-pink-500 mix-blend-luminosity" src="stress.png" alt=""/>
                         </div>
                     </div>
-
                 </section>
-                
+
+                <section class="mb-5 xl:mb-6 2xl:mb-7 pb-4 lg:pb-5 xl:pb-6 2xl:pb-7 border-b-4 border-zinc-100/70">
+                    <div class="">
+                        <h3 class="mb-8 lg:mb-10">The most common reasons that a tax return may be required are as follows:</h3>
+                        <ul class="ml-8 list-disc list-inside font-semibold text-zinc-500 text-lg">
+                            <li>You are  employed or a partner in a partnership</li>
+                            <li>You are a company director</li>
+                            <li>You have large amounts of savings or investment income</li>
+                            <li>You have untaxed savings or investment income</li>
+                            <li>You own land or property</a> that is being let</li>
+                            <li>Your household receives Child Benefit and you have income in excess of £50,000</li>
+                            <li>You have income from overseas</li>
+                            <li>You have sold or given an asset away (such as a holiday home or some shares)</li>
+                            <li>You've lived or worked abroad or aren't domiciled in the UK</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="mb-5 xl:mb-6 2xl:mb-7 pb-4 lg:pb-5 xl:pb-6 2xl:pb-7 border-b-4 border-zinc-100/70">
+                    <div class="font-semibold text-zinc-500 text-lg">
+                        <p class="mb-3">If you're just starting out, we can help you decide whether you need to be VAT registered from the outset or not. And we will continue to monitor your situation, so that should it become obligatory for you to register for VAT, we can deal with all of the paperwork for you.</p>
+                        <p class="mb-3">In contrast, we will also monitor your position for when we think you are able to and would benefit from deregistering.</p>
+                        <p class="mb-3">Whether a new or existing business, we will also look at the VAT schemes you are eligible for and establish whether you would be better off adopting one or a mixture of them. Some VAT schemes can lead to tax savings and a reduction in bookkeeping responsibilities.</p>
+                        <p class="mb-3">We can prepare your VAT return; either from your own bookkeeping records or we can take care of your record keeping and the VAT return. And we will try to ensure that you claim as much VAT as possible, particularly on contentious items such as mixed-use expenditure and motor running costs.</p>
+                        <p class="mb-3">As with other areas of tax, we can act as your Agent for VAT purposes and therefore correspond with HM Revenue &amp; Customs (HMRC) on your behalf. Paper VAT returns are pretty scarce now but our software also allows us to file your VAT returns online with HMRC.</p>
+                        <p class="mb-3">Needless to say, late VAT registration, errors, late VAT returns and late VAT payments can all lead to penalties and possibly interest being charged. So allowing us to take care of your VAT affairs, not only gives you peace of mind, but it should also avoid you wasting your hard-earned cash on penalties and interest.</p>
+                    </div>
+                </section>
+
             </div>
         </div>
  
