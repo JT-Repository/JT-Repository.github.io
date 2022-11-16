@@ -181,6 +181,14 @@
         function learningData() {
             return {
                 menuOpen: false
+                init() {
+                    fetch('data.json')
+                        .then(res => res.json())
+                        .then(json => {
+                            this.json = data;
+                            console.log('Data loaded')
+                    })
+                }
             }
         }
 
