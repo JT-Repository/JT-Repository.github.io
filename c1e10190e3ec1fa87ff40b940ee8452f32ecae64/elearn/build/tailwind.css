@@ -691,6 +691,8 @@ video {
   justify-content: center;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 @media (min-width: 768px) {
 
@@ -707,8 +709,9 @@ video {
 @media (min-width: 1024px) {
 
   .content-panel.initial .inner {
-    min-height: 100%;
     gap: 2.5rem;
+    padding-top: 0px;
+    padding-bottom: 0px;
     padding-left: 6rem;
     padding-right: 2.5rem;
   }
@@ -1036,16 +1039,15 @@ video {
 .order-3 {
   order: 3;
 }
-.my-8 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
 .ml-2 {
   margin-left: 0.5rem;
+}
+.mb-8 {
+  margin-bottom: 2rem;
 }
 .mt-1 {
   margin-top: 0.25rem;
@@ -1204,8 +1206,7 @@ video {
     top: 6rem;
   }
 
-  .md\:my-0 {
-    margin-top: 0px;
+  .md\:mb-0 {
     margin-bottom: 0px;
   }
 
