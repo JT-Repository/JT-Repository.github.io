@@ -59,6 +59,11 @@
             "title": "Healthcare - 4",
             "description": "Legislation",
             "pagefile": "3-4-reasonable-adjustments.htm"
+        },
+        {
+            "title": "eModule Learning Disabilities",
+            "description": "You have completed all of this module.",
+            "pagefile": "complete.htm"
         }
     ]
 }
