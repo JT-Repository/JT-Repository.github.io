@@ -172,13 +172,13 @@
             constructor(targetid) {
                 this.page = 0;
                 this.targetid = targetid;
-                this.pagesurl = "/public/data/pages/";
+                this.pagesurl = "/data/pages/";
                 this.GetPageData();
                 this.UpdateStates();
             }
             GetPageData() {
                 let t = this;
-                $.getJSON("/public/data/nav.json", function(json) {
+                $.getJSON("/data/nav.json", function(json) {
                     t.Pages = json.Pages;
                 });
             }
