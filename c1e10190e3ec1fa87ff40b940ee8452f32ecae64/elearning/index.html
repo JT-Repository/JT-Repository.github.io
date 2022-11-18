@@ -10,12 +10,8 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700;800;900&display=swap');
 </style>
 </head>
-
 <body class="antialiased">
-
     <div class="flex flex-col lg:flex-row overflow-hidden">
-
-        <!-- nav -->
         <nav class="menu-panel hidden-initial show-in-progress" id="menuPanel">
             <button class="outline-none hidden-initial show-in-progress" id="home">
                 <svg class="" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -23,8 +19,6 @@
                 </svg>
             </button>
         </nav>
-
-        <!-- content area -->
         <section class="content-panel homepage" id="homePage">
             <div class="inner">
                 <h1>Learning Disabilities eModule</h1>
@@ -80,15 +74,11 @@
                 </div>
             </div>
         </section> 
-
-        <!-- injected content -->
         <section class="content-panel injected hidden-initial show-in-progress">
             <div class="inner" id="injectionPoint"></div>
         </section>
-
-        <!-- progress bar -->
         <div class="progress-overlay">
-            <button class="flex items-center order lg:order-2 lg:mr-2 xl:mr-2.5 2xl:mr-3 invisible show-after-page1" id="prevBtn" onclick="navObject.PrevPage()">
+            <button class="flex items-center order lg:order-2 lg:mr-2 xl:mr-2.5 2xl:mr-3 hidden hidden-initial show-after-page1" id="prevBtn" onclick="navObject.PrevPage()">
                 <span>PREVIOUS</span>
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/>
@@ -97,7 +87,7 @@
             <div class="flex lg:grow items-center select-none order-2 lg:order-1 hidden-initial show-in-progress">
                 <span class="progress-text">PROGRESS</span>
                 <span class="font-extrabold text-white" id="percent0">0%</span>
-                <div class="relative h-4 w-24 w-44 sm:w-44 sm:w-56 md:w-56 md:w-64 lg:w-72 2xl:w-80 mx-2 outline outline-1 outline-offset-0 outline-white/50 overflow-hidden" id="progressBarOuter">
+                <div class="relative h-4 w-20 w-44 sm:w-44 sm:w-56 md:w-56 md:w-64 lg:w-72 2xl:w-80 mx-2 outline outline-1 outline-offset-0 outline-white/50 overflow-hidden" id="progressBarOuter">
                     <div class="absolute w-full h-full bg-white/50"></div>
                     <div class="relative h-4 bg-gradient-to-r from-lime-600/70 to-lime-600" id="progressBarInner"></div>
                 </div>
@@ -114,11 +104,8 @@
             <button class="w-auto px-3 py-2 md:ml-auto bg-cyan-700 text-white lg:text-lg font-extrabold hover:bg-lime-600 focus:bg-lime-700 order-4 hidden hidden-initial" id="finish" onclick="">Finish</button>
         </div>
     </div>
-
     <script>
-
         let navObject = null;
-
         class Navigate {
             constructor(targetid) {
                 this.page = 0;
@@ -167,25 +154,23 @@
                     $(".show-in-progress").removeClass('hidden');
                     $("#homePage").addClass('hidden');
                     $("#start").addClass('hidden');
-                    $("#prevBtn").remove('hidden').addClass('invisible');
+                    $("#prevBtn").addClass('hidden');
                     $(".progress-overlay").addClass('in-progress');
                     $("#home").click(function() {
-                        //$(".content-panel.homepage").addClass('lg:pl-16');
                         $(".content-panel.homepage .inner").addClass('top-fix');
                         $(".content-panel.injected").addClass('hidden');
                         $("#homePage").removeClass('hidden');
-                        $("#prevBtn").addClass('invisible');
+                        $("#prevBtn").addClass('hidden');
                         $("#nextBtn").addClass('hidden');
                         $("#resume").removeClass('hidden');
                         $(".progress-overlay").removeClass('in-progress');
                         $("#menuPanel").addClass('hidden');
                     });
                     $("#resume").click(function() {
-                        //$(".content-panel.homepage").removeClass('lg:pl-16');
                         $(".content-panel.homepage .inner").removeClass('top-fix');
                         $(".content-panel.injected").removeClass('hidden');
                         $("#homePage").addClass('hidden');
-                        $("#prevBtn").removeClass('invisible');
+                        $("#prevBtn").removeClass('hidden');
                         $("#nextBtn").removeClass('hidden');
                         $("#resume").addClass('hidden');
                         $(".progress-overlay").addClass('in-progress');
@@ -193,10 +178,10 @@
                     });
                 }
                 else if (this.page > 1) {
-                    $("#prevBtn").removeClass('invisible');
+                    $("#prevBtn").removeClass('hidden');
                 }
                 if (atEnd) {
-                    $("#prevBtn").addClass('invisible');
+                    $("#prevBtn").addClass('hidden');
                     $("#nextBtn").addClass('hidden');
                     $("#start").removeClass('hidden w-full sm:w-3/4 grow sm:mx-auto md:mr-0').addClass('ml-auto mr-3').text('Restart');
                     $("#finish").removeClass('hidden');
@@ -209,7 +194,6 @@
                         $("#homePage").removeClass('hidden');
                         $("#finish").addClass('hidden');
                         $("#start").removeClass('mr-3');
-                        //$("#menuPanel").addClass('hidden');
                         $(".progress-overlay").removeClass('in-progress');
                     });
                     $("#start").click(function() {
@@ -223,12 +207,9 @@
                 }
             }
         }
-
         $(document).ready(function () {
             navObject = new Navigate("#injectionPoint");
         });
-
     </script>
-
 </body>
 </html>
