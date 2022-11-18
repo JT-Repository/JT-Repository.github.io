@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>eModule: Learning Disabilities</title>
+<title>Learning Disabilities eModule</title>
 <link rel="stylesheet" href="build/tailwind.css">
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <style>
@@ -21,7 +21,7 @@
         </nav>
         <section class="content-panel homepage" id="homePage">
             <div class="inner">
-                <h1>Learning Disabilities eModule</h1>
+                <h1><span>Learning Disabilities eModule</span></h1>
                 <div class="wrapper">
                     <div class="holder">
                         <div class="head">
@@ -78,13 +78,19 @@
             <div class="inner" id="injectionPoint"></div>
         </section>
         <div class="progress-overlay">
-            <button class="flex items-center order lg:order-2 lg:mr-2 xl:mr-2.5 2xl:mr-3 hidden hidden-initial show-after-page1" id="prevBtn" onclick="navObject.PrevPage()">
+            <button class="flex items-center order lg:order-2 lg:mr-2 xl:mr-2.5 2xl:mr-3 hidden-initial show-after-page1" id="prevBtn" onclick="navObject.PrevPage()">
                 <span>PREVIOUS</span>
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/>
                 </svg>
             </button>
-            <div class="flex lg:grow items-center select-none order-2 lg:order-1 hidden-initial show-in-progress">
+            <div class="flex w-full grow items-center text-cyan-900 font-extrabold hidden" id="complete">
+                <svg class="w-6 h-6 mr-2 fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.48 10.089l1.583-1.464c1.854.896 3.028 1.578 5.11 3.063 3.916-4.442 6.503-6.696 11.312-9.688l.515 1.186c-3.965 3.46-6.87 7.314-11.051 14.814-2.579-3.038-4.301-4.974-7.469-7.911zm12.52 3.317v6.594h-16v-16h15.141c.846-.683 1.734-1.341 2.691-2h-19.832v20h20v-11.509c-.656.888-1.318 1.854-2 2.915z"/>
+                </svg>
+                <span class="xl:text-lg">eModule Completed</span>
+            </div>
+            <div class="flex lg:grow items-center select-none order-2 lg:order-1 hidden-initial show-in-progress" id="progressBar">
                 <span class="progress-text">PROGRESS</span>
                 <span class="font-extrabold text-white" id="percent0">0%</span>
                 <div class="relative h-4 w-20 w-44 sm:w-44 sm:w-56 md:w-56 md:w-64 lg:w-72 2xl:w-80 mx-2 outline outline-1 outline-offset-0 outline-white/50 overflow-hidden" id="progressBarOuter">
@@ -99,9 +105,9 @@
                 </svg>
                 <span>NEXT</span>
             </button>
-            <button class="w-full sm:w-3/4 md:w-auto px-3 py-2 sm:mx-auto md:ml-auto md:mr-0 bg-cyan-700 text-white lg:text-lg font-extrabold hover:bg-lime-600 focus:bg-lime-700 order-4" id="start" onclick="navObject.Start()">Start the course</button>
-            <button class="w-auto px-3 py-2 md:ml-auto bg-cyan-700 text-white lg:text-lg font-extrabold hover:bg-lime-600 focus:bg-lime-700 order-4 hidden hidden-initial" id="resume" onclick="">Resume</button>
-            <button class="w-auto px-3 py-2 md:ml-auto bg-cyan-700 text-white lg:text-lg font-extrabold hover:bg-lime-600 focus:bg-lime-700 order-4 hidden hidden-initial" id="finish" onclick="">Finish</button>
+            <button class="w-full sm:w-3/4 md:w-auto px-3 py-2 sm:mx-auto lg:ml-auto md:mr-0 bg-cyan-700 text-white lg:text-lg font-extrabold hover:bg-lime-600 focus:bg-lime-700 order-4" id="start" onclick="navObject.Start()">Begin the module</button>
+            <button class="w-auto px-3 py-2 lg:ml-auto bg-cyan-700 text-white lg:text-lg font-extrabold hover:bg-lime-600 focus:bg-lime-700 order-4 hidden hidden-initial" id="resume" onclick="">Resume</button>
+            <button class="w-auto px-3 py-2 lg:ml-auto bg-cyan-700 text-white lg:text-lg font-extrabold hover:bg-lime-600 focus:bg-lime-700 order-4 hidden hidden-initial" id="finish" onclick="">Finish</button>
         </div>
     </div>
     <script>
@@ -195,6 +201,8 @@
                         $("#finish").addClass('hidden');
                         $("#start").removeClass('mr-3');
                         $(".progress-overlay").removeClass('in-progress');
+                        $("#progressBar").addClass('hidden');
+                        $("#complete").removeClass('hidden');
                     });
                     $("#start").click(function() {
                         $("#start").addClass('hidden');
