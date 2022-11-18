@@ -998,6 +998,7 @@ video {
   width: 50%;
 }
 .content-panel.injected .inner table {
+  width: 100%;
   border-collapse: collapse;
 }
 .content-panel.injected .inner table tr:nth-child(odd) {
