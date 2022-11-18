@@ -167,7 +167,7 @@
                     $(".show-in-progress").removeClass('hidden');
                     $("#homePage").addClass('hidden');
                     $("#start").addClass('hidden');
-                    $("#prevBtn").addClass('invisible');
+                    $("#prevBtn").remove('hidden').addClass('invisible');
                     $(".progress-overlay").addClass('in-progress');
                     $("#home").click(function() {
                         //$(".content-panel.homepage").addClass('lg:pl-16');
