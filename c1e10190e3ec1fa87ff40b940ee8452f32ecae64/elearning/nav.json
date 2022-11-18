@@ -1,9 +1,14 @@
 { 
     "Pages": [
         {
+            "title": "Introdution",
+            "description": "",
+            "pagefile": "1-0-introduction.htm"
+        },
+        {
             "title": "Introdution - 1",
             "description": "What defines a 'learning disability'",
-            "pagefile": "1-1-introduction.htm"
+            "pagefile": "1-1-what-defines.htm"
         },
         {
             "title": "Introdution - 2",
@@ -19,6 +24,11 @@
             "title": "Introdution - 4",
             "description": "Causes for learning disabilities",
             "pagefile": "1-4-causes.htm"
+        },
+        {
+            "title": "Support",
+            "description": "",
+            "pagefile": "2-0-support.htm"
         },
         {
             "title": "Support - 1",
@@ -39,6 +49,11 @@
             "title": "Support - 4",
             "description": "Legislation",
             "pagefile": "2-4-legislation.htm"
+        },
+        {
+            "title": "Healthcare",
+            "description": "",
+            "pagefile": "3-0-healthcare.htm"
         },
         {
             "title": "Healthcare - 1",
