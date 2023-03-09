@@ -2,11 +2,11 @@
     "name": "[we sell boxes]",
     "title": "Enthusiastically pessimistic, and sometimes angry, electronic music.",
     "description": "[we sell boxes] is the moniker of a production outfit primarily concerned with techno, house, IDM, electro and others forms of electronic music, dance or otherwise.",
-    "newstext": "Mauris tristique metus eget magna scelerisque, non scelerisque est aliquet. Aliquam imperdiet, nisi vel vehicula mollis, lorem nulla luctus eros, ut maximus erat dolor sit amet ex",
-    "cataloguetext": "Nulla tempor ipsum ac elit consectetur aliquet. Etiam hendrerit, justo ac egestas placerat, justo quam congue neque, eu facilisis mi erat sit amet neque. Ut pellentesque aliquam tortor, sed pellentesque est congue mattis. Praesent venenatis risus nisi, eu finibus justo fringilla ac. Pellentesque eget nisi nibh. Mauris et nisi odio. Phasellus facilisis sapien metus, ut mollis dolor sagittis sit amet. Fusce semper dui vitae nunc lobortis tincidunt. Mauris ut malesuada neque, sit amet hendrerit metus. Morbi mollis arcu ligula, sit amet volutpat diam varius ut.",
-    "videostext": "Donec sit amet ipsum id magna gravida bibendum sed sit amet erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras eget sem ac risus gravida bibendum. Sed sed risus id risus pellentesque mollis. In pulvinar ultrices risus. Vestibulum malesuada dapibus placerat.",
-    "merchandisetext": "Donec sit amet ipsum id magna gravida bibendum sed sit amet erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras eget sem ac risus gravida bibendum. Sed sed risus id risus pellentesque mollis. In pulvinar ultrices risus. Vestibulum malesuada dapibus placerat.",
-    "getinvolvedtext": "Aliquam tincidunt tortor lorem, eget ultrices mauris blandit vitae. Fusce at finibus nisl. Nulla a ante elit. Etiam venenatis, tortor non bibendum congue, quam felis porttitor nisl, in blandit nunc ex at elit. Nam dictum enim quis ante accumsan elementum. Sed ullamcorper, ipsum ut posuere sagittis, arcu nibh tristique libero, ut commodo tellus nisl aliquam felis. Pellentesque pharetra nunc id sodales bibendum.",
+    "newstext": "",
+    "cataloguetext": "",
+    "videostext": "",
+    "merchandisetext": "",
+    "getinvolvedtext": "",
     "url": "http://www.wesellboxes.net/",
     "ytlink": "https://www.youtube.com/channel/UCHT9r6ss3nYYYinVRuPNpmQ",
     "sclink": "https://soundcloud.com/wesellboxes",
@@ -25,7 +25,7 @@
             "description": "Not that long ago I was listening to an old Villalobos LP that got me thinking about the whole mid 00’s minimal thing – DC10, Poker Flat, Love Dose etc – and decided to have a go at a similar type of track myself. Not sure how minimal this actually is but production is all about the tangents anyway.",
             "release": "January 24, 2019",
             "length": "7:44",
-            "artwork": "http://artinspired.pbworks.com/f/1235604711/image1jpg-500x500.jpg"
+            "artwork": "https://f4.bcbits.com/img/a0732467174_2.jpg"
         },
         {
             "id": "wsb015",
@@ -39,7 +39,7 @@
             "description": "A track that was originally written as part of a live set to play at a friend’s barbecue. Their name isn’t Géant though. He’s a cat that keeps getting shit from other cats in the locale (and an arsehole neighbour), despite the fact that it’s his garden and they’re all coming to it to give him grief. Calling upon the inclusive, healing power of house to send its vibes and chill the situation out for all - especially for Géant.",
             "release": "April 6, 2018",
             "length": "7:04",
-            "artwork": "https://static1.squarespace.com/static/5608382ae4b017614f857528/t/5a67824c8165f553a1c85ac9/1516733005222/Colorful-Abstract-Art-by-Thaneeya-McArdle.jpg"
+            "artwork": "https://f4.bcbits.com/img/a0832481611_2.jpg"
         },
         {
             "id": "wsb014",
@@ -53,52 +53,10 @@
             "description": "Aliquam tincidunt tortor lorem, eget ultrices mauris blandit vitae. Fusce at finibus nisl. Nulla a ante elit. Etiam venenatis, tortor non bibendum congue, quam felis porttitor nisl, in blandit nunc ex at elit. Nam dictum enim quis ante accumsan elementum aquased ullamcorper, ipsum ut posuere sagittis.",
             "release": "January 21, 2018",
             "length": "5:42",
-            "artwork": "https://i.pinimg.com/564x/95/ef/75/95ef75f29d3f3546fff036eb53441c34.jpg"
+            "artwork": "https://f4.bcbits.com/img/a0702030231_2.jpg"
         },
         {
             "id": "wsb013",
-            "featured": false,
-            "title": "Untitled Electro Track #1",
-            "ytid": "fd8ODLWP9G8",
-            "scid": "391851054",
-            "sclink": "untitled-electro-track-1",
-            "bcid": "2424135838",
-            "bclink": "untitled-electro-track-1",
-            "description": "Sed ullamcorper, ipsum ut posuere sagittis, aliquam tincidunt tortor lorem, eget ultrices mauris blandit vitae. Fusce at finibus nisl. Nulla a ante elit. Etiam venenatis, tortor non bibendum congue, quam felis porttitor nisl, in blandit nunc ex at elit. Nam dictum enim quis ante accumsan elementum.",
-            "release": "January 1, 2018",
-            "length": "5:43",
-            "artwork": "https://www.wesellboxes.net/wp-content/uploads/2018/02/we_sell_boxes-untitled_electro_track_1-500x500.png"
-        },
-        {
-            "id": "wsb012",
-            "featured": false,
-            "title": "Flat On My Back",
-            "ytid": "Ag3KLzj-tTU",
-            "scid": "376601072",
-            "sclink": "flat-on-my-back",
-            "bcid": "1715679061",
-            "bclink": "flat-on-my-back",
-            "description": "Flat On My Back was written after one full year without any paid work. Despite applying for hundreds of jobs, networking, trying to remain positive, doing free courses online and undertaking all the other advice bestowed to anyone in the same position, it’s been a mental struggle to fight acrimony, remain focused and still be an asset to any future employer. This track, and the subsequent video, attempts to encapsulate the constant despondency, rejection, disillusionment, alienation and the perpetual worry that comes with being long term unemployed, while at the same time it’s creation provided some element of personal catharsis along the way.",
-            "release": "January 1, 2018",
-            "length": "7:13",
-            "artwork": "https://www.wesellboxes.net/wp-content/uploads/2018/01/we_sell_boxes-flat_on_my_back-500x500.png"
-        },
-        {
-            "id": "wsb011",
-            "featured": false,
-            "title": "Carpetbaggers",
-            "ytid": "YxmdZlDicMU",
-            "scid": "331201466",
-            "sclink": "carpetbaggers",
-            "bcid": "2934462759",
-            "bclink": "carpetbaggers",
-            "description": "Carpetbaggers laments the bigots, racists, trollomists and truthers that occupy an ever increasing yet spirit crushing facet of the internet. Monkeys in an enclosure continually throwing shit at the glass to provoke a reaction, any reaction, to placate their egos and increase both their social and fiscal net worth. Which is the truly disheartening factor to it all. Do they actually believe or believe in the bile they spew or is it all just easy money at the expense of their own self-respect? Most of us can and do refuse to play but that doesn’t absolve the real life harm and the accountability of the carpetbagger.",
-            "release": "December 31, 2017",
-            "length": "6:12",
-            "artwork": "https://www.wesellboxes.net/wp-content/uploads/2017/07/we_sell_boxes-carpetbaggers-500x500.jpg"
-        },
-        {
-            "id": "wsb010",
             "featured": false,
             "title": "Separate Rooms",
             "ytid": "GGA0r29l4rQ",
@@ -109,7 +67,49 @@
             "description": "",
             "release": "August 17, 2017",
             "length": "7:09",
-            "artwork": "https://www.wesellboxes.net/wp-content/uploads/2018/01/we_sell_boxes-acluophobia.jpg"
+            "artwork": "https://f4.bcbits.com/img/a2175339036_2.jpg"
+        },
+        {
+            "id": "wsb012",
+            "featured": false,
+            "title": "Untitled Electro Track #1",
+            "ytid": "fd8ODLWP9G8",
+            "scid": "391851054",
+            "sclink": "untitled-electro-track-1",
+            "bcid": "2424135838",
+            "bclink": "untitled-electro-track-1",
+            "description": "Sed ullamcorper, ipsum ut posuere sagittis, aliquam tincidunt tortor lorem, eget ultrices mauris blandit vitae. Fusce at finibus nisl. Nulla a ante elit. Etiam venenatis, tortor non bibendum congue, quam felis porttitor nisl, in blandit nunc ex at elit. Nam dictum enim quis ante accumsan elementum.",
+            "release": "January 1, 2018",
+            "length": "5:43",
+            "artwork": "https://f4.bcbits.com/img/a0942976242_2.jpg"
+        },
+        {
+            "id": "wsb011",
+            "featured": false,
+            "title": "Flat On My Back",
+            "ytid": "Ag3KLzj-tTU",
+            "scid": "376601072",
+            "sclink": "flat-on-my-back",
+            "bcid": "1715679061",
+            "bclink": "flat-on-my-back",
+            "description": "Flat On My Back was written after one full year without any paid work. Despite applying for hundreds of jobs, networking, trying to remain positive, doing free courses online and undertaking all the other advice bestowed to anyone in the same position, it’s been a mental struggle to fight acrimony, remain focused and still be an asset to any future employer. This track, and the subsequent video, attempts to encapsulate the constant despondency, rejection, disillusionment, alienation and the perpetual worry that comes with being long term unemployed, while at the same time it’s creation provided some element of personal catharsis along the way.",
+            "release": "January 1, 2018",
+            "length": "7:13",
+            "artwork": "https://f4.bcbits.com/img/a3990502744_2.jpg"
+        },
+        {
+            "id": "wsb010",
+            "featured": false,
+            "title": "Carpetbaggers",
+            "ytid": "YxmdZlDicMU",
+            "scid": "331201466",
+            "sclink": "carpetbaggers",
+            "bcid": "2934462759",
+            "bclink": "carpetbaggers",
+            "description": "Carpetbaggers laments the bigots, racists, trollomists and truthers that occupy an ever increasing yet spirit crushing facet of the internet. Monkeys in an enclosure continually throwing shit at the glass to provoke a reaction, any reaction, to placate their egos and increase both their social and fiscal net worth. Which is the truly disheartening factor to it all. Do they actually believe or believe in the bile they spew or is it all just easy money at the expense of their own self-respect? Most of us can and do refuse to play but that doesn’t absolve the real life harm and the accountability of the carpetbagger.",
+            "release": "December 31, 2017",
+            "length": "6:12",
+            "artwork": "https://f4.bcbits.com/img/a2488661740_2.jpg"
         },      
         {
             "id": "wsb009",
@@ -123,7 +123,7 @@
             "description": "",
             "release": "February 26, 2017",
             "length": "5:47",
-            "artwork": "https://www.wesellboxes.net/wp-content/uploads/2017/02/we_sell_boxes-comments_section-1400-500x500.jpg"
+            "artwork": "https://f4.bcbits.com/img/a0939060092_2.jpg"
         },
         {
             "id": "wsb008",
@@ -137,7 +137,7 @@
             "description": "",
             "release": "May 21, 2016",
             "length": "6:17",
-            "artwork": "https://www.wesellboxes.net/wp-content/uploads/2016/05/we_sell_boxes-walk_you_through_this-800-500x500.jpg"
+            "artwork": "https://f4.bcbits.com/img/a3145762107_2.jpg"
         },
         {
             "id": "wsb007",
@@ -156,6 +156,20 @@
         {
             "id": "wsb006",
             "featured": false,
+            "title": "BBD SC",
+            "ytid": "",
+            "scid": "348192817",
+            "sclink": "bbd-sc",
+            "bcid": "1588190798",
+            "bclink": "bbd-sc",
+            "description": "A remix for a folk/blues live act done a few years ago. The final mix probably needs revisiting nowadays but it's not without it's charm and was a lot of fun to do at the time.",
+            "release": "January 10, 2014",
+            "length": "7:24",
+            "artwork": "https://f4.bcbits.com/img/a4086014670_2.jpg"
+        },
+        {
+            "id": "wsb005",
+            "featured": false,
             "title": "Mllody",
             "ytid": "",
             "scid": "226696194",
@@ -165,10 +179,10 @@
             "description": "The idea that you can become something in this world and really make a difference is an illusion. Anyone who to seeks to make a real change in this world, to go out and do something, is eventually going to come up to the realization that the underpinnings of this world are so corrupt, that you really cannot succeed. Unless you are willing to compromise what you know in your heart, isn't really right.",
             "release": "April 23, 2016",
             "length": "7:49",
-            "artwork": "https://www.wesellboxes.net/wp-content/uploads/2016/04/we_sell_boxes-mllody-1400-500x500.jpg"
+            "artwork": "https://f4.bcbits.com/img/a0813543581_2.jpg"
         },
         {
-            "id": "wsb005",
+            "id": "wsb004",
             "featured": false,
             "title": "Owed50",
             "ytid": "",
@@ -179,10 +193,10 @@
             "description": "",
             "release": "April 23, 2016",
             "length": "6:59",
-            "artwork": "https://www.wesellboxes.net/wp-content/uploads/2016/04/we_sell_boxes-owed50-1400-500x500.jpg"
+            "artwork": "https://f4.bcbits.com/img/a1463995863_2.jpg"
         },
         {
-            "id": "wsb004",
+            "id": "wsb003",
             "featured": false,
             "title": "Divisive Strategies",
             "ytid": "",
@@ -193,10 +207,10 @@
             "description": "A wedge issue is a social issue which splits apart a population or political group. Wedge issues are an attempt to weaken the unity of a population, with the goal of enticing polarized individuals to give support to an opponent or to withdraw their support entirely out of disillusionment.",
             "release": "June 23, 2015",
             "length": "6:16",
-            "artwork": "https://www.wesellboxes.net/wp-content/uploads/2016/04/we_sell_boxes-divisive_strategies-1400-500x500.jpg"
+            "artwork": "https://f4.bcbits.com/img/a2465475164_2.jpg"
         },
         {
-            "id": "wsb003",
+            "id": "wsb002",
             "featured": false,
             "title": "Creating Prosperity",
             "ytid": "",
@@ -207,10 +221,10 @@
             "description": "",
             "release": "April 23, 2015",
             "length": "6:24",
-            "artwork": "https://www.wesellboxes.net/wp-content/uploads/2016/04/we_sell_boxes-creating_prosperity-1400-500x500.jpg"
+            "artwork": "https://f4.bcbits.com/img/a3685013440_2.jpg"
         },
         {
-            "id": "wsb002",
+            "id": "wsb001",
             "featured": false,
             "title": "Helpless",
             "ytid": "",
@@ -222,22 +236,43 @@
             "release": "April 23, 2014",
             "length": "7:16",
             "artwork": "https://www.wesellboxes.net/wp-content/uploads/2016/04/we_sell_boxes-helpless-500.jpg"
-        }, 
-        {
-            "id": "wsb001",
-            "featured": false,
-            "title": "BBD SC",
-            "ytid": "",
-            "scid": "348192817",
-            "sclink": "bbd-sc",
-            "bcid": "1588190798",
-            "bclink": "bbd-sc",
-            "description": "A remix for a folk/blues live act done a few years ago. The final mix probably needs revisiting nowadays but it's not without it's charm and was a lot of fun to do at the time.",
-            "release": "January 10, 2014",
-            "length": "7:24",
-            "artwork": "https://i.scdn.co/image/ab67616d0000b27382fcb5ea65b6398ba187ad01"
         }
     ],
+    "eps": [{
+        "title": "[we sell boxes] I Am Happy",
+        "ytid": "",
+        "ytlink": "",
+        "ytlist": "",
+        "bclink": "https://wesellboxes.bandcamp.com/album/i-am-happy",
+        "description": "",
+        "release": "July 26, 2022",
+        "length": "",
+        "artwork": "https://f4.bcbits.com/img/a3484311987_16.jpg",
+        "songs": [{
+                "track": "1",
+                "title": "Breaking The News",
+                "ytid": "",
+                "scid": "",
+                "bclink": "https://wesellboxes.bandcamp.com/track/breaking-the-news",
+                "length": "6:08"
+            },
+            {
+                "track": "2",
+                "title": "Sleepwalking",
+                "ytid": "",
+                "scid": "",
+                "bclink": "https://wesellboxes.bandcamp.com/track/sleepwalking",
+                "length": "6:48"
+            },
+            {
+                "track": "3",
+                "title": "F_ck Do I Bother",
+                "ytid": "",
+                "scid": "",
+                "bclink": "https://wesellboxes.bandcamp.com/track/f-ck-do-i-bother",
+                "length": "5:39"
+        }]
+    }],
     "lps": [{
         "title": "[we sell boxes] The Game's A Bogey",
         "ytid": "yZDez1XRNhA",
@@ -247,7 +282,7 @@
         "description": "",
         "release": "July 1, 2021",
         "length": "",
-        "artwork": "",
+        "artwork": "https://f4.bcbits.com/img/a3891190181_2.jpg",
         "songs": [{
             "track": "1",
             "title": "The Game's A Bogey",
@@ -326,7 +361,7 @@
         "artwork": "https://www.wesellboxes.net/wp-content/uploads/2018/01/we_sell_boxes-ballroom_days_podcast-1-500x500.png"
     }],
     "sessions": [{
-        "title": "Live Techno Session – June 2016",
+        "title": "Live Techno Session / June 2016",
         "ytid": "GFhKlFS6Qc4",
         "scid": "",
         "sclink": "",
