@@ -15,7 +15,7 @@
     "twlink": "https://twitter.com/we_sell_boxes",
     "singles": [{
             "id": "wsb016",
-            "featured": false,
+            "featured": true,
             "title": "Twinks on K",
             "ytid": "bReK8BzyGCg",
             "scid": "613190727",
@@ -43,14 +43,14 @@
         },
         {
             "id": "wsb014",
-            "featured": true,
+            "featured": false,
             "title": "Grief Vultures",
             "ytid": "uT1cCLyyQ2o",
             "scid": "416567838",
             "sclink": "grief-vultures",
             "bcid": "3481653095",
             "bclink": "grief-vultures",
-            "description": "Aliquam tincidunt tortor lorem, eget ultrices mauris blandit vitae. Fusce at finibus nisl. Nulla a ante elit. Etiam venenatis, tortor non bibendum congue, quam felis porttitor nisl, in blandit nunc ex at elit. Nam dictum enim quis ante accumsan elementum aquased ullamcorper, ipsum ut posuere sagittis.",
+            "description": "",
             "release": "January 21, 2018",
             "length": "5:42",
             "artwork": "https://f4.bcbits.com/img/a0702030231_2.jpg"
@@ -78,7 +78,7 @@
             "sclink": "untitled-electro-track-1",
             "bcid": "2424135838",
             "bclink": "untitled-electro-track-1",
-            "description": "Sed ullamcorper, ipsum ut posuere sagittis, aliquam tincidunt tortor lorem, eget ultrices mauris blandit vitae. Fusce at finibus nisl. Nulla a ante elit. Etiam venenatis, tortor non bibendum congue, quam felis porttitor nisl, in blandit nunc ex at elit. Nam dictum enim quis ante accumsan elementum.",
+            "description": "",
             "release": "January 1, 2018",
             "length": "5:43",
             "artwork": "https://f4.bcbits.com/img/a0942976242_2.jpg"
