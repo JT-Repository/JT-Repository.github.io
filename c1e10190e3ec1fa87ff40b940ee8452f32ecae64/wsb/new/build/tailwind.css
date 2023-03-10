@@ -929,7 +929,7 @@ select {
 .wsb-splash .splash-poster {
   min-height: 100vh;
   width: 100%;
-  background-image: url('https://wesellboxes.net/we_sell_boxes-video-screenshot.jpg');
+  background-image: url('../../wsb-screenshot.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -1143,6 +1143,10 @@ select {
   .wsb-player .amplitude-mute.amplitude-not-muted .unmute {
     display: none;
   }
+  footer {
+    border-top-width: 1px;
+    border-color: rgb(249 115 22 / 0.3);
+  }
 .wsb-footer {
   width: 100%;
 }
@@ -1181,8 +1185,6 @@ select {
   margin-right: auto;
   margin-bottom: 6rem;
   max-width: 1280px;
-  border-top-width: 1px;
-  border-color: rgb(249 115 22 / 0.3);
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 1.25rem;
