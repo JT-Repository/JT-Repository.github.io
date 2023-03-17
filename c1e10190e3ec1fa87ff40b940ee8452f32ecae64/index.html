@@ -186,7 +186,7 @@
     <div class="container">
         <div class="row vh-100 align-items-start align-items-lg-center justify-content-center">
             <div class="col-11 col-md-12 text-white pt-5 pt-lg-0">
-                <div class="owl-carousel owl-theme" id="portCarousel">
+                <div class="owl-carousel owl-theme">
                     <div class="item">
                         <div class="row justify-content-center text-center">
                             <div class="col-12">
@@ -269,18 +269,28 @@
                 </div>
 
                 <script>
-                    $('#portCarousel').owlCarousel({
-                        loop: true,
-                        items: 1,
-                        dots: true,
-                        autoplay: false,
-                        touchDrag: true,
-                        mouseDrag: true,
-                        nav: true,
-                        navText: ["<em class='fa fa-chevron-left'></em>","<em class='fa fa-chevron-right'></em>"],
-                        autoHeight: true
+                    $(document).ready(function() {
+                        var owl = $('.owl-carousel');
+                        owl.owlCarousel({
+                            loop: true,
+                            items: 1,
+                            dots: true,
+                            autoplay: false,
+                            touchDrag: true,
+                            mouseDrag: true,
+                            nav: true,
+                            navText: ["<em class='fa fa-chevron-left'></em>","<em class='fa fa-chevron-right'></em>"],
+                            autoHeight: true
+                        });
+                        $(document.documentElement).keyup(function() {
+                            if (event.keyCode == 37) {
+                                owl.trigger('prev.owl.carousel', [700]);
+                            } else if (event.keyCode == 39) {
+                                owl.trigger('next.owl.carousel', [700]);
+                            }
+                        });
                     });
-            </script>
+                </script>
             </div>
         </div>
     </div>
