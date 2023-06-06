@@ -9,13 +9,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.1/css/all.min.css" integrity="sha512-/RUbtHakVMJrg1ILtwvDIceb/cDkk97rWKvfnFSTOmNbytCyEylutDqeEr9adIBye3suD3RfcsXLOLBqYRW4gw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdn.bootcss.com/OwlCarousel2/2.2.1/assets/owl.theme.default.css">
-
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js">
 </script>
-
 <style>
     
     @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
@@ -89,6 +87,7 @@
     .btn {
         font-weight: 900;
         text-transform: uppercase;
+        letter-spacing: -.0675rem;;
     }
     .btn-primary {
         background-color: rgba(var(--h2o-green),.9);
@@ -166,12 +165,10 @@
         border: solid 4px rgba(var(--h2o-green),1);
     }
     .rounded {
-        border-radius: 1rem !important;
+        border-radius: .5rem !important;
     }
-
     .link {
         color: rgba(var(--h2o-grey));
-        font-weight: 900;
     }
     .link:focus,
     .link:hover {
@@ -218,6 +215,44 @@
     }
 
 
+    .product-offering .carousel {
+        position: relative;
+    }
+    .product-offering .carousel .badge-overlay {
+        position: absolute;
+        left: .5rem;
+        top: .5rem;
+        width: auto;
+        line-height: 1;
+        padding: .25rem .5rem;
+        z-index: 23;
+        font-size: .94rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: White;
+        pointer-events: none;
+    }
+    .product-offering .carousel .badge-overlay + .badge-overlay {
+        top: 2.25rem;
+    }
+    .product-offering .carousel .badge-overlay + .badge-overlay + .badge-overlay {
+        top: 4rem;
+    }
+    .product-offering .carousel .video-icon-overlay {
+        position: absolute;
+        top: calc(50% - 20px);
+        left: calc(50% - 32px);
+        width: 65px;
+        height: 40px;
+        background-image: url(images/vimeo-play.png);
+        background-size: cover;
+        z-index: 23;
+        opacity: .25;
+    }
+    .product-offering .carousel .video-icon-overlay:focus,
+    .product-offering .carousel .video-icon-overlay:hover {
+        opacity: .75;
+    }
     .product-offering .pricing .price {
         display: block;
         font-size: calc(2rem + .5vw);
@@ -251,17 +286,28 @@
     }
     .product-offering .pricing .instalments {
         padding: 1rem;
-        background: #C001F4;
-        background: linear-gradient(225deg, #C001F4, #221794);
+        background: #9617B8;
+        background: linear-gradient(45deg, #9617B8, #221794);
         color: rgba(255,255,255,1);
     }
+    .product-offering .description {
+        padding: 0 0 1rem 0;
+        border-bottom: solid 1px rgba(var(--h2o-grey),.2);
+    }
+    .product-offering .usp-carousel {
+        padding: 1rem 0;
+        border-top: solid 1px rgba(var(--h2o-grey),.2);
+        border-bottom: solid 1px rgba(var(--h2o-grey),.2);
+    }
+
+
     .whats-included .custom-list li::before {
         content: '' !important;
         display: block;
         position: absolute;
         height: 1.2rem;
         width: 1.2rem;
-        left: -1.8rem;
+        left: 0;
         top: 1px;
         background-image: url('images/tick.png');
         background-size: cover;
@@ -269,7 +315,7 @@
     .whats-included .custom-list li {
         position: relative;
         margin-bottom: .75rem;
-        margin-left: 2rem;
+        padding-left: 1.8rem;
         list-style: none;
         font-size: 1rem;
     }
@@ -301,78 +347,6 @@
         margin-left: 2rem;
         list-style: none;
         font-size: calc(1rem + .125vw);
-    }
-
-
-    .carousel {
-        position: relative;
-    }
-    .carousel .video-icon-overlay {
-        position: absolute;
-        top: calc(50% - 40px);
-        left: calc(50% - 65px);
-        width: 130px;
-        height: 80px;
-        background-image: url(images/vimeo-play.png);
-        background-size: cover;
-        z-index: 23;
-        opacity: .15;
-    }
-    .carousel .video-icon-overlay:focus,
-    .carousel .video-icon-overlay:hover {
-        opacity: .75;
-    }
-    .main-carousel .owl-nav .owl-prev,
-    .main-carousel .owl-nav .owl-next {
-        position: absolute;
-        display: block !important;
-        height: 3rem;
-        top: calc(50% - 3rem);
-        margin: 0 -1.5rem;
-        font-size: 2.5em !important;
-        z-index: 23;
-    }
-    .main-carousel .owl-nav button {
-        outline: none;
-    }
-    .main-carousel .owl-nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-    .main-carousel .owl-nav .owl-prev,
-    .main-carousel .owl-nav .owl-next {
-        position: absolute;
-        display: block !important;
-        height: 3rem;
-        top: calc(50% - 3rem);
-        margin: 0 -1.5rem;
-        z-index: 23;
-    }
-    .main-carousel .owl-nav .owl-prev {
-        left: -1rem;
-    }
-    .main-carousel .owl-nav .owl-next {
-        right: -1rem;
-    }
-    .main-carousel .owl-nav em {
-        padding: 0 .5rem;
-        font-size: 4rem;
-        color: rgba(var(--h2o-grey),.2);
-        border-radius: 0.5rem;
-        background-color: rgba(255,255,255,.25);
-    }
-    .main-carousel .owl-nav :hover em {
-        background-color: rgba(255,255,255,1);
-    }
-    .main-carousel .owl-nav .owl-prev:hover em,
-    .main-carousel .owl-nav .owl-next:hover em {
-        color: rgba(var(--h2o-green),.65);
-        transform: scale(1.1);
-    }
-    .main-carousel .owl-nav .owl-prev:active em,
-    .main-carousel .owl-nav .owl-next:active em {
-        color: rgba(var(--h2o-green),1);
     }
 
 
@@ -441,11 +415,6 @@
         transform: rotate(-10deg);
     }
 
-    @keyframes fadeIn {
-        0% { opacity: 0; }
-        100% { opacity: 1; }
-    }
-
     @media (min-width: 768px) {
         .menu .logo {
             max-height: 32px;
@@ -455,6 +424,10 @@
         }
         section:target {
             scroll-margin-top: calc(32px + 1.5rem + 2px);
+        }
+        .carousel .video-icon-overlay {
+            transform: scale(1.5);
+            transform-origin: center center;
         }
     }
     
@@ -476,18 +449,70 @@
             transform: translateY(-2px);
             padding-left: 1rem;
         }
-        .product-offering .description {
-            padding: 1rem 0;
-            border-top: solid 1px rgba(var(--h2o-grey),.2);
-            border-bottom: solid 1px rgba(var(--h2o-grey),.2);
-        }
-        .product-offering .usp-carousel {
-            padding: 1rem 0;
-            border-top: solid 1px rgba(var(--h2o-grey),.2);
-            border-bottom: solid 1px rgba(var(--h2o-grey),.2);
-        }
         section:target {
             scroll-margin-top: calc(32px + 1rem + 3px);
+        }
+        .carousel .video-icon-overlay {
+            transform: scale(1.5);
+            transform-origin: center center;
+        }
+        .product-offering .main-carousel .item {
+            overflow: hidden;
+        }
+        .product-offering .main-carousel .owl-nav .owl-prev,
+        .product-offering .main-carousel .owl-nav .owl-next {
+            position: absolute;
+            display: block !important;
+            height: 3rem;
+            top: calc(50% - 3rem);
+            margin: 0 -1.5rem;
+            font-size: 2.5em !important;
+            z-index: 23;
+        }
+        .product-offering .main-carousel .owl-nav button {
+            outline: none;
+        }
+        .product-offering .main-carousel .owl-nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .product-offering .main-carousel .owl-nav .owl-prev,
+        .product-offering .main-carousel .owl-nav .owl-next {
+            position: absolute;
+            display: block !important;
+            height: 3rem;
+            top: calc(50% - 3rem);
+            margin: 0 -1.5rem;
+            z-index: 23;
+        }
+        .product-offering .main-carousel .owl-nav .owl-prev {
+            left: -1rem;
+        }
+        .product-offering .main-carousel .owl-nav .owl-next {
+            right: -1rem;
+        }
+        .product-offering .main-carousel .owl-nav em {
+            padding: 0 .5rem;
+            font-size: 4rem;
+            color: rgba(var(--h2o-grey),.2);
+            border-radius: 0.5rem;
+            background-color: rgba(255,255,255,.25);
+        }
+        .product-offering .main-carousel .owl-nav :hover em {
+            background-color: rgba(255,255,255,1);
+        }
+        .product-offering .main-carousel .owl-nav .owl-prev:hover em,
+        .product-offering .main-carousel .owl-nav .owl-next:hover em {
+            color: rgba(var(--h2o-green),.65);
+            transform: scale(1.1);
+        }
+        .product-offering .main-carousel .owl-nav .owl-prev:active em,
+        .product-offering .main-carousel .owl-nav .owl-next:active em {
+            color: rgba(var(--h2o-green),1);
+        }
+        .product-offering .main-carousel .owl-dots {
+            display: none;
         }
         .footer {
             padding-bottom: calc(60px + 2rem);
@@ -518,10 +543,14 @@
         section:target {
             scroll-margin-top: calc(36px + 2.5rem);
         }
-         .main-carousel .owl-nav .owl-prev {
+        .carousel .video-icon-overlay {
+            transform: scale(1.8);
+            transform-origin: center center;
+        }
+        .main-carousel .owl-nav .owl-prev {
             left: -1.5rem;
         }
-         .main-carousel .owl-nav .owl-next {
+        .main-carousel .owl-nav .owl-next {
             right: -1.5rem;
         }
         .footer {
@@ -551,14 +580,34 @@
         .trust {
             height: 60px;
         }
-        .product-offering .description {
-            padding: 0 0 1rem 0;
-            border-bottom: solid 1px rgba(var(--h2o-grey),.2);
+        .carousel .video-icon-overlay {
+            transform: scale(1.3);
+            transform-origin: center center;
         }
-        .product-offering .usp-carousel {
-            padding: 1rem 0;
-            border-top: solid 1px rgba(var(--h2o-grey),.2);
-            border-bottom: solid 1px rgba(var(--h2o-grey),.2);
+        .product-offering .main-carousel .owl-dots {
+            display: block;
+            text-align: center;
+            padding-top: 1rem;
+        }
+        .product-offering .main-carousel .owl-dots button {
+            display: -webkit-inline-box;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            width: .75rem;
+            height: .75rem;
+            margin: 0 .75rem;
+            background: rgba(var(--h2o-grey),.3);
+            border-radius: 50%;
+            outline: none;
+        }
+        .product-offering .main-carousel .owl-dots button:focus {
+            background: rgba(var(--h2o-grey),.7);
+        }
+        .product-offering .main-carousel .owl-dots button span {
+            display: none;
+        }
+        .product-offering .main-carousel .owl-nav {
+            display: none;
         }
         .navbar-collapse.show::before {
             content: '';
@@ -567,7 +616,7 @@
             left: -25%;
             right: -25%;
             height: 2px;
-            border-top: solid 2px rgba(var(--h2o-green),1);
+            border-top: solid 1px rgba(var(--h2o-grey),.7);
         }
         .menu .navbar-toggler:focus,
         .menu .navbar-toggler:active {
@@ -642,6 +691,19 @@
     .yotpo.testimonials {
         display: none;
     }
+    .bg-yotpo {
+        background-color: rgba(var(--h2o-grey),.5);
+    }
+    a:hover .bg-yotpo {
+        background-color: rgb(45,129,234);
+    }
+    .text-yotpo {
+        font-weight: 900 !important;
+        color: rgba(var(--h2o-grey),.5);
+    }
+    a:hover .text-yotpo {
+        color: rgb(45,129,234) !important;
+    }
 
 
 </style>
@@ -650,42 +712,22 @@
     
 <body>
 
-    <!--<div class="container-fluid bg-thane-grey top-bar fixed-top" id="topBar">
-        <div class="xl-gutters mx-auto">
-            <div class="row py-2">
-                <div class="col">
-                    <div class="d-flex align-items-center justify-content-center">
-                        <span class="small font-weight-bold">brought to you by</span>
-                        <img class="logo mx-2" src="images/thane.png" alt="">
-                        <span class="h4 custom-font font-weight-bold text-uppercase mt-1 mb-0">Thane Direct</span>
-                    </div>
-                    <a class="stretched-link" href="https://www.thanedirect.co.uk" alt="brought to you by Thane Direct"></a>
-                </div>
-            </div>
-        </div>
-    </div>-->
-
     <header>
         <section class="container-fluid bg-white fixed-top bg-white menu" id="Menu">
             <div class="xl-gutters">
-
                 <nav class="navbar navbar-expand-lg p-0 py-3 py-xl-4 justify-content-between" id="menuNav">
-
                     <a class="text-decoration-none" href="#" alt="H2O HD&reg; Pro Steam Mop">
                         <div class="logos">
                             <img class="logo mr-2" src="images/thane.png">
                             <img class="logo" src="images/h2o-hd.png">
                         </div>
                     </a>
-
                     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#h2oMenu" aria-controls="h2oMenu" aria-expanded="false">
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
-
                     <div class="collapse navbar-collapse mh-100 flex-column flex-lg-row align-items-center justify-content-lg-end mt-3 mt-lg-0" id="h2oMenu">
-                        
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link" href="#Features" title="Features">Features</a>
@@ -697,36 +739,35 @@
                                 <a class="nav-link" href="#Reviews" title="Reviews">Reviews</a>
                             </li>
                         </ul>
-
-                        <a class="flag" href="" title="">
+                        <a class="flag" href="#" title="Republic of Ireland site">
                             <img class="img-fluid w-100" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Flag_of_Ireland.svg/255px-Flag_of_Ireland.svg.png">
                         </a>
-
                     </div>
-
                 </nav>
-
             </div>
         </div>
     </header>
     
     <main>
-
         <section class="container-fluid bg-white product-offering" id="productOffering">
             <div class="xl-gutters">
                 <div class="row px-4 py-5 justify-content-xl-around">
-
                     <div class="col-12 mb-4 mb-xl-5 heading">
                         <div class="row">
                             <div class="col-12 col-lg text-center text-lg-left">
                                 <h1 class="mb-3 mb-lg-1" title="">H2O HD<sup>&reg;</sup> Pro Steam Mop</h1>
                             </div>
-                            <div class="col-auto mx-auto">
-                                <img class="img-fluid trust" src="images/trust.png" alt="">
-                                <!--<div class="yotpo bottomLine yotpo-small" data-product-id="269-UK" data-yotpo-element-id="1" style="visibility: visible; margin: auto; text-align: center;">
+                            <div class="col-auto d-flex align-items-center mx-auto">
+                                <!--img class="img-fluid trust" src="images/trust.png" alt="">
+                                <a class="d-flex align-items-center mb-1 text-decoration-none stretched-link" href="#Reviews">
+                                    <span class="bg-yotpo px-1">
+                                        <img class="img-fluid" style="max-height: 15px;" src="images/yotpo-text.png">
+                                    </span>
+                                </a>-->
+                                <div class="yotpo" data-product-id="269-UK" data-yotpo-element-id="1" style="visibility: visible;">
                                     <div class="yotpo-display-wrapper" style="visibility: hidden;">
-                                        <div class="standalone-bottomline" data-source="default" tabindex="-1">
-                                            <div class="yotpo-bottomline pull-left  star-clickable" tabindex="0">
+                                        <div class="standalone-bottomline" data-source="default">
+                                            <div class="yotpo-bottomline pull-left star-clickable">
                                                 <span class="yotpo-stars">
                                                     <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
                                                     <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
@@ -735,35 +776,40 @@
                                                     <span class="yotpo-icon yotpo-icon-half-star rating-star pull-left"></span>
                                                     <span class="sr-only">4.4 star rating</span>
                                                 </span>
-                                                <a href="javascript:void(0)" class="link font-weight-bold" aria-label="2925 reviews" tabindex="-1">2925 Reviews</a>
+                                                <a href="#Reviews" aria-label="2925 reviews" class="text-yotpo" style="margin-left: .375rem; text-transform: uppercase; font-weight: bold !important; color: rgb(90,100,102) !important;">2925 Reviews</a>
                                             </div>
                                         </div>
                                     </div>
-                                </div>-->
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="row justify-content-around">
-                            <div class="col-11 col-md-9 col-lg-5 mb-5 mb-lg-0">
+                            <div class="col-12 col-sm-11 col-md-10 col-lg-5 mb-5 mb-lg-0">
                                 <div class="carousel">
-                                    <div class="video-icon-overlay"></div>
-                                    <div class="badge-overlay bg-h2o-grey">gghjh</div>
+
+                                    <a class="video-icon-overlay" href="#seenOnTV"></a>
+                                    <div class="badge-overlay bg-primary text-white">FREE Gift worth £59 *</div>
+                                    <div class="badge-overlay bg-h2o-green text-white">+ Pro Accessories</div>
+                                    <div class="badge-overlay bg-thane-red1 text-white">+ Save £20</div>
+
+
                                     <div class="owl-carousel main-carousel" id="mainCarousel">
                                         <div class="item">
-                                            <img class="img-fluid w-100" src="images/slide1.png">
+                                            <img class="img-fluid w-100 rounded" src="images/slide1.png">
                                         </div>
                                         <div class="item">
-                                            <img class="img-fluid w-100" src="images/slide2.png">
+                                            <img class="img-fluid w-100 rounded" src="images/slide2.png">
                                         </div>
                                         <div class="item">
-                                            <img class="img-fluid w-100" src="images/slide3.png">
+                                            <img class="img-fluid w-100 rounded" src="images/slide3.png">
                                         </div>
                                         <div class="item">
-                                            <img class="img-fluid w-100" src="images/slide4.png">
+                                            <img class="img-fluid w-100 rounded" src="images/slide4.png">
                                         </div>
                                         <div class="item">
-                                            <img class="img-fluid w-100" src="images/slide5.png">
+                                            <img class="img-fluid w-100 rounded" src="images/slide5.png">
                                         </div>
                                     </div>
                                 </div>
@@ -771,15 +817,16 @@
                                     Save more when you upgrade to the H2O<sup>&reg;</sup> HD Pro Elite System
                                 </div>-->
                                 <div class="d-none d-lg-block mt-4 text-center">
-                                    <h3 class="mb-0">What's Included?</h3>
-                                    <a class="link" href="#whatsIncluded" data-toggle="collapse" data-target="#whatsIncluded"><em class="fas fa-angle-down" aria-hidden="true"></em> Click here to see a list of everything that comes in the box</a>
+                                    <h2 class="mb-0">What's Included?</h2>
+                                    <a class="small link" href="#whatsIncluded" data-toggle="collapse" data-target="#whatsIncluded" aria-expanded="false" aria-controls="whatsIncluded">Click here to see a list of everything that comes in the box <em class="fas fa-angle-down" aria-hidden="true"></em></a>
                                 </div>
                             </div>
-
-                            <div class="coßl-12 col-sm-11 col-md-10 col-lg-6 col-xl-5">
+                            <div class="col-12 col-sm-11 col-md-10 col-lg-6 col-xl-5">
                                 <div class="row">
+
                                     <div class="col-12 mb-4 order-lg-1">
                                         <div class="row justify-content-center align-items-center pricing">
+
                                             <div class="col-lg-auto text-center">
                                                 <span class="price">£179.95</span>
                                                 <spa class="was-text">Usually <span class="was-price">£259.96</span></span>
@@ -787,13 +834,17 @@
                                             <div class="col-auto px-2 my-auto">
                                                 <img class="img-fluid or" src="images/or.png" alt="">
                                             </div>
-                                            <div class="col-auto col-lg">
-                                                <div class="rounded-lg text-center instalments">
-                                                    5 interest-free instalments of <strong>£35.99</strong> <span class="d-inline-block">via Easy<strong>Pay</span></strong>
+                                            <div class="col-12">
+                                                <div class="rounded text-center instalments">
+                                                    <a data-toggle="collapse" data-target="#easyPayTerms" aria-expanded="false" aria-controls="easyPayTerms">5 interest-free instalments <br class="d-md-none"> of <strong>£35.99</strong> via Easy<strong>Pay</strong> <em class="fas fa-angle-down" aria-hidden="true"></em></a>
+                                                    <div class="collapse" id="easyPayTerms">
+                                                        <small>Easy<strong>Pay</strong> eligibility is subject to status and approval. 18+ UK residents only. Available for purchases of £x to £xxxx. Terms and conditions apply.</small>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-12 mb-4 order-lg-3">
                                         <div class="row justify-content-center align-items-center">
                                             <div class="col-auto">
@@ -804,22 +855,23 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-12 order-lg-5 mb-4 mb-lg-5 text-center order-lg-4">
                                         <div class="owl-carousel py-4 usp-carousel" id="uspCarousel">
                                             <div class="item">
                                                 <span class="h5"><em class="fas fa-truck mr-2" aria-hidden="true"></em>Next day delivery available</span>
                                             </div>
                                             <div class="item">
-                                                <span class="h5"><em class="fas fa-box mr-2" aria-hidden="true"></em>Dispatches immediately from the UK</span>
+                                                <span class="h5"><em class="fas fa-box mr-2" aria-hidden="true"></em>Same day despatch from the UK</span>
                                             </div>
                                             <div class="item">
                                                 <span class="h5"><em class="fas fa-calendar-alt mr-2" aria-hidden="true"></em>Interest-free monthly instalments</span>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-12 mb-4 order-lg-2">
-                                        <div class="description">
+                                        <div class="d-flex flex-column description">
                                             <p>Multi-functional advanced upright & hand-held steam cleaner that works quickly on hard floors &amp; carpets using only the power of steam.</p>
                                             <ul>
                                                 <li>From the <a class="link" href="#Awards">award-winning</a> H2O<sup>&reg;</sup> family</li>
@@ -828,12 +880,11 @@
                                                 <li>Powerful &amp; lightweight</li>
                                                 <li>Folds down for easy storage</li>
                                             </ul>
-                                            <div class="text-right small">
-                                                <a class="link" href="#Features" ><em class="fas fa-angle-down" aria-hidden="true"></em> Read full product description</a>
-                                            </div>
+                                            <a class="small link ml-auto" href="#Features" >Read full product features <em class="fas fa-angle-down" aria-hidden="true"></em></a>
                                         </div>
                                     </div>
-                                    <div class="col-12 order-lg-5 mt-3 mt-lg-0 mb-lg-4">
+
+                                    <div class="col-12 mt-3 mt-lg-0 mb-lg-4 order-lg-5">
                                         <div class="row px-lg-2 justify-content-center">
                                             <div class="col-auto px-1 pb-2">
                                                 <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" width="38" height="24" aria-labelledby="pi-american_express"><title id="pi-american_express">American Express</title><g fill="none"><path fill="#000" d="M35,0 L3,0 C1.3,0 0,1.3 0,3 L0,21 C0,22.7 1.4,24 3,24 L35,24 C36.7,24 38,22.7 38,21 L38,3 C38,1.3 36.6,0 35,0 Z" opacity=".07"></path><path fill="#006FCF" d="M35,1 C36.1,1 37,1.9 37,3 L37,21 C37,22.1 36.1,23 35,23 L3,23 C1.9,23 1,22.1 1,21 L1,3 C1,1.9 1.9,1 3,1 L35,1"></path><path fill="#FFF" d="M8.971,10.268 L9.745,12.144 L8.203,12.144 L8.971,10.268 Z M25.046,10.346 L22.069,10.346 L22.069,11.173 L24.998,11.173 L24.998,12.412 L22.075,12.412 L22.075,13.334 L25.052,13.334 L25.052,14.073 L27.129,11.828 L25.052,9.488 L25.046,10.346 L25.046,10.346 Z M10.983,8.006 L14.978,8.006 L15.865,9.941 L16.687,8 L27.057,8 L28.135,9.19 L29.25,8 L34.013,8 L30.494,11.852 L33.977,15.68 L29.143,15.68 L28.065,14.49 L26.94,15.68 L10.03,15.68 L9.536,14.49 L8.406,14.49 L7.911,15.68 L4,15.68 L7.286,8 L10.716,8 L10.983,8.006 Z M19.646,9.084 L17.407,9.084 L15.907,12.62 L14.282,9.084 L12.06,9.084 L12.06,13.894 L10,9.084 L8.007,9.084 L5.625,14.596 L7.18,14.596 L7.674,13.406 L10.27,13.406 L10.764,14.596 L13.484,14.596 L13.484,10.661 L15.235,14.602 L16.425,14.602 L18.165,10.673 L18.165,14.603 L19.623,14.603 L19.647,9.083 L19.646,9.084 Z M28.986,11.852 L31.517,9.084 L29.695,9.084 L28.094,10.81 L26.546,9.084 L20.652,9.084 L20.652,14.602 L26.462,14.602 L28.076,12.864 L29.624,14.602 L31.499,14.602 L28.987,11.852 L28.986,11.852 Z"></path></g></svg>
@@ -865,16 +916,15 @@
                                         </div>
                                     </div>
 
-                                    <div class="d-lg-none col-11 mx-auto mt-5 text-center">
-                                        <h3 class="mb-0">What's Included?</h3>
-                                        <a class="link" href="#whatsIncluded" data-toggle="collapse" data-target="#whatsIncluded"><em class="fas fa-angle-down" aria-hidden="true"></em>Click here to see a list of everything that comes in the box</a>
+                                    <div class="d-lg-none col-12 mx-auto mt-5 text-center">
+                                        <h2 class="mb-0">What's Included?</h2>
+                                        <a class="small link" href="#whatsIncluded" data-toggle="collapse" data-target="#whatsIncluded" aria-expanded="false" aria-controls="whatsIncluded">Click here to see a list of everything that comes in the box <em class="fas fa-angle-down" aria-hidden="true"></em></a>
                                     </div>
 
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="col-12 col-sm-11 col-md-10 col-lg-11 col-xl-12 mt-4 mx-auto collapse whats-included" id="whatsIncluded">
                         <div class="row">
                             <div class="col-md-6 col-lg-4 mb-4 mb-xl-0">
@@ -893,10 +943,10 @@
                                     <li>1 x Super Absorbent Cloth for Window Cleaning Tool</li>
                                 </ul>
                             </div>
-                            <div class="col-md-6 col-lg-4 mb-4">
-                                <div class="p-3 bg-thane-grey rounded-lg">
+                            <div class="col-md-6 col-lg-4 mb-4 mb-xl-0">
+                                <div class="p-3 bg-thane-grey rounded">
                                     <h3 class="mb-3">Pro Extra Accessories</h3>
-                                    <ul class="custom-list m-0 px-4 px-md-0">
+                                    <ul class="custom-list m-0 p-0 pl-2">
                                         <li>4 x Microfibre Floor Cloth</li>
                                         <li>1 x Window Cleaning Cloth</li>
                                         <li>1 x Super Absorbent Floor Cloth</li>
@@ -918,7 +968,6 @@
                         </div>
 
                     </div>
-
                 </div>
             </div>
         </section>
@@ -946,10 +995,11 @@
                 </div>
             </div>
         </section>
+
         <section class="container-fluid bg-white" id="Benefits">
             <div class="xl-gutters">
                 <div class="row px-4 py-5 justify-content-center">
-                    <div class="col-11 col-sm-10 col-md-9 col-lg-11 col-xl-12">
+                    <div class="col-11 col-sm-10 col-lg-11 col-xl-12">
                         <div class="row">
                             <div class="col text-center">
                                 <h1 class="mb-5">The Benefits of Hand-Held Cleaning</h1>
@@ -958,44 +1008,44 @@
                                 <div class="row">
                                     <div class="col-md-6 col-lg mb-5 mb-lg-0">
                                         <div class="row justify-content-center">
-                                            <div class="col-6 col-sm-7 col-md-10 mb-4">
+                                            <div class="col-7 col-md-10 mb-4">
                                                 <img class="img-fluid w-100 rounded-circle bordered" src="images/benefits-1b.png" alt="">
                                             </div>
                                             <div class="col-12">
-                                                <h2 class="h3 mb-3">Reduce Time Spent Ironing</h2>
+                                                <h2 class="h3 mb-2">Reduce Your Time Spent Ironing</h2>
                                                 <p class="mb-0">With the Garment Steamer attachment, creases melt away and your garments will be refreshed and ready to wear.</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg mb-5 mb-lg-0">
                                         <div class="row justify-content-center">
-                                            <div class="col-6 col-sm-7 col-md-10 mb-4">
+                                            <div class="col-7 col-md-10 mb-4">
                                                 <img class="img-fluid w-100 rounded-circle bordered" src="images/benefits-2b.png" alt="">
                                             </div>
                                             <div class="col-12">
-                                               <h2 class="h3 mb-3">Clean Without Chemicals</h2>
+                                               <h2 class="h3 mb-2">Clean Without Chemicals</h2>
                                                <p class="mb-0">Clean hard to reach places effectively. Comes with the Jet Nozzle and Nylon Brush for targeted cleaning.</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg mb-5 mb-md-0">
                                         <div class="row justify-content-center">
-                                            <div class="col-6 col-sm-7 col-md-10 mb-4">
+                                            <div class="col-7 col-md-10 mb-4">
                                                 <img class="img-fluid w-100 rounded-circle bordered" src="images/benefits-3b.png" alt="">
                                             </div>
                                             <div class="col-12">
-                                               <h2 class="h3 mb-3">Use It To Clean Your Windows</h2>
+                                               <h2 class="h3 mb-2">Use It To Clean Your Windows</h2>
                                                <p class="mb-0">Mirrors, glass, windows and chrome get a streak-free shine with the Window Cleaning and Squeegee attachment.</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg">
                                         <div class="row justify-content-center">
-                                            <div class="col-6 col-sm-7 col-md-10 mb-4">
+                                            <div class="col-7 col-md-10 mb-4">
                                                 <img class="img-fluid w-100 rounded-circle bordered" src="images/benefits-4b.png" alt="">
                                             </div>
                                             <div class="col-12">
-                                               <h2 class="h3 mb-3">Laboratory Proven Results</h2>
+                                               <h2 class="h3 mb-2">Laboratory Proven Results</h2>
                                                <p class="mb-0">Kill up to 99% of germs &amp; bacteria including salmonella, E.coli, influenza & listeria.</p>
                                             </div>
                                         </div>
@@ -1008,41 +1058,6 @@
             </div>
         </section>
 
-        <!--<section class="container-fluid bg-h2o-green text-white delivery" id="Delivery">
-            <div class="xl-gutters">
-                <div class="row px-4 py-5 justify-content-center">
-                    <div class="col-10 col-sm-9 col-md-11 col-lg-12 text-center">
-                        <div class="row py-5">
-                            <div class="col-12 col-md mb-5 mb-md-0">
-                                <div class="row justify-content-center">
-                                    <div class="col-11 d-flex flex-column">
-                                        <em class="fa fa-truck icon" aria-hidden="true"></em>
-                                        <span class="mt-2 mt-md-3 mt-lg-4 text">Next day delivery available</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md mb-5 mb-md-0">
-                                <div class="row justify-content-center">
-                                    <div class="col-11 d-flex flex-column">
-                                        <i class="fa fa-box icon" aria-hidden="true"></i>
-                                        <span  class="mt-2 mt-md-3 mt-lg-4 text">Dispatches immediately from the UK</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md">
-                                <div class="row justify-content-center">
-                                    <div class="col-11 d-flex flex-column">
-                                        <em class="fa fa-calendar-alt icon" aria-hidden="true"></em>
-                                        <span class="mt-2 mt-md-3 mt-lg-4 text">Interest-free monthly instalments</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>-->
-
         <section class="container-fluid bg-thane-grey easy-fast-hygienic" id="EasyFast">
             <div class="xl-gutters">
                 <div class="row px-4 py-5 justify-content-center">
@@ -1053,7 +1068,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="row justify-content-center align-items-center">
-                                    <div class="col-10 col-lg-7 mb-4">
+                                    <div class="col-11 col-sm-10 col-md-9 col-lg-7 mb-4">
                                         <ul class="p-0 custom-list">
                                             <li><strong>Kills up to 99% of salmonella, E.coli, influenza &amp; listeria **</strong> helping to sanitise and deodorise surfaces</li>
                                             <li><strong>The removable water tank</strong> makes filling up simple and holds 450ml for more cleaning time</li>
@@ -1065,7 +1080,7 @@
                                     </div>
                                     <div class="col-12 col-sm-11 col-md-11 col-lg mb-5">
                                         <div class="row justify-content-center">
-                                            <div class="col-11 col-md col-lg-12 mb-4 mb-md-0 mb-lg-4">
+                                            <div class="col-12 col-md col-lg-12 mb-4 mb-md-0 mb-lg-4">
                                                 <div class="row align-items-center justify-content-center">
                                                     <div class="col-4 col-sm-3 col-md-7 col-lg-4 mb-md-4 mb-lg-0">
                                                         <img class="img-fluid w-100 rounded-circle bordered" src="images/easy.png" alt="">
@@ -1075,7 +1090,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-11 col-md col-lg-12 mb-4 mb-md-0 mb-lg-4">
+                                            <div class="col-12 col-md col-lg-12 mb-4 mb-md-0 mb-lg-4">
                                                 <div class="row align-items-center justify-content-center">
                                                     <div class="col-4 col-sm-3 col-md-7 col-lg-4 mb-md-4 mb-lg-0">
                                                         <img class="img-fluid w-100 rounded-circle bordered" src="images/easy.png" alt="">
@@ -1085,7 +1100,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-11 col-md col-lg-12">
+                                            <div class="col-12 col-md col-lg-12">
                                                 <div class="row align-items-center justify-content-center">
                                                     <div class="col-4 col-sm-3 col-md-7 col-lg-4 mb-md-4 mb-lg-0">
                                                         <img class="img-fluid w-100 rounded-circle bordered" src="images/hygienic.png" alt="">
@@ -1167,7 +1182,6 @@
                 <div class="row px-4 py-5 justify-content-center">
                     <div class="col-11 col-sm-10 col-lg-11">
                         <div class="row">
-
                             <div class="col-12 text-center">
                                 <h1 class="mb-5">Award-Winning H2O<sup>&reg;</sup> Family</h1>
                             </div>
@@ -1201,12 +1215,17 @@
             </div>
         </section>
 
-        <section class="container-fluid bg-h2o-green text-white">
+        <section class="container-fluid bg-h2o-green text-white" id="seenOnTV">
             <div class="xl-gutters">
                 <div class="row px-4 py-5 justify-content-center">
                     <div class="col-11 col-sm-10 col-lg-11 text-center">
-                        <h2 class="h1">As Seen On TV</h2>
-                        <p>You may have seen the H2O<sup>&reg;</sup> HD on some of the country's most popular TV Channels.</p>
+
+                        <h1 class="mb-2">As Seen On TV</h1>
+                        <p class="h5">You may have seen the H2O<sup>&reg;</sup> HD on some of the country's most popular TV Channels.</p>
+                        <div class="embed-responsive embed-responsive-16by9 rounded">
+                            <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/116533238?autoplay=0&amp;title=1&amp;portrait=1&amp;byline=1&amp;muted=0&amp;loop=0" frameborder="0" playsinline webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -1317,7 +1336,7 @@
             mainCarousel.owlCarousel({
                 loop: true,
                 items: 1,
-                dots: false,
+                dots: true,
                 autoplay: false,
                 touchDrag: true,
                 mouseDrag: true,
