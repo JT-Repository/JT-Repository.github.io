@@ -1,0 +1,2442 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>H2O HD&reg; Pro Steam Mop - </title>
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.1/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/OwlCarousel2/2.2.1/assets/owl.theme.default.css">
+
+<script type="text/javascript" src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js">
+</script>
+<style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+    :root {
+        --custom-dark: 0,0,0;
+        --thane-grey: 242,242,242;
+        --thane-red1: 243,1,0; /*#f30100*/
+        --thane-red2: 146,22,44; /*#92162c*/
+        --thane-red3: 255,136,155; /*#ff889b*/
+        --h2o-grey: 90,100,102; /*#636466*/
+        --h2o-green: 172,201,47; /*#acc92f*/
+        --yotpo-blue: 73,140,188; /*#498cbc*/
+    }
+    * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+    html {
+        height: 100%;
+        margin: 0;
+        scroll-behavior: smooth;
+    }
+    body {
+        position: relative;
+        height: 100%;
+        margin: 0;
+        font-family: "Varela Round";
+        font-weight: 300;
+        font-style: normal;
+        font-variant: normal;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased;
+        color: rgba(var(--h2o-grey),1);
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
+    }
+    p {
+        font-size: calc(1rem + .125vw);
+    }
+    small, .small {
+        font-size: 88%;
+    }
+    h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5 {
+        font-weight: 900;
+        line-height: 1.1;
+        letter-spacing: -0.0675rem;
+    }
+    h1 sup, .h1 sup {
+        font-size: 50%;
+        vertical-align:super;
+    }
+    h1,.h1 {
+        font-size: calc(2.5rem + .75vw);
+        line-height: .95;
+    }
+    h2,.h2 {
+        font-size: calc(1.75rem + .75vw);
+    }
+    h3,.h3 {
+        font-size: calc(1.25rem + .75vw);
+    }
+    h4,.h4 {
+        font-size: calc(1.125rem + .5vw);
+    }
+    h5,.h5 {
+        font-size: calc(1.125rem + .25vw);
+    }
+    strong {
+        font-weight: 900;
+    }
+    .btn {
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: -.0675rem;;
+    }
+    .btn-primary {
+        background-color: rgba(var(--h2o-green),.9);
+        border: solid 1px rgba(var(--h2o-green),.9);
+        color: rgba(255,255,255,1);
+    }
+    .btn-primary:hover {
+        background-color: rgba(var(--h2o-green),1);
+        border: solid 1px rgba(var(--h2o-green),1);
+        color: rgba(var(--h2o-grey),1);
+    }
+    .btn-primary:focus,
+    .btn-primary:not(:disabled):not(.disabled).active,
+    .btn-primary:not(:disabled):not(.disabled):active {
+        background-color: rgba(var(--h2o-green),1);
+        border: solid 1px rgba(var(--h2o-green),1);
+        color: rgba(255,255,255,1);
+        box-shadow: 0 0 0 0.2rem rgba(var(--h2o-green),.25) !important;
+    }
+    .btn-secondary {
+        background-color: rgba(255,255,255,.9);
+        border: solid 1px rgba(255,255,255,.9);
+        color: rgba(var(--yotpo-blue),.9);
+    }
+    .btn-secondary:hover {
+        background-color: rgba(255,255,255,1);
+        border: solid 1px rgba(255,255,255,1);
+        color: rgba(var(--yotpo-blue),1);
+    }
+    .btn-secondary:focus,
+    .btn-secondary:not(:disabled):not(.disabled).active,
+    .btn-secondary:not(:disabled):not(.disabled):active {
+        background-color: rgba(255,255,255,1);
+        border: solid 1px rgba(var(--yotpo-blue),1);
+        color: rgba(var(--yotpo-blue),.9);
+        box-shadow: 0 0 0 0.2rem rgba(255,255,255,.25) !important;
+    }
+    .btn-buy {
+        background-color: rgba(var(--thane-red1),1);
+        border: solid 1px rgba(var(--thane-red1),1);
+        color: rgba(255,255,255,1);
+    }
+    .btn-buy:hover {
+        background-color: rgba(var(--thane-red3),1);
+        border: solid 1px rgba(var(--thane-red3),1);
+        color: rgba(255,255,255,1);
+    }
+    .btn-buy:focus,
+    .btn-buy:not(:disabled):not(.disabled).active,
+    .btn-buy:not(:disabled):not(.disabled):active {
+        background-color: rgba(var(--thane-red2),1);
+        border: solid 1px rgba(var(--thane-red2),1);
+        color: rgba(255,255,255,1);
+        box-shadow: 0 0 0 0.2rem rgba(var(--thane-red2),.25) !important;
+    }
+    .bg-thane-grey { background-color: rgba(var(--thane-grey),1); }
+    .bg-thane-red1 { background-color: rgba(var(--thane-red1),1); }
+    .bg-thane-red2 { background-color: rgba(var(--thane-red2),1); }
+    .bg-thane-red3 { background-color: rgba(var(--thane-red3),1); }
+    .bg-h2o-green { background-color: rgba(var(--h2o-green),1); }
+    .bg-h2o-grey { background-color: rgba(var(--h2o-grey),1); }
+    .bg-reviews { background-color: rgba(67,74,80,1); }
+    .text-thane-grey { color: rgba(var(--thane-grey),1); }   
+    .text-thane-red1 { color: rgba(var(--thane-red1),1); }
+    .text-thane-red2 { color: rgba(var(--thane-red2),1); }
+    .text-thane-red3 { color: rgba(var(--thane-red3),1); }
+    .text-h2o-green { color: rgba(var(--h2o-green),1); }
+    .text-h2o-grey { color: rgba(var(--h2o-grey),1); }
+    .xl-gutters {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+    .bordered {
+        border: solid 4px rgba(var(--h2o-green),1);
+    }
+    .rounded {
+        border-radius: .5rem !important;
+    }
+    .link {
+        color: rgba(var(--h2o-grey));
+    }
+    .link:focus,
+    .link:hover {
+        color: rgba(var(--h2o-green));
+        text-decoration: none;
+    }
+    .menu {
+        border-bottom: solid 1px rgba(var(--h2o-grey),.7);
+    }
+    .menu .logo {
+        max-height: 25px;
+    }
+    .menu .logos {
+        -webkit-transition: transform 300ms ease;
+        -moz-transition: transform 300ms ease;
+        -o-transition: transform 300ms ease;
+        transition: transform 300ms ease;
+        transform-origin: left;
+    }
+    .menu .navbar-collapse .nav-link {
+        text-transform: uppercase;
+        font-weight: 900;
+        color: rgba(var(--h2o-grey),1);
+    }
+    .menu .navbar-collapse .nav-link:focus,
+    .menu .navbar-collapse .nav-link:hover {
+        color: rgba(var(--h2o-green),.8);
+    }
+    .menu .navbar-collapse .nav-link:active {
+        color: rgba(var(--h2o-green),1);
+    }
+    section:target {
+        scroll-margin-top: calc(25px + 2rem);
+    }
+    .product-offering .carousel {
+        position: relative;
+    }
+    .product-offering .carousel .badge-overlay {
+        position: absolute;
+        left: -2px;
+        top: 1rem;
+        width: auto;
+        padding: .375rem .5rem;
+        z-index: 23;
+        font-size: .94rem;
+        font-weight: 900;
+        letter-spacing: -0.05rem;
+        line-height: .94;
+        border-radius: 0 0.375rem 0.375rem 0;
+        box-shadow: 2px 3px rgba(var(--h2o-grey),.2);
+        text-transform: uppercase;
+        color: White;
+        pointer-events: none;
+    }
+    .product-offering .carousel .badge-overlay + .badge-overlay {
+        top: 3rem;
+    }
+    .product-offering .carousel .video-icon-overlay {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+        width: 63px;
+        height: 40px;
+        background-image: url(images/vimeo-play2.png);
+        background-size: cover;
+        z-index: 23;
+        filter:grayscale(100);
+        opacity: .25;
+    }
+    .product-offering .carousel .video-icon-overlay:focus,
+    .product-offering .carousel .video-icon-overlay:hover {
+        filter:grayscale(0);
+        opacity: .75;
+    }
+    .product-offering .main-carousel item {
+        margin: 0 1px;
+    }
+    .product-offering .thumbs-carousel {
+        padding-top: .75rem;
+    }
+    .product-offering .thumbs-carousel .item {
+        margin: 0 .25rem;
+        cursor: pointer;
+    }
+    .thumbs-carousel :not(.current) .item { 
+        opacity: .4;
+    }
+    .thumbs-carousel .current .item { 
+        opacity: 1;
+    }
+    .product-offering .pricing .price {
+        display: block;
+        font-size: calc(2.5rem + .375vw);
+        line-height: 85%;
+        font-weight: 900;
+        letter-spacing: -0.15rem;
+        color: rgba(var(--thane-red1),1);
+    }
+    .product-offering .pricing .was-text {
+        position: relative;
+        font-size: calc(.9rem + .125vw);
+        color: rgba(var(--h2o-grey),.5);
+        text-transform: uppercase;
+        line-height: 1;
+        margin-bottom: 1px;
+    }
+    .product-offering .pricing .was-price {
+        position: relative;
+    }
+    .product-offering .pricing .was-text::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(50% - 2px);
+        border-top: solid 1px rgba(var(--h2o-grey),1);
+        transform: rotate(-3deg);
+    }
+    .product-offering .pricing .saving-text {
+        position: relative;
+        font-size: calc(.9rem + .25vw);
+        color: rgba(var(--thane-red3),1);
+        text-transform: uppercase;
+        line-height: 1;
+    }
+    .product-offering .pricing .or {
+        max-height: 22px;
+        opacity: .7;
+    }
+    .product-offering .pricing .instalments {
+        padding: 1rem;
+        background: #9617B8;
+        background: linear-gradient(45deg, #9617B8, #221794);
+        color: rgba(255,255,255,1);
+    }
+    .product-offering .description {
+        padding: 0 0 1rem 0;
+        border-bottom: solid 1px rgba(var(--h2o-grey),.2);
+    }
+    .product-offering .usp-carousel {
+        padding: 1rem 0;
+        border-top: solid 1px rgba(var(--h2o-grey),.2);
+        border-bottom: solid 1px rgba(var(--h2o-grey),.2);
+    }
+    .whats-included .custom-list li::before {
+        content: '' !important;
+        display: block;
+        position: absolute;
+        height: 1.2rem;
+        width: 1.2rem;
+        left: 0;
+        top: 1px;
+        background-image: url('images/tick.png');
+        background-size: cover;
+    }
+    .whats-included .custom-list li {
+        position: relative;
+        margin-bottom: .75rem;
+        padding-left: 1.8rem;
+        list-style: none;
+        font-size: 1rem;
+    }
+    .easy-fast-hygienic .custom-list li::before {
+        content: '' !important;
+        display: block;
+        position: absolute;
+        height: 1.4rem;
+        width: 1.4rem;
+        left: -2rem;
+        top: 1px;
+        background-image: url('images/tick.png');
+        background-size: cover;
+    }
+    .easy-fast-hygienic .custom-list li {
+        position: relative;
+        margin-bottom: 1rem;
+        margin-left: 2rem;
+        list-style: none;
+        font-size: calc(1rem + .125vw);
+    }
+    .footer {
+       padding-bottom: calc(50px + 2rem);
+    }
+    .footer nav a {
+        color: rgba(255,255,255,1);
+    }
+    .footer nav .list-inline-item:not(:last-child) {
+        margin: 0;
+    }
+    .footer nav .list-inline-item:not(:last-child)::after {
+        content: '\2022';
+        margin: .25rem;
+    }
+    .fixed-cta {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1020;
+        border-top: solid 1px rgba(var(--h2o-grey),.7);
+        visibility: visible;
+        opacity: 0;
+    }
+    .fixed-cta.show {
+        opacity: 1;
+    }
+    .fixed-cta img {
+        max-width: 50px;
+        -webkit-transition: transform 300ms ease;
+        -moz-transition: transform 300ms ease;
+        -o-transition: transform 300ms ease;
+        transition: transform 300ms ease;
+    }
+    .fixed-cta .title {
+        font-size: calc(.94rem + .5vw);
+        font-weight: 900;
+        height: 26px;
+        overflow: hidden;
+    }
+    .fixed-cta .price .now  {
+        font-size: calc(1.25rem + .5vw);
+        font-weight: 900;
+        color: rgba(var(--h2o-grey),1);
+    }
+
+
+    .fixed-cta .price .was {
+        position: relative;
+        font-size: calc(1rem + .25vw);
+        font-weight: 100;
+        color: rgba(var(--h2o-grey),.5);
+    }
+    .fixed-cta .price .was::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(50% - 2px);
+        border-top: solid 1px rgba(var(--h2o-grey),1);
+        transform: rotate(-10deg);
+    }
+
+
+    @media (min-width: 576px) {
+        .carousel .video-icon-overlay {
+            transform: scale(1.4);
+            transform-origin: bottom right;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .menu .logo {
+            max-height: 32px;
+        }
+        main {
+            margin-top: calc(32px + 1rem);
+        }
+        section:target {
+            scroll-margin-top: calc(32px + 1.5rem + 2px);
+        }
+        .carousel .video-icon-overlay {
+            transform: scale(2);
+            transform-origin: bottom right;
+        }
+    }
+    
+    @media (min-width: 992px) {
+        main {
+            margin-top: calc(32px + 2rem);
+        }
+        .menu .logo {
+            max-height: 40px;
+        }
+        .menu .navbar-collapse .nav-link {
+            font-size: calc(1rem + .25vw);
+            padding: .5rem 1rem;
+        }
+        .menu .flag img {
+            max-height: 19px;
+            transform: translateY(-2px);
+        }
+        section:target {
+            scroll-margin-top: calc(32px + 1rem + 3px);
+        }
+        .carousel .video-icon-overlay {
+            transform: scale(1.5);
+            transform-origin: bottom right;
+        }
+        .product-offering .main-carousel .item {
+            overflow: hidden;
+        }
+        .product-offering .main-carousel .owl-nav .owl-prev,
+        .product-offering .main-carousel .owl-nav .owl-next {
+            position: absolute;
+            display: block !important;
+            height: 3rem;
+            top: calc(50% - 3rem);
+            margin: 0 -1.5rem;
+            font-size: 2.5em !important;
+            z-index: 23;
+        }
+        .product-offering .main-carousel .owl-nav button {
+            outline: none;
+        }
+        .product-offering .main-carousel .owl-nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .product-offering .main-carousel .owl-nav .owl-prev,
+        .product-offering .main-carousel .owl-nav .owl-next {
+            position: absolute;
+            display: block !important;
+            height: 3rem;
+            top: calc(50% - 3rem);
+            margin: 0 -1.5rem;
+            z-index: 23;
+        }
+        .product-offering .main-carousel .owl-nav .owl-prev {
+            left: -1rem;
+        }
+        .product-offering .main-carousel .owl-nav .owl-next {
+            right: -1rem;
+        }
+        .product-offering .main-carousel .owl-nav em {
+            padding: 0 .5rem;
+            font-size: 4rem;
+            color: rgba(var(--h2o-grey),.2);
+            border-radius: 0.5rem;
+            background-color: rgba(255,255,255,.25);
+        }
+        .product-offering .main-carousel .owl-nav :hover em {
+            background-color: rgba(255,255,255,1);
+        }
+        .product-offering .main-carousel .owl-nav .owl-prev:hover em,
+        .product-offering .main-carousel .owl-nav .owl-next:hover em {
+            color: rgba(var(--h2o-green),.65);
+            transform: scale(1.1);
+        }
+        .product-offering .main-carousel .owl-nav .owl-prev:active em,
+        .product-offering .main-carousel .owl-nav .owl-next:active em {
+            color: rgba(var(--h2o-green),1);
+        }
+        .product-offering .main-carousel .owl-dots {
+            display: none;
+        }
+        .whats-included {
+            border-top: solid 1px rgba(var(--h2o-grey),.2);
+        }
+        .footer {
+            padding-bottom: calc(60px + 2rem);
+        }
+        .fixed-cta img {
+            max-width: 60px;
+        }
+        .fixed-cta .title {
+            height: 29px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .menu .logo {
+            max-height: 45px;
+        }
+        .menu .navbar-collapse .nav-link {
+            padding: .5rem 1.25rem;
+        }
+        .menu .flag img {
+            max-height: 20px;
+        }
+        main {
+            margin-top: calc(45px + 3rem + 3px);
+        }
+        section:target {
+            scroll-margin-top: calc(36px + 2.5rem);
+        }
+        .carousel .video-icon-overlay {
+            transform: scale(1.7);
+            transform-origin: bottom right;
+        }
+        .main-carousel .owl-nav .owl-prev {
+            left: -1.5rem;
+        }
+        .main-carousel .owl-nav .owl-next {
+            right: -1.5rem;
+        }
+        .footer {
+            padding-bottom: calc(65px + 2rem);
+        }
+        .fixed-cta img {
+            max-width: 65px;
+        }
+        .fixed-cta .title {
+            height: 32px;
+        }
+    }
+    
+    @media (max-width: 767.98px) {
+        .mh-100 {
+            min-height: 100vh;
+        }
+        .fixed-cta .btn-buy {
+            padding: .25rem .5rem;
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        main {
+            margin-top: calc(26px + 2.5rem);
+        }
+        .product-offering .main-carousel .owl-nav {
+            display: none;
+        }
+        .menu .navbar-collapse .nav-link {
+            font-size: 1.5rem;
+        }
+        .navbar-collapse.show::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -25%;
+            right: -25%;
+            height: 2px;
+            border-top: solid 1px rgba(var(--h2o-grey),.7);
+        }
+        .menu .navbar-toggler:focus,
+        .menu .navbar-toggler:active {
+            outline: 0;
+        }
+        .menu .navbar-toggler {
+            padding: 0;
+            z-index: 100;
+            height: 30px;
+        }
+        .menu .navbar-toggler span {
+            display: block;
+            background-color: rgba(var(--h2o-grey),1);
+            height: 3px;
+            width: 27px;
+            margin-top: 5px;
+            margin-bottom: 6px;
+            -webkit-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+                transform: rotate(0deg);
+            position: relative;
+            z-index: 100;
+        }
+        .menu .navbar-toggler.active span,
+        .menu .navbar-toggler:hover span,
+        .menu .navbar-toggler.focus span,
+        .menu .navbar-toggler:focus span,
+        .menu .navbar-toggler:not(:disabled):not(.disabled).active span,
+        .menu .navbar-toggler:not(:disabled):not(.disabled):active span {
+            background-color: rgba(var(--thane-red1),1);
+        }
+        .menu .navbar-toggler span:nth-child(1),
+        .menu .navbar-toggler span:nth-child(3) {
+            -webkit-transition: transform 200ms;
+            -o-transition: transform 200ms;
+            -webkit-transition: -webkit-transform 200ms;
+            transition: -webkit-transform 200ms;
+            transition: transform 200ms;
+            transition: transform 200ms, -webkit-transform 200ms;
+        }
+        .menu .navbar-toggler:not(.collapsed) span:nth-child(1) {
+            position: absolute;
+            top: 26px;
+            -webkit-transform: rotate(135deg);
+            -ms-transform: rotate(135deg);
+                transform: rotate(135deg);
+            background-color: rgba(var(--thane-red2),1);
+        }
+        .menu .navbar-toggler:not(.collapsed) span:nth-child(2) {
+            visibility: hidden;
+            background-color: transparent;
+        }
+        .menu .navbar-toggler:not(.collapsed) span:nth-child(3) {
+            position: absolute;
+            top: 26px;
+            -webkit-transform: rotate(-135deg);
+            -ms-transform: rotate(-135deg);
+                transform: rotate(-135deg);
+            background-color: rgba(var(--thane-red2),1);
+        }
+        .menu .navbar-toggler:not(.collapsed):hover span {
+            background-color: rgba(var(--thane-red1),1);
+        }
+        .menu .flag img {
+            max-height: 25px;
+            transform: translateY(-2px);
+        }
+        .mob-whats-included {
+            border-top: solid 1px rgba(var(--h2o-grey),.2);
+        }
+    }
+
+    .yotpo {
+        overflow: hidden;
+    }
+    .bg-yotpo {
+        background-color: rgba(var(--yotpo-blue),1);
+    }
+    .yotpo-link:hover {
+        transform: scale(1.05);
+        transform-origin: center center;
+    }
+    .testimonials {
+        display: none;
+    }
+    .testimonials.show {
+        display: block;
+    }
+
+</style>
+</head>
+    
+<body>
+
+    <header>
+        <div class="container-fluid bg-white fixed-top bg-white menu" id="Menu">
+            <div class="xl-gutters">
+                <nav class="navbar navbar-expand-lg p-0 py-3 py-xl-4 justify-content-between" id="menuNav">
+                    <a class="text-decoration-none" href="#" alt="H2O HD&reg; Pro Steam Mop">
+                        <div class="logos">
+                            <img class="logo mr-2" src="images/thane.png">
+                            <img class="logo" src="images/h2o-hd.png">
+                        </div>
+                    </a>
+                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#h2oMenu" aria-controls="h2oMenu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <div class="collapse navbar-collapse mh-100 text-center justify-content-lg-end mt-3 mt-lg-0" id="h2oMenu">
+                        <ul class="navbar-nav py-4 py-lg-0 text-center">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#Features" title="Features">Features</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#Benefits" title="Benefits">Benefits</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#Reviews" title="Reviews">Reviews</a>
+                            </li>
+                        </ul>
+                        <a class="flag ml-lg-3" href="#" title="Republic of Ireland site">
+                            <img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Flag_of_Ireland.svg/255px-Flag_of_Ireland.svg.png">
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="container-fluid bg-white product-offering" id="productOffering">
+            <div class="xl-gutters">
+                <div class="row px-lg-4 py-5 justify-content-center">
+                    <div class="col-11 col-sm-10 col-lg-12">
+                        <div class="row justify-content-center">
+                            <div class="col-12 mb-5 heading">
+                                <div class="row">
+                                    <div class="col-12 col-lg text-center text-lg-left">
+                                        <h1 class="mb-2 mb-lg-0" title="">H2O HD<sup>&reg;</sup> Pro Steam Mop</h1>
+                                    </div>
+                                    <div class="col-auto d-flex align-items-center mx-auto">
+                                        <div class="yotpo" data-product-id="269-UK" data-yotpo-element-id="1" style="visibility: visible;">
+                                            <div class="yotpo-display-wrapper" style="visibility: hidden;">
+                                                <div class="standalone-bottomline" data-source="default">
+                                                    <div class="yotpo-bottomline pull-left star-clickable">
+                                                        <span class="yotpo-stars">
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-half-star rating-star pull-left"></span>
+                                                            <span class="sr-only">4.4 star rating</span>
+                                                        </span>
+                                                        <a id="yotpoLink" href="#Reviews" aria-label="2925 reviews" class="text-yotpo" style="line-height: 1; margin-left: .375rem; margin-top: 2px; text-transform: uppercase; font-weight: bold !important;">2925 Reviews</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="row justify-content-around">
+                                    <div class="col-12 col-lg-5 mb-5 mb-lg-0">
+                                        <div class="carousel rounded">
+                                            <a class="video-icon-overlay" href="#seenOnTV"></a>
+                                            <div class="badge-overlay bg-thane-red1 text-white">FREE Gift worth £59 *</div>
+                                            <div class="badge-overlay text-white" style="background-color: rgb(14,14,164);">+ Pro Extra Accessories</div>
+                                            <div class="owl-carousel main-carousel rounded" id="mainCarousel">
+                                                <div class="item">
+                                                    <img class="img-fluid w-100 rounded" src="images/slide1.png" alt="">
+                                                </div>
+                                                <div class="item">
+                                                    <img class="img-fluid w-100 rounded" src="images/slide2.png" alt="">
+                                                </div>
+                                                <div class="item">
+                                                    <img class="img-fluid w-100 rounded" src="images/slide3.png" alt="">
+                                                </div>
+                                                <div class="item">
+                                                    <img class="img-fluid w-100 rounded" src="images/slide4.png" alt="">
+                                                </div>
+                                                <div class="item">
+                                                    <img class="img-fluid w-100 rounded" src="images/slide5.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-carousel thumbs-carousel" id="thumbs">
+                                            <div class="item">
+                                                <img class="img-fluid w-100 rounded" src="images/slide1.png" alt="">
+                                            </div>
+                                            <div class="item">
+                                                <img class="img-fluid w-100 rounded" src="images/slide2.png" alt="">
+                                            </div>
+                                            <div class="item">
+                                                <img class="img-fluid w-100 rounded" src="images/slide3.png" alt="">
+                                            </div>
+                                            <div class="item">
+                                                <img class="img-fluid w-100 rounded" src="images/slide4.png" alt="">
+                                            </div>
+                                            <div class="item">
+                                                <img class="img-fluid w-100 rounded" src="images/slide5.png" alt="">
+                                            </div>
+                                        </div>
+                                        <!--<div class="text-white text-center text-uppercase rounded bg-thane-red3 p-3 mt-4 h4">
+                                            Save more when you upgrade to the H2O<sup>&reg;</sup> HD Pro Elite System
+                                        </div>-->
+                                        <div class="d-none d-lg-block my-5 text-center">
+                                            <h3 class="mb-0"><em class="fas fa-box-open mr-2" aria-hidden="true" aria-label="What's Included"></em>What's Included</h3>
+                                            <a class="link" href="#whatsIncluded" data-toggle="collapse" data-target="#whatsIncluded" aria-expanded="false" aria-controls="whatsIncluded">See a full list of everything that comes in the box <em class="fas fa-angle-down" aria-hidden="true"></em></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-xl-5">
+                                        <div class="row">
+                                            <div class="col-12 mb-4 order-lg-1">
+                                                <div class="row justify-content-center justify-content-lg-around align-items-center pricing">
+
+                                                    <div class="col-auto mb-4 text-center">
+                                                        <div class="row justify-content-start">
+                                                            <div class="col-auto">
+                                                                <span class="price">£179.95</span>
+                                                            </div>
+                                                            <div class="col-auto d-flex flex-column pl-0">
+                                                                <span class="was-text">Usually <span class="was-price">£259.96</span></span>
+                                                                <span class="saving-text">Saving <span class="saving-price">£80.01</span></span>
+                                                            </div>
+                                                        </div>
+                                                        <small>Includes FREE Postage &amp; Packaging</small>
+                                                    </div>
+                                                    <div class="col-auto mb-4">
+                                                        <img class="img-fluid or" src="images/or.png" alt="">
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="rounded text-center instalments">
+                                                            <a data-toggle="collapse" data-target="#easyPayTerms" aria-expanded="false" aria-controls="easyPayTerms">5 interest-free instalments <br class="d-sm-none"> of <strong>£35.99</strong> via Easy<strong>Pay</strong> <em class="fas fa-angle-down" aria-hidden="true"></em></a>
+                                                            <div class="collapse" id="easyPayTerms">
+                                                                <small>Easy<strong>Pay</strong> eligibility is subject to status and approval. 18+ UK residents only. Available for purchases of £x to £xxxx, please apply at checkout. <a class="text-white" href="">Terms and conditions apply.</a></small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mb-3 order-lg-3">
+                                                <div class="row justify-content-center align-items-center">
+                                                    <div class="col-auto mb-2">
+                                                        <a class="btn btn-lg btn-buy my-1" href="" role="button" title="">Buy Now</a>
+                                                    </div>
+                                                    <div class="col-auto mb-2">
+                                                        <p class="my-auto">Order by phone on <a class="link d-inline-block" href="tel:02037639634"><strong>0203 763 9634</strong></a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 order-lg-5 mb-4 text-center order-lg-4">
+                                                <div class="owl-carousel py-4 usp-carousel" id="uspCarousel">
+                                                    <div class="item">
+                                                        <span class="h5"><em class="fas fa-truck mr-2" aria-hidden="true" aria-label="Next day delivery available"></em>Next day delivery available</span>
+                                                    </div>
+                                                    <div class="item">
+                                                        <span class="h5"><em class="fas fa-box mr-2" aria-hidden="true" aria-label="Same day despatch from the UK"></em>Same day despatch from the UK</span>
+                                                    </div>
+                                                    <div class="item">
+                                                        <span class="h5"><em class="fas fa-calendar-alt mr-2" aria-hidden="true" aria-label="Interest-free monthly instalments"></em>Interest-free monthly instalments</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mb-4 order-lg-2">
+                                                <div class="description">
+                                                    <img class="float-right w-20 ml-3" src="images/30-day.png" alt="30 Day Money Back Guarantee">
+                                                    <p>Multi-functional advanced upright & hand-held steam cleaner that works quickly on hard floors &amp; carpets using only the power of steam.</p>
+                                                    <ul>
+                                                        <li>From the <a class="link font-weight-bold" href="#Awards">award-winning</a> H2O<sup>&reg;</sup> family</li>
+                                                        <li>Kills up to 99% of germs &amp; bacteria</li>
+                                                        <li>Convert from floor to hand-held in seconds</li>
+                                                        <li>Powerful &amp; lightweight</li>
+                                                        <li>Folds down for easy storage</li>
+                                                    </ul>
+                                                    <a class="d-block small link text-right" href="#Features">Read full product features <em class="fas fa-angle-down" aria-hidden="true" aria-label="Read full product features"></em></a>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mb-3 mb-lg-4 order-lg-5">
+                                                <div class="row px-lg-2 justify-content-center">
+                                                    <div class="col-auto px-1 pb-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" width="38" height="24" aria-labelledby="pi-american_express"><title id="pi-american_express">American Express</title><g fill="none"><path fill="#000" d="M35,0 L3,0 C1.3,0 0,1.3 0,3 L0,21 C0,22.7 1.4,24 3,24 L35,24 C36.7,24 38,22.7 38,21 L38,3 C38,1.3 36.6,0 35,0 Z" opacity=".07"></path><path fill="#006FCF" d="M35,1 C36.1,1 37,1.9 37,3 L37,21 C37,22.1 36.1,23 35,23 L3,23 C1.9,23 1,22.1 1,21 L1,3 C1,1.9 1.9,1 3,1 L35,1"></path><path fill="#FFF" d="M8.971,10.268 L9.745,12.144 L8.203,12.144 L8.971,10.268 Z M25.046,10.346 L22.069,10.346 L22.069,11.173 L24.998,11.173 L24.998,12.412 L22.075,12.412 L22.075,13.334 L25.052,13.334 L25.052,14.073 L27.129,11.828 L25.052,9.488 L25.046,10.346 L25.046,10.346 Z M10.983,8.006 L14.978,8.006 L15.865,9.941 L16.687,8 L27.057,8 L28.135,9.19 L29.25,8 L34.013,8 L30.494,11.852 L33.977,15.68 L29.143,15.68 L28.065,14.49 L26.94,15.68 L10.03,15.68 L9.536,14.49 L8.406,14.49 L7.911,15.68 L4,15.68 L7.286,8 L10.716,8 L10.983,8.006 Z M19.646,9.084 L17.407,9.084 L15.907,12.62 L14.282,9.084 L12.06,9.084 L12.06,13.894 L10,9.084 L8.007,9.084 L5.625,14.596 L7.18,14.596 L7.674,13.406 L10.27,13.406 L10.764,14.596 L13.484,14.596 L13.484,10.661 L15.235,14.602 L16.425,14.602 L18.165,10.673 L18.165,14.603 L19.623,14.603 L19.647,9.083 L19.646,9.084 Z M28.986,11.852 L31.517,9.084 L29.695,9.084 L28.094,10.81 L26.546,9.084 L20.652,9.084 L20.652,14.602 L26.462,14.602 L28.076,12.864 L29.624,14.602 L31.499,14.602 L28.987,11.852 L28.986,11.852 Z"></path></g></svg>
+                                                    </div>
+                                                    <div class="col-auto px-1 pb-2">
+                                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" x="0" y="0" width="38" height="24" viewBox="0 0 165.521 105.965" xml:space="preserve" aria-labelledby="pi-apple_pay"><title id="pi-apple_pay">Apple Pay</title><path fill="#000" d="M150.698 0H14.823c-.566 0-1.133 0-1.698.003-.477.004-.953.009-1.43.022-1.039.028-2.087.09-3.113.274a10.51 10.51 0 0 0-2.958.975 9.932 9.932 0 0 0-4.35 4.35 10.463 10.463 0 0 0-.975 2.96C.113 9.611.052 10.658.024 11.696a70.22 70.22 0 0 0-.022 1.43C0 13.69 0 14.256 0 14.823v76.318c0 .567 0 1.132.002 1.699.003.476.009.953.022 1.43.028 1.036.09 2.084.275 3.11a10.46 10.46 0 0 0 .974 2.96 9.897 9.897 0 0 0 1.83 2.52 9.874 9.874 0 0 0 2.52 1.83c.947.483 1.917.79 2.96.977 1.025.183 2.073.245 3.112.273.477.011.953.017 1.43.02.565.004 1.132.004 1.698.004h135.875c.565 0 1.132 0 1.697-.004.476-.002.952-.009 1.431-.02 1.037-.028 2.085-.09 3.113-.273a10.478 10.478 0 0 0 2.958-.977 9.955 9.955 0 0 0 4.35-4.35c.483-.947.789-1.917.974-2.96.186-1.026.246-2.074.274-3.11.013-.477.02-.954.022-1.43.004-.567.004-1.132.004-1.699V14.824c0-.567 0-1.133-.004-1.699a63.067 63.067 0 0 0-.022-1.429c-.028-1.038-.088-2.085-.274-3.112a10.4 10.4 0 0 0-.974-2.96 9.94 9.94 0 0 0-4.35-4.35A10.52 10.52 0 0 0 156.939.3c-1.028-.185-2.076-.246-3.113-.274a71.417 71.417 0 0 0-1.431-.022C151.83 0 151.263 0 150.698 0z"></path><path fill="#FFF" d="M150.698 3.532l1.672.003c.452.003.905.008 1.36.02.793.022 1.719.065 2.583.22.75.135 1.38.34 1.984.648a6.392 6.392 0 0 1 2.804 2.807c.306.6.51 1.226.645 1.983.154.854.197 1.783.218 2.58.013.45.019.9.02 1.36.005.557.005 1.113.005 1.671v76.318c0 .558 0 1.114-.004 1.682-.002.45-.008.9-.02 1.35-.022.796-.065 1.725-.221 2.589a6.855 6.855 0 0 1-.645 1.975 6.397 6.397 0 0 1-2.808 2.807c-.6.306-1.228.511-1.971.645-.881.157-1.847.2-2.574.22-.457.01-.912.017-1.379.019-.555.004-1.113.004-1.669.004H14.801c-.55 0-1.1 0-1.66-.004a74.993 74.993 0 0 1-1.35-.018c-.744-.02-1.71-.064-2.584-.22a6.938 6.938 0 0 1-1.986-.65 6.337 6.337 0 0 1-1.622-1.18 6.355 6.355 0 0 1-1.178-1.623 6.935 6.935 0 0 1-.646-1.985c-.156-.863-.2-1.788-.22-2.578a66.088 66.088 0 0 1-.02-1.355l-.003-1.327V14.474l.002-1.325a66.7 66.7 0 0 1 .02-1.357c.022-.792.065-1.717.222-2.587a6.924 6.924 0 0 1 .646-1.981c.304-.598.7-1.144 1.18-1.623a6.386 6.386 0 0 1 1.624-1.18 6.96 6.96 0 0 1 1.98-.646c.865-.155 1.792-.198 2.586-.22.452-.012.905-.017 1.354-.02l1.677-.003h135.875"></path><g><g><path fill="#000" d="M43.508 35.77c1.404-1.755 2.356-4.112 2.105-6.52-2.054.102-4.56 1.355-6.012 3.112-1.303 1.504-2.456 3.959-2.156 6.266 2.306.2 4.61-1.152 6.063-2.858"></path><path fill="#000" d="M45.587 39.079c-3.35-.2-6.196 1.9-7.795 1.9-1.6 0-4.049-1.8-6.698-1.751-3.447.05-6.645 2-8.395 5.1-3.598 6.2-.95 15.4 2.55 20.45 1.699 2.5 3.747 5.25 6.445 5.151 2.55-.1 3.549-1.65 6.647-1.65 3.097 0 3.997 1.65 6.696 1.6 2.798-.05 4.548-2.5 6.247-5 1.95-2.85 2.747-5.6 2.797-5.75-.05-.05-5.396-2.101-5.446-8.251-.05-5.15 4.198-7.6 4.398-7.751-2.399-3.548-6.147-3.948-7.447-4.048"></path></g><g><path fill="#000" d="M78.973 32.11c7.278 0 12.347 5.017 12.347 12.321 0 7.33-5.173 12.373-12.529 12.373h-8.058V69.62h-5.822V32.11h14.062zm-8.24 19.807h6.68c5.07 0 7.954-2.729 7.954-7.46 0-4.73-2.885-7.434-7.928-7.434h-6.706v14.894z"></path><path fill="#000" d="M92.764 61.847c0-4.809 3.665-7.564 10.423-7.98l7.252-.442v-2.08c0-3.04-2.001-4.704-5.562-4.704-2.938 0-5.07 1.507-5.51 3.82h-5.252c.157-4.86 4.731-8.395 10.918-8.395 6.654 0 10.995 3.483 10.995 8.89v18.663h-5.38v-4.497h-.13c-1.534 2.937-4.914 4.782-8.579 4.782-5.406 0-9.175-3.222-9.175-8.057zm17.675-2.417v-2.106l-6.472.416c-3.64.234-5.536 1.585-5.536 3.95 0 2.288 1.975 3.77 5.068 3.77 3.95 0 6.94-2.522 6.94-6.03z"></path><path fill="#000" d="M120.975 79.652v-4.496c.364.051 1.247.103 1.715.103 2.573 0 4.029-1.09 4.913-3.899l.52-1.663-9.852-27.293h6.082l6.863 22.146h.13l6.862-22.146h5.927l-10.216 28.67c-2.34 6.577-5.017 8.735-10.683 8.735-.442 0-1.872-.052-2.261-.157z"></path></g></g></svg>
+                                                    </div>
+                                                    <div class="col-auto px-1 pb-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" width="38" height="24" aria-labelledby="pi-google_pay"><title id="pi-google_pay">Google Pay</title><path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000" opacity=".07"></path><path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32" fill="#FFF"></path><path d="M18.093 11.976v3.2h-1.018v-7.9h2.691a2.447 2.447 0 0 1 1.747.692 2.28 2.28 0 0 1 .11 3.224l-.11.116c-.47.447-1.098.69-1.747.674l-1.673-.006zm0-3.732v2.788h1.698c.377.012.741-.135 1.005-.404a1.391 1.391 0 0 0-1.005-2.354l-1.698-.03zm6.484 1.348c.65-.03 1.286.188 1.778.613.445.43.682 1.03.65 1.649v3.334h-.969v-.766h-.049a1.93 1.93 0 0 1-1.673.931 2.17 2.17 0 0 1-1.496-.533 1.667 1.667 0 0 1-.613-1.324 1.606 1.606 0 0 1 .613-1.336 2.746 2.746 0 0 1 1.698-.515c.517-.02 1.03.093 1.49.331v-.208a1.134 1.134 0 0 0-.417-.901 1.416 1.416 0 0 0-.98-.368 1.545 1.545 0 0 0-1.319.717l-.895-.564a2.488 2.488 0 0 1 2.182-1.06zM23.29 13.52a.79.79 0 0 0 .337.662c.223.176.5.269.785.263.429-.001.84-.17 1.146-.472.305-.286.478-.685.478-1.103a2.047 2.047 0 0 0-1.324-.374 1.716 1.716 0 0 0-1.03.294.883.883 0 0 0-.392.73zm9.286-3.75l-3.39 7.79h-1.048l1.281-2.728-2.224-5.062h1.103l1.612 3.885 1.569-3.885h1.097z" fill="#5F6368"></path><path d="M13.986 11.284c0-.308-.024-.616-.073-.92h-4.29v1.747h2.451a2.096 2.096 0 0 1-.9 1.373v1.134h1.464a4.433 4.433 0 0 0 1.348-3.334z" fill="#4285F4"></path><path d="M9.629 15.721a4.352 4.352 0 0 0 3.01-1.097l-1.466-1.14a2.752 2.752 0 0 1-4.094-1.44H5.577v1.17a4.53 4.53 0 0 0 4.052 2.507z" fill="#34A853"></path><path d="M7.079 12.05a2.709 2.709 0 0 1 0-1.735v-1.17H5.577a4.505 4.505 0 0 0 0 4.075l1.502-1.17z" fill="#FBBC04"></path><path d="M9.629 8.44a2.452 2.452 0 0 1 1.74.68l1.3-1.293a4.37 4.37 0 0 0-3.065-1.183 4.53 4.53 0 0 0-4.027 2.5l1.502 1.171a2.715 2.715 0 0 1 2.55-1.875z" fill="#EA4335"></path></svg>
+                                                    </div>
+                                                    <div class="col-auto px-1 pb-2">
+                                                        <svg viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" width="38" height="24" role="img" aria-labelledby="pi-maestro"><title id="pi-maestro">Maestro</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><circle fill="#EB001B" cx="15" cy="12" r="7"></circle><circle fill="#00A2E5" cx="23" cy="12" r="7"></circle><path fill="#7375CF" d="M22 12c0-2.4-1.2-4.5-3-5.7-1.8 1.3-3 3.4-3 5.7s1.2 4.5 3 5.7c1.8-1.2 3-3.3 3-5.7z"></path></svg>
+                                                    </div>
+                                                    <div class="col-auto px-1 pb-2">
+                                                        <svg viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38" height="24" aria-labelledby="pi-master"><title id="pi-master">Mastercard</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><circle fill="#EB001B" cx="15" cy="12" r="7"></circle><circle fill="#F79E1B" cx="23" cy="12" r="7"></circle><path fill="#FF5F00" d="M22 12c0-2.4-1.2-4.5-3-5.7-1.8 1.3-3 3.4-3 5.7s1.2 4.5 3 5.7c1.8-1.2 3-3.3 3-5.7z"></path></svg>
+                                                    </div>
+                                                    <div class="col-auto px-1 pb-2">
+                                                        <svg viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" width="38" height="24" role="img" aria-labelledby="pi-paypal"><title id="pi-paypal">PayPal</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><path fill="#003087" d="M23.9 8.3c.2-1 0-1.7-.6-2.3-.6-.7-1.7-1-3.1-1h-4.1c-.3 0-.5.2-.6.5L14 15.6c0 .2.1.4.3.4H17l.4-3.4 1.8-2.2 4.7-2.1z"></path><path fill="#3086C8" d="M23.9 8.3l-.2.2c-.5 2.8-2.2 3.8-4.6 3.8H18c-.3 0-.5.2-.6.5l-.6 3.9-.2 1c0 .2.1.4.3.4H19c.3 0 .5-.2.5-.4v-.1l.4-2.4v-.1c0-.2.3-.4.5-.4h.3c2.1 0 3.7-.8 4.1-3.2.2-1 .1-1.8-.4-2.4-.1-.5-.3-.7-.5-.8z"></path><path fill="#012169" d="M23.3 8.1c-.1-.1-.2-.1-.3-.1-.1 0-.2 0-.3-.1-.3-.1-.7-.1-1.1-.1h-3c-.1 0-.2 0-.2.1-.2.1-.3.2-.3.4l-.7 4.4v.1c0-.3.3-.5.6-.5h1.3c2.5 0 4.1-1 4.6-3.8v-.2c-.1-.1-.3-.2-.5-.2h-.1z"></path></svg>
+                                                    </div>
+                                                    <div class="col-auto px-1 pb-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" width="38" height="24" aria-labelledby="pi-shopify_pay"><title id="pi-shopify_pay">Shop Pay</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000"></path><path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32z" fill="#5A31F4"></path><path d="M21.382 9.713c0 1.668-1.177 2.858-2.821 2.858h-1.549a.133.133 0 00-.12.08.127.127 0 00-.01.049v2.192a.129.129 0 01-.13.129h-1.084a.13.13 0 01-.13-.13V6.986a.127.127 0 01.08-.12.129.129 0 01.05-.01h2.9c1.637 0 2.814 1.19 2.814 2.858v-.001zm-1.352 0c0-.958-.658-1.658-1.55-1.658h-1.468a.13.13 0 00-.13.13v3.05a.127.127 0 00.038.092.129.129 0 00.092.038h1.468c.892.005 1.55-.695 1.55-1.652zm1.674 3.791a1.527 1.527 0 01.647-1.317c.423-.316 1.084-.48 2.055-.514l1.033-.036v-.303c0-.607-.41-.863-1.068-.863-.658 0-1.075.231-1.17.61a.127.127 0 01-.125.09h-1.022a.13.13 0 01-.126-.092.125.125 0 01-.004-.055c.152-.898.904-1.58 2.494-1.58 1.692 0 2.303.783 2.303 2.276v3.172a.13.13 0 01-.132.129h-1.03a.13.13 0 01-.13-.13v-.236a.096.096 0 00-.061-.091.1.1 0 00-.107.022c-.31.334-.808.575-1.607.575-1.175 0-1.95-.607-1.95-1.657zm3.735-.687v-.246l-1.339.07c-.705.036-1.115.326-1.115.816 0 .444.376.69 1.034.69.893 0 1.42-.48 1.42-1.33zm2.316 4.6v-.919a.13.13 0 01.049-.1.132.132 0 01.108-.027c.158.029.318.044.479.044a1.229 1.229 0 001.245-.876l.067-.211a.133.133 0 000-.088l-2.145-5.471a.13.13 0 01.06-.165.13.13 0 01.062-.015h1.04a.132.132 0 01.123.085l1.456 3.859a.131.131 0 00.125.088.133.133 0 00.125-.088l1.265-3.848a.13.13 0 01.126-.09h1.076a.134.134 0 01.132.116.134.134 0 01-.008.063l-2.295 6.076c-.528 1.413-1.433 1.773-2.43 1.773a1.959 1.959 0 01-.561-.066.132.132 0 01-.1-.14h.001zM8.57 6.4a5.363 5.363 0 00-3.683 1.427.231.231 0 00-.029.31l.618.839a.236.236 0 00.362.028 3.823 3.823 0 012.738-1.11c2.12 0 3.227 1.584 3.227 3.15 0 1.7-1.163 2.898-2.835 2.921-1.292 0-2.266-.85-2.266-1.974a1.908 1.908 0 01.713-1.48.231.231 0 00.033-.324l-.65-.815a.236.236 0 00-.339-.034 3.43 3.43 0 00-.942 1.183 3.39 3.39 0 00-.337 1.47c0 1.935 1.655 3.452 3.775 3.464h.03c2.517-.032 4.337-1.884 4.337-4.415 0-2.247-1.667-4.64-4.752-4.64z" fill="#fff"></path></svg>
+                                                    </div>
+                                                    <div class="col-auto px-1 pb-2">
+                                                        <svg viewBox="-36 25 38 24" xmlns="http://www.w3.org/2000/svg" width="38" height="24" role="img" aria-labelledby="pi-unionpay"><title id="pi-unionpay">Union Pay</title><path fill="#005B9A" d="M-36 46.8v.7-.7zM-18.3 25v24h-7.2c-1.3 0-2.1-1-1.8-2.3l4.4-19.4c.3-1.3 1.9-2.3 3.2-2.3h1.4zm12.6 0c-1.3 0-2.9 1-3.2 2.3l-4.5 19.4c-.3 1.3.5 2.3 1.8 2.3h-4.9V25h10.8z"></path><path fill="#E9292D" d="M-19.7 25c-1.3 0-2.9 1.1-3.2 2.3l-4.4 19.4c-.3 1.3.5 2.3 1.8 2.3h-8.9c-.8 0-1.5-.6-1.5-1.4v-21c0-.8.7-1.6 1.5-1.6h14.7z"></path><path fill="#0E73B9" d="M-5.7 25c-1.3 0-2.9 1.1-3.2 2.3l-4.4 19.4c-.3 1.3.5 2.3 1.8 2.3H-26h.5c-1.3 0-2.1-1-1.8-2.3l4.4-19.4c.3-1.3 1.9-2.3 3.2-2.3h14z"></path><path fill="#059DA4" d="M2 26.6v21c0 .8-.6 1.4-1.5 1.4h-12.1c-1.3 0-2.1-1.1-1.8-2.3l4.5-19.4C-8.6 26-7 25-5.7 25H.5c.9 0 1.5.7 1.5 1.6z"></path><path fill="#fff" d="M-21.122 38.645h.14c.14 0 .28-.07.28-.14l.42-.63h1.19l-.21.35h1.4l-.21.63h-1.68c-.21.28-.42.42-.7.42h-.84l.21-.63m-.21.91h3.01l-.21.7h-1.19l-.21.7h1.19l-.21.7h-1.19l-.28 1.05c-.07.14 0 .28.28.21h.98l-.21.7h-1.89c-.35 0-.49-.21-.35-.63l.35-1.33h-.77l.21-.7h.77l.21-.7h-.7l.21-.7zm4.83-1.75v.42s.56-.42 1.12-.42h1.96l-.77 2.66c-.07.28-.35.49-.77.49h-2.24l-.49 1.89c0 .07 0 .14.14.14h.42l-.14.56h-1.12c-.42 0-.56-.14-.49-.35l1.47-5.39h.91zm1.68.77h-1.75l-.21.7s.28-.21.77-.21h1.05l.14-.49zm-.63 1.68c.14 0 .21 0 .21-.14l.14-.35h-1.75l-.14.56 1.54-.07zm-1.19.84h.98v.42h.28c.14 0 .21-.07.21-.14l.07-.28h.84l-.14.49c-.07.35-.35.49-.77.56h-.56v.77c0 .14.07.21.35.21h.49l-.14.56h-1.19c-.35 0-.49-.14-.49-.49l.07-2.1zm4.2-2.45l.21-.84h1.19l-.07.28s.56-.28 1.05-.28h1.47l-.21.84h-.21l-1.12 3.85h.21l-.21.77h-.21l-.07.35h-1.19l.07-.35h-2.17l.21-.77h.21l1.12-3.85h-.28m1.26 0l-.28 1.05s.49-.21.91-.28c.07-.35.21-.77.21-.77h-.84zm-.49 1.54l-.28 1.12s.56-.28.98-.28c.14-.42.21-.77.21-.77l-.91-.07zm.21 2.31l.21-.77h-.84l-.21.77h.84zm2.87-4.69h1.12l.07.42c0 .07.07.14.21.14h.21l-.21.7h-.77c-.28 0-.49-.07-.49-.35l-.14-.91zm-.35 1.47h3.57l-.21.77h-1.19l-.21.7h1.12l-.21.77h-1.26l-.28.42h.63l.14.84c0 .07.07.14.21.14h.21l-.21.7h-.7c-.35 0-.56-.07-.56-.35l-.14-.77-.56.84c-.14.21-.35.35-.63.35h-1.05l.21-.7h.35c.14 0 .21-.07.35-.21l.84-1.26h-1.05l.21-.77h1.19l.21-.7h-1.19l.21-.77zm-19.74-5.04c-.14.7-.42 1.19-.91 1.54-.49.35-1.12.56-1.89.56-.7 0-1.26-.21-1.54-.56-.21-.28-.35-.56-.35-.98 0-.14 0-.35.07-.56l.84-3.92h1.19l-.77 3.92v.28c0 .21.07.35.14.49.14.21.35.28.7.28s.7-.07.91-.28c.21-.21.42-.42.49-.77l.77-3.92h1.19l-.84 3.92m1.12-1.54h.84l-.07.49.14-.14c.28-.28.63-.42 1.05-.42.35 0 .63.14.77.35.14.21.21.49.14.91l-.49 2.38h-.91l.42-2.17c.07-.28.07-.49 0-.56-.07-.14-.21-.14-.35-.14-.21 0-.42.07-.56.21-.14.14-.28.35-.28.63l-.42 2.03h-.91l.63-3.57m9.8 0h.84l-.07.49.14-.14c.28-.28.63-.42 1.05-.42.35 0 .63.14.77.35s.21.49.14.91l-.49 2.38h-.91l.42-2.24c.07-.21 0-.42-.07-.49-.07-.14-.21-.14-.35-.14-.21 0-.42.07-.56.21-.14.14-.28.35-.28.63l-.42 2.03h-.91l.7-3.57m-5.81 0h.98l-.77 3.5h-.98l.77-3.5m.35-1.33h.98l-.21.84h-.98l.21-.84zm1.4 4.55c-.21-.21-.35-.56-.35-.98v-.21c0-.07 0-.21.07-.28.14-.56.35-1.05.7-1.33.35-.35.84-.49 1.33-.49.42 0 .77.14 1.05.35.21.21.35.56.35.98v.21c0 .07 0 .21-.07.28-.14.56-.35.98-.7 1.33-.35.35-.84.49-1.33.49-.35 0-.7-.14-1.05-.35m1.89-.7c.14-.21.28-.49.35-.84v-.35c0-.21-.07-.35-.14-.49a.635.635 0 0 0-.49-.21c-.28 0-.49.07-.63.28-.14.21-.28.49-.35.84v.28c0 .21.07.35.14.49.14.14.28.21.49.21.28.07.42 0 .63-.21m6.51-4.69h2.52c.49 0 .84.14 1.12.35.28.21.35.56.35.91v.28c0 .07 0 .21-.07.28-.07.49-.35.98-.7 1.26-.42.35-.84.49-1.4.49h-1.4l-.42 2.03h-1.19l1.19-5.6m.56 2.59h1.12c.28 0 .49-.07.7-.21.14-.14.28-.35.35-.63v-.28c0-.21-.07-.35-.21-.42-.14-.07-.35-.14-.7-.14h-.91l-.35 1.68zm8.68 3.71c-.35.77-.7 1.26-.91 1.47-.21.21-.63.7-1.61.7l.07-.63c.84-.28 1.26-1.4 1.54-1.96l-.28-3.78h1.19l.07 2.38.91-2.31h1.05l-2.03 4.13m-2.94-3.85l-.42.28c-.42-.35-.84-.56-1.54-.21-.98.49-1.89 4.13.91 2.94l.14.21h1.12l.7-3.29-.91.07m-.56 1.82c-.21.56-.56.84-.91.77-.28-.14-.35-.63-.21-1.19.21-.56.56-.84.91-.77.28.14.35.63.21 1.19"></path></svg>
+                                                    </div>
+                                                    <div class="col-auto px-1 pb-2">
+                                                        <svg viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38" height="24" aria-labelledby="pi-visa"><title id="pi-visa">Visa</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><path d="M28.3 10.1H28c-.4 1-.7 1.5-1 3h1.9c-.3-1.5-.3-2.2-.6-3zm2.9 5.9h-1.7c-.1 0-.1 0-.2-.1l-.2-.9-.1-.2h-2.4c-.1 0-.2 0-.2.2l-.3.9c0 .1-.1.1-.1.1h-2.1l.2-.5L27 8.7c0-.5.3-.7.8-.7h1.5c.1 0 .2 0 .2.2l1.4 6.5c.1.4.2.7.2 1.1.1.1.1.1.1.2zm-13.4-.3l.4-1.8c.1 0 .2.1.2.1.7.3 1.4.5 2.1.4.2 0 .5-.1.7-.2.5-.2.5-.7.1-1.1-.2-.2-.5-.3-.8-.5-.4-.2-.8-.4-1.1-.7-1.2-1-.8-2.4-.1-3.1.6-.4.9-.8 1.7-.8 1.2 0 2.5 0 3.1.2h.1c-.1.6-.2 1.1-.4 1.7-.5-.2-1-.4-1.5-.4-.3 0-.6 0-.9.1-.2 0-.3.1-.4.2-.2.2-.2.5 0 .7l.5.4c.4.2.8.4 1.1.6.5.3 1 .8 1.1 1.4.2.9-.1 1.7-.9 2.3-.5.4-.7.6-1.4.6-1.4 0-2.5.1-3.4-.2-.1.2-.1.2-.2.1zm-3.5.3c.1-.7.1-.7.2-1 .5-2.2 1-4.5 1.4-6.7.1-.2.1-.3.3-.3H18c-.2 1.2-.4 2.1-.7 3.2-.3 1.5-.6 3-1 4.5 0 .2-.1.2-.3.2M5 8.2c0-.1.2-.2.3-.2h3.4c.5 0 .9.3 1 .8l.9 4.4c0 .1 0 .1.1.2 0-.1.1-.1.1-.1l2.1-5.1c-.1-.1 0-.2.1-.2h2.1c0 .1 0 .1-.1.2l-3.1 7.3c-.1.2-.1.3-.2.4-.1.1-.3 0-.5 0H9.7c-.1 0-.2 0-.2-.2L7.9 9.5c-.2-.2-.5-.5-.9-.6-.6-.3-1.7-.5-1.9-.5L5 8.2z" fill="#142688"></path></svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 d-lg-none mx-auto text-center">
+                                                <div class="pt-4 mob-whats-included">
+                                                    <h2 class="mb-0 mt-2"><em class="fas fa-box-open mr-2" aria-hidden="true" aria-label="What's Included?"></em>What's Included?</h2>
+                                                    <a class="link" href="#whatsIncluded" data-toggle="collapse" data-target="#whatsIncluded" aria-expanded="false" aria-controls="whatsIncluded">See a full list of everything that comes in the box <em class="fas fa-angle-down" aria-hidden="true"></em></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 pt-4 mx-auto collapse whats-included" id="whatsIncluded">
+                                <div class="row mt-1">
+                                    <div class="col-md-6 col-lg-4 mb-3 mb-xl-0">
+                                        <ul class="custom-list m-0 px-4 px-md-0">
+                                            <li>1 x H2O HD<sup>&reg;</sup> Steam Mop &amp; Handheld Cleaner</li>
+                                            <li>1 x Microfibre Cloth for Mop Head</li>
+                                            <li>1 x Carpet Glider</li>
+                                            <li>1 x Duster Tool</li>
+                                            <li>1 x Window Cleaning Tool</li>
+                                            <li>1 x Angled Jet Nozzle</li>
+                                            <li>1 x Nylon Brush</li>
+                                            <li>1 x Brass Brush</li>
+                                            <li>1 x Extension Hose</li>
+                                            <li>1 x Super Absorbent Cloth for Duster Tool</li>
+                                            <li>1 x Microfibre Cloth for Garment Tool</li>
+                                            <li>1 x Super Absorbent Cloth for Window Cleaning Tool</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 mb-4 mb-xl-0">
+                                        <div class="p-3 bg-thane-grey rounded">
+                                            <h3 class="mb-3">Pro Extra Accessories</h3>
+                                            <ul class="custom-list m-0 p-0 pl-2">
+                                                <li>4 x Microfibre Floor Cloth</li>
+                                                <li>1 x Window Cleaning Cloth</li>
+                                                <li>1 x Super Absorbent Floor Cloth</li>
+                                                <li>1 x Duster Cloth</li>
+                                                <li>1 x Garment Cloth</li>
+                                                <li>1 x H2O HD<sup>&reg;</sup> Water Filter</li>
+                                                <li>1 x H2O<sup>&reg;</sup> Scent</li>
+                                                <li>1 x H2O<sup>&reg;</sup> Bottle of Descaler</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 text-center text-xl-left">
+                                        <h3 class="mb-3"><span class="text-thane-red1">FREE</span> Zaahn Ultra Chill</h3>
+                                        <img class="img-fluid w-100 rounded mb-3" src="https://az686452.vo.msecnd.net/cmr/t5185/opt/f79e5d896bfb4dd68c2f423f13506445_1.jpg" alt="">
+                                        <small>* Total value includes FREE Zaahn Ultra Chill which you will be offered at the checkout, just pay delivery.</small>
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container-fluid bg-thane-grey smart-features" id="Features">
+            <div class="xl-gutters">
+                <div class="row px-lg-4 py-5 justify-content-center">
+                    <div class="col-11 col-sm-10 col-lg-11 col-xl-12">
+                        <div class="row justify-content-center justify-content-lg-around">
+                            <div class="col-12 text-center">
+                                <h1 class="mb-5">Smart Features</h1>
+                            </div>
+                            <div class="col-12 col-lg-6 mb-5 mb-lg-0 text-center text-lg-left order-lg-3">
+                                <p class="mb-4">Multi-functional advanced upright &amp; hand-held steam cleaner that works quickly on hard floors &amp; carpets using only the power of steam.</p>
+                                <h2 class="h3 mb-3">Effective cleaning has never been so smart!</h2>
+                                <p>Take your steam cleaning to the next level with the H2O HD<sup>&reg;</sup> Steam Cleaner from Thane<sup>&reg;</sup>. From the makers of the <a class="link font-weight-bold" href="#Awards">award-winning</a> H2O X5<sup>&reg;</sup> Steam Cleaner, this high definition steam cleaning system will make cleaning your entire home quicker and easier than ever.</p>
+                                <p class="mb-4">The H2O HD<sup>&reg;</sup> is the powerful, multi-functional steam system that cleans and helps sanitise your entire home with just one machine using no chemicals. H2O HD<sup>&reg;</sup> uses ordinary tap water and turns it into super-heated steam to help sanitise and deodorise.</p>
+                                <h2 class="h3 mb-3">H2O HD<sup>&reg;</sup> thoroughly deep cleans your floors</h2>
+                                <p class="mb-0">Use it to help remove stains, refresh, revive &amp; deodorise. Get great results on marble, ceramic, carpet, stone, sealed laminate, and sealed hardwood*.</p>
+                            </div>
+                            <div class="col-11 col-sm-10 col-md-9 col-lg-5 order-lg-2">
+                                <img class="img-fluid w-100 rounded" src="images/big2.png" alt="">
+                            </div>
+                            <div class="col-12 mt-5 text-center order-lg-4">
+                                <small>* Not suitable for unsealed wood or unsealed laminate. Always test on an inconspicuous area before steam cleaning a larger area.</small>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container-fluid bg-white benefits" id="Benefits">
+            <div class="xl-gutters">
+                <div class="row px-lg-4 py-5 justify-content-center">
+                    <div class="col-11 col-sm-10 col-lg-11">
+                        <div class="row">
+                            <div class="col text-center">
+                                <h1 class="mb-5">The Benefits of Hand-Held Cleaning</h1>
+                            </div>
+                            <div class="col-12 text-center">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg mb-5 mb-lg-0">
+                                        <div class="row justify-content-center">
+                                            <div class="col-7 col-md-10 mb-4">
+                                                <img class="img-fluid w-100 rounded-circle bordered" src="images/benefits-1b.png" alt="">
+                                            </div>
+                                            <div class="col-12">
+                                                <h2 class="h3 mb-2">Reduce Your Time Spent Ironing</h2>
+                                                <p class="mb-0">With the Garment Steamer attachment, creases melt away and your garments will be refreshed and ready to wear.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg mb-5 mb-lg-0">
+                                        <div class="row justify-content-center">
+                                            <div class="col-7 col-md-10 mb-4">
+                                                <img class="img-fluid w-100 rounded-circle bordered" src="images/benefits-2b.png" alt="">
+                                            </div>
+                                            <div class="col-12">
+                                               <h2 class="h3 mb-2">Clean Without Chemicals</h2>
+                                               <p class="mb-0">Clean hard to reach places effectively. Comes with the Jet Nozzle and Nylon Brush for targeted cleaning.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg mb-5 mb-md-0">
+                                        <div class="row justify-content-center">
+                                            <div class="col-7 col-md-10 mb-4">
+                                                <img class="img-fluid w-100 rounded-circle bordered" src="images/benefits-3b.png" alt="">
+                                            </div>
+                                            <div class="col-12">
+                                               <h2 class="h3 mb-2">Use It To Clean Your Windows</h2>
+                                               <p class="mb-0">Mirrors, glass, windows and chrome get a streak-free shine with the Window Cleaning and Squeegee attachment.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg">
+                                        <div class="row justify-content-center">
+                                            <div class="col-7 col-md-10 mb-4">
+                                                <img class="img-fluid w-100 rounded-circle bordered" src="images/benefits-4b.png" alt="">
+                                            </div>
+                                            <div class="col-12">
+                                               <h2 class="h3 mb-2">Laboratory Proven Results</h2>
+                                               <p class="mb-0">Kills up to 99% of germs &amp; bacteria including salmonella, E.coli, influenza &amp; listeria.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+s
+        <section class="container-fluid bg-thane-grey easy-fast-hygienic" id="EasyFast">
+            <div class="xl-gutters">
+                <div class="row px-lg-4 py-5 justify-content-center">
+                    <div class="col-11 col-sm-10 col-md-11 col-lg-11">
+                        <div class="row">
+                            <div class="col text-center">
+                                <h1 class="mb-5">Easy. Fast. Hygienic.</h1>
+                            </div>
+                            <div class="col-12">
+                                <div class="row justify-content-center align-items-center">
+                                    <div class="col-11 col-sm-10 col-lg-7 mb-4">
+                                        <ul class="p-0 custom-list">
+                                            <li><strong>Kills up to 99% of salmonella, E.coli, influenza &amp; listeria **</strong> helping to sanitise and deodorise surfaces</li>
+                                            <li><strong>The removable water tank</strong> makes filling up simple and holds 450ml for more cleaning time</li>
+                                            <li><strong>Lightweight</strong> - Weighs less than 5lbs</li>
+                                            <li><strong>Helps to remove pet odours and stains</strong> from carpet, garments &amp; upholstery</li>
+                                            <li><strong>The extra large swivel cleaning head</strong> enables you to cover more surface in less time</li>
+                                            <li><strong>The quick release hand-held unit detaches</strong> from the mop at the touch of a button</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-11 col-md-11 col-lg mb-5">
+                                        <div class="row justify-content-center">
+                                            <div class="col-12 col-md col-lg-12 mb-4 mb-md-0 mb-lg-4">
+                                                <div class="row align-items-center justify-content-center">
+                                                    <div class="col-4 col-sm-3 col-md-8 col-lg-4 mb-md-4 mb-lg-0">
+                                                        <img class="img-fluid w-100 rounded-circle bordered" src="images/easy.png" alt="">
+                                                    </div>
+                                                    <div class="col col-md-12 col-lg text-md-center text-lg-left pl-2 pl-md-3 pl-lg-2">
+                                                        <p class="mb-0"><strong>Easy</strong> - foldable handle for easier carrying &amp; storage</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md col-lg-12 mb-4 mb-md-0 mb-lg-4">
+                                                <div class="row align-items-center justify-content-center">
+                                                    <div class="col-4 col-sm-3 col-md-8 col-lg-4 mb-md-4 mb-lg-0">
+                                                        <img class="img-fluid w-100 rounded-circle bordered" src="images/faster.png" alt="">
+                                                    </div>
+                                                    <div class="col col-md-12 col-lg text-md-center text-lg-left pl-2 pl-md-3 pl-lg-2">
+                                                        <p class="mb-0"><strong>Faster</strong> - extra large swivel cleaning head to cover more surface in less time</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md col-lg-12">
+                                                <div class="row align-items-center justify-content-center">
+                                                    <div class="col-4 col-sm-3 col-md-8 col-lg-4 mb-md-4 mb-lg-0">
+                                                        <img class="img-fluid w-100 rounded-circle bordered" src="images/hygienic.png" alt="">
+                                                    </div>
+                                                    <div class="col col-md-12 col-lg text-md-center text-lg-left pl-2 pl-md-3 pl-lg-2">
+                                                        <p class="mb-0"><strong>Hygienic</strong> - kills up to 99% of salmonella E.coli, influenza and listeria **</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <small class="d-block text-center mx-auto">** Lower efficacy results achieved on wooden surfaces.</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container-fluid bg-yotpo text-white" id="Reviews">
+            <div class="xl-gutters">
+                <div class="row px-lg-4 py-5 justify-content-center">
+                    <div class="col-11 col-sm-10 col-lg-11">
+                        <h1 class="text-center">UK Customer Reviews</h1>
+                        <script type="text/javascript" class="">
+                            (function e() {
+                                var e = document.createElement("script");
+                                e.type = "text/javascript", e.async = true, e.src = "//staticw2.yotpo.com/ekyw8YANPKaLOTV1rv2Jk4dn1mrxyaS49Xfa50hk/widget.js";
+                                var t = document.getElementsByTagName("script")[0];
+                                t.parentNode.insertBefore(e, t)
+                            })();
+                        </script>
+                        <div class="yotpo yotpo-reviews-carousel yotpo-size-7" data-background-color="#498cbc" data-mode="top_rated" data-type="product" data-product-id="269-UK" data-count="9" data-show-bottomline="1" data-autoplay-enabled="1" data-autoplay-speed="7000" data-show-navigation="1" data-yotpo-element-id="2" style="max-width: 1405px; background-color: #498cbc !important;">
+                            <div class="yotpo-display-wrapper carousel-display-wrapper"  style="background-color: #498cbc;" data-attr-total-reviews="9">
+                                <div class="carousel-read-more-text" data-text="Read More"></div>
+                                <span class="yotpo-icon yotpo-corner"></span>
+                                <div class="label-with-tooltip carousel-tool-tip" style="display: inline-block;">
+                                    <div class="yotpo-tool-tip" data-user-type="yotpo-verified-user">
+                                        <div class="tool-tip-header">
+                                            <span class="header-blue tool-tip-header-span">Review Title</span>
+                                        </div>
+                                        <div class="tool-tip-content">Review Content</div>
+                                    </div>
+                                </div>
+                                <div id="carousel-top-panel">
+                                    <div role="heading" class="headline">Real Reviews From Real Customers</div>
+                                    <div class="sr-only">Reviews carousel</div>
+                                    <div class="carousel-arrows" style="display: inline-block;">
+                                        <div class="sr-only">Carousel arrows</div>
+                                        <span class="yotpo-page-element yotpo-icon yotpo-icon-left-arrow-thin yotpo_previous" role="button" aria-label="Previous Page" tabindex="0"></span>
+                                        <span class="yotpo-page-element yotpo-icon yotpo-icon-right-arrow-thin yotpo_next" role="button" aria-label="Next Page" tabindex="0"></span>
+                                    </div>
+                                    <div class="carousel-reviews-bottom-line ">
+                                        <span class="yotpo-review-stars">
+                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                            <span class="yotpo-icon yotpo-icon-half-star rating-star pull-left"></span>
+                                            <span class="sr-only">4.4 star rating</span>
+                                        </span>
+                                        <span class="yotpo-num-of-reviews" style="font-weight: bold;">2925 Reviews</span>
+                                    </div>
+                                </div>
+                                <div class="scroller" style="width: 1420px;">
+                                    <div class="yotpo yotpo-carousel y-slider-container y-slide-left-animations" style="left: -200%;">
+                                        <div role="list" class="y-slider-container y-slide-left-animations">
+                                            <div role="listitem" class="standard-layout single-carousel review" data-review-id="470230170" style="margin-right: 70.3333px;">
+                                                <div class="big-version" style="display: inline-block;">
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="stars-container">
+                                                            <span class="yotpo-stars carousel-stars">
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="sr-only">5.0 star rating</span>
+                                                            </span>
+                                                            <span class="carousel-review-date" aria-label="review date 05/18/23"> 05/18/23 </span>
+                                                        </div>
+                                                        <div class="carousel-review-title" full-headline="Fab machine"> Fab machine </div>
+                                                        <div class="carousel-review-body ">Love this steamer, I have had others but this one is superb, hand held part is little bit heavy but I also find my hairdryer heavy... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">carol m.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="small-version yotpo-hidden" style="display: none;">
+                                                    <div class="stars-container">
+                                                        <span class="yotpo-stars carousel-stars">
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="sr-only">5.0 star rating</span>
+                                                        </span>
+                                                        <span class="carousel-review-date" aria-label="review date 05/18/23"> 05/18/23 </span>
+                                                    </div>
+                                                    <div class="carousel-review-title" full-headline="Fab machine"> Fab machine </div>
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="carousel-review-body ">Love this steamer, I have had others but this one is superb, hand held part is little bit heavy but I also find my hairdryer heavy... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">carol m.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div role="listitem" class="standard-layout single-carousel review" data-review-id="470113269" style="margin-right: 70.3333px;">
+                                                <div class="big-version" style="display: inline-block;">
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="stars-container">
+                                                            <span class="yotpo-stars carousel-stars">
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="sr-only">5.0 star rating</span>
+                                                            </span>
+                                                            <span class="carousel-review-date" aria-label="review date 05/17/23"> 05/17/23 </span>
+                                                        </div>
+                                                        <div class="carousel-review-title" full-headline="great machine"> great machine </div>
+                                                        <div class="carousel-review-body ">it was a gift to my daughter in law. my Son used it to do the kitchen floor in no time at all. thinking about getting one for myse... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">Katherine S.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="small-version yotpo-hidden" style="display: none;">
+                                                    <div class="stars-container">
+                                                        <span class="yotpo-stars carousel-stars">
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="sr-only">5.0 star rating</span>
+                                                        </span>
+                                                        <span class="carousel-review-date" aria-label="review date 05/17/23"> 05/17/23 </span>
+                                                    </div>
+                                                    <div class="carousel-review-title" full-headline="great machine"> great machine </div>
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="carousel-review-body ">it was a gift to my daughter in law. my Son used it to do the kitchen floor in no time at all. thinking about getting one for myse... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">Katherine S.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div role="listitem" class="standard-layout single-carousel review" data-review-id="469054716" style="margin-right: 70.3333px;">
+                                                <div class="big-version" style="display: inline-block;">
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="stars-container">
+                                                            <span class="yotpo-stars carousel-stars">
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="sr-only">5.0 star rating</span>
+                                                            </span>
+                                                            <span class="carousel-review-date" aria-label="review date 05/12/23"> 05/12/23 </span>
+                                                        </div>
+                                                        <div class="carousel-review-title" full-headline="love it"> love it </div>
+                                                        <div class="carousel-review-body ">bought this product for my sister, she loves the versatility it gives her.</div>
+                                                        <div class="carousel-review-author">Brenda N.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="small-version yotpo-hidden" style="display: none;">
+                                                    <div class="stars-container">
+                                                        <span class="yotpo-stars carousel-stars">
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="sr-only">5.0 star rating</span>
+                                                        </span>
+                                                        <span class="carousel-review-date" aria-label="review date 05/12/23"> 05/12/23 </span>
+                                                    </div>
+                                                    <div class="carousel-review-title" full-headline="love it"> love it </div>
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="carousel-review-body ">bought this product for my sister, she loves the versatility it gives her.</div>
+                                                        <div class="carousel-review-author">Brenda N.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div role="listitem" class="standard-layout single-carousel review" data-review-id="468583490" style="margin-right: 70.3333px;">
+                                                <div class="big-version" style="display: inline-block;">
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text" style="text-decoration: none;">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="stars-container">
+                                                            <span class="yotpo-stars carousel-stars">
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="sr-only">5.0 star rating</span>
+                                                            </span>
+                                                            <span class="carousel-review-date" aria-label="review date 05/10/23"> 05/10/23 </span>
+                                                        </div>
+                                                        <div class="carousel-review-title" full-headline="Thank God"> Thank God </div>
+                                                        <div class="carousel-review-body ">I had the older version which stopped working so opted for the upgrade. I have an attack of fleas need to steam everywhere it is d... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">Maria</div>
+                                                    </div>
+                                                </div>
+                                                <div class="small-version yotpo-hidden" style="display: none;">
+                                                    <div class="stars-container">
+                                                        <span class="yotpo-stars carousel-stars">
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="sr-only">5.0 star rating</span>
+                                                        </span>
+                                                        <span class="carousel-review-date" aria-label="review date 05/10/23"> 05/10/23 </span>
+                                                    </div>
+                                                    <div class="carousel-review-title" full-headline="Thank God"> Thank God </div>
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="carousel-review-body ">I had the older version which stopped working so opted for the upgrade. I have an attack of fleas need to steam everywhere it is d... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">Maria</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div role="listitem" class="standard-layout single-carousel review" data-review-id="473278710" tabindex="0" style="margin-right: 70.3333px;">
+                                                <div class="big-version" style="display: inline-block;">
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="stars-container">
+                                                            <span class="yotpo-stars carousel-stars">
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="sr-only">5.0 star rating</span>
+                                                            </span>
+                                                            <span class="carousel-review-date" aria-label="review date 06/02/23"> 06/02/23 </span>
+                                                        </div>
+                                                        <div class="carousel-review-title" full-headline="The best product to arrive"> The best product to arrive </div>
+                                                        <div class="carousel-review-body ">The best product to arrive in our home in years. I never buy items that I've seen on TV but this one I had to try. I really enjoy ... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">Olga K.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="small-version yotpo-hidden" style="display: none;">
+                                                    <div class="stars-container">
+                                                        <span class="yotpo-stars carousel-stars">
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="sr-only">5.0 star rating</span>
+                                                        </span>
+                                                        <span class="carousel-review-date" aria-label="review date 06/02/23"> 06/02/23 </span>
+                                                    </div>
+                                                    <div class="carousel-review-title" full-headline="The best product to arrive"> The best product to arrive </div>
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="carousel-review-body ">The best product to arrive in our home in years. I never buy items that I've seen on TV but this one I had to try. I really enjoy ... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">Olga K.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div role="listitem" class="standard-layout single-carousel review" data-review-id="472982027" tabindex="0" style="margin-right: 70.3333px;">
+                                                <div class="big-version" style="display: inline-block;">
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text" style="text-decoration: none;">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="stars-container">
+                                                            <span class="yotpo-stars carousel-stars">
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="sr-only">5.0 star rating</span>
+                                                            </span>
+                                                            <span class="carousel-review-date" aria-label="review date 05/31/23"> 05/31/23 </span>
+                                                        </div>
+                                                        <div class="carousel-review-title" full-headline="Good choice, good price"> Good choice, good price </div>
+                                                        <div class="carousel-review-body ">Only recently used this for the first timein the hard flooring. Seemed to work efficiently on the higher level and look forward to... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">Sheila C.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="small-version yotpo-hidden" style="display: none;">
+                                                    <div class="stars-container">
+                                                        <span class="yotpo-stars carousel-stars">
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="sr-only">5.0 star rating</span>
+                                                        </span>
+                                                        <span class="carousel-review-date" aria-label="review date 05/31/23"> 05/31/23 </span>
+                                                    </div>
+                                                    <div class="carousel-review-title" full-headline="Good choice, good price"> Good choice, good price </div>
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="carousel-review-body ">Only recently used this for the first timein the hard flooring. Seemed to work efficiently on the higher level and look forward to... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">Sheila C.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div role="listitem" class="standard-layout single-carousel review" data-review-id="471936781" tabindex="0" style="margin-right: 70.3333px;">
+                                                <div class="big-version" style="display: inline-block;">
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="stars-container">
+                                                            <span class="yotpo-stars carousel-stars">
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="sr-only">5.0 star rating</span>
+                                                            </span>
+                                                            <span class="carousel-review-date" aria-label="review date 05/26/23"> 05/26/23 </span>
+                                                        </div>
+                                                        <div class="carousel-review-title" full-headline="I’m super stoked with my"> I’m super stoked with my </div>
+                                                        <div class="carousel-review-body ">I’m super stoked with my steamer. <br>It has totally refreshed our grout in our kitchen. Great price point. Does a stellar job. L... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">Deana R.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="small-version yotpo-hidden" style="display: none;">
+                                                    <div class="stars-container">
+                                                        <span class="yotpo-stars carousel-stars">
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="sr-only">5.0 star rating</span>
+                                                        </span>
+                                                        <span class="carousel-review-date" aria-label="review date 05/26/23"> 05/26/23 </span>
+                                                    </div>
+                                                    <div class="carousel-review-title" full-headline="I’m super stoked with my"> I’m super stoked with my </div>
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="carousel-review-body ">I’m super stoked with my steamer. <br>It has totally refreshed our grout in our kitchen. Great price point. Does a stellar job. L... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">Deana R.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div role="listitem" class="standard-layout single-carousel review" data-review-id="470668666" style="margin-right: 70.3333px;">
+                                                <div class="big-version" style="display: inline-block;">
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text" style="text-decoration: none;">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="stars-container">
+                                                            <span class="yotpo-stars carousel-stars">
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="sr-only">5.0 star rating</span>
+                                                            </span>
+                                                            <span class="carousel-review-date" aria-label="review date 05/20/23"> 05/20/23 </span>
+                                                        </div>
+                                                        <div class="carousel-review-title" full-headline="Wish you could get more descale with it."> Wish you could get more descale with it. </div>
+                                                        <div class="carousel-review-body ">I love mine. Its the 2nd one I have had. Cleaned all bathroom wi down and floors.</div>
+                                                        <div class="carousel-review-author">Wendy K.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="small-version yotpo-hidden" style="display: none;">
+                                                    <div class="stars-container">
+                                                        <span class="yotpo-stars carousel-stars">
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="sr-only">5.0 star rating</span>
+                                                        </span>
+                                                        <span class="carousel-review-date" aria-label="review date 05/20/23"> 05/20/23 </span>
+                                                    </div>
+                                                    <div class="carousel-review-title" full-headline="Wish you could get more descale with it."> Wish you could get more descale with it. </div>
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="carousel-review-body ">I love mine. Its the 2nd one I have had. Cleaned all bathroom wi down and floors.</div>
+                                                        <div class="carousel-review-author">Wendy K.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div role="listitem" class="standard-layout single-carousel review" data-review-id="470644302" style="margin-right: 70.3333px;">
+                                                <div class="big-version" style="display: inline-block;">
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text" style="text-decoration: none;">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="stars-container">
+                                                            <span class="yotpo-stars carousel-stars">
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="sr-only">5.0 star rating</span>
+                                                            </span>
+                                                            <span class="carousel-review-date" aria-label="review date 05/20/23"> 05/20/23 </span>
+                                                        </div>
+                                                        <div class="carousel-review-title" full-headline="Cool"> Cool </div>
+                                                        <div class="carousel-review-body ">I am a professional cleaner and I use this for My house I have used it on toilet and cooker and barbecue</div>
+                                                        <div class="carousel-review-author">Jacqueline S.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="small-version yotpo-hidden" style="display: none;">
+                                                    <div class="stars-container">
+                                                        <span class="yotpo-stars carousel-stars">
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="sr-only">5.0 star rating</span>
+                                                        </span>
+                                                        <span class="carousel-review-date" aria-label="review date 05/20/23"> 05/20/23 </span>
+                                                    </div>
+                                                    <div class="carousel-review-title" full-headline="Cool"> Cool </div>
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="carousel-review-body ">I am a professional cleaner and I use this for My house I have used it on toilet and cooker and barbecue</div>
+                                                        <div class="carousel-review-author">Jacqueline S.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div role="listitem" class="standard-layout single-carousel review" data-review-id="470230170" style="margin-right: 70.3333px;">
+                                                <div class="big-version" style="display: inline-block;">
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="stars-container">
+                                                            <span class="yotpo-stars carousel-stars">
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="sr-only">5.0 star rating</span>
+                                                            </span>
+                                                            <span class="carousel-review-date" aria-label="review date 05/18/23"> 05/18/23 </span>
+                                                        </div>
+                                                        <div class="carousel-review-title" full-headline="Fab machine"> Fab machine </div>
+                                                        <div class="carousel-review-body ">Love this steamer, I have had others but this one is superb, hand held part is little bit heavy but I also find my hairdryer heavy... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">carol m.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="small-version yotpo-hidden" style="display: none;">
+                                                    <div class="stars-container">
+                                                        <span class="yotpo-stars carousel-stars">
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="sr-only">5.0 star rating</span>
+                                                        </span>
+                                                        <span class="carousel-review-date" aria-label="review date 05/18/23"> 05/18/23 </span>
+                                                    </div>
+                                                    <div class="carousel-review-title" full-headline="Fab machine"> Fab machine </div>
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="carousel-review-body ">Love this steamer, I have had others but this one is superb, hand held part is little bit heavy but I also find my hairdryer heavy... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">carol m.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div role="listitem" class="standard-layout single-carousel review" data-review-id="470113269" style="margin-right: 70.3333px;">
+                                                <div class="big-version" style="display: inline-block;">
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="stars-container">
+                                                            <span class="yotpo-stars carousel-stars">
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="sr-only">5.0 star rating</span>
+                                                            </span>
+                                                            <span class="carousel-review-date" aria-label="review date 05/17/23"> 05/17/23 </span>
+                                                        </div>
+                                                        <div class="carousel-review-title" full-headline="great machine"> great machine </div>
+                                                        <div class="carousel-review-body ">it was a gift to my daughter in law. my Son used it to do the kitchen floor in no time at all. thinking about getting one for myse... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">Katherine S.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="small-version yotpo-hidden" style="display: none;">
+                                                    <div class="stars-container">
+                                                        <span class="yotpo-stars carousel-stars">
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="sr-only">5.0 star rating</span>
+                                                        </span>
+                                                        <span class="carousel-review-date" aria-label="review date 05/17/23"> 05/17/23 </span>
+                                                    </div>
+                                                    <div class="carousel-review-title" full-headline="great machine"> great machine </div>
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="carousel-review-body ">it was a gift to my daughter in law. my Son used it to do the kitchen floor in no time at all. thinking about getting one for myse... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">Katherine S.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div role="listitem" class="standard-layout single-carousel review" data-review-id="469054716" style="margin-right: 70.3333px;">
+                                                <div class="big-version" style="display: inline-block;">
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="stars-container">
+                                                            <span class="yotpo-stars carousel-stars">
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="sr-only">5.0 star rating</span>
+                                                            </span>
+                                                            <span class="carousel-review-date" aria-label="review date 05/12/23"> 05/12/23 </span>
+                                                        </div>
+                                                        <div class="carousel-review-title" full-headline="love it"> love it </div>
+                                                        <div class="carousel-review-body ">bought this product for my sister, she loves the versatility it gives her.</div>
+                                                        <div class="carousel-review-author">Brenda N.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="small-version yotpo-hidden" style="display: none;">
+                                                    <div class="stars-container">
+                                                        <span class="yotpo-stars carousel-stars">
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="sr-only">5.0 star rating</span>
+                                                        </span>
+                                                        <span class="carousel-review-date" aria-label="review date 05/12/23"> 05/12/23 </span>
+                                                    </div>
+                                                    <div class="carousel-review-title" full-headline="love it"> love it </div>
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="carousel-review-body ">bought this product for my sister, she loves the versatility it gives her.</div>
+                                                        <div class="carousel-review-author">Brenda N.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div role="listitem" class="standard-layout single-carousel review" data-review-id="468583490" style="margin-right: 70.3333px;">
+                                                <div class="big-version" style="display: inline-block;">
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="stars-container">
+                                                            <span class="yotpo-stars carousel-stars">
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="sr-only">5.0 star rating</span>
+                                                            </span>
+                                                            <span class="carousel-review-date" aria-label="review date 05/10/23"> 05/10/23 </span>
+                                                        </div>
+                                                        <div class="carousel-review-title" full-headline="Thank God"> Thank God </div>
+                                                        <div class="carousel-review-body ">I had the older version which stopped working so opted for the upgrade. I have an attack of fleas need to steam everywhere it is d... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">Maria</div>
+                                                    </div>
+                                                </div>
+                                                <div class="small-version yotpo-hidden" style="display: none;">
+                                                    <div class="stars-container">
+                                                        <span class="yotpo-stars carousel-stars">
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="sr-only">5.0 star rating</span>
+                                                        </span>
+                                                        <span class="carousel-review-date" aria-label="review date 05/10/23"> 05/10/23 </span>
+                                                    </div>
+                                                    <div class="carousel-review-title" full-headline="Thank God"> Thank God </div>
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="carousel-review-body ">I had the older version which stopped working so opted for the upgrade. I have an attack of fleas need to steam everywhere it is d... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">Maria</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div role="listitem" class="standard-layout single-carousel review" data-review-id="473278710" style="margin-right: 70.3333px;">
+                                                <div class="big-version" style="display: inline-block;">
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="stars-container">
+                                                            <span class="yotpo-stars carousel-stars">
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="sr-only">5.0 star rating</span>
+                                                            </span>
+                                                            <span class="carousel-review-date" aria-label="review date 06/02/23"> 06/02/23 </span>
+                                                        </div>
+                                                        <div class="carousel-review-title" full-headline="The best product to arrive"> The best product to arrive </div>
+                                                        <div class="carousel-review-body ">The best product to arrive in our home in years. I never buy items that I've seen on TV but this one I had to try. I really enjoy ... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">Olga K.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="small-version yotpo-hidden" style="display: none;">
+                                                    <div class="stars-container">
+                                                        <span class="yotpo-stars carousel-stars">
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="sr-only">5.0 star rating</span>
+                                                        </span>
+                                                        <span class="carousel-review-date" aria-label="review date 06/02/23"> 06/02/23 </span>
+                                                    </div>
+                                                    <div class="carousel-review-title" full-headline="The best product to arrive"> The best product to arrive </div>
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="carousel-review-body ">The best product to arrive in our home in years. I never buy items that I've seen on TV but this one I had to try. I really enjoy ... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">Olga K.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div role="listitem" class="standard-layout single-carousel review" data-review-id="472982027" style="margin-right: 70.3333px;">
+                                                <div class="big-version" style="display: inline-block;">
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="stars-container">
+                                                            <span class="yotpo-stars carousel-stars">
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                                <span class="sr-only">5.0 star rating</span>
+                                                            </span>
+                                                            <span class="carousel-review-date" aria-label="review date 05/31/23"> 05/31/23 </span>
+                                                        </div>
+                                                        <div class="carousel-review-title" full-headline="Good choice, good price"> Good choice, good price </div>
+                                                        <div class="carousel-review-body ">Only recently used this for the first timein the hard flooring. Seemed to work efficiently on the higher level and look forward to... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">Sheila C.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="small-version yotpo-hidden" style="display: none;">
+                                                    <div class="stars-container">
+                                                        <span class="yotpo-stars carousel-stars">
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+                                                            <span class="sr-only">5.0 star rating</span>
+                                                        </span>
+                                                        <span class="carousel-review-date" aria-label="review date 05/31/23"> 05/31/23 </span>
+                                                    </div>
+                                                    <div class="carousel-review-title" full-headline="Good choice, good price"> Good choice, good price </div>
+                                                    <a class="product-link-container" href="https://yotpo.com/go/2URbnRC8" rel="nofollow">
+                                                        <div class="product-image-container pull-left">
+                                                            <div class="y-carousel-product-image">
+                                                                <div class="carousel-site-quote-container">
+                                                                    <span class="yotpo-icon yotpo-icon-quote-left carousel-site-quote"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-name carousel-review-product-text">H2O HD Advanced Steam Cleaner </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="right-side pull-right">
+                                                        <div class="carousel-review-body ">Only recently used this for the first timein the hard flooring. Seemed to work efficiently on the higher level and look forward to... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        </div>
+                                                        <div class="carousel-review-author">Sheila C.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="yotpo-label yotpo-small-box ">
+                                    <a href="https://www.yotpo.com/?redirect=https%3A%2F%2Fwww.yotpo.com%2Fpowered-by-yotpo%2F&amp;utm_campaign=branding_link_reviews_widget_v2&amp;utm_medium=widget&amp;utm_source=thanedirect.co.uk" class="yotpo-logo-link-new" aria-label="Powered by Yotpo link to their homepage" tabindex="0">
+                                        <span class="yotpo-logo-title   "> Powered by </span>
+                                        <div class="yotpo-icon-btn-big transparent-color-btn  yotpo-icon yotpo-icon-yotpo-logo yotpo-logo-icon-new yotpo-icon yotpo-icon-yotpo-logo "></div>
+                                    </a>
+                                    <div class="yotpo-logo-line"></div>
+                                    <div class="yotpo-clr"></div>
+                                </div>-->
+                            </div>
+                        </div>
+                        <div class="col-12 text-center">
+                            <div class="d-flex flex-column align-items-center justify-content-center">
+                                <a class="btn btn-lg btn-secondary" href="https://h2ohd.co.uk/Reviews" target="_blank" title="Read more reviews">Read more reviews</a>
+                                <a class="text-decoration-none mt-3 yotpo-link" href="https://www.yotpo.com/?redirect=https%3A%2F%2Fwww.yotpo.com%2Fpowered-by-yotpo%2F&amp;utm_campaign=branding_link_reviews_widget_v2&amp;utm_medium=widget&amp;utm_source=thanedirect.co.uk" aria-label="Powered by Yotpo link to their homepage">
+                                    <span>
+                                        <small class="text-white">powered by</small>
+                                        <span><img class="img-fluid" style="max-height: 20px;" src="images/yotpo-text.png"></span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container-fluid bg-white awards" id="Awards">
+            <div class="xl-gutters">
+                <div class="row px-4 py-5 justify-content-center">
+                    <div class="col-12 col-sm-11 col-md-10 col-lg-11 text-center">
+                        <div class="row">
+                            <div class="col-12">
+                                <h1 class="mb-5">Award-Winning H2O<sup>&reg;</sup> Family</h1>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="row justify-content-center">
+                                    <div class="col-5 col-md-4 col-lg-5 mb-4 mb-xl-5">
+                                        <img class="img-fluid w-100" src="https://az686452.vo.msecnd.net/cmr/t766/opt/c185089c097049238c2fef5b0f012612_1.png" alt="Parent Approved">
+                                    </div>
+                                    <div class="col-12 mb-5 mb-lg-0">
+                                        <h2 class="mb-3">Parent Approved</h2>
+                                        <p>Parent Tested Parent Approved is a community made up of parents, like you and me, who chat together, share tips, feedback, and provide support to one another through a variety of channels.</p>
+                                        <p class="mb-0">Product feedback from the parents is sent to companies, and this information is invaluable to help shape the way products are made for our families. It's the parents of the PTPA Media program who determine if that product should receive a Winner's Seal or not.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="row justify-content-center">
+                                    <div class="col-5 col-md-4 col-lg-5 mb-4 mb-xl-5">
+                                        <img class="img-fluid w-100" src="https://az686452.vo.msecnd.net/cmr/t6219/opt/24bf730c2485433c827cf10f682a92f5_1.png" alt="Ideal Home Winner">
+                                    </div>
+                                    <div class="col-12 mb-4 mb-lg-0">
+                                        <h2 class="mb-3">Ideal Home Winner</h2>
+                                        <p>The H2O HD<sup>&reg;</sup> has done it again, this incredible steam mop has won another award. This time the H2O HD<sup>&reg;</sup> has been awarded the Ideal Home Approved badge in the Best Steam Cleaners 2020 test.</p>
+                                        <p class="mb-0">The professional reviewer at Ideal Home said: <em>"This upright steam cleaner boasts a 'why didn't I think of that design' which folds in half for easy storage in smaller cupboards."</em></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container-fluid bg-h2o-green text-white as-seen-on-tv" id="seenOnTV">
+            <div class="xl-gutters">
+                <div class="row px-4 py-5 justify-content-center">
+                    <div class="col-12 col-sm-11 col-md-10 col-lg-11 text-center">
+                        <div class="row">
+                            <div class="col-12 order-lg-1">
+                                <h1 class="mb-2" title="">As Seen On TV</h1>
+                                <p class="h5 mb-5">You may have seen the H2O<sup>&reg;</sup> HD on some of the country's most popular TV cshannels.</p>
+                            </div>
+                            <div class="col-12 col-md-10 col-lg-7 order-lg-3">
+                                <div class="embed-responsive embed-responsive-16by9 rounded">
+                                    <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/116533238?autoplay=0&amp;title=1&amp;portrait=1&amp;byline=1&amp;muted=0&amp;loop=0" frameborder="0" playsinline webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 order-lg-2">
+                                <div class="bg-white rounded my-auto">
+                                    <div class="owl-carousel tv-carousel" id="tvCarousel">
+                                        <div class="item">
+                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t10776/src/392b7664e1e746d8b4b75b1625588f70_1.jpg" alt="">
+                                        </div>
+                                        <div class="item">
+                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t10776/src/5c2e46f8f8c449c2a0d32c72a61e3ecc_1.jpg" alt="">
+                                        </div>
+                                        <div class="item">
+                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/416dfd095aae445ba930ac132889c133_1.jpg" alt="">
+                                        </div>
+                                        <div class="item">
+                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/34a8b0ae167645648f9c658272d0e783_1.jpg" alt="">
+                                        </div>
+                                        <div class="item">
+                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/b36c6c2c94d14823860540959a95006a_1.jpg" alt="">
+                                        </div>
+                                        <div class="item">
+                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/43ef3d10c69148429b75462acbd7d2e8_1.jpg" alt="">
+                                        </div>
+                                        <div class="item">
+                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/6545e4f916044555b7aa9edf0bd3e873_1.jpg" alt="">
+                                        </div>
+                                        <div class="item">
+                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/46d9d17d47c8433ea2bd8b8ce10ccb62_1.jpg" alt="">
+                                        </div>
+                                        <div class="item">
+                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/b7e6397f61744ec0b5026c92c1abb19f_1.jpg" alt="">
+                                        </div>
+                                        <div class="item">
+                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/f10467c07b6347f698780467cdf43c31_1.jpg" alt="">
+                                        </div>
+                                        <div class="item">
+                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/9de9f814e1cf4c32acf9a52ab4055978_1.jpg" alt="">
+                                        </div>
+                                        <div class="item">
+                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/66b042f11ce445259ccea105f8f12aec_1.jpg" alt="">
+                                        </div>
+                                        <div class="item">
+                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/d918766c1a9b4366883438b75c8a149b_1.jpg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container-fluid bg-white">
+            <div class="xl-gutters">
+                <div class="row px-4 py-5 justify-content-center">
+                    <div class="col-12 col-sm-11 col-md-10 col-lg-11 text-center">
+                        <h1 class="mb-4 mb-xl-5" title="">Join the H2O<sup>&reg;</sup> Family</h1>
+                        <div class="row justify-content-center">
+                            <div class="col col-lg-10 col-xl-9 mb-4">
+                                <img class="img-fluid w-100" src="https://az686452.vo.msecnd.net/cmr/t17433/opt/035b50ab94ca46369468426ab8d474df_1.jpg">
+                            </div>
+                        </div>
+                        <h2 class="mb-3">Join the world famous, award-winning H2O<sup>&reg;</sup> family</h2>
+                        <p class="mb-4">From the H2O X5<sup>&reg;</sup> to H2O<sup>&reg;</sup> Steam FX Pro, the H2O<sup>&reg;</sup> family of steam cleaners have a solution for every home. With powerful chemical free steam blasting away dirt and bacteria, you can feel confident that your H2O<sup>&reg;</sup> steam cleaner will give you the cleanest home you've ever had! With over 14 million H2O<sup>&reg;</sup> Steam Cleaners sold in over 80 countries across the globe, the H2O<sup>&reg;</sup> HD is the perfect way to join the H2O<sup>&reg;</sup> family.</p>
+                        <a class="btn btn-lg btn-primary mx-auto" role="button" href="">Find Out More</a>
+                        <small class="d-block mt-4"><sup>&dagger;</sup> Over 14 million "H2O" series steam cleaners have been sold in over 80 countries.</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <section class="container-fluid bg-h2o-grey text-white footer">
+            <div class="xl-gutters">
+                <div class="row px-lg-4 py-5 justify-content-center">
+                    <div class="col-12 col-sm-11 col-md-10 col-lg-11 col-xl-12 text-center">
+                        <nav>
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <a href="https://help.thanedirect.co.uk/my-product/h2o/h2o-hd/faq-h2o-hd-advanced-steam-cleaning-system/?_gl=1*1snmomm*_ga*MzA4MDE0NDU3LjE2ODU4MDkyODg.*_ga_Z81EHLE8Q4*MTY4NTk4NDYzMS4xMC4xLjE2ODU5ODQ2NTIuMzkuMC4w*_gcl_au*MTE3NzI2MTI3NC4xNjg1ODA5Mjg5" target="_blank" aria-label="H2O HD&reg; FAQs">H2O HD<sup>&reg;</sup> FAQs</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="https://www.thanedirect.co.uk/policies/shipping-policy" target="_blank" aria-label="Delivery Information">Delivery Information</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="https://www.thanedirect.co.uk/" target="_blank" aria-label="Shop More">Shop More</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="https://www.thanedirect.co.uk/pages/waste-electrical" target="_blank" aria-label="Waste Electrical">Waste Electrical</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="https://www.thanedirect.co.uk/policies/refund-policy" target="_blank" aria-label="Returns">Returns</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="https://help.thanedirect.co.uk/" target="_blank" aria-label="Solution Centre">Solution Centre</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="https://www.thanedirect.co.uk/policies/privacy-policy" target="_blank" aria-label="Privacy Policy">Privacy Policy</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="https://www.thanedirect.co.uk/policies/terms-of-service" target="_blank" aria-label="Terms &amp; Conditions">Terms &amp; Conditions</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="https://www.thanedirect.co.uk/pages/customer-support" target="_blank" aria-label="Contact Us">Contact Us</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="https://www.thanedirect.co.uk/pages/about-thane" target="_blank" aria-label="About Thane">About Thane</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="https://hd-accessories.thanedirect.co.uk/" target="_blank" aria-label="Accessories">Accessories</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-11 col-xl-12 text-center">
+                        <small class="d-block">“Thane”, “H2O”, “H2O HD” and related logos and variations are trademarks or registered trademarks, in Canada and/or other countries, of Thane IP Limited.</small>
+                        <small class="d-block">Copyright &copy; 2023. Thane IP Limited. <nobr>All rights reserved.</nobr></small>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <div class="container-fluid bg-white shadow-lg fixed-cta" id="fixedCta">
+        <div class="xl-gutters">
+            <div class="row justify-content-between align-items-start py-3">
+                <div class="col-auto pr-0">
+                    <img class="img-fluid" src="images/slide1.png" alt="">
+                </div>
+                <div class="col d-flex flex-column">
+                    <span class="title">H2O HD<sup>&reg;</sup> Pro Steam Mop</span>
+                    <span class="price">
+                        <span class="now">£179.95</span>
+                        <span class="was">£259.96</span>
+                    </span>
+                </div>
+                <div class="col-auto d-flex flex-column align-items-end">
+                    <a class="btn btn-buy" href="#" role="button">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        $(document).ready(function() {
+
+            // main carousel
+            var mainCarousel = $("#mainCarousel");
+            var thumbs = $("#thumbs");
+            var syncedSecondary = true;
+            mainCarousel.owlCarousel({
+                items: 1,
+                slideSpeed: 2000,
+                nav: true,
+                autoplay: true,
+                dots: false,
+                loop: true,
+                responsiveRefreshRate: 200,
+                navText: [
+                '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+                '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+                ]
+            }).on("changed.owl.carousel", syncPosition);
+            thumbs.on("initialized.owl.carousel", function() {
+                thumbs.find(".owl-item").eq(0).addClass("current");
+            })
+            .owlCarousel({
+                items: 5,
+                dots: false,
+                nav: true,
+                navText: [],
+                smartSpeed: 200,
+                slideSpeed: 500,
+                slideBy: 1,
+                responsiveRefreshRate: 100
+            })
+            .on("changed.owl.carousel", syncPosition2);
+            function syncPosition(el) {
+                var count = el.item.count - 1;
+                var current = Math.round(el.item.index - el.item.count / 2 - 0.5);
+                if (current < 0) {
+                    current = count;
+                }
+                if (current > count) {
+                    current = 0;
+                }
+                thumbs.find(".owl-item").removeClass("current").eq(current).addClass("current");
+                var onscreen = thumbs.find(".owl-item.active").length - 1;
+                var start = thumbs.find(".owl-item.active").first().index();
+                var end = thumbs.find(".owl-item.active").last().index();
+                if (current > end) {
+                    thumbs.data("owl.carousel").to(current, 100, true);
+                }
+                if (current < start) {
+                    thumbs.data("owl.carousel").to(current - onscreen, 100, true);
+                }
+            }
+            function syncPosition2(el) {
+                if (syncedSecondary) {
+                var number = el.item.index;
+                    mainCarousel.data("owl.carousel").to(number, 100, true);
+                }
+            }
+            thumbs.on("click", ".owl-item", function(e) {
+                e.preventDefault();
+                var number = $(this).index();
+                mainCarousel.data("owl.carousel").to(number, 300, true);
+            });
+            $(document.documentElement).keyup(function() {
+                if (event.keyCode == 37) {
+                    mainCarousel.trigger('prev.owl.carousel', [200]);
+                } else if (event.keyCode == 39) {
+                    mainCarousel.trigger('next.owl.carousel', [200]);
+                }
+            });
+
+            // USP carousel
+            var uspCarousel = $('#uspCarousel');
+            uspCarousel.owlCarousel({
+                loop: true,
+                items: 1,
+                dots: false,
+                autoplay: true,
+                nav: false
+            });
+
+            // as on tv carousel
+            var tvCarousel = $('#tvCarousel');
+            tvCarousel.owlCarousel({
+                loop: true,
+                items: 1,
+                dots: false,
+                autoplay: true,
+                nav: false
+            });
+
+            // hide menu dropdown
+            $('.menu .nav-link').on('click', function() {
+                $("#Menu .navbar-collapse").collapse('hide');
+            });
+
+        });
+
+        $(window).scroll(function() {
+            if (window.innerWidth > 992) {
+                var scroll = $(window).scrollTop();
+                if (scroll >= 300) {
+                    $('nav').removeClass('py-xl-4').addClass('py-lg-2 py-xl-3');
+                    $('.logos').css("transform", "scale(.8)");
+                    $('.flag').css("transform", "scale(.8)");
+                    $('.testimonials').addClass('show');
+                } else {
+                    $('nav').addClass('py-xl-4').removeClass('py-lg-2 py-xl-3');
+                    $('.logos').css("transform", "scale(1)");
+                    $('.flag').css("transform", "scale(1)");
+                }
+            }
+        });
+
+        $(window).scroll(function() {
+            if (window.innerWidth > 992) {
+                var yotpoTab = $(window).scrollTop();
+                if (yotpoTab >= 600) {
+                    $('.testimonials').addClass('show');
+                } else {
+                    $('.testimonials').removeClass('show');
+                }
+            }
+        });
+
+    </script>
+    <script>
+
+        // intersection
+        let options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0
+        };
+        var fixedCta = document.getElementById("fixedCta");
+        function handler (entries, observer) {
+            for (entry of entries) {
+                if (entry.isIntersecting) {
+                    fixedCta.classList.remove('show');
+                }
+                else {
+                    fixedCta.classList.add('show');
+                }
+            }
+        }
+        let observer = new IntersectionObserver(handler, options);
+        observer.observe(document.getElementById("productOffering"));
+
+    </script>
+
+</body>
+</html>
