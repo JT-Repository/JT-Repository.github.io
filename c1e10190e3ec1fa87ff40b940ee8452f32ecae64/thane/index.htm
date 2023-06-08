@@ -208,6 +208,9 @@
     section:target {
         scroll-margin-top: calc(25px + 2rem);
     }
+    #h2oVideo:target {
+        scroll-margin-top: calc(25px + 3.5rem);
+    }
     .product-offering .carousel {
         position: relative;
     }
@@ -365,6 +368,9 @@
         list-style: none;
         font-size: calc(1rem + .125vw);
     }
+    .as-seen-on-tv .tv-carousel .item {
+        margin: 0 .75rem;
+    }
     .footer {
        padding-bottom: calc(50px + 2rem);
     }
@@ -403,17 +409,19 @@
         transition: transform 300ms ease;
     }
     .fixed-cta .title {
-        font-size: calc(.94rem + .5vw);
+        font-size: calc(1rem + .5vw);
         font-weight: 900;
         line-height: 1.2;
         overflow: hidden;
-        height: 24px;
+        height: 26px;
+        vertical-align: bottom;
     }
     .fixed-cta .price .now  {
-        font-size: calc(1.25rem + .75vw);
+        font-size: calc(1.375rem + .5vw);
         font-weight: 900;
         letter-spacing: -0.05rem;
         color: rgba(var(--thane-red1),1);
+        line-height: 1;
     }
     .fixed-cta .price .was {
         font-size: calc(.75rem + .25vw);
@@ -457,6 +465,9 @@
         section:target {
             scroll-margin-top: calc(32px + 1.5rem + 2px);
         }
+        #h2oVideo:target {
+            scroll-margin-top: calc(32px + 3rem + 2px);
+        }
         .carousel .video-icon-overlay {
             transform: scale(2);
             transform-origin: bottom right;
@@ -481,6 +492,9 @@
         }
         section:target {
             scroll-margin-top: calc(32px + 1rem + 3px);
+        }
+        #h2oVideo:target {
+            scroll-margin-top: calc(32px + 2.5rem);
         }
         .carousel .video-icon-overlay {
             transform: scale(1.5);
@@ -546,6 +560,9 @@
         .fixed-cta img {
             max-width: 60px;
         }
+        .fixed-cta .title {
+            height: 32px;
+        }
     }
 
     /* XL DESKTOP ONLY */
@@ -564,6 +581,9 @@
         }
         section:target {
             scroll-margin-top: calc(36px + 2.5rem);
+        }
+        #h2oVideo:target {
+            scroll-margin-top: calc(36px + 4rem);
         }
         .carousel .video-icon-overlay {
             transform: scale(1.7);
@@ -702,6 +722,7 @@
         display: block;
     }
 
+
 </style>
 </head>
     
@@ -780,7 +801,7 @@
                                 <div class="row justify-content-around">
                                     <div class="col-12 col-lg-5 mb-5 mb-lg-0">
                                         <div class="carousel rounded">
-                                            <a class="video-icon-overlay" href="#seenOnTV"></a>
+                                            <a class="video-icon-overlay" href="#h2oVideo"></a>
                                             <div class="badge-overlay bg-thane-red1 text-white">FREE Gift Worth £59 *</div>
                                             <div class="badge-overlay text-white" style="background-color: rgba(14,14,164,1);">+ Pro Extra Accessories</div>
                                             <div class="owl-carousel main-carousel rounded" id="mainCarousel">
@@ -990,21 +1011,27 @@
                             <div class="col-12 text-center">
                                 <h1 class="mb-5">Smart Features</h1>
                             </div>
-                            <div class="col-12 col-lg-6 mb-5 mb-lg-0 text-center text-lg-left order-lg-3">
+
+                            <div class="col-12 col-sm-10 col-md-9 col-lg-5 mb-5 mb-lg-0 order-lg-3">
+                                <a id="h2oVideo" name="h2oVideo"></a>
+                                <div class="embed-responsive embed-responsive-16by9 rounded mb-4 ">
+                                    <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/116533238?autoplay=0&amp;title=1&amp;portrait=1&amp;byline=1&amp;muted=0&amp;loop=0" frameborder="0" playsinline webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                </div>
+                                <img class="img-fluid w-100" src="images/features.png" alt="">
+                            </div>
+
+                            <div class="col-12 col-lg-6 text-center text-lg-left order-lg-2">
                                 <p class="mb-4">Multi-functional advanced upright &amp; hand-held steam cleaner that works quickly on hard floors &amp; carpets using only the power of steam.</p>
                                 <h2 class="h3 mb-3">Effective cleaning has never been so smart!</h2>
                                 <p>Take your steam cleaning to the next level with the H2O HD<sup>&reg;</sup> Steam Cleaner from Thane<sup>&reg;</sup>. From the makers of the <a class="link font-weight-bold" href="#Awards">award-winning</a> H2O X5<sup>&reg;</sup> Steam Cleaner, this high definition steam cleaning system will make cleaning your entire home quicker and easier than ever.</p>
                                 <p class="mb-4">The H2O HD<sup>&reg;</sup> is the powerful, multi-functional steam system that cleans and helps sanitise your entire home with just one machine using no chemicals. H2O HD<sup>&reg;</sup> uses ordinary tap water and turns it into super-heated steam to help sanitise and deodorise.</p>
                                 <h2 class="h3 mb-3">H2O HD<sup>&reg;</sup> thoroughly deep cleans your floors</h2>
-                                <p class="mb-0">Use it to help remove stains, refresh, revive &amp; deodorise. Get great results on marble, ceramic, carpet, stone, sealed laminate, and sealed hardwood*.</p>
-                            </div>
-                            <div class="col-11 col-sm-10 col-md-9 col-lg-5 order-lg-2">
-                                <img class="img-fluid w-100 rounded" src="images/big2.png" alt="">
+                                <p>Use it to help remove stains, refresh, revive &amp; deodorise. Get great results on marble, ceramic, carpet, stone, sealed laminate, and sealed hardwood*.</p>
+
                             </div>
                             <div class="col-12 mt-5 text-center order-lg-4">
                                 <small>* Not suitable for unsealed wood or unsealed laminate. Always test on an inconspicuous area before steam cleaning a larger area.</small>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -2070,7 +2097,7 @@
                                                         </div>
                                                     </a>
                                                     <div class="right-side pull-right">
-                                                        <div class="carousel-review-body ">Only recently used this for the first timein the hard flooring. Seemed to work efficiently on the higher level and look forward to... <div class="carousel-read-more" tabindex="0">Read More</div>
+                                                        <div class="carousel-review-body">Only recently used this for the first timein the hard flooring. Seemed to work efficiently on the higher level and look forward to... <div class="carousel-read-more" tabindex="0">Read More</div>
                                                         </div>
                                                         <div class="carousel-review-author">Sheila C.</div>
                                                     </div>
@@ -2146,63 +2173,72 @@
         <section class="container-fluid bg-h2o-green text-white as-seen-on-tv" id="seenOnTV">
             <div class="xl-gutters">
                 <div class="row px-4 py-5 justify-content-center">
-                    <div class="col-12 col-sm-11 col-md-10 col-lg-11 text-center">
+                    <div class="col-12 col-sm-11 col-md-10 col-lg-11 col-xl-12 text-center">
                         <div class="row">
-                            <div class="col-12 order-lg-1">
+                            <div class="col-12">
                                 <h1 class="mb-2" title="">As Seen On TV</h1>
                                 <p class="h5 mb-5">You may have seen the H2O<sup>&reg;</sup> HD on some of the country's most popular TV channels.</p>
                             </div>
-                            <div class="col-12 col-md-10 col-lg-7 order-lg-3">
-                                <div class="embed-responsive embed-responsive-16by9 rounded">
-                                    <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/116533238?autoplay=0&amp;title=1&amp;portrait=1&amp;byline=1&amp;muted=0&amp;loop=0" frameborder="0" playsinline webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            <div class="col-lg-5 order-lg-2">
-                                <div class="bg-white rounded my-auto">
-                                    <div class="owl-carousel tv-carousel" id="tvCarousel">
-                                        <div class="item">
-                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t10776/src/392b7664e1e746d8b4b75b1625588f70_1.jpg" alt="">
+                            <div class="col">
+                                <div class="owl-carousel tv-carousel" id="tvCarousel">
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-12 mb-4"><img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t10776/src/392b7664e1e746d8b4b75b1625588f70_1.jpg" alt=""></div>
+                                            <div class="col-12"><img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t10776/src/5c2e46f8f8c449c2a0d32c72a61e3ecc_1.jpg" alt=""></div>
                                         </div>
-                                        <div class="item">
-                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t10776/src/5c2e46f8f8c449c2a0d32c72a61e3ecc_1.jpg" alt="">
+                                    </div>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-12 mb-4">
+                                                <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/416dfd095aae445ba930ac132889c133_1.jpg" alt="">
+                                            </div>
+                                            <div class="col-12">
+                                                <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/34a8b0ae167645648f9c658272d0e783_1.jpg" alt="">
+                                            </div>
                                         </div>
-                                        <div class="item">
-                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/416dfd095aae445ba930ac132889c133_1.jpg" alt="">
+                                    </div>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-12 mb-4">
+                                                <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/b36c6c2c94d14823860540959a95006a_1.jpg" alt="">
+                                            </div>
+                                            <div class="col-12">
+                                                <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/43ef3d10c69148429b75462acbd7d2e8_1.jpg" alt="">
+                                            </div>
                                         </div>
-                                        <div class="item">
-                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/34a8b0ae167645648f9c658272d0e783_1.jpg" alt="">
+                                    </div>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-12 mb-4">
+                                                <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/6545e4f916044555b7aa9edf0bd3e873_1.jpg" alt="">
+                                            </div>
+                                            <div class="col-12">
+                                                <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/46d9d17d47c8433ea2bd8b8ce10ccb62_1.jpg" alt="">
+                                            </div>
                                         </div>
-                                        <div class="item">
-                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/b36c6c2c94d14823860540959a95006a_1.jpg" alt="">
+                                    </div>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-12 mb-4">
+                                                <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/b7e6397f61744ec0b5026c92c1abb19f_1.jpg" alt="">
+                                            </div>
+                                            <div class="col-12">
+                                                <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/f10467c07b6347f698780467cdf43c31_1.jpg" alt="">
+                                            </div>
                                         </div>
-                                        <div class="item">
-                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/43ef3d10c69148429b75462acbd7d2e8_1.jpg" alt="">
-                                        </div>
-                                        <div class="item">
-                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/6545e4f916044555b7aa9edf0bd3e873_1.jpg" alt="">
-                                        </div>
-                                        <div class="item">
-                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/46d9d17d47c8433ea2bd8b8ce10ccb62_1.jpg" alt="">
-                                        </div>
-                                        <div class="item">
-                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/b7e6397f61744ec0b5026c92c1abb19f_1.jpg" alt="">
-                                        </div>
-                                        <div class="item">
-                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/f10467c07b6347f698780467cdf43c31_1.jpg" alt="">
-                                        </div>
-                                        <div class="item">
-                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/9de9f814e1cf4c32acf9a52ab4055978_1.jpg" alt="">
-                                        </div>
-                                        <div class="item">
-                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/66b042f11ce445259ccea105f8f12aec_1.jpg" alt="">
-                                        </div>
-                                        <div class="item">
-                                            <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/d918766c1a9b4366883438b75c8a149b_1.jpg" alt="">
+                                    </div>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-12 mb-4">
+                                                <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/9de9f814e1cf4c32acf9a52ab4055978_1.jpg" alt="">
+                                            </div>
+                                            <div class="col-12">
+                                                <img class="img-fluid w-100 rounded" src="https://az686452.vo.msecnd.net/cmr/t988/src/66b042f11ce445259ccea105f8f12aec_1.jpg" alt="">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
@@ -2285,10 +2321,10 @@
     <div class="container-fluid bg-white shadow-lg fixed-cta" id="fixedCta">
         <div class="xl-gutters">
             <div class="row justify-content-between align-items-start py-3">
-                <div class="col-auto pr-0">
+                <div class="col-auto pr-0 d-none d-md-block">
                     <img class="img-fluid" src="images/slide1.png" alt="">
                 </div>
-                <div class="col d-flex flex-column px-2 px-lg-3">
+                <div class="col d-flex flex-column">
                     <span class="title">H2O HD<sup>&reg;</sup> Pro Steam Mop</span>
                     <span class="d-flex flex-row price">
                         <span class="now">£179.95</span>
@@ -2389,14 +2425,31 @@
                 nav: false
             });
 
-            // as on tv carousel
+            // TV carousel
             var tvCarousel = $('#tvCarousel');
             tvCarousel.owlCarousel({
                 loop: true,
-                items: 1,
                 dots: false,
                 autoplay: true,
-                nav: false
+                nav: false,
+                responsive : {
+                    0: {
+                        items: 2
+                    },
+                    576: {
+                        items: 3
+                    },
+                    768: {
+                        items: 4
+                    },
+                    992: {
+                        items: 5
+                    },
+                    1200: {
+                        items: 6,
+                        autoplay: false
+                    }
+                }
             });
 
             // hide menu dropdown
@@ -2406,22 +2459,23 @@
 
         });
 
+        // On scroll menu transitions
         $(window).scroll(function() {
             if (window.innerWidth > 992) {
                 var scroll = $(window).scrollTop();
                 if (scroll >= 300) {
-                    $('nav').removeClass('py-xl-4').addClass('py-lg-2 py-xl-3');
+                    $('#menuNav').removeClass('py-xl-4').addClass('py-lg-2 py-xl-3');
                     $('.logos').css("transform", "scale(.8)");
                     $('.flag').css("transform", "scale(.8)");
-                    $('.testimonials').addClass('show');
                 } else {
-                    $('nav').addClass('py-xl-4').removeClass('py-lg-2 py-xl-3');
+                    $('#menuNav').addClass('py-xl-4').removeClass('py-lg-2 py-xl-3');
                     $('.logos').css("transform", "scale(1)");
                     $('.flag').css("transform", "scale(1)");
                 }
             }
         });
 
+        // hide reviews tab at desktop
         $(window).scroll(function() {
             if (window.innerWidth > 992) {
                 var yotpoTab = $(window).scrollTop();
