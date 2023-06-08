@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>H2O HD&reg; Pro Steam Mop - </title>
+<title>H2O HD&reg; Pro Steam Mop - Award-Winning Steam Cleaner</title>
 <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.1/css/all.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdn.bootcss.com/OwlCarousel2/2.2.1/assets/owl.theme.default.css">
-
 <script type="text/javascript" src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
@@ -70,7 +69,7 @@
         vertical-align:super;
     }
     h1,.h1 {
-        font-size: calc(2.5rem + .75vw);
+        font-size: calc(2.375rem + .75vw);
         line-height: .95;
     }
     h2,.h2 {
@@ -175,8 +174,11 @@
     }
     .link:focus,
     .link:hover {
-        color: rgba(var(--h2o-green));
+        color: rgba(var(--h2o-green),.8);
         text-decoration: none;
+    }
+    .link:active {
+        color: rgba(var(--h2o-green),1);
     }
     .menu {
         border-bottom: solid 1px rgba(var(--h2o-grey),.7);
@@ -306,6 +308,7 @@
         background: #9617B8;
         background: linear-gradient(45deg, #9617B8, #221794);
         color: rgba(255,255,255,1);
+        cursor: pointer;
     }
     .product-offering .description {
         padding: 0 0 1rem 0;
@@ -315,6 +318,15 @@
         padding: 1rem 0;
         border-top: solid 1px rgba(var(--h2o-grey),.2);
         border-bottom: solid 1px rgba(var(--h2o-grey),.2);
+    }
+    .link[aria-expanded="false"] {
+        color: rgba(var(--h2o-grey),1);
+    }
+    .link[aria-expanded="true"] {
+        color: rgba(var(--h2o-grey),1);
+    }
+    .link[aria-expanded="true"]:hover {
+        color: rgba(var(--h2o-green),.8);
     }
     .whats-included .custom-list li::before {
         content: '' !important;
@@ -358,6 +370,10 @@
     .footer nav a {
         color: rgba(255,255,255,1);
     }
+    .footer nav a:focus,
+    .footer nav a:hover {
+        color: rgba(var(--thane-red3),1);
+    }
     .footer nav .list-inline-item:not(:last-child) {
         margin: 0;
     }
@@ -388,33 +404,40 @@
     .fixed-cta .title {
         font-size: calc(.94rem + .5vw);
         font-weight: 900;
-        height: 26px;
+        line-height: 1.2;
         overflow: hidden;
     }
+
     .fixed-cta .price .now  {
-        font-size: calc(1.25rem + .5vw);
+        font-size: calc(1.25rem + .75vw);
         font-weight: 900;
-        color: rgba(var(--h2o-grey),1);
+        letter-spacing: -0.05rem;
+        color: rgba(var(--thane-red1),1);
     }
-
-
     .fixed-cta .price .was {
-        position: relative;
-        font-size: calc(1rem + .25vw);
+        font-size: calc(.75rem + .25vw);
         font-weight: 100;
+        text-transform: uppercase;
+        line-height: .9;
+    }
+    .fixed-cta .price .was-text {
+        position: relative;
         color: rgba(var(--h2o-grey),.5);
     }
-    .fixed-cta .price .was::after {
+    .fixed-cta .price .was-text::after {
         content: '';
         position: absolute;
         left: 0;
         right: 0;
         top: calc(50% - 2px);
         border-top: solid 1px rgba(var(--h2o-grey),1);
-        transform: rotate(-10deg);
+        transform: rotate(-4deg);
+    }
+    .fixed-cta .price .saving-text {
+        color: rgba(var(--thane-red3),1);
     }
 
-
+    /* SM ONLY */
     @media (min-width: 576px) {
         .carousel .video-icon-overlay {
             transform: scale(1.4);
@@ -422,6 +445,7 @@
         }
     }
 
+    /* TABLET and UP */
     @media (min-width: 768px) {
         .menu .logo {
             max-height: 32px;
@@ -437,7 +461,7 @@
             transform-origin: bottom right;
         }
     }
-    
+    /* DESKTOP and UP */
     @media (min-width: 992px) {
         main {
             margin-top: calc(32px + 2rem);
@@ -484,10 +508,8 @@
         .product-offering .main-carousel .owl-nav .owl-prev,
         .product-offering .main-carousel .owl-nav .owl-next {
             position: absolute;
-            display: block !important;
-            height: 3rem;
+            display: block;
             top: calc(50% - 3rem);
-            margin: 0 -1.5rem;
             z-index: 23;
         }
         .product-offering .main-carousel .owl-nav .owl-prev {
@@ -497,19 +519,14 @@
             right: -1rem;
         }
         .product-offering .main-carousel .owl-nav em {
-            padding: 0 .5rem;
-            font-size: 4rem;
+            font-size: 3rem;
             color: rgba(var(--h2o-grey),.2);
-            border-radius: 0.5rem;
-            background-color: rgba(255,255,255,.25);
-        }
-        .product-offering .main-carousel .owl-nav :hover em {
-            background-color: rgba(255,255,255,1);
         }
         .product-offering .main-carousel .owl-nav .owl-prev:hover em,
         .product-offering .main-carousel .owl-nav .owl-next:hover em {
             color: rgba(var(--h2o-green),.65);
             transform: scale(1.1);
+            transform-origin: center;
         }
         .product-offering .main-carousel .owl-nav .owl-prev:active em,
         .product-offering .main-carousel .owl-nav .owl-next:active em {
@@ -531,7 +548,7 @@
             height: 29px;
         }
     }
-
+    /* XL DESKTOP ONLY */
     @media (min-width: 1200px) {
         .menu .logo {
             max-height: 45px;
@@ -568,7 +585,7 @@
             height: 32px;
         }
     }
-    
+    /* MOBILE ONLY */
     @media (max-width: 767.98px) {
         .mh-100 {
             min-height: 100vh;
@@ -577,7 +594,7 @@
             padding: .25rem .5rem;
         }
     }
-
+    /* MOBILE/TABLET ONLY */
     @media (max-width: 991.98px) {
         main {
             margin-top: calc(26px + 2.5rem);
@@ -668,6 +685,7 @@
         }
     }
 
+    /* REVIEW FIXES */
     .yotpo {
         overflow: hidden;
     }
@@ -764,8 +782,8 @@
                                     <div class="col-12 col-lg-5 mb-5 mb-lg-0">
                                         <div class="carousel rounded">
                                             <a class="video-icon-overlay" href="#seenOnTV"></a>
-                                            <div class="badge-overlay bg-thane-red1 text-white">FREE Gift worth £59 *</div>
-                                            <div class="badge-overlay text-white" style="background-color: rgb(14,14,164);">+ Pro Extra Accessories</div>
+                                            <div class="badge-overlay bg-thane-red1 text-white">FREE Gift Worth £59 *</div>
+                                            <div class="badge-overlay text-white" style="background-color: rgba(14,14,164,1);">+ Pro Extra Accessories</div>
                                             <div class="owl-carousel main-carousel rounded" id="mainCarousel">
                                                 <div class="item">
                                                     <img class="img-fluid w-100 rounded" src="images/slide1.png" alt="">
@@ -843,7 +861,7 @@
                                             <div class="col-12 mb-3 order-lg-3">
                                                 <div class="row justify-content-center align-items-center">
                                                     <div class="col-auto mb-2">
-                                                        <a class="btn btn-lg btn-buy my-1" href="" role="button" title="">Buy Now</a>
+                                                        <a class="btn btn-lg btn-buy my-1" href="https://h2ohd.co.uk/checkout/mophduk/step1?m=302005286016507207" target="_blank" role="button" title="">Buy Now</a>
                                                     </div>
                                                     <div class="col-auto mb-2">
                                                         <p class="my-auto">Order by phone on <a class="link d-inline-block" href="tel:02037639634"><strong>0203 763 9634</strong></a></p>
@@ -853,20 +871,20 @@
                                             <div class="col-12 order-lg-5 mb-4 text-center order-lg-4">
                                                 <div class="owl-carousel py-4 usp-carousel" id="uspCarousel">
                                                     <div class="item">
-                                                        <span class="h5"><em class="fas fa-truck mr-2" aria-hidden="true" aria-label="Next day delivery available"></em>Next day delivery available</span>
+                                                        <span class="h5"><em class="fas fa-truck mr-2" aria-hidden="true"></em>Next day delivery available</span>
                                                     </div>
                                                     <div class="item">
-                                                        <span class="h5"><em class="fas fa-box mr-2" aria-hidden="true" aria-label="Same day despatch from the UK"></em>Same day despatch from the UK</span>
+                                                        <span class="h5"><em class="fas fa-box mr-2" aria-hidden="true"></em>Same day despatch from the UK</span>
                                                     </div>
                                                     <div class="item">
-                                                        <span class="h5"><em class="fas fa-calendar-alt mr-2" aria-hidden="true" aria-label="Interest-free monthly instalments"></em>Interest-free monthly instalments</span>
+                                                        <span class="h5"><em class="fas fa-calendar-alt mr-2" aria-hidden="true"></em>Interest-free monthly instalments</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-12 mb-4 order-lg-2">
                                                 <div class="description">
                                                     <img class="float-right w-20 ml-3" src="images/30-day.png" alt="30 Day Money Back Guarantee">
-                                                    <p>Multi-functional advanced upright & hand-held steam cleaner that works quickly on hard floors &amp; carpets using only the power of steam.</p>
+                                                    <p>Multi-functional advanced upright &amp; hand-held steam cleaner that works quickly on hard floors &amp; carpets using only the power of steam.</p>
                                                     <ul>
                                                         <li>From the <a class="link font-weight-bold" href="#Awards">award-winning</a> H2O<sup>&reg;</sup> family</li>
                                                         <li>Kills up to 99% of germs &amp; bacteria</li>
@@ -874,10 +892,10 @@
                                                         <li>Powerful &amp; lightweight</li>
                                                         <li>Folds down for easy storage</li>
                                                     </ul>
-                                                    <a class="d-block small link text-right" href="#Features">Read full product features <em class="fas fa-angle-down" aria-hidden="true" aria-label="Read full product features"></em></a>
+                                                    <a class="d-block small link text-right" href="#Features" title="">Read full product features <em class="fas fa-angle-down" aria-hidden="true"></em></a>
                                                 </div>
                                             </div>
-                                            <div class="col-12 mb-3 mb-lg-4 order-lg-5">
+                                            <div class="col-10 col-sm-12 mx-auto mb-3 mb-lg-4 order-lg-5">
                                                 <div class="row px-lg-2 justify-content-center">
                                                     <div class="col-auto px-1 pb-2">
                                                         <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" width="38" height="24" aria-labelledby="pi-american_express"><title id="pi-american_express">American Express</title><g fill="none"><path fill="#000" d="M35,0 L3,0 C1.3,0 0,1.3 0,3 L0,21 C0,22.7 1.4,24 3,24 L35,24 C36.7,24 38,22.7 38,21 L38,3 C38,1.3 36.6,0 35,0 Z" opacity=".07"></path><path fill="#006FCF" d="M35,1 C36.1,1 37,1.9 37,3 L37,21 C37,22.1 36.1,23 35,23 L3,23 C1.9,23 1,22.1 1,21 L1,3 C1,1.9 1.9,1 3,1 L35,1"></path><path fill="#FFF" d="M8.971,10.268 L9.745,12.144 L8.203,12.144 L8.971,10.268 Z M25.046,10.346 L22.069,10.346 L22.069,11.173 L24.998,11.173 L24.998,12.412 L22.075,12.412 L22.075,13.334 L25.052,13.334 L25.052,14.073 L27.129,11.828 L25.052,9.488 L25.046,10.346 L25.046,10.346 Z M10.983,8.006 L14.978,8.006 L15.865,9.941 L16.687,8 L27.057,8 L28.135,9.19 L29.25,8 L34.013,8 L30.494,11.852 L33.977,15.68 L29.143,15.68 L28.065,14.49 L26.94,15.68 L10.03,15.68 L9.536,14.49 L8.406,14.49 L7.911,15.68 L4,15.68 L7.286,8 L10.716,8 L10.983,8.006 Z M19.646,9.084 L17.407,9.084 L15.907,12.62 L14.282,9.084 L12.06,9.084 L12.06,13.894 L10,9.084 L8.007,9.084 L5.625,14.596 L7.18,14.596 L7.674,13.406 L10.27,13.406 L10.764,14.596 L13.484,14.596 L13.484,10.661 L15.235,14.602 L16.425,14.602 L18.165,10.673 L18.165,14.603 L19.623,14.603 L19.647,9.083 L19.646,9.084 Z M28.986,11.852 L31.517,9.084 L29.695,9.084 L28.094,10.81 L26.546,9.084 L20.652,9.084 L20.652,14.602 L26.462,14.602 L28.076,12.864 L29.624,14.602 L31.499,14.602 L28.987,11.852 L28.986,11.852 Z"></path></g></svg>
@@ -910,7 +928,7 @@
                                             </div>
                                             <div class="col-12 d-lg-none mx-auto text-center">
                                                 <div class="pt-4 mob-whats-included">
-                                                    <h2 class="mb-0 mt-2"><em class="fas fa-box-open mr-2" aria-hidden="true" aria-label="What's Included?"></em>What's Included?</h2>
+                                                    <h2 class="mb-0 mt-2" title=""><em class="fas fa-box-open mr-2" aria-hidden="true"></em>What's Included?</h2>
                                                     <a class="link" href="#whatsIncluded" data-toggle="collapse" data-target="#whatsIncluded" aria-expanded="false" aria-controls="whatsIncluded">See a full list of everything that comes in the box <em class="fas fa-angle-down" aria-hidden="true"></em></a>
                                                 </div>
                                             </div>
@@ -938,7 +956,7 @@
                                     </div>
                                     <div class="col-md-6 col-lg-4 mb-4 mb-xl-0">
                                         <div class="p-3 bg-thane-grey rounded">
-                                            <h3 class="mb-3">Pro Extra Accessories</h3>
+                                            <h3 class="mb-3" title="">Pro Extra Accessories</h3>
                                             <ul class="custom-list m-0 p-0 pl-2">
                                                 <li>4 x Microfibre Floor Cloth</li>
                                                 <li>1 x Window Cleaning Cloth</li>
@@ -952,8 +970,8 @@
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-4 text-center text-xl-left">
-                                        <h3 class="mb-3"><span class="text-thane-red1">FREE</span> Zaahn Ultra Chill</h3>
-                                        <img class="img-fluid w-100 rounded mb-3" src="https://az686452.vo.msecnd.net/cmr/t5185/opt/f79e5d896bfb4dd68c2f423f13506445_1.jpg" alt="">
+                                        <h3 class="mb-3" title=""><span class="text-thane-red1" title="">FREE</span> Zaahn Ultra Chill</h3>
+                                        <img class="img-fluid w-100 rounded mb-3" src="images/zaahn-ultra-chill.jpg" alt="">
                                         <small>* Total value includes FREE Zaahn Ultra Chill which you will be offered at the checkout, just pay delivery.</small>
                                     </div>
                                 </div>
@@ -1000,7 +1018,7 @@
                     <div class="col-11 col-sm-10 col-lg-11">
                         <div class="row">
                             <div class="col text-center">
-                                <h1 class="mb-5">The Benefits of Hand-Held Cleaning</h1>
+                                <h1 class="mb-5" title="">The Benefits of Hand-Held Cleaning</h1>
                             </div>
                             <div class="col-12 text-center">
                                 <div class="row">
@@ -1010,7 +1028,7 @@
                                                 <img class="img-fluid w-100 rounded-circle bordered" src="images/benefits-1b.png" alt="">
                                             </div>
                                             <div class="col-12">
-                                                <h2 class="h3 mb-2">Reduce Your Time Spent Ironing</h2>
+                                                <h2 class="h3 mb-2" title="">Reduce Your Time Spent Ironing</h2>
                                                 <p class="mb-0">With the Garment Steamer attachment, creases melt away and your garments will be refreshed and ready to wear.</p>
                                             </div>
                                         </div>
@@ -1021,7 +1039,7 @@
                                                 <img class="img-fluid w-100 rounded-circle bordered" src="images/benefits-2b.png" alt="">
                                             </div>
                                             <div class="col-12">
-                                               <h2 class="h3 mb-2">Clean Without Chemicals</h2>
+                                               <h2 class="h3 mb-2" title="">Clean Without Chemicals</h2>
                                                <p class="mb-0">Clean hard to reach places effectively. Comes with the Jet Nozzle and Nylon Brush for targeted cleaning.</p>
                                             </div>
                                         </div>
@@ -1032,7 +1050,7 @@
                                                 <img class="img-fluid w-100 rounded-circle bordered" src="images/benefits-3b.png" alt="">
                                             </div>
                                             <div class="col-12">
-                                               <h2 class="h3 mb-2">Use It To Clean Your Windows</h2>
+                                               <h2 class="h3 mb-2" title="">Use It To Clean Your Windows</h2>
                                                <p class="mb-0">Mirrors, glass, windows and chrome get a streak-free shine with the Window Cleaning and Squeegee attachment.</p>
                                             </div>
                                         </div>
@@ -1043,7 +1061,7 @@
                                                 <img class="img-fluid w-100 rounded-circle bordered" src="images/benefits-4b.png" alt="">
                                             </div>
                                             <div class="col-12">
-                                               <h2 class="h3 mb-2">Laboratory Proven Results</h2>
+                                               <h2 class="h3 mb-2" title="">Laboratory Proven Results</h2>
                                                <p class="mb-0">Kills up to 99% of germs &amp; bacteria including salmonella, E.coli, influenza &amp; listeria.</p>
                                             </div>
                                         </div>
@@ -1055,7 +1073,7 @@
                 </div>
             </div>
         </section>
-s
+
         <section class="container-fluid bg-thane-grey easy-fast-hygienic" id="EasyFast">
             <div class="xl-gutters">
                 <div class="row px-lg-4 py-5 justify-content-center">
@@ -1119,11 +1137,11 @@ s
             </div>
         </section>
 
-        <section class="container-fluid bg-yotpo text-white" id="Reviews">
+        <section class="container-fluid bg-yotpo text-white reviews" id="Reviews">
             <div class="xl-gutters">
                 <div class="row px-lg-4 py-5 justify-content-center">
                     <div class="col-11 col-sm-10 col-lg-11">
-                        <h1 class="text-center">UK Customer Reviews</h1>
+                        <h1 class="text-center" title="">UK Customer Reviews</h1>
                         <script type="text/javascript" class="">
                             (function e() {
                                 var e = document.createElement("script");
@@ -2074,11 +2092,11 @@ s
                         </div>
                         <div class="col-12 text-center">
                             <div class="d-flex flex-column align-items-center justify-content-center">
-                                <a class="btn btn-lg btn-secondary" href="https://h2ohd.co.uk/Reviews" target="_blank" title="Read more reviews">Read more reviews</a>
+                                <a class="btn btn-lg btn-secondary" href="https://h2ohd.co.uk/Reviews" target="_blank" title="">Read more reviews</a>
                                 <a class="text-decoration-none mt-3 yotpo-link" href="https://www.yotpo.com/?redirect=https%3A%2F%2Fwww.yotpo.com%2Fpowered-by-yotpo%2F&amp;utm_campaign=branding_link_reviews_widget_v2&amp;utm_medium=widget&amp;utm_source=thanedirect.co.uk" aria-label="Powered by Yotpo link to their homepage">
                                     <span>
                                         <small class="text-white">powered by</small>
-                                        <span><img class="img-fluid" style="max-height: 20px;" src="images/yotpo-text.png"></span>
+                                        <img class="img-fluid" style="max-height: 20px;" src="images/yotpo-text.png" alt="">
                                     </span>
                                 </a>
                             </div>
@@ -2099,10 +2117,10 @@ s
                             <div class="col-12 col-lg-6">
                                 <div class="row justify-content-center">
                                     <div class="col-5 col-md-4 col-lg-5 mb-4 mb-xl-5">
-                                        <img class="img-fluid w-100" src="https://az686452.vo.msecnd.net/cmr/t766/opt/c185089c097049238c2fef5b0f012612_1.png" alt="Parent Approved">
+                                        <img class="img-fluid w-100" src="https://az686452.vo.msecnd.net/cmr/t766/opt/c185089c097049238c2fef5b0f012612_1.png" alt="">
                                     </div>
                                     <div class="col-12 mb-5 mb-lg-0">
-                                        <h2 class="mb-3">Parent Approved</h2>
+                                        <h2 class="mb-3" title="">Parent Approved</h2>
                                         <p>Parent Tested Parent Approved is a community made up of parents, like you and me, who chat together, share tips, feedback, and provide support to one another through a variety of channels.</p>
                                         <p class="mb-0">Product feedback from the parents is sent to companies, and this information is invaluable to help shape the way products are made for our families. It's the parents of the PTPA Media program who determine if that product should receive a Winner's Seal or not.</p>
                                     </div>
@@ -2111,10 +2129,10 @@ s
                             <div class="col-12 col-lg-6">
                                 <div class="row justify-content-center">
                                     <div class="col-5 col-md-4 col-lg-5 mb-4 mb-xl-5">
-                                        <img class="img-fluid w-100" src="https://az686452.vo.msecnd.net/cmr/t6219/opt/24bf730c2485433c827cf10f682a92f5_1.png" alt="Ideal Home Winner">
+                                        <img class="img-fluid w-100" src="https://az686452.vo.msecnd.net/cmr/t6219/opt/24bf730c2485433c827cf10f682a92f5_1.png" alt="">
                                     </div>
                                     <div class="col-12 mb-4 mb-lg-0">
-                                        <h2 class="mb-3">Ideal Home Winner</h2>
+                                        <h2 class="mb-3" title="">Ideal Home Winner</h2>
                                         <p>The H2O HD<sup>&reg;</sup> has done it again, this incredible steam mop has won another award. This time the H2O HD<sup>&reg;</sup> has been awarded the Ideal Home Approved badge in the Best Steam Cleaners 2020 test.</p>
                                         <p class="mb-0">The professional reviewer at Ideal Home said: <em>"This upright steam cleaner boasts a 'why didn't I think of that design' which folds in half for easy storage in smaller cupboards."</em></p>
                                     </div>
@@ -2133,7 +2151,7 @@ s
                         <div class="row">
                             <div class="col-12 order-lg-1">
                                 <h1 class="mb-2" title="">As Seen On TV</h1>
-                                <p class="h5 mb-5">You may have seen the H2O<sup>&reg;</sup> HD on some of the country's most popular TV cshannels.</p>
+                                <p class="h5 mb-5">You may have seen the H2O<sup>&reg;</sup> HD on some of the country's most popular TV channels.</p>
                             </div>
                             <div class="col-12 col-md-10 col-lg-7 order-lg-3">
                                 <div class="embed-responsive embed-responsive-16by9 rounded">
@@ -2196,15 +2214,15 @@ s
             <div class="xl-gutters">
                 <div class="row px-4 py-5 justify-content-center">
                     <div class="col-12 col-sm-11 col-md-10 col-lg-11 text-center">
-                        <h1 class="mb-4 mb-xl-5" title="">Join the H2O<sup>&reg;</sup> Family</h1>
+                        <h1 class="mb-5" title="">Join the H2O<sup>&reg;</sup> Family</h1>
                         <div class="row justify-content-center">
                             <div class="col col-lg-10 col-xl-9 mb-4">
-                                <img class="img-fluid w-100" src="https://az686452.vo.msecnd.net/cmr/t17433/opt/035b50ab94ca46369468426ab8d474df_1.jpg">
+                                <img class="img-fluid w-100" src="images/montage.jpg" alt="">
                             </div>
                         </div>
                         <h2 class="mb-3">Join the world famous, award-winning H2O<sup>&reg;</sup> family</h2>
                         <p class="mb-4">From the H2O X5<sup>&reg;</sup> to H2O<sup>&reg;</sup> Steam FX Pro, the H2O<sup>&reg;</sup> family of steam cleaners have a solution for every home. With powerful chemical free steam blasting away dirt and bacteria, you can feel confident that your H2O<sup>&reg;</sup> steam cleaner will give you the cleanest home you've ever had! With over 14 million H2O<sup>&reg;</sup> Steam Cleaners sold in over 80 countries across the globe, the H2O<sup>&reg;</sup> HD is the perfect way to join the H2O<sup>&reg;</sup> family.</p>
-                        <a class="btn btn-lg btn-primary mx-auto" role="button" href="">Find Out More</a>
+                        <a class="btn btn-lg btn-primary mx-auto" href="https://h2ohd.co.uk/checkout/mophduk/step1?m=302005286016507207" target="_blank" role="button" title="">Find Out More</a>
                         <small class="d-block mt-4"><sup>&dagger;</sup> Over 14 million "H2O" series steam cleaners have been sold in over 80 countries.</small>
                     </div>
                 </div>
@@ -2221,37 +2239,37 @@ s
                         <nav>
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <a href="https://help.thanedirect.co.uk/my-product/h2o/h2o-hd/faq-h2o-hd-advanced-steam-cleaning-system/?_gl=1*1snmomm*_ga*MzA4MDE0NDU3LjE2ODU4MDkyODg.*_ga_Z81EHLE8Q4*MTY4NTk4NDYzMS4xMC4xLjE2ODU5ODQ2NTIuMzkuMC4w*_gcl_au*MTE3NzI2MTI3NC4xNjg1ODA5Mjg5" target="_blank" aria-label="H2O HD&reg; FAQs">H2O HD<sup>&reg;</sup> FAQs</a>
+                                    <a href="https://help.thanedirect.co.uk/my-product/h2o/h2o-hd/faq-h2o-hd-advanced-steam-cleaning-system/?_gl=1*1snmomm*_ga*MzA4MDE0NDU3LjE2ODU4MDkyODg.*_ga_Z81EHLE8Q4*MTY4NTk4NDYzMS4xMC4xLjE2ODU5ODQ2NTIuMzkuMC4w*_gcl_au*MTE3NzI2MTI3NC4xNjg1ODA5Mjg5" target="_blank" title="">H2O HD<sup>&reg;</sup> FAQs</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="https://www.thanedirect.co.uk/policies/shipping-policy" target="_blank" aria-label="Delivery Information">Delivery Information</a>
+                                    <a href="https://www.thanedirect.co.uk/policies/shipping-policy" target="_blank" title="">Delivery Information</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="https://www.thanedirect.co.uk/" target="_blank" aria-label="Shop More">Shop More</a>
+                                    <a href="https://www.thanedirect.co.uk/" target="_blank" title="">Shop More</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="https://www.thanedirect.co.uk/pages/waste-electrical" target="_blank" aria-label="Waste Electrical">Waste Electrical</a>
+                                    <a href="https://www.thanedirect.co.uk/pages/waste-electrical" target="_blank" title="">Waste Electrical</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="https://www.thanedirect.co.uk/policies/refund-policy" target="_blank" aria-label="Returns">Returns</a>
+                                    <a href="https://www.thanedirect.co.uk/policies/refund-policy" target="_blank" title="">Returns</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="https://help.thanedirect.co.uk/" target="_blank" aria-label="Solution Centre">Solution Centre</a>
+                                    <a href="https://help.thanedirect.co.uk/" target="_blank" title="">Solution Centre</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="https://www.thanedirect.co.uk/policies/privacy-policy" target="_blank" aria-label="Privacy Policy">Privacy Policy</a>
+                                    <a href="https://www.thanedirect.co.uk/policies/privacy-policy" target="_blank" title="">Privacy Policy</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="https://www.thanedirect.co.uk/policies/terms-of-service" target="_blank" aria-label="Terms &amp; Conditions">Terms &amp; Conditions</a>
+                                    <a href="https://www.thanedirect.co.uk/policies/terms-of-service" target="_blank" title="">Terms &amp; Conditions</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="https://www.thanedirect.co.uk/pages/customer-support" target="_blank" aria-label="Contact Us">Contact Us</a>
+                                    <a href="https://www.thanedirect.co.uk/pages/customer-support" target="_blank" title="">Contact Us</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="https://www.thanedirect.co.uk/pages/about-thane" target="_blank" aria-label="About Thane">About Thane</a>
+                                    <a href="https://www.thanedirect.co.uk/pages/about-thane" target="_blank" title="">About Thane</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="https://hd-accessories.thanedirect.co.uk/" target="_blank" aria-label="Accessories">Accessories</a>
+                                    <a href="https://hd-accessories.thanedirect.co.uk/" target="_blank" title="">Accessories</a>
                                 </li>
                             </ul>
                         </nav>
@@ -2271,15 +2289,18 @@ s
                 <div class="col-auto pr-0">
                     <img class="img-fluid" src="images/slide1.png" alt="">
                 </div>
-                <div class="col d-flex flex-column">
+                <div class="col d-flex flex-column px-2 px-lg-3">
                     <span class="title">H2O HD<sup>&reg;</sup> Pro Steam Mop</span>
-                    <span class="price">
+                    <span class="d-flex flex-row price">
                         <span class="now">£179.95</span>
-                        <span class="was">£259.96</span>
+                        <span class="d-flex flex-column justify-content-center ml-2 was">
+                            <span class="was-text">Usually <span class="was-price">£259.96</span></span>
+                            <span class="saving-text">Saving <span class="saving-price">£80.01</span></span>
+                        </span>
                     </span>
                 </div>
-                <div class="col-auto d-flex flex-column align-items-end">
-                    <a class="btn btn-buy" href="#" role="button">Buy Now</a>
+                <div class="col-auto pl-0 d-flex flex-column align-items-end">
+                    <a class="btn btn-buy" href="https://h2ohd.co.uk/checkout/mophduk/step1?m=302005286016507207" target="_blank" role="button" title="">Buy Now</a>
                 </div>
             </div>
         </div>
@@ -2302,8 +2323,8 @@ s
                 loop: true,
                 responsiveRefreshRate: 200,
                 navText: [
-                '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-                '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+                '<em class="fa fa-chevron-left" aria-hidden="true"></em>',
+                '<em class="fa fa-chevron-right" aria-hidden="true"></em>'
                 ]
             }).on("changed.owl.carousel", syncPosition);
             thumbs.on("initialized.owl.carousel", function() {
